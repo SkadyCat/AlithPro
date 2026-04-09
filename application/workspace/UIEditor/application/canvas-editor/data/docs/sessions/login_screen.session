@@ -1,0 +1,317 @@
+{
+  "version": "1.1",
+  "savedAt": "2026-03-31T01:01:18.453649",
+  "nextId": 13,
+  "sourceBlueprint": "/Game/UI/Panels/WBP_login_screen",
+  "exportedFrom": "MagicWorld /ue/inspect-wbp + WBPEditor.inspect_widget_blueprint",
+  "boxes": [
+    {
+      "id": 1,
+      "label": "login_screen_root",
+      "x": 0.0,
+      "y": 0.0,
+      "w": 1280.0,
+      "h": 720.0,
+      "borderColor": "transparent",
+      "bgColor": "rgba(128,128,128,0.04)",
+      "borderWidth": 0,
+      "opacity": 1,
+      "widgetType": "CanvasPanel",
+      "widgetProps": {},
+      "anchor": {
+        "minX": 0.0,
+        "minY": 0.0,
+        "maxX": 1.0,
+        "maxY": 1.0
+      },
+      "isEntryClass": false,
+      "children": [
+        {
+          "id": 2,
+          "label": "login_panel",
+          "x": 400.0,
+          "y": 148.0,
+          "w": 480.0,
+          "h": 424.0,
+          "borderColor": "transparent",
+          "bgColor": "rgba(128,128,128,0.04)",
+          "borderWidth": 0,
+          "opacity": 1,
+          "widgetType": "CanvasPanel",
+          "widgetProps": {},
+          "anchor": {
+            "minX": 0.5,
+            "minY": 0.5,
+            "maxX": 0.5,
+            "maxY": 0.5
+          },
+          "isEntryClass": false,
+          "children": [
+            {
+              "id": 3,
+              "label": "login_button",
+              "x": 32.0,
+              "y": 328.0,
+              "w": 416.0,
+              "h": 48.0,
+              "borderColor": "#6bb5e8",
+              "bgColor": "rgba(107,181,232,0.07)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Button",
+              "widgetProps": {
+                "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                "text": "Login",
+                "fontSize": 18.0,
+                "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 10,
+              "boxShadow": "0 6px 18px rgba(0,0,0,0.25)"
+            },
+            {
+              "id": 4,
+              "label": "login_divider",
+              "x": 32.0,
+              "y": 132.0,
+              "w": 416.0,
+              "h": 4.0,
+              "borderColor": "#e86b6b",
+              "bgColor": "rgba(199,168,107,1.0000)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "ProgressBar",
+              "widgetProps": {
+                "percent": 1.0,
+                "fillColor": [
+                  0.78,
+                  0.66,
+                  0.42,
+                  1.0
+                ]
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false
+            },
+            {
+              "id": 5,
+              "label": "login_footer",
+              "x": 32.0,
+              "y": 388.0,
+              "w": 416.0,
+              "h": 24.0,
+              "borderColor": "transparent",
+              "bgColor": "rgba(232,192,107,0.05)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "text": "Importer uses static field shells until EditableText widgets are supported.",
+                "fontSize": 12.0,
+                "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false
+            },
+            {
+              "id": 6,
+              "label": "login_panel_bg",
+              "x": 0.0,
+              "y": 0.0,
+              "w": 480.0,
+              "h": 424.0,
+              "borderColor": "transparent",
+              "bgColor": "rgba(107,232,154,0.05)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "Image",
+              "widgetProps": {
+                "imagePath": "/Game/UI/Icons/AIUI/res/inventory/02_panels/panel_main_bg.panel_main_bg"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "bgImage": "/Game/UI/Icons/AIUI/res/inventory/02_panels/panel_main_bg.panel_main_bg"
+            },
+            {
+              "id": 7,
+              "label": "login_subtitle",
+              "x": 32.0,
+              "y": 84.0,
+              "w": 416.0,
+              "h": 34.0,
+              "borderColor": "transparent",
+              "bgColor": "rgba(232,192,107,0.05)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "text": "Web-first login prototype aligned to UMG widget naming and spacing.",
+                "fontSize": 14.0,
+                "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false
+            },
+            {
+              "id": 8,
+              "label": "login_title",
+              "x": 32.0,
+              "y": 40.0,
+              "w": 416.0,
+              "h": 38.0,
+              "borderColor": "transparent",
+              "bgColor": "rgba(232,192,107,0.05)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "text": "Welcome Back",
+                "fontSize": 28.0,
+                "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false
+            },
+            {
+              "id": 9,
+              "label": "password_field",
+              "x": 32.0,
+              "y": 264.0,
+              "w": 416.0,
+              "h": 44.0,
+              "borderColor": "#6bb5e8",
+              "bgColor": "rgba(107,181,232,0.07)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Button",
+              "widgetProps": {
+                "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                "text": "Enter password",
+                "fontSize": 14.0,
+                "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 10,
+              "boxShadow": "0 6px 18px rgba(0,0,0,0.25)"
+            },
+            {
+              "id": 10,
+              "label": "password_label",
+              "x": 32.0,
+              "y": 240.0,
+              "w": 416.0,
+              "h": 20.0,
+              "borderColor": "transparent",
+              "bgColor": "rgba(232,192,107,0.05)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "text": "PasswordInput",
+                "fontSize": 13.0,
+                "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false
+            },
+            {
+              "id": 11,
+              "label": "username_field",
+              "x": 32.0,
+              "y": 180.0,
+              "w": 416.0,
+              "h": 44.0,
+              "borderColor": "#6bb5e8",
+              "bgColor": "rgba(107,181,232,0.07)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Button",
+              "widgetProps": {
+                "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                "text": "Enter account name",
+                "fontSize": 14.0,
+                "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 10,
+              "boxShadow": "0 6px 18px rgba(0,0,0,0.25)"
+            },
+            {
+              "id": 12,
+              "label": "username_label",
+              "x": 32.0,
+              "y": 156.0,
+              "w": 416.0,
+              "h": 20.0,
+              "borderColor": "transparent",
+              "bgColor": "rgba(232,192,107,0.05)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "text": "UsernameInput",
+                "fontSize": 13.0,
+                "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

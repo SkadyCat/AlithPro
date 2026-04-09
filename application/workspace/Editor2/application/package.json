@@ -1,0 +1,11 @@
+{
+  "name": "editor2-backpack-service",
+  "version": "1.0.0",
+  "description": "Dark fantasy backpack demo service for Editor2 workspace.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --check server.js"
+  },
+  "license": "ISC"
+}

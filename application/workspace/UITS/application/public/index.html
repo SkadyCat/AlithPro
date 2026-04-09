@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>游戏 UI 预览工作台</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="workbench">
+      <header class="top_menu">
+        <div class="brand">
+          <strong>Game UI Preview</strong>
+          <span>top_menu · 控制当前预览工作台</span>
+        </div>
+
+        <div class="top_controls">
+          <label class="toggle" for="inspector-checkbox">
+            <input id="inspector-checkbox" type="checkbox" />
+            <span>层级检视</span>
+          </label>
+
+          <label class="toggle" for="theme-select">
+            <span>主题</span>
+            <select id="theme-select">
+              <option value="neon">Neon</option>
+              <option value="warm">Warm</option>
+              <option value="clean">Clean</option>
+            </select>
+          </label>
+
+          <button id="refresh-button" type="button">刷新预览</button>
+          <button id="export-button" type="button">导出当前背包图</button>
+        </div>
+      </header>
+
+      <section class="layout_grid">
+        <aside class="left_menu card">
+          <div class="section_title">
+            <p>left_menu</p>
+            <h2>可预览 UI 列表</h2>
+          </div>
+          <div class="menu_list" id="menu-list"></div>
+        </aside>
+
+        <section class="center_area card">
+          <div class="section_title">
+            <p>center_area</p>
+            <h2 id="preview-title">当前预览界面</h2>
+          </div>
+
+          <div class="preview_meta">
+            <span id="preview-tag">场景</span>
+            <span id="preview-desc">当前展示的是选中的游戏 UI 预览。</span>
+          </div>
+
+          <div class="canvas_panel">
+            <canvas id="preview-canvas" width="1200" height="720"></canvas>
+          </div>
+        </section>
+
+        <aside class="right_info card" id="right-info">
+          <div class="section_title">
+            <p>right_info</p>
+            <h2>当前 UI 层级信息</h2>
+          </div>
+
+          <div class="info_block">
+            <strong>当前页面</strong>
+            <div id="current-screen-name">未选择</div>
+          </div>
+
+          <div class="info_block">
+            <strong>结构说明</strong>
+            <p id="current-screen-summary">右侧展示当前 UI 的层级结构和说明。</p>
+          </div>
+
+          <div class="tree_panel" id="layer-tree"></div>
+
+          <div class="export_block">
+            <strong>导出图片</strong>
+            <p id="export-status">点击顶部按钮可把 CSS 背包样式导出为 PNG 图片。</p>
+            <a id="export-link" href="#" target="_blank" rel="noreferrer">打开导出图片</a>
+            <img id="export-preview" alt="导出的背包图片预览" />
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <aside class="inspector_panel" id="inspector-panel" aria-hidden="true">
+      <header class="inspector_header">
+        <div>
+          <p>Inspector</p>
+          <h2>节点与层级高亮</h2>
+        </div>
+        <button class="inspector_close" id="inspector-close" type="button" aria-label="关闭检视器">×</button>
+      </header>
+      <div class="inspector_status" id="inspector-status">按 F12 打开检视器，Esc 关闭。</div>
+      <div class="inspector_current" id="inspector-current">
+        <strong>当前节点</strong>
+        <code>未选择</code>
+      </div>
+      <div class="inspector_tree" id="inspector-tree"></div>
+    </aside>
+
+    <div class="inspector_overlay" id="inspector-overlay" aria-hidden="true"></div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

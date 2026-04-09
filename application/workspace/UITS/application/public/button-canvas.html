@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Canvas Lab</title>
+    <link rel="stylesheet" href="/button-canvas.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">CSS Button Background</p>
+        <h1>固定分辨率按钮背景 -> Canvas 绘制</h1>
+        <p class="desc">
+          左侧是纯按钮底图，不包含任何文本；右侧通过 SVG foreignObject 栅格化后绘制进
+          canvas，便于后续单独叠加游戏内文字。
+        </p>
+      </section>
+
+      <section class="layout">
+        <article class="panel">
+          <header>
+            <strong>CSS 底图源</strong>
+            <span>320 × 96</span>
+          </header>
+          <div class="css-stage">
+            <div class="button-bg" id="button-bg"></div>
+          </div>
+        </article>
+
+        <article class="panel">
+          <header>
+            <strong>Canvas 结果</strong>
+            <span id="render-status">等待绘制</span>
+          </header>
+          <canvas id="render-canvas" width="320" height="96"></canvas>
+        </article>
+      </section>
+
+      <section class="notes panel">
+        <header>
+          <strong>说明</strong>
+        </header>
+        <ul>
+          <li>按钮背景固定分辨率为 320 × 96。</li>
+          <li>底图不带任何文字，方便后续在引擎或 canvas 中单独叠字。</li>
+          <li>视觉风格改为更偏游戏 UI 的铜金边框、玉石高光和中式纹样结构。</li>
+          <li>Canvas 绘制结果来自页面内实时生成，不依赖外部截图工具。</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="/button-canvas.js"></script>
+  </body>
+</html>

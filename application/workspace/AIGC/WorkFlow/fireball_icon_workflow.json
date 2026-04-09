@@ -1,0 +1,73 @@
+{
+  "last_node_id": 9,
+  "last_link_id": 9,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [0, 0],
+      "size": [315, 98],
+      "properties": {},
+      "widgets_values": ["handpaintedRPGIcons_v1.safetensors"]
+    },
+    {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": [400, -100],
+      "size": [400, 200],
+      "properties": {},
+      "widgets_values": ["rpgicondiff, a magical fireball spell icon, blazing orange and red flames swirling in a circle, fantasy RPG skill icon, hand painted style, detailed fire effect, glowing ember particles, dark background, game UI icon, high contrast, centered composition"]
+    },
+    {
+      "id": 3,
+      "type": "CLIPTextEncode",
+      "pos": [400, 150],
+      "size": [400, 200],
+      "properties": {},
+      "widgets_values": ["text, watermark, signature, blurry, low quality, deformed, ugly, border, frame, photo, realistic, 3d render"]
+    },
+    {
+      "id": 4,
+      "type": "EmptyLatentImage",
+      "pos": [400, 400],
+      "size": [315, 106],
+      "properties": {},
+      "widgets_values": [512, 512, 4]
+    },
+    {
+      "id": 5,
+      "type": "KSampler",
+      "pos": [850, 0],
+      "size": [315, 262],
+      "properties": {},
+      "widgets_values": [42, "fixed", 25, 7.5, "euler_ancestral", "normal", 1.0]
+    },
+    {
+      "id": 6,
+      "type": "VAEDecode",
+      "pos": [1200, 0],
+      "size": [210, 46],
+      "properties": {},
+      "widgets_values": []
+    },
+    {
+      "id": 7,
+      "type": "SaveImage",
+      "pos": [1450, 0],
+      "size": [315, 270],
+      "properties": {},
+      "widgets_values": ["fireball_icon"]
+    }
+  ],
+  "links": [
+    [1, 1, 0, 5, 0, "MODEL"],
+    [2, 1, 1, 2, 0, "CLIP"],
+    [3, 1, 1, 3, 0, "CLIP"],
+    [4, 2, 0, 5, 1, "CONDITIONING"],
+    [5, 3, 0, 5, 2, "CONDITIONING"],
+    [6, 4, 0, 5, 3, "LATENT"],
+    [7, 5, 0, 6, 0, "LATENT"],
+    [8, 1, 2, 6, 1, "VAE"],
+    [9, 6, 0, 7, 0, "IMAGE"]
+  ]
+}

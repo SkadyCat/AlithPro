@@ -1,0 +1,30 @@
+{
+  "sourceBlueprint": "/Game/UI/Demo/bag_button",
+  "count": 3,
+  "widgets": [
+    {
+      "variableName": "Overlay_18",
+      "className": "Overlay",
+      "parentName": "",
+      "depth": 0,
+      "isPanel": true,
+      "childCount": 2
+    },
+    {
+      "variableName": "btn",
+      "className": "Button",
+      "parentName": "Overlay_18",
+      "depth": 1,
+      "isPanel": true,
+      "childCount": 0
+    },
+    {
+      "variableName": "count",
+      "className": "TextBlock",
+      "parentName": "Overlay_18",
+      "depth": 1,
+      "isPanel": false,
+      "childCount": 0
+    }
+  ]
+}

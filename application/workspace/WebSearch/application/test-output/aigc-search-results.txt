@@ -1,0 +1,134 @@
+## Summaries
+Search summaries for "AIGC 2026 trends applications regulation" with 5 results:
+
+**1. Springer link.springer.com   › home  › artificial intelligence review  › article   Artificial intelligence-generated content (AIGC) in biomedical research, healthcare delivery, and clinical practices: technologies, applications, and regulatory considerations | Artificial Intelligence Review | Springer Nature Link**
+URL: https://link.springer.com/article/10.1007/s10462-025-11487-1
+Description: No description available
+
+---
+
+**2. Global Market Insights gminsights.com   › home  › media and technology  › next generation technologies  › analytics and business intelligence  › artificial intelligence generated content aigc market   Artificial Intelligence Generated Content Market Size, 2034 Report**
+URL: https://www.gminsights.com/industry-analysis/artificial-intelligence-generated-content-aigc-market
+Description: No description available
+
+---
+
+**3. Springer link.springer.com   › home  › artificial intelligence review  › article   Aigc-driven human-machine intelligence in ITS: technologies, applications, evaluation framework, challenges, and future directions | Artificial Intelligence Review | Springer Nature Link**
+URL: https://link.springer.com/article/10.1007/s10462-025-11467-5
+Description: No description available
+
+---
+
+**4. 360iResearch 360iresearch.com   › home  › library  › aigc applications   AIGC Applications Market Size & Share 2026-2032**
+URL: https://www.360iresearch.com/library/intelligence/aigc-applications
+Description: No description available
+
+---
+
+**5. Data Insights Market datainsightsmarket.com › reports  › aigc-large-model-1991296   AIGC Large Model Strategic Market Opportunities: Trends 2026-2034**
+URL: https://www.datainsightsmarket.com/reports/aigc-large-model-1991296
+Description: No description available
+
+---
+
+
+
+## Full Search
+Search completed for "AIGC latest trends applications regulation 2026" with 0 results:
+
+**Status:** Search engine: None; 3 result requested/0 obtained; PDF: 0; 0 followed; Successfully extracted: 0; Failed: 0; Results: 0
+
+
+
+## Server stderr
+[SearchEngine] BING: Starting browser-based search with dedicated browser for query: "AIGC 2026 trends applications regulation"
+[SearchEngine] BING: Attempt 1/2 - Launching Chromium browser...
+[SearchEngine] BING: Browser launched successfully in 732ms, connected: true
+[SearchEngine] BING: Creating browser context with enhanced fingerprinting...
+[SearchEngine] BING: Context created, opening new page...
+[SearchEngine] BING: Page opened successfully
+[SearchEngine] BING: Attempting enhanced search (homepage → form submission)...
+[SearchEngine] BING: Enhanced search - navigating to Bing homepage...
+[SearchEngine] BING: Homepage loaded in 1562ms, title: "Search - Microsoft Bing", URL: https://www.bing.com/
+[SearchEngine] BING: Looking for search form elements...
+[SearchEngine] BING: Search box found, filling with query: "AIGC 2026 trends applications regulation"
+[SearchEngine] BING: Clicking search button and waiting for navigation...
+[SearchEngine] BING: Search form submission failed: page.waitForNavigation: Timeout 3333.3333333333335ms exceeded.
+=========================== logs ===========================
+waiting for navigation until "domcontentloaded"
+============================================================
+[SearchEngine] BING: Enhanced search failed: page.waitForNavigation: Timeout 3333.3333333333335ms exceeded.
+=========================== logs ===========================
+waiting for navigation until "domcontentloaded"
+============================================================
+[SearchEngine] BING: Falling back to direct URL search...
+[SearchEngine] BING: Direct search with enhanced parameters...
+[SearchEngine] BING: Navigating to direct URL: https://www.bing.com/search?q=AIGC%202026%20trends%20applications%20regulation&count=5&form=QBLH&sp=-1&qs=n&cvid=3FD3D9966F888D7C84D00728150C56B5
+[SearchEngine] BING: Direct page loaded in 692ms, title: "AIGC 2026 trends applications regulation - Search", URL: https://www.bing.com/search?q=AIGC%202026%20trends%20applications%20regulation&count=5&form=QBLH&sp=-1&qs=n&cvid=3FD3D9966F888D7C84D00728150C56B5
+[SearchEngine] BING: Waiting for search results to appear...
+[SearchEngine] BING: Search results selector found
+[SearchEngine] BING: Got page HTML with length: 260900 characters
+[SearchEngine] BING: Parsing HTML with length: 260900
+[SearchEngine] BING: Page title: "AIGC 2026 trends applications regulation - Search"
+[SearchEngine] BING: Checking for result elements...
+[SearchEngine] BING: Found 10 elements with selector ".b_algo"
+[SearchEngine] BING: Found 0 elements with selector ".b_result"
+[SearchEngine] BING: Found 0 elements with selector ".b_card"
+[SearchEngine] BING: Direct search parsed 5 results
+[SearchEngine] BING: Direct search succeeded with 5 results
+[SearchEngine] BING: Search completed successfully with 5 results
+[web-search-mcp] DEBUG: handleWebSearch called with limit=3, includeContent=true
+[SearchEngine] BING: Starting browser-based search with dedicated browser for query: "AIGC latest trends applications regulation 2026"
+[SearchEngine] BING: Attempt 1/2 - Launching Chromium browser...
+[SearchEngine] BING: Browser launched successfully in 112ms, connected: true
+[SearchEngine] BING: Creating browser context with enhanced fingerprinting...
+[SearchEngine] BING: Context created, opening new page...
+[SearchEngine] BING: Page opened successfully
+[SearchEngine] BING: Attempting enhanced search (homepage → form submission)...
+[SearchEngine] BING: Enhanced search - navigating to Bing homepage...
+[SearchEngine] BING: Homepage loaded in 1090ms, title: "Search - Microsoft Bing", URL: https://www.bing.com/
+[SearchEngine] BING: Looking for search form elements...
+[SearchEngine] BING: Search box found, filling with query: "AIGC latest trends applications regulation 2026"
+[SearchEngine] BING: Clicking search button and waiting for navigation...
+[SearchEngine] BING: Search completed in 2259ms total, title: "AIGC latest trends applications regulation 2026 - Search", URL: https://www.bing.com/search?search=Submit&q=AIGC+latest+trends+applications+regulation+2026&form=QBLH
+[SearchEngine] BING: Waiting for search results to appear...
+[SearchEngine] BING: Search results selector not found, proceeding with page content anyway
+[SearchEngine] BING: Got page HTML with length: 194619 characters
+[SearchEngine] BING: Parsing HTML with length: 194619
+[SearchEngine] BING: Page title: "AIGC latest trends applications regulation 2026 - Search"
+[SearchEngine] BING: Checking for result elements...
+[SearchEngine] BING: Found 0 elements with selector ".b_algo"
+[SearchEngine] BING: Found 0 elements with selector ".b_result"
+[SearchEngine] BING: Found 0 elements with selector ".b_card"
+[SearchEngine] BING: Enhanced search parsed 0 results
+[SearchEngine] BING: WARNING - No results found, possible parsing failure or empty search
+[SearchEngine] BING: Enhanced search succeeded with 0 results
+[SearchEngine] BING: Search completed successfully with 0 results
+[SearchEngine] Browser Brave search failed: page.goto: Timeout 3333.3333333333335ms exceeded.
+Call log:
+[2m  - navigating to "https://search.brave.com/search?q=AIGC%20latest%20trends%20applications%20regulation%202026&source=web", waiting until "domcontentloaded"[22m
+
+    at SearchEngine.tryBrowserBraveSearchInternal (G:\GameExPro3\AILab\workspace\Alith\application\workspace\WebSearch\application\web-search-mcp\dist\search-engine.js:159:28)
+    at async SearchEngine.tryBrowserBraveSearch (G:\GameExPro3\AILab\workspace\Alith\application\workspace\WebSearch\application\web-search-mcp\dist\search-engine.js:117:33)
+    at async file:///G:/GameExPro3/AILab/workspace/Alith/application/workspace/WebSearch/application/web-search-mcp/dist/search-engine.js:41:41
+    at async file:///G:/GameExPro3/AILab/workspace/Alith/application/workspace/WebSearch/application/web-search-mcp/dist/rate-limiter.js:27:20 {
+  name: 'TimeoutError'
+}
+[SearchEngine] Brave search attempt 1/2 failed: page.goto: Timeout 3333.3333333333335ms exceeded.
+Call log:
+[2m  - navigating to "https://search.brave.com/search?q=AIGC%20latest%20trends%20applications%20regulation%202026&source=web", waiting until "domcontentloaded"[22m
+
+    at SearchEngine.tryBrowserBraveSearchInternal (G:\GameExPro3\AILab\workspace\Alith\application\workspace\WebSearch\application\web-search-mcp\dist\search-engine.js:159:28)
+    at async SearchEngine.tryBrowserBraveSearch (G:\GameExPro3\AILab\workspace\Alith\application\workspace\WebSearch\application\web-search-mcp\dist\search-engine.js:117:33)
+    at async file:///G:/GameExPro3/AILab/workspace/Alith/application/workspace/WebSearch/application/web-search-mcp/dist/search-engine.js:41:41
+    at async file:///G:/GameExPro3/AILab/workspace/Alith/application/workspace/WebSearch/application/web-search-mcp/dist/rate-limiter.js:27:20 {
+  name: 'TimeoutError'
+}
+[SearchEngine] DuckDuckGo search failed
+[SearchEngine] Axios DuckDuckGo approach failed: Error: DuckDuckGo search failed
+    at SearchEngine.tryDuckDuckGoSearch (file:///G:/GameExPro3/AILab/workspace/Alith/application/workspace/WebSearch/application/web-search-mcp/dist/search-engine.js:460:19)
+    at async file:///G:/GameExPro3/AILab/workspace/Alith/application/workspace/WebSearch/application/web-search-mcp/dist/search-engine.js:41:41
+    at async file:///G:/GameExPro3/AILab/workspace/Alith/application/workspace/WebSearch/application/web-search-mcp/dist/rate-limiter.js:27:20
+[SearchEngine] Axios DuckDuckGo browser error (attempt 1): DuckDuckGo search failed
+[web-search-mcp] DEBUG: Search engine: None; 3 requested/0 obtained; PDF: 0; 0 followed.
+[web-search-mcp] DEBUG: Links requested: 3; Successfully extracted: 0; Failed: 0; Results: 0.

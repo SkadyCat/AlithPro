@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>暗黑背包</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <section class="hero-panel">
+      <div>
+        <p class="eyebrow">Shadow Inventory</p>
+        <h1>暗黑风格背包</h1>
+        <p class="hero-copy">一个可直接运行的 Node.js 背包服务，展示角色、装备与物品栏。</p>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <span>角色</span>
+          <strong id="hero-name">-</strong>
+        </div>
+        <div class="stat-card">
+          <span>等级</span>
+          <strong id="hero-level">-</strong>
+        </div>
+        <div class="stat-card">
+          <span>金币</span>
+          <strong id="hero-gold">-</strong>
+        </div>
+      </div>
+    </section>
+
+    <main class="inventory-layout">
+      <aside class="panel equipment-panel">
+        <div class="panel-header">
+          <h2>已装备</h2>
+          <span>暗影套装</span>
+        </div>
+        <div id="equipment-grid" class="equipment-grid"></div>
+      </aside>
+
+      <section class="panel backpack-panel">
+        <div class="panel-header">
+          <div>
+            <h2>背包物品</h2>
+            <span id="capacity-text">载荷 --</span>
+          </div>
+          <div class="tabs" id="tabs"></div>
+        </div>
+
+        <div class="inventory-meta">
+          <div class="weight-track">
+            <div id="weight-bar" class="weight-bar"></div>
+          </div>
+          <span id="weight-text">重量 --</span>
+        </div>
+
+        <div id="item-grid" class="item-grid"></div>
+      </section>
+
+      <aside class="panel detail-panel">
+        <div class="panel-header">
+          <h2>物品详情</h2>
+          <span>选中后查看</span>
+        </div>
+        <div id="detail-card" class="detail-card empty">
+          <div class="detail-icon">✦</div>
+          <h3>选择一个物品</h3>
+          <p>右侧将显示品质、战力与描述。</p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

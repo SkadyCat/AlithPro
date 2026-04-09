@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>UMG 控件库预览</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #08090f;
+  color: #c0c8e0;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  padding: 24px;
+}
+h1 { font-size: 20px; color: #6880b0; margin-bottom: 20px; letter-spacing: 2px; }
+h2 { font-size: 15px; color: #5070a0; margin: 24px 0 12px; padding-bottom: 6px;
+     border-bottom: 1px solid #1a1e2e; }
+h3 { font-size: 13px; color: #4a6090; margin: 16px 0 8px; }
+.section { margin-bottom: 20px; }
+.row { display: flex; gap: 16px; align-items: flex-start; flex-wrap: wrap; margin: 8px 0; }
+.card {
+  background: #0c0f1a; border: 1px solid #1a1e2e; border-radius: 8px;
+  padding: 16px; min-width: 200px;
+}
+.card-title { font-size: 12px; color: #4a5478; margin-bottom: 8px; letter-spacing: 1px; }
+.demo-area { min-height: 40px; }
+.wide { min-width: 400px; flex: 1; }
+.full { width: 100%; }
+</style>
+</head>
+<body>
+
+<h1>🎮 UMG 控件库 — 全控件预览</h1>
+
+<!-- ===== 输入控件 ===== -->
+<h2>一、输入控件 (Input)</h2>
+<div class="row">
+  <div class="card">
+    <div class="card-title">UButton</div>
+    <div class="demo-area">
+      <umg-button>普通按钮</umg-button>
+      <umg-button style-normal="background:#2a4020;color:#80d060;" style-hovered="background:#3a5830;color:#a0f080;">确认</umg-button>
+      <umg-button is-enabled="false">禁用</umg-button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UCheckBox</div>
+    <div class="demo-area">
+      <umg-checkbox label="自动保存"></umg-checkbox><br>
+      <umg-checkbox label="已选中" is-checked="true"></umg-checkbox>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">USlider</div>
+    <div class="demo-area">
+      <umg-slider value="0.6" min-value="0" max-value="1"></umg-slider>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">USpinBox</div>
+    <div class="demo-area">
+      <umg-spin-box value="5" min-value="0" max-value="100" step="1"></umg-spin-box>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UComboBoxString</div>
+    <div class="demo-area">
+      <umg-combo-box-string options="装备,道具,材料,通货" selected-option="装备"></umg-combo-box-string>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card wide">
+    <div class="card-title">UEditableText / UEditableTextBox</div>
+    <div class="demo-area" style="display:flex;gap:12px;flex-direction:column;">
+      <umg-editable-text hint-text="无边框输入..."></umg-editable-text>
+      <umg-editable-text-box hint-text="带边框输入..." text="默认文字"></umg-editable-text-box>
+    </div>
+  </div>
+
+  <div class="card wide">
+    <div class="card-title">UMultiLineEditableTextBox</div>
+    <div class="demo-area">
+      <umg-multiline-editable-text-box hint-text="多行文本编辑..."></umg-multiline-editable-text-box>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 文字显示 ===== -->
+<h2>二、文字显示 (Text & Display)</h2>
+<div class="row">
+  <div class="card">
+    <div class="card-title">UTextBlock</div>
+    <div class="demo-area">
+      <umg-text-block text="普通文本" font-size="14px"></umg-text-block>
+      <umg-text-block text="大号金色" font-size="22px" color="#f0d070" font-weight="bold"></umg-text-block>
+      <umg-text-block text="带阴影" font-size="16px" shadow-offset="2px 2px" shadow-color="rgba(0,0,0,0.8)"></umg-text-block>
+    </div>
+  </div>
+
+  <div class="card wide">
+    <div class="card-title">URichTextBlock</div>
+    <div class="demo-area">
+      <umg-rich-text-block>
+        这是<b>富文本</b>，支持<a href="#">链接</a>和 <strong>加粗</strong> 样式。
+      </umg-rich-text-block>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 视觉媒体 ===== -->
+<h2>三、视觉媒体 (Visuals)</h2>
+<div class="row">
+  <div class="card">
+    <div class="card-title">UProgressBar</div>
+    <div class="demo-area" style="display:flex;flex-direction:column;gap:8px;">
+      <umg-progress-bar percent="0.75" fill-color="#40d080"></umg-progress-bar>
+      <umg-progress-bar percent="0.3" fill-color="#d04040"></umg-progress-bar>
+      <umg-progress-bar percent="0.5" fill-color="#d0a040" fill-type="RightToLeft"></umg-progress-bar>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UThrobber / UCircularThrobber</div>
+    <div class="demo-area" style="display:flex;gap:20px;align-items:center;">
+      <umg-throbber></umg-throbber>
+      <umg-circular-throbber></umg-circular-throbber>
+      <umg-circular-throbber desired-width="32px"></umg-circular-throbber>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UBackgroundBlur</div>
+    <div class="demo-area" style="position:relative;height:60px;background:linear-gradient(90deg,#d04040,#4040d0,#40d040);">
+      <umg-background-blur blur-strength="6px" style="position:absolute;inset:0;">
+        <div style="padding:16px;color:#fff;font-weight:bold;">模糊背景上的文字</div>
+      </umg-background-blur>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 容器布局 ===== -->
+<h2>四、容器与布局 (Containers)</h2>
+
+<h3>HorizontalBox / VerticalBox / WrapBox</h3>
+<div class="row">
+  <div class="card">
+    <div class="card-title">UHorizontalBox</div>
+    <div class="demo-area">
+      <umg-horizontal-box style="gap:8px;">
+        <umg-button>左</umg-button>
+        <umg-button>中</umg-button>
+        <umg-button>右</umg-button>
+      </umg-horizontal-box>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UVerticalBox</div>
+    <div class="demo-area">
+      <umg-vertical-box style="gap:4px;">
+        <umg-text-block text="第一行"></umg-text-block>
+        <umg-text-block text="第二行"></umg-text-block>
+        <umg-text-block text="第三行"></umg-text-block>
+      </umg-vertical-box>
+    </div>
+  </div>
+
+  <div class="card wide">
+    <div class="card-title">UWrapBox</div>
+    <div class="demo-area">
+      <umg-wrap-box style="gap:6px;max-width:250px;">
+        <umg-button>标签A</umg-button>
+        <umg-button>标签B</umg-button>
+        <umg-button>标签C</umg-button>
+        <umg-button>标签D</umg-button>
+        <umg-button>标签E</umg-button>
+      </umg-wrap-box>
+    </div>
+  </div>
+</div>
+
+<h3>UniformGridPanel / GridPanel</h3>
+<div class="row">
+  <div class="card wide">
+    <div class="card-title">UUniformGridPanel (3列)</div>
+    <div class="demo-area">
+      <umg-uniform-grid-panel columns="3" slot-padding="6px">
+        <umg-border background="#1a2040" corner-radius="4px" padding="10px"><umg-text-block text="格子1"></umg-text-block></umg-border>
+        <umg-border background="#1a2040" corner-radius="4px" padding="10px"><umg-text-block text="格子2"></umg-text-block></umg-border>
+        <umg-border background="#1a2040" corner-radius="4px" padding="10px"><umg-text-block text="格子3"></umg-text-block></umg-border>
+        <umg-border background="#1a2040" corner-radius="4px" padding="10px"><umg-text-block text="格子4"></umg-text-block></umg-border>
+        <umg-border background="#1a2040" corner-radius="4px" padding="10px"><umg-text-block text="格子5"></umg-text-block></umg-border>
+        <umg-border background="#1a2040" corner-radius="4px" padding="10px"><umg-text-block text="格子6"></umg-text-block></umg-border>
+      </umg-uniform-grid-panel>
+    </div>
+  </div>
+</div>
+
+<h3>Overlay / WidgetSwitcher / ScrollBox / SizeBox / Border</h3>
+<div class="row">
+  <div class="card">
+    <div class="card-title">UOverlay (层叠)</div>
+    <div class="demo-area">
+      <umg-overlay style="width:150px;height:60px;">
+        <div style="background:#2a1040;width:100%;height:100%;border-radius:6px;"></div>
+        <div style="padding:16px;color:#d080ff;font-weight:bold;">叠加文字</div>
+      </umg-overlay>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UWidgetSwitcher</div>
+    <div class="demo-area">
+      <umg-horizontal-box style="gap:6px;margin-bottom:8px;">
+        <umg-button onclick="document.getElementById('ws').setAttribute('active-index','0')">页1</umg-button>
+        <umg-button onclick="document.getElementById('ws').setAttribute('active-index','1')">页2</umg-button>
+        <umg-button onclick="document.getElementById('ws').setAttribute('active-index','2')">页3</umg-button>
+      </umg-horizontal-box>
+      <umg-widget-switcher id="ws" active-index="0">
+        <umg-border background="#1a2a20" padding="12px" corner-radius="4px"><umg-text-block text="🟢 第一页内容"></umg-text-block></umg-border>
+        <umg-border background="#2a1a20" padding="12px" corner-radius="4px"><umg-text-block text="🔴 第二页内容"></umg-text-block></umg-border>
+        <umg-border background="#1a1a2a" padding="12px" corner-radius="4px"><umg-text-block text="🔵 第三页内容"></umg-text-block></umg-border>
+      </umg-widget-switcher>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UScrollBox</div>
+    <div class="demo-area">
+      <umg-scroll-box style="height:100px;">
+        <umg-vertical-box style="gap:4px;">
+          <umg-text-block text="滚动项 1"></umg-text-block>
+          <umg-text-block text="滚动项 2"></umg-text-block>
+          <umg-text-block text="滚动项 3"></umg-text-block>
+          <umg-text-block text="滚动项 4"></umg-text-block>
+          <umg-text-block text="滚动项 5"></umg-text-block>
+          <umg-text-block text="滚动项 6"></umg-text-block>
+          <umg-text-block text="滚动项 7"></umg-text-block>
+          <umg-text-block text="滚动项 8"></umg-text-block>
+        </umg-vertical-box>
+      </umg-scroll-box>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">USizeBox / USpacer</div>
+    <div class="demo-area">
+      <umg-size-box width-override="200px" height-override="50px" style="background:#1a2040;border-radius:4px;">
+        <div style="padding:12px;"><umg-text-block text="固定 200×50"></umg-text-block></div>
+      </umg-size-box>
+      <umg-spacer size-y="10px"></umg-spacer>
+      <umg-size-box width-override="120px" height-override="30px" style="background:#2a1040;border-radius:4px;">
+        <div style="padding:6px;"><umg-text-block text="120×30"></umg-text-block></div>
+      </umg-size-box>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 数据驱动 ===== -->
+<h2>五、数据驱动控件 (Data-Driven)</h2>
+<div class="row">
+  <div class="card wide">
+    <div class="card-title">UListView (单选列表)</div>
+    <div class="demo-area">
+      <umg-list-view id="demoList" style="height:180px;"></umg-list-view>
+    </div>
+  </div>
+
+  <div class="card wide">
+    <div class="card-title">UTileView (平铺视图)</div>
+    <div class="demo-area">
+      <umg-tile-view id="demoTile" tile-width="90px" columns="4" gap="8px"></umg-tile-view>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card wide">
+    <div class="card-title">UTreeView (树形列表)</div>
+    <div class="demo-area">
+      <umg-tree-view id="demoTree"></umg-tree-view>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">UMenuAnchor (弹出菜单)</div>
+    <div class="demo-area">
+      <umg-menu-anchor placement="below">
+        <umg-button slot="anchor">点击弹出 ▾</umg-button>
+        <div slot="menu" style="padding:8px;">
+          <div style="padding:6px 12px;cursor:pointer;border-radius:3px;" onmouseover="this.style.background='#1a2444'" onmouseout="this.style.background=''">🗡️ 装备</div>
+          <div style="padding:6px 12px;cursor:pointer;border-radius:3px;" onmouseover="this.style.background='#1a2444'" onmouseout="this.style.background=''">🧪 道具</div>
+          <div style="padding:6px 12px;cursor:pointer;border-radius:3px;" onmouseover="this.style.background='#1a2444'" onmouseout="this.style.background=''">🪶 材料</div>
+        </div>
+      </umg-menu-anchor>
+    </div>
+  </div>
+</div>
+
+<script type="module">
+import './elements/index.js';
+
+// Populate ListView
+const list = document.getElementById('demoList');
+list.setItems([
+  { label: '龙雀古剑', subtitle: '装备 · 战刃 · 攻击力 +248' },
+  { label: '回灵丹', subtitle: '道具 · 恢复 · ×18' },
+  { label: '离火符卷', subtitle: '道具 · 卷轴 · ×6' },
+  { label: '玄甲护心盾', subtitle: '装备 · 防具 · 格挡 +18%' },
+  { label: '踏云羽令', subtitle: '材料 · 灵羽 · ×3' },
+  { label: '遗迹门钥', subtitle: '材料 · 钥匙 · ×1' },
+  { label: '风行灵弓', subtitle: '装备 · 远袭 · 攻击 +176' },
+  { label: '魂银钱匣', subtitle: '通货 · 12840' }
+]);
+
+// Populate TileView
+const tile = document.getElementById('demoTile');
+tile.setItems([
+  { icon: '⚔️', label: '古剑' },
+  { icon: '🧪', label: '回灵丹' },
+  { icon: '📜', label: '符卷' },
+  { icon: '🛡️', label: '护盾' },
+  { icon: '🪶', label: '羽令' },
+  { icon: '🗝️', label: '门钥' },
+  { icon: '🏹', label: '灵弓' },
+  { icon: '🪙', label: '钱匣' }
+]);
+
+// Populate TreeView
+const tree = document.getElementById('demoTree');
+tree.setNodes([
+  { label: 'RootCanvas', children: [
+    { label: 'Background' },
+    { label: 'BackdropArt' },
+    { label: 'CapacityPlate', children: [
+      { label: 'CapacityLabel' }
+    ]},
+    { label: 'CloseButton' },
+    { label: 'Tabs', children: [
+      { label: 'TabEquipment' },
+      { label: 'TabItem' },
+      { label: 'TabMaterial' },
+      { label: 'TabCurrency' }
+    ]},
+    { label: 'InventoryPanel', children: [
+      { label: 'InventoryPanelArt' },
+      { label: 'GridContainer', children: [
+        { label: 'Item01' }, { label: 'Item02' }, { label: 'Item03' },
+        { label: 'Item04' }, { label: 'Item05' }, { label: 'Item06' }
+      ]}
+    ]}
+  ]}
+]);
+</script>
+
+</body>
+</html>

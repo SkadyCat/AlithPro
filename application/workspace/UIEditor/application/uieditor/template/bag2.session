@@ -1,0 +1,3625 @@
+{
+  "version": "2.0",
+  "protocol": {
+    "name": "uieditor-wbp-roundtrip",
+    "version": "2.0",
+    "canonical": "widgets",
+    "compatibility": {
+      "legacyBoxes": true,
+      "parentRelativeFrame": true,
+      "ueSlotMetadata": true
+    }
+  },
+  "savedAt": "2026-03-31T23:36:10.255094",
+  "nextId": 81,
+  "viewport": {
+    "w": 790.0,
+    "h": 548.0
+  },
+  "sourceSession": "G:\\GameExPro3\\AILab\\workspace\\Alith\\application\\workspace\\UIEditor\\application\\canvas-editor\\data\\docs\\sessions\\bag2.session",
+  "widgets": [
+    {
+      "id": 1,
+      "name": "BagWidget",
+      "type": "CanvasPanel",
+      "frame": {
+        "x": 0.0,
+        "y": 0.0,
+        "w": 790.0,
+        "h": 548.0
+      },
+      "anchor": {
+        "minX": 0.0,
+        "minY": 0.0,
+        "maxX": 0.0,
+        "maxY": 0.0
+      },
+      "props": {},
+      "style": {
+        "borderColor": "#3a2810",
+        "bgColor": "rgba(13,10,6,1)",
+        "borderWidth": 0,
+        "opacity": 1,
+        "borderRadius": 0
+      },
+      "flags": {
+        "isEntryClass": false
+      },
+      "ue": {
+        "slot": {
+          "type": "CanvasPanelSlot",
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0,
+            0
+          ],
+          "offsets": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 790.0,
+            "bottom": 548.0
+          },
+          "autoSize": false,
+          "zOrder": 0
+        }
+      },
+      "children": [
+        {
+          "id": 2,
+          "name": "EquipPanel",
+          "type": "Border",
+          "frame": {
+            "x": 4.0,
+            "y": 4.0,
+            "w": 284.0,
+            "h": 498.0
+          },
+          "anchor": {
+            "minX": 0.0,
+            "minY": 0.0,
+            "maxX": 0.0,
+            "maxY": 0.0
+          },
+          "props": {
+            "content": ""
+          },
+          "style": {
+            "borderColor": "#6a4820",
+            "bgColor": "rgba(18,12,7,0.98)",
+            "borderWidth": 2,
+            "opacity": 1,
+            "borderRadius": 6,
+            "boxShadow": "inset 0 0 20px rgba(0,0,0,0.8), 0 0 8px rgba(139,100,30,0.3)"
+          },
+          "flags": {
+            "isEntryClass": false
+          },
+          "ue": {
+            "slot": {
+              "type": "CanvasPanelSlot",
+              "anchors": {
+                "min": [
+                  0.0,
+                  0.0
+                ],
+                "max": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "alignment": [
+                0,
+                0
+              ],
+              "offsets": {
+                "left": 4.0,
+                "top": 4.0,
+                "right": 284.0,
+                "bottom": 498.0
+              },
+              "autoSize": false,
+              "zOrder": 0
+            }
+          },
+          "children": [
+            {
+              "id": 3,
+              "name": "EquipTitle",
+              "type": "TextBlock",
+              "frame": {
+                "x": 4.0,
+                "y": 8.0,
+                "w": 284.0,
+                "h": 22.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#c8964a",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 13,
+                "autoWrap": false,
+                "italic": false,
+                "text": "装 备"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 1,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 4.0,
+                    "top": 8.0,
+                    "right": 284.0,
+                    "bottom": 22.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 4,
+              "name": "HeadSlot",
+              "type": "Border",
+              "frame": {
+                "x": 110.0,
+                "y": 36.0,
+                "w": 68.0,
+                "h": 68.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/helmet_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 110.0,
+                    "top": 36.0,
+                    "right": 68.0,
+                    "bottom": 68.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              },
+              "children": [
+                {
+                  "id": 15,
+                  "name": "HeadLabel",
+                  "type": "TextBlock",
+                  "frame": {
+                    "x": 110.0,
+                    "y": 92.0,
+                    "w": 68.0,
+                    "h": 12.0
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "props": {
+                    "textColor": "#8a6040",
+                    "bold": false,
+                    "textAlign": "center",
+                    "fontSize": 10,
+                    "autoWrap": false,
+                    "italic": false,
+                    "text": "头盔"
+                  },
+                  "style": {
+                    "borderColor": "rgba(0,0,0,0)",
+                    "bgColor": "rgba(0,0,0,0)",
+                    "borderWidth": 0,
+                    "opacity": 0.6,
+                    "borderRadius": 0
+                  },
+                  "flags": {
+                    "isEntryClass": false
+                  },
+                  "ue": {
+                    "slot": {
+                      "type": "CanvasPanelSlot",
+                      "anchors": {
+                        "min": [
+                          0.0,
+                          0.0
+                        ],
+                        "max": [
+                          0.0,
+                          0.0
+                        ]
+                      },
+                      "alignment": [
+                        0,
+                        0
+                      ],
+                      "offsets": {
+                        "left": 110.0,
+                        "top": 92.0,
+                        "right": 68.0,
+                        "bottom": 12.0
+                      },
+                      "autoSize": false,
+                      "zOrder": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "name": "NeckSlot",
+              "type": "Border",
+              "frame": {
+                "x": 196.0,
+                "y": 38.0,
+                "w": 46.0,
+                "h": 46.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/amulet_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 196.0,
+                    "top": 38.0,
+                    "right": 46.0,
+                    "bottom": 46.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 6,
+              "name": "WeaponSlot",
+              "type": "Border",
+              "frame": {
+                "x": 8.0,
+                "y": 116.0,
+                "w": 60.0,
+                "h": 124.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/sword_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 8.0,
+                    "top": 116.0,
+                    "right": 60.0,
+                    "bottom": 124.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 7,
+              "name": "ChestSlot",
+              "type": "Border",
+              "frame": {
+                "x": 110.0,
+                "y": 104.0,
+                "w": 72.0,
+                "h": 136.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#8a6428",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 8px rgba(0,0,0,0.6)"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 110.0,
+                    "top": 104.0,
+                    "right": 72.0,
+                    "bottom": 136.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              },
+              "children": [
+                {
+                  "id": 80,
+                  "name": "ChestSlotIcon",
+                  "type": "Image",
+                  "frame": {
+                    "x": 110.0,
+                    "y": 110.0,
+                    "w": 64.0,
+                    "h": 128.0
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "props": {
+                    "tintColor": "#ffffff",
+                    "imagePath": "/assets/icons/chest_slot.png",
+                    "imageDrawType": "Normal"
+                  },
+                  "style": {
+                    "borderColor": "transparent",
+                    "bgColor": "rgba(0,0,0,0)",
+                    "borderWidth": 0,
+                    "opacity": 0.5,
+                    "borderRadius": 0
+                  },
+                  "flags": {
+                    "isEntryClass": false
+                  },
+                  "ue": {
+                    "slot": {
+                      "type": "CanvasPanelSlot",
+                      "anchors": {
+                        "min": [
+                          0.0,
+                          0.0
+                        ],
+                        "max": [
+                          0.0,
+                          0.0
+                        ]
+                      },
+                      "alignment": [
+                        0,
+                        0
+                      ],
+                      "offsets": {
+                        "left": 110.0,
+                        "top": 110.0,
+                        "right": 64.0,
+                        "bottom": 128.0
+                      },
+                      "autoSize": false,
+                      "zOrder": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": 8,
+              "name": "OffhandSlot",
+              "type": "Border",
+              "frame": {
+                "x": 216.0,
+                "y": 116.0,
+                "w": 60.0,
+                "h": 124.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/shield_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 216.0,
+                    "top": 116.0,
+                    "right": 60.0,
+                    "bottom": 124.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 9,
+              "name": "GloveSlot",
+              "type": "Border",
+              "frame": {
+                "x": 8.0,
+                "y": 252.0,
+                "w": 60.0,
+                "h": 60.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/gloves_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 8.0,
+                    "top": 252.0,
+                    "right": 60.0,
+                    "bottom": 60.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 10,
+              "name": "BeltSlot",
+              "type": "Border",
+              "frame": {
+                "x": 104.0,
+                "y": 260.0,
+                "w": 80.0,
+                "h": 44.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/belt_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 104.0,
+                    "top": 260.0,
+                    "right": 80.0,
+                    "bottom": 44.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 11,
+              "name": "RingL",
+              "type": "Border",
+              "frame": {
+                "x": 8.0,
+                "y": 326.0,
+                "w": 46.0,
+                "h": 46.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/ring_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 8.0,
+                    "top": 326.0,
+                    "right": 46.0,
+                    "bottom": 46.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 12,
+              "name": "RingR",
+              "type": "Border",
+              "frame": {
+                "x": 230.0,
+                "y": 326.0,
+                "w": 46.0,
+                "h": 46.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/ring2_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 230.0,
+                    "top": 326.0,
+                    "right": 46.0,
+                    "bottom": 46.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 13,
+              "name": "LegSlot",
+              "type": "Border",
+              "frame": {
+                "x": 104.0,
+                "y": 316.0,
+                "w": 80.0,
+                "h": 88.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/legs_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 104.0,
+                    "top": 316.0,
+                    "right": 80.0,
+                    "bottom": 88.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 14,
+              "name": "BootSlot",
+              "type": "Border",
+              "frame": {
+                "x": 104.0,
+                "y": 412.0,
+                "w": 80.0,
+                "h": 60.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#7a5828",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 4,
+                "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+                "bgImage": "/assets/icons/boots_slot.png",
+                "bgSize": "60%"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 104.0,
+                    "top": 412.0,
+                    "right": 80.0,
+                    "bottom": 60.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 16,
+              "name": "ChestLabel",
+              "type": "TextBlock",
+              "frame": {
+                "x": 108.0,
+                "y": 226.0,
+                "w": 72.0,
+                "h": 12.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#8a6040",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "胸甲"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 0.6,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 108.0,
+                    "top": 226.0,
+                    "right": 72.0,
+                    "bottom": 12.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 17,
+              "name": "Divider1",
+              "type": "Border",
+              "frame": {
+                "x": 8.0,
+                "y": 30.0,
+                "w": 268.0,
+                "h": 1.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "transparent",
+                "bgColor": "#4a3010",
+                "borderWidth": 0,
+                "opacity": 0.5,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 8.0,
+                    "top": 30.0,
+                    "right": 268.0,
+                    "bottom": 1.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "name": "InvPanel",
+          "type": "Border",
+          "frame": {
+            "x": 296.0,
+            "y": 4.0,
+            "w": 490.0,
+            "h": 498.0
+          },
+          "anchor": {
+            "minX": 0.0,
+            "minY": 0.0,
+            "maxX": 0.0,
+            "maxY": 0.0
+          },
+          "props": {
+            "content": ""
+          },
+          "style": {
+            "borderColor": "#6a4820",
+            "bgColor": "rgba(18,12,7,0.98)",
+            "borderWidth": 2,
+            "opacity": 1,
+            "borderRadius": 6,
+            "boxShadow": "inset 0 0 20px rgba(0,0,0,0.8), 0 0 8px rgba(139,100,30,0.3)"
+          },
+          "flags": {
+            "isEntryClass": false
+          },
+          "ue": {
+            "slot": {
+              "type": "CanvasPanelSlot",
+              "anchors": {
+                "min": [
+                  0.0,
+                  0.0
+                ],
+                "max": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "alignment": [
+                0,
+                0
+              ],
+              "offsets": {
+                "left": 296.0,
+                "top": 4.0,
+                "right": 490.0,
+                "bottom": 498.0
+              },
+              "autoSize": false,
+              "zOrder": 0
+            }
+          },
+          "children": [
+            {
+              "id": 21,
+              "name": "InvTitle",
+              "type": "TextBlock",
+              "frame": {
+                "x": 296.0,
+                "y": 8.0,
+                "w": 490.0,
+                "h": 22.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#c8964a",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 13,
+                "autoWrap": false,
+                "italic": false,
+                "text": "背 包"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 1,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 296.0,
+                    "top": 8.0,
+                    "right": 490.0,
+                    "bottom": 22.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 22,
+              "name": "Divider2",
+              "type": "Border",
+              "frame": {
+                "x": 304.0,
+                "y": 30.0,
+                "w": 474.0,
+                "h": 1.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "transparent",
+                "bgColor": "#4a3010",
+                "borderWidth": 0,
+                "opacity": 0.5,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 304.0,
+                    "top": 30.0,
+                    "right": 474.0,
+                    "bottom": 1.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 23,
+              "name": "InvGrid",
+              "type": "TileView",
+              "frame": {
+                "x": 302.0,
+                "y": 36.0,
+                "w": 478.0,
+                "h": 374.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "entryWidth": 48,
+                "entryHeight": 42
+              },
+              "style": {
+                "borderColor": "transparent",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 1,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 302.0,
+                    "top": 36.0,
+                    "right": 478.0,
+                    "bottom": 374.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              },
+              "children": [
+                {
+                  "id": 24,
+                  "name": "ItemSlot",
+                  "type": "Border",
+                  "frame": {
+                    "x": 304.0,
+                    "y": 50.0,
+                    "w": 48.0,
+                    "h": 42.0
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "props": {
+                    "content": ""
+                  },
+                  "style": {
+                    "borderColor": "#3a2810",
+                    "bgColor": "rgba(8,5,2,0.8)",
+                    "borderWidth": 1,
+                    "opacity": 1,
+                    "borderRadius": 2,
+                    "boxShadow": "inset 0 1px 3px rgba(0,0,0,0.5)"
+                  },
+                  "flags": {
+                    "isEntryClass": false
+                  },
+                  "ue": {
+                    "slot": {
+                      "type": "CanvasPanelSlot",
+                      "anchors": {
+                        "min": [
+                          0.0,
+                          0.0
+                        ],
+                        "max": [
+                          0.0,
+                          0.0
+                        ]
+                      },
+                      "alignment": [
+                        0,
+                        0
+                      ],
+                      "offsets": {
+                        "left": 304.0,
+                        "top": 50.0,
+                        "right": 48.0,
+                        "bottom": 42.0
+                      },
+                      "autoSize": false,
+                      "zOrder": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": 25,
+              "name": "InvDivider",
+              "type": "Border",
+              "frame": {
+                "x": 302.0,
+                "y": 416.0,
+                "w": 478.0,
+                "h": 1.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "transparent",
+                "bgColor": "#4a3010",
+                "borderWidth": 0,
+                "opacity": 0.5,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 302.0,
+                    "top": 416.0,
+                    "right": 478.0,
+                    "bottom": 1.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 26,
+              "name": "GoldDisplay",
+              "type": "TextBlock",
+              "frame": {
+                "x": 302.0,
+                "y": 424.0,
+                "w": 220.0,
+                "h": 22.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#d4a84b",
+                "bold": false,
+                "textAlign": "left",
+                "fontSize": 11,
+                "autoWrap": false,
+                "italic": false,
+                "text": "💰  金币: 0"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 1,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 302.0,
+                    "top": 424.0,
+                    "right": 220.0,
+                    "bottom": 22.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 27,
+              "name": "WeightLabel",
+              "type": "TextBlock",
+              "frame": {
+                "x": 302.0,
+                "y": 456.0,
+                "w": 140.0,
+                "h": 20.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#8a7040",
+                "bold": false,
+                "textAlign": "left",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "负重"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 0.8,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 302.0,
+                    "top": 456.0,
+                    "right": 140.0,
+                    "bottom": 20.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 28,
+              "name": "WeightBar",
+              "type": "ProgressBar",
+              "frame": {
+                "x": 446.0,
+                "y": 458.0,
+                "w": 340.0,
+                "h": 14.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "barColor": "#221100",
+                "fillColor": "#a0522d",
+                "percent": 0.3
+              },
+              "style": {
+                "borderColor": "transparent",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 1,
+                "borderRadius": 3
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 446.0,
+                    "top": 458.0,
+                    "right": 340.0,
+                    "bottom": 14.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 29,
+              "name": "WeightValue",
+              "type": "TextBlock",
+              "frame": {
+                "x": 448.0,
+                "y": 455.0,
+                "w": 326.0,
+                "h": 20.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#8a7040",
+                "bold": false,
+                "textAlign": "right",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "0/100"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 0.7,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 448.0,
+                    "top": 455.0,
+                    "right": 326.0,
+                    "bottom": 20.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "id": 40,
+          "name": "BottomBar",
+          "type": "Border",
+          "frame": {
+            "x": 0.0,
+            "y": 506.0,
+            "w": 790.0,
+            "h": 40.0
+          },
+          "anchor": {
+            "minX": 0.0,
+            "minY": 0.0,
+            "maxX": 0.0,
+            "maxY": 0.0
+          },
+          "props": {
+            "content": ""
+          },
+          "style": {
+            "borderColor": "#6a4820",
+            "bgColor": "rgba(12,8,4,0.99)",
+            "borderWidth": 1,
+            "opacity": 1,
+            "borderRadius": 0,
+            "boxShadow": "0 -2px 8px rgba(0,0,0,0.8)"
+          },
+          "flags": {
+            "isEntryClass": false
+          },
+          "ue": {
+            "slot": {
+              "type": "CanvasPanelSlot",
+              "anchors": {
+                "min": [
+                  0.0,
+                  0.0
+                ],
+                "max": [
+                  0.0,
+                  0.0
+                ]
+              },
+              "alignment": [
+                0,
+                0
+              ],
+              "offsets": {
+                "left": 0.0,
+                "top": 506.0,
+                "right": 790.0,
+                "bottom": 40.0
+              },
+              "autoSize": false,
+              "zOrder": 0
+            }
+          },
+          "children": [
+            {
+              "id": 41,
+              "name": "HPLabel",
+              "type": "TextBlock",
+              "frame": {
+                "x": 8.0,
+                "y": 514.0,
+                "w": 26.0,
+                "h": 26.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#ff6666",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 9,
+                "autoWrap": false,
+                "italic": false,
+                "text": "HP"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 1,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 8.0,
+                    "top": 514.0,
+                    "right": 26.0,
+                    "bottom": 26.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 43,
+              "name": "HPText",
+              "type": "TextBlock",
+              "frame": {
+                "x": 36.0,
+                "y": 514.0,
+                "w": 200.0,
+                "h": 22.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#ff9999",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "100 / 100"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 0.8,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 36.0,
+                    "top": 514.0,
+                    "right": 200.0,
+                    "bottom": 22.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              },
+              "children": [
+                {
+                  "id": 42,
+                  "name": "HPBar",
+                  "type": "ProgressBar",
+                  "frame": {
+                    "x": 36.0,
+                    "y": 516.0,
+                    "w": 200.0,
+                    "h": 18.0
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "props": {
+                    "barColor": "#330a0a",
+                    "fillColor": "#cc2244",
+                    "percent": 0.7
+                  },
+                  "style": {
+                    "borderColor": "transparent",
+                    "bgColor": "rgba(0,0,0,0)",
+                    "borderWidth": 0,
+                    "opacity": 1,
+                    "borderRadius": 3
+                  },
+                  "flags": {
+                    "isEntryClass": false
+                  },
+                  "ue": {
+                    "slot": {
+                      "type": "CanvasPanelSlot",
+                      "anchors": {
+                        "min": [
+                          0.0,
+                          0.0
+                        ],
+                        "max": [
+                          0.0,
+                          0.0
+                        ]
+                      },
+                      "alignment": [
+                        0,
+                        0
+                      ],
+                      "offsets": {
+                        "left": 36.0,
+                        "top": 516.0,
+                        "right": 200.0,
+                        "bottom": 18.0
+                      },
+                      "autoSize": false,
+                      "zOrder": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": 44,
+              "name": "PotSlot1",
+              "type": "Border",
+              "frame": {
+                "x": 244.0,
+                "y": 509.0,
+                "w": 34.0,
+                "h": 34.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#5a3a18",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 3,
+                "boxShadow": "inset 0 1px 4px rgba(0,0,0,0.6)"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 244.0,
+                    "top": 509.0,
+                    "right": 34.0,
+                    "bottom": 34.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 45,
+              "name": "PotSlot2",
+              "type": "Border",
+              "frame": {
+                "x": 282.0,
+                "y": 509.0,
+                "w": 34.0,
+                "h": 34.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#5a3a18",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 3,
+                "boxShadow": "inset 0 1px 4px rgba(0,0,0,0.6)"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 282.0,
+                    "top": 509.0,
+                    "right": 34.0,
+                    "bottom": 34.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 46,
+              "name": "PotSlot3",
+              "type": "Border",
+              "frame": {
+                "x": 320.0,
+                "y": 509.0,
+                "w": 34.0,
+                "h": 34.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#5a3a18",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 3,
+                "boxShadow": "inset 0 1px 4px rgba(0,0,0,0.6)"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 320.0,
+                    "top": 509.0,
+                    "right": 34.0,
+                    "bottom": 34.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 47,
+              "name": "PotSlot4",
+              "type": "Border",
+              "frame": {
+                "x": 358.0,
+                "y": 509.0,
+                "w": 34.0,
+                "h": 34.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "content": ""
+              },
+              "style": {
+                "borderColor": "#5a3a18",
+                "bgColor": "rgba(12,8,4,0.9)",
+                "borderWidth": 1,
+                "opacity": 1,
+                "borderRadius": 3,
+                "boxShadow": "inset 0 1px 4px rgba(0,0,0,0.6)"
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 358.0,
+                    "top": 509.0,
+                    "right": 34.0,
+                    "bottom": 34.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 48,
+              "name": "MPLabel",
+              "type": "TextBlock",
+              "frame": {
+                "x": 400.0,
+                "y": 514.0,
+                "w": 26.0,
+                "h": 26.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#6699ff",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 9,
+                "autoWrap": false,
+                "italic": false,
+                "text": "MP"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 1,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 400.0,
+                    "top": 514.0,
+                    "right": 26.0,
+                    "bottom": 26.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              }
+            },
+            {
+              "id": 50,
+              "name": "MPText",
+              "type": "TextBlock",
+              "frame": {
+                "x": 428.0,
+                "y": 514.0,
+                "w": 200.0,
+                "h": 22.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#99aaff",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "100 / 100"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 0.8,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 428.0,
+                    "top": 514.0,
+                    "right": 200.0,
+                    "bottom": 22.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              },
+              "children": [
+                {
+                  "id": 49,
+                  "name": "MPBar",
+                  "type": "ProgressBar",
+                  "frame": {
+                    "x": 428.0,
+                    "y": 516.0,
+                    "w": 200.0,
+                    "h": 18.0
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "props": {
+                    "barColor": "#0a0a33",
+                    "fillColor": "#2244cc",
+                    "percent": 0.7
+                  },
+                  "style": {
+                    "borderColor": "transparent",
+                    "bgColor": "rgba(0,0,0,0)",
+                    "borderWidth": 0,
+                    "opacity": 1,
+                    "borderRadius": 3
+                  },
+                  "flags": {
+                    "isEntryClass": false
+                  },
+                  "ue": {
+                    "slot": {
+                      "type": "CanvasPanelSlot",
+                      "anchors": {
+                        "min": [
+                          0.0,
+                          0.0
+                        ],
+                        "max": [
+                          0.0,
+                          0.0
+                        ]
+                      },
+                      "alignment": [
+                        0,
+                        0
+                      ],
+                      "offsets": {
+                        "left": 428.0,
+                        "top": 516.0,
+                        "right": 200.0,
+                        "bottom": 18.0
+                      },
+                      "autoSize": false,
+                      "zOrder": 0
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "id": 52,
+              "name": "ExpLabel",
+              "type": "TextBlock",
+              "frame": {
+                "x": 636.0,
+                "y": 514.0,
+                "w": 146.0,
+                "h": 22.0
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "props": {
+                "textColor": "#ffcc44",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "EXP  30%"
+              },
+              "style": {
+                "borderColor": "rgba(0,0,0,0)",
+                "bgColor": "rgba(0,0,0,0)",
+                "borderWidth": 0,
+                "opacity": 0.8,
+                "borderRadius": 0
+              },
+              "flags": {
+                "isEntryClass": false
+              },
+              "ue": {
+                "slot": {
+                  "type": "CanvasPanelSlot",
+                  "anchors": {
+                    "min": [
+                      0.0,
+                      0.0
+                    ],
+                    "max": [
+                      0.0,
+                      0.0
+                    ]
+                  },
+                  "alignment": [
+                    0,
+                    0
+                  ],
+                  "offsets": {
+                    "left": 636.0,
+                    "top": 514.0,
+                    "right": 146.0,
+                    "bottom": 22.0
+                  },
+                  "autoSize": false,
+                  "zOrder": 0
+                }
+              },
+              "children": [
+                {
+                  "id": 51,
+                  "name": "ExpBar",
+                  "type": "ProgressBar",
+                  "frame": {
+                    "x": 636.0,
+                    "y": 516.0,
+                    "w": 146.0,
+                    "h": 18.0
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "props": {
+                    "barColor": "#221100",
+                    "fillColor": "#cc9900",
+                    "percent": 0.3
+                  },
+                  "style": {
+                    "borderColor": "transparent",
+                    "bgColor": "rgba(0,0,0,0)",
+                    "borderWidth": 0,
+                    "opacity": 1,
+                    "borderRadius": 3
+                  },
+                  "flags": {
+                    "isEntryClass": false
+                  },
+                  "ue": {
+                    "slot": {
+                      "type": "CanvasPanelSlot",
+                      "anchors": {
+                        "min": [
+                          0.0,
+                          0.0
+                        ],
+                        "max": [
+                          0.0,
+                          0.0
+                        ]
+                      },
+                      "alignment": [
+                        0,
+                        0
+                      ],
+                      "offsets": {
+                        "left": 636.0,
+                        "top": 516.0,
+                        "right": 146.0,
+                        "bottom": 18.0
+                      },
+                      "autoSize": false,
+                      "zOrder": 0
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "boxes": [
+    {
+      "id": 1,
+      "label": "BagWidget",
+      "x": 0.0,
+      "y": 0.0,
+      "w": 790.0,
+      "h": 548.0,
+      "borderColor": "#3a2810",
+      "bgColor": "rgba(13,10,6,1)",
+      "borderWidth": 0,
+      "opacity": 1,
+      "widgetType": "CanvasPanel",
+      "widgetProps": {},
+      "anchor": {
+        "minX": 0.0,
+        "minY": 0.0,
+        "maxX": 0.0,
+        "maxY": 0.0
+      },
+      "isEntryClass": false,
+      "borderRadius": 0,
+      "children": [
+        {
+          "id": 2,
+          "label": "EquipPanel",
+          "x": 4.0,
+          "y": 4.0,
+          "w": 284.0,
+          "h": 498.0,
+          "borderColor": "#6a4820",
+          "bgColor": "rgba(18,12,7,0.98)",
+          "borderWidth": 2,
+          "opacity": 1,
+          "widgetType": "Border",
+          "widgetProps": {
+            "content": ""
+          },
+          "anchor": {
+            "minX": 0.0,
+            "minY": 0.0,
+            "maxX": 0.0,
+            "maxY": 0.0
+          },
+          "isEntryClass": false,
+          "borderRadius": 6,
+          "boxShadow": "inset 0 0 20px rgba(0,0,0,0.8), 0 0 8px rgba(139,100,30,0.3)",
+          "children": [
+            {
+              "id": 3,
+              "label": "EquipTitle",
+              "x": 4.0,
+              "y": 8.0,
+              "w": 284.0,
+              "h": 22.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#c8964a",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 13,
+                "autoWrap": false,
+                "italic": false,
+                "text": "装 备"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            },
+            {
+              "id": 4,
+              "label": "HeadSlot",
+              "x": 110.0,
+              "y": 36.0,
+              "w": 68.0,
+              "h": 68.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/helmet_slot.png",
+              "bgSize": "60%",
+              "children": [
+                {
+                  "id": 15,
+                  "label": "HeadLabel",
+                  "x": 110.0,
+                  "y": 92.0,
+                  "w": 68.0,
+                  "h": 12.0,
+                  "borderColor": "rgba(0,0,0,0)",
+                  "bgColor": "rgba(0,0,0,0)",
+                  "borderWidth": 0,
+                  "opacity": 0.6,
+                  "widgetType": "TextBlock",
+                  "widgetProps": {
+                    "textColor": "#8a6040",
+                    "bold": false,
+                    "textAlign": "center",
+                    "fontSize": 10,
+                    "autoWrap": false,
+                    "italic": false,
+                    "text": "头盔"
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "isEntryClass": false,
+                  "borderRadius": 0
+                }
+              ]
+            },
+            {
+              "id": 5,
+              "label": "NeckSlot",
+              "x": 196.0,
+              "y": 38.0,
+              "w": 46.0,
+              "h": 46.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/amulet_slot.png",
+              "bgSize": "60%"
+            },
+            {
+              "id": 6,
+              "label": "WeaponSlot",
+              "x": 8.0,
+              "y": 116.0,
+              "w": 60.0,
+              "h": 124.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/sword_slot.png",
+              "bgSize": "60%"
+            },
+            {
+              "id": 7,
+              "label": "ChestSlot",
+              "x": 110.0,
+              "y": 104.0,
+              "w": 72.0,
+              "h": 136.0,
+              "borderColor": "#8a6428",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 8px rgba(0,0,0,0.6)",
+              "children": [
+                {
+                  "id": 80,
+                  "label": "ChestSlotIcon",
+                  "x": 110.0,
+                  "y": 110.0,
+                  "w": 64.0,
+                  "h": 128.0,
+                  "borderColor": "transparent",
+                  "bgColor": "rgba(0,0,0,0)",
+                  "borderWidth": 0,
+                  "opacity": 0.5,
+                  "widgetType": "Image",
+                  "widgetProps": {
+                    "tintColor": "#ffffff",
+                    "imagePath": "/assets/icons/chest_slot.png",
+                    "imageDrawType": "Normal"
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "isEntryClass": false,
+                  "borderRadius": 0
+                }
+              ]
+            },
+            {
+              "id": 8,
+              "label": "OffhandSlot",
+              "x": 216.0,
+              "y": 116.0,
+              "w": 60.0,
+              "h": 124.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/shield_slot.png",
+              "bgSize": "60%"
+            },
+            {
+              "id": 9,
+              "label": "GloveSlot",
+              "x": 8.0,
+              "y": 252.0,
+              "w": 60.0,
+              "h": 60.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/gloves_slot.png",
+              "bgSize": "60%"
+            },
+            {
+              "id": 10,
+              "label": "BeltSlot",
+              "x": 104.0,
+              "y": 260.0,
+              "w": 80.0,
+              "h": 44.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/belt_slot.png",
+              "bgSize": "60%"
+            },
+            {
+              "id": 11,
+              "label": "RingL",
+              "x": 8.0,
+              "y": 326.0,
+              "w": 46.0,
+              "h": 46.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/ring_slot.png",
+              "bgSize": "60%"
+            },
+            {
+              "id": 12,
+              "label": "RingR",
+              "x": 230.0,
+              "y": 326.0,
+              "w": 46.0,
+              "h": 46.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/ring2_slot.png",
+              "bgSize": "60%"
+            },
+            {
+              "id": 13,
+              "label": "LegSlot",
+              "x": 104.0,
+              "y": 316.0,
+              "w": 80.0,
+              "h": 88.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/legs_slot.png",
+              "bgSize": "60%"
+            },
+            {
+              "id": 14,
+              "label": "BootSlot",
+              "x": 104.0,
+              "y": 412.0,
+              "w": 80.0,
+              "h": 60.0,
+              "borderColor": "#7a5828",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 4,
+              "boxShadow": "inset 0 2px 6px rgba(0,0,0,0.6)",
+              "bgImage": "/assets/icons/boots_slot.png",
+              "bgSize": "60%"
+            },
+            {
+              "id": 16,
+              "label": "ChestLabel",
+              "x": 108.0,
+              "y": 226.0,
+              "w": 72.0,
+              "h": 12.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 0.6,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#8a6040",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "胸甲"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            },
+            {
+              "id": 17,
+              "label": "Divider1",
+              "x": 8.0,
+              "y": 30.0,
+              "w": 268.0,
+              "h": 1.0,
+              "borderColor": "transparent",
+              "bgColor": "#4a3010",
+              "borderWidth": 0,
+              "opacity": 0.5,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            }
+          ]
+        },
+        {
+          "id": 20,
+          "label": "InvPanel",
+          "x": 296.0,
+          "y": 4.0,
+          "w": 490.0,
+          "h": 498.0,
+          "borderColor": "#6a4820",
+          "bgColor": "rgba(18,12,7,0.98)",
+          "borderWidth": 2,
+          "opacity": 1,
+          "widgetType": "Border",
+          "widgetProps": {
+            "content": ""
+          },
+          "anchor": {
+            "minX": 0.0,
+            "minY": 0.0,
+            "maxX": 0.0,
+            "maxY": 0.0
+          },
+          "isEntryClass": false,
+          "borderRadius": 6,
+          "boxShadow": "inset 0 0 20px rgba(0,0,0,0.8), 0 0 8px rgba(139,100,30,0.3)",
+          "children": [
+            {
+              "id": 21,
+              "label": "InvTitle",
+              "x": 296.0,
+              "y": 8.0,
+              "w": 490.0,
+              "h": 22.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#c8964a",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 13,
+                "autoWrap": false,
+                "italic": false,
+                "text": "背 包"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            },
+            {
+              "id": 22,
+              "label": "Divider2",
+              "x": 304.0,
+              "y": 30.0,
+              "w": 474.0,
+              "h": 1.0,
+              "borderColor": "transparent",
+              "bgColor": "#4a3010",
+              "borderWidth": 0,
+              "opacity": 0.5,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            },
+            {
+              "id": 23,
+              "label": "InvGrid",
+              "x": 302.0,
+              "y": 36.0,
+              "w": 478.0,
+              "h": 374.0,
+              "borderColor": "transparent",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TileView",
+              "widgetProps": {
+                "entryWidth": 48,
+                "entryHeight": 42
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0,
+              "children": [
+                {
+                  "id": 24,
+                  "label": "ItemSlot",
+                  "x": 304.0,
+                  "y": 50.0,
+                  "w": 48.0,
+                  "h": 42.0,
+                  "borderColor": "#3a2810",
+                  "bgColor": "rgba(8,5,2,0.8)",
+                  "borderWidth": 1,
+                  "opacity": 1,
+                  "widgetType": "Border",
+                  "widgetProps": {
+                    "content": ""
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "isEntryClass": false,
+                  "borderRadius": 2,
+                  "boxShadow": "inset 0 1px 3px rgba(0,0,0,0.5)"
+                }
+              ]
+            },
+            {
+              "id": 25,
+              "label": "InvDivider",
+              "x": 302.0,
+              "y": 416.0,
+              "w": 478.0,
+              "h": 1.0,
+              "borderColor": "transparent",
+              "bgColor": "#4a3010",
+              "borderWidth": 0,
+              "opacity": 0.5,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            },
+            {
+              "id": 26,
+              "label": "GoldDisplay",
+              "x": 302.0,
+              "y": 424.0,
+              "w": 220.0,
+              "h": 22.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#d4a84b",
+                "bold": false,
+                "textAlign": "left",
+                "fontSize": 11,
+                "autoWrap": false,
+                "italic": false,
+                "text": "💰  金币: 0"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            },
+            {
+              "id": 27,
+              "label": "WeightLabel",
+              "x": 302.0,
+              "y": 456.0,
+              "w": 140.0,
+              "h": 20.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 0.8,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#8a7040",
+                "bold": false,
+                "textAlign": "left",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "负重"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            },
+            {
+              "id": 28,
+              "label": "WeightBar",
+              "x": 446.0,
+              "y": 458.0,
+              "w": 340.0,
+              "h": 14.0,
+              "borderColor": "transparent",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "ProgressBar",
+              "widgetProps": {
+                "barColor": "#221100",
+                "fillColor": "#a0522d",
+                "percent": 0.3
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 3
+            },
+            {
+              "id": 29,
+              "label": "WeightValue",
+              "x": 448.0,
+              "y": 455.0,
+              "w": 326.0,
+              "h": 20.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 0.7,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#8a7040",
+                "bold": false,
+                "textAlign": "right",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "0/100"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            }
+          ]
+        },
+        {
+          "id": 40,
+          "label": "BottomBar",
+          "x": 0.0,
+          "y": 506.0,
+          "w": 790.0,
+          "h": 40.0,
+          "borderColor": "#6a4820",
+          "bgColor": "rgba(12,8,4,0.99)",
+          "borderWidth": 1,
+          "opacity": 1,
+          "widgetType": "Border",
+          "widgetProps": {
+            "content": ""
+          },
+          "anchor": {
+            "minX": 0.0,
+            "minY": 0.0,
+            "maxX": 0.0,
+            "maxY": 0.0
+          },
+          "isEntryClass": false,
+          "borderRadius": 0,
+          "boxShadow": "0 -2px 8px rgba(0,0,0,0.8)",
+          "children": [
+            {
+              "id": 41,
+              "label": "HPLabel",
+              "x": 8.0,
+              "y": 514.0,
+              "w": 26.0,
+              "h": 26.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#ff6666",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 9,
+                "autoWrap": false,
+                "italic": false,
+                "text": "HP"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            },
+            {
+              "id": 43,
+              "label": "HPText",
+              "x": 36.0,
+              "y": 514.0,
+              "w": 200.0,
+              "h": 22.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 0.8,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#ff9999",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "100 / 100"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0,
+              "children": [
+                {
+                  "id": 42,
+                  "label": "HPBar",
+                  "x": 36.0,
+                  "y": 516.0,
+                  "w": 200.0,
+                  "h": 18.0,
+                  "borderColor": "transparent",
+                  "bgColor": "rgba(0,0,0,0)",
+                  "borderWidth": 0,
+                  "opacity": 1,
+                  "widgetType": "ProgressBar",
+                  "widgetProps": {
+                    "barColor": "#330a0a",
+                    "fillColor": "#cc2244",
+                    "percent": 0.7
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "isEntryClass": false,
+                  "borderRadius": 3
+                }
+              ]
+            },
+            {
+              "id": 44,
+              "label": "PotSlot1",
+              "x": 244.0,
+              "y": 509.0,
+              "w": 34.0,
+              "h": 34.0,
+              "borderColor": "#5a3a18",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 3,
+              "boxShadow": "inset 0 1px 4px rgba(0,0,0,0.6)"
+            },
+            {
+              "id": 45,
+              "label": "PotSlot2",
+              "x": 282.0,
+              "y": 509.0,
+              "w": 34.0,
+              "h": 34.0,
+              "borderColor": "#5a3a18",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 3,
+              "boxShadow": "inset 0 1px 4px rgba(0,0,0,0.6)"
+            },
+            {
+              "id": 46,
+              "label": "PotSlot3",
+              "x": 320.0,
+              "y": 509.0,
+              "w": 34.0,
+              "h": 34.0,
+              "borderColor": "#5a3a18",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 3,
+              "boxShadow": "inset 0 1px 4px rgba(0,0,0,0.6)"
+            },
+            {
+              "id": 47,
+              "label": "PotSlot4",
+              "x": 358.0,
+              "y": 509.0,
+              "w": 34.0,
+              "h": 34.0,
+              "borderColor": "#5a3a18",
+              "bgColor": "rgba(12,8,4,0.9)",
+              "borderWidth": 1,
+              "opacity": 1,
+              "widgetType": "Border",
+              "widgetProps": {
+                "content": ""
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 3,
+              "boxShadow": "inset 0 1px 4px rgba(0,0,0,0.6)"
+            },
+            {
+              "id": 48,
+              "label": "MPLabel",
+              "x": 400.0,
+              "y": 514.0,
+              "w": 26.0,
+              "h": 26.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 1,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#6699ff",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 9,
+                "autoWrap": false,
+                "italic": false,
+                "text": "MP"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0
+            },
+            {
+              "id": 50,
+              "label": "MPText",
+              "x": 428.0,
+              "y": 514.0,
+              "w": 200.0,
+              "h": 22.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 0.8,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#99aaff",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "100 / 100"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0,
+              "children": [
+                {
+                  "id": 49,
+                  "label": "MPBar",
+                  "x": 428.0,
+                  "y": 516.0,
+                  "w": 200.0,
+                  "h": 18.0,
+                  "borderColor": "transparent",
+                  "bgColor": "rgba(0,0,0,0)",
+                  "borderWidth": 0,
+                  "opacity": 1,
+                  "widgetType": "ProgressBar",
+                  "widgetProps": {
+                    "barColor": "#0a0a33",
+                    "fillColor": "#2244cc",
+                    "percent": 0.7
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "isEntryClass": false,
+                  "borderRadius": 3
+                }
+              ]
+            },
+            {
+              "id": 52,
+              "label": "ExpLabel",
+              "x": 636.0,
+              "y": 514.0,
+              "w": 146.0,
+              "h": 22.0,
+              "borderColor": "rgba(0,0,0,0)",
+              "bgColor": "rgba(0,0,0,0)",
+              "borderWidth": 0,
+              "opacity": 0.8,
+              "widgetType": "TextBlock",
+              "widgetProps": {
+                "textColor": "#ffcc44",
+                "bold": false,
+                "textAlign": "center",
+                "fontSize": 10,
+                "autoWrap": false,
+                "italic": false,
+                "text": "EXP  30%"
+              },
+              "anchor": {
+                "minX": 0.0,
+                "minY": 0.0,
+                "maxX": 0.0,
+                "maxY": 0.0
+              },
+              "isEntryClass": false,
+              "borderRadius": 0,
+              "children": [
+                {
+                  "id": 51,
+                  "label": "ExpBar",
+                  "x": 636.0,
+                  "y": 516.0,
+                  "w": 146.0,
+                  "h": 18.0,
+                  "borderColor": "transparent",
+                  "bgColor": "rgba(0,0,0,0)",
+                  "borderWidth": 0,
+                  "opacity": 1,
+                  "widgetType": "ProgressBar",
+                  "widgetProps": {
+                    "barColor": "#221100",
+                    "fillColor": "#cc9900",
+                    "percent": 0.3
+                  },
+                  "anchor": {
+                    "minX": 0.0,
+                    "minY": 0.0,
+                    "maxX": 0.0,
+                    "maxY": 0.0
+                  },
+                  "isEntryClass": false,
+                  "borderRadius": 3
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

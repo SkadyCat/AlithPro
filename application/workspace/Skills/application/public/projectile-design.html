@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>技能目录 — 节点家族总览</title>
+<style>
+:root {
+  --bg: #0d1117; --surface: #161b22; --border: #30363d;
+  --text: #c9d1d9; --text-dim: #8b949e; --accent: #58a6ff;
+  --fire: #f97316; --ice: #38bdf8; --elec: #a78bfa;
+  --nature: #4ade80; --void: #e879f9; --holy: #fbbf24;
+  --sidebar-w: 320px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Segoe UI',system-ui,sans-serif; background:var(--bg); color:var(--text); height:100vh; overflow:hidden; }
+
+/* layout */
+.app { display:flex; height:100vh; }
+.sidebar { width:var(--sidebar-w); min-width:var(--sidebar-w); background:var(--surface); border-right:1px solid var(--border); display:flex; flex-direction:column; }
+.sidebar-header { padding:12px 16px; border-bottom:1px solid var(--border); flex-shrink:0; }
+.sidebar-header h2 { font-size:15px; font-weight:600; margin-bottom:8px; }
+.sidebar-header input { width:100%; background:var(--bg); border:1px solid var(--border); color:var(--text); padding:6px 10px; border-radius:6px; font-size:13px; outline:none; }
+.sidebar-header input:focus { border-color:var(--accent); }
+.sidebar-stats { padding:8px 16px; border-bottom:1px solid var(--border); font-size:11px; color:var(--text-dim); flex-shrink:0; display:flex; gap:12px; }
+.sidebar-stats span { white-space:nowrap; }
+.tree { flex:1; overflow-y:auto; padding:4px 0; }
+
+/* tree nodes */
+.tree-group { }
+.tree-group-header { padding:6px 12px; font-size:13px; font-weight:600; color:var(--text); cursor:pointer; display:flex; align-items:center; gap:6px; user-select:none; }
+.tree-group-header:hover { background:rgba(88,166,255,0.06); }
+.tree-group-header .arrow { font-size:10px; color:var(--text-dim); transition:transform .15s; display:inline-block; width:14px; text-align:center; }
+.tree-group-header .arrow.open { transform:rotate(90deg); }
+.tree-group-header .cnt { margin-left:auto; font-size:11px; color:var(--text-dim); font-weight:400; }
+.tree-group-body { display:none; }
+.tree-group-body.open { display:block; }
+
+.tree-cat { }
+.tree-cat-header { padding:4px 12px 4px 28px; font-size:12px; color:var(--text-dim); cursor:pointer; display:flex; align-items:center; gap:5px; user-select:none; }
+.tree-cat-header:hover { background:rgba(88,166,255,0.06); }
+.tree-cat-header .arrow { font-size:9px; color:var(--text-dim); transition:transform .15s; display:inline-block; width:12px; text-align:center; }
+.tree-cat-header .arrow.open { transform:rotate(90deg); }
+.tree-cat-header .cnt { margin-left:auto; font-size:10px; }
+.tree-cat-body { display:none; }
+.tree-cat-body.open { display:block; }
+
+.tree-item { padding:3px 12px 3px 44px; font-size:12px; cursor:pointer; color:var(--text-dim); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; user-select:none; display:flex; align-items:center; gap:6px; }
+.tree-item:hover { background:rgba(88,166,255,0.08); color:var(--text); }
+.tree-item.active { background:rgba(88,166,255,0.14); color:var(--accent); font-weight:600; }
+.tree-item canvas { flex-shrink:0; border-radius:3px; }
+
+/* center area */
+.center { flex:1; overflow-y:auto; padding:0; display:flex; flex-direction:column; }
+.center-welcome { display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1; color:var(--text-dim); gap:12px; }
+.center-welcome .icon { font-size:64px; opacity:0.3; }
+.center-welcome p { font-size:14px; }
+
+/* detail panel */
+.detail { padding:24px 32px; flex:1; }
+.detail-top { display:flex; align-items:flex-start; gap:16px; margin-bottom:20px; }
+.detail-icon { flex-shrink:0; border-radius:10px; border:2px solid var(--border); }
+.detail-badge { font-size:11px; padding:3px 10px; border-radius:12px; font-weight:600; white-space:nowrap; flex-shrink:0; }
+.detail-badge.primary { background:#238636; color:#fff; }
+.detail-badge.passive { background:var(--accent); color:#000; }
+.detail-badge.existing { background:#8957e5; color:#fff; }
+.detail-top .names { }
+.detail-top .names h1 { font-size:22px; font-weight:700; line-height:1.3; }
+.detail-top .names .en { font-size:14px; color:var(--text-dim); font-weight:400; }
+.detail-desc { font-size:14px; color:var(--text-dim); line-height:1.6; margin-bottom:20px; padding:12px 16px; background:var(--surface); border:1px solid var(--border); border-radius:8px; }
+
+.detail-section { margin-bottom:20px; }
+.detail-section h3 { font-size:13px; font-weight:600; color:var(--accent); margin-bottom:10px; padding-bottom:6px; border-bottom:1px solid var(--border); }
+.detail-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:8px; }
+.detail-cell { display:flex; align-items:center; gap:8px; padding:8px 12px; background:var(--surface); border:1px solid var(--border); border-radius:6px; }
+.detail-cell .key { font-size:11px; color:var(--text-dim); min-width:fit-content; font-weight:600; }
+.detail-cell .val { font-size:13px; color:var(--text); word-break:break-all; }
+
+.detail-tags { display:flex; flex-wrap:wrap; gap:6px; }
+.dtag { font-size:12px; padding:4px 10px; border-radius:4px; font-weight:500; }
+.dtag.elem { background:rgba(249,115,22,0.12); }
+.dtag.form { background:rgba(88,166,255,0.12); color:var(--accent); }
+.dtag.cat { background:rgba(139,148,158,0.12); color:var(--text-dim); }
+
+.callwords-box { font-size:12px; color:var(--text-dim); padding:10px 14px; background:var(--bg); border:1px solid var(--border); border-radius:6px; font-family:monospace; line-height:1.6; word-break:break-all; }
+
+/* loading */
+.loading-msg { text-align:center; padding:40px; color:var(--text-dim); font-size:14px; }
+
+/* element colors */
+.elem-fire { color: #f97316; } .elem-ice { color: #38bdf8; } .elem-thunder { color: #a78bfa; }
+.elem-poison { color: #4ade80; } .elem-water { color: #06b6d4; } .elem-dark { color: #e879f9; }
+.elem-light { color: #fbbf24; } .elem-wind { color: #94a3b8; } .elem-earth { color: #a16207; }
+.elem-void { color: #f43f5e; }
+</style>
+</head>
+<body>
+
+<div class="app">
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <h2>🎯 技能节点家族</h2>
+      <input type="text" id="tree-search" placeholder="搜索节点（名称 / 类名）...">
+    </div>
+    <div class="sidebar-stats" id="stats"></div>
+    <div class="tree" id="tree"></div>
+  </div>
+  <div class="center" id="center">
+    <div class="center-welcome">
+      <div class="icon">🎯</div>
+      <p>在左侧选择一个技能节点查看详情</p>
+    </div>
+  </div>
+</div>
+
+<script>
+const ELEM_ICONS = {fire:'🔥',ice:'❄️',thunder:'⚡',poison:'🧪',water:'💧',dark:'🌑',light:'☀️',wind:'🌪️',earth:'🪨',void:'🌀'};
+const ELEM_COLORS = {fire:'#f97316',ice:'#38bdf8',thunder:'#a78bfa',poison:'#4ade80',water:'#06b6d4',dark:'#e879f9',light:'#fbbf24',wind:'#94a3b8',earth:'#a16207',void:'#f43f5e'};
+const FORM_ICONS = {projectile:'🎯',ground_target:'⭕',persistent_zone:'🌀',melee:'⚔️',summon:'👻',aura:'💫',self_buff:'🛡️',channeling:'🔮',dash:'💨',trap:'🪤'};
+const FORM_NAMES = {projectile:'投射物',ground_target:'地面指向',persistent_zone:'持续区域',melee:'近战',summon:'召唤',aura:'光环',self_buff:'自我增益',channeling:'引导',dash:'冲刺',trap:'陷阱'};
+const CAT_ICONS = {trajectory:'🔀',split:'💥',element:'✨',speed:'⚡',range:'📏',duration:'⏱️',damage:'🗡️',effect:'🎭',defense:'🛡️',control:'🎯'};
+const CAT_NAMES = {trajectory:'轨迹修改',split:'分裂生成',element:'元素附魔',speed:'速度调节',range:'范围变化',duration:'持续时间',damage:'伤害增强',effect:'效果触发',defense:'防御减伤',control:'控制效果'};
+
+// ═══ ICON GENERATOR ═════════════════════════════════════════════════════
+const ICON_CACHE = {};
+const CAT_COLORS = {trajectory:'#58a6ff',split:'#f97316',element:'#e879f9',speed:'#fbbf24',range:'#4ade80',duration:'#06b6d4',damage:'#ef4444',effect:'#a78bfa',defense:'#94a3b8',control:'#38bdf8'};
+
+function hashSeed(str) {
+  let h = 0;
+  for (let i = 0; i < str.length; i++) h = ((h << 5) - h + str.charCodeAt(i)) | 0;
+  return Math.abs(h);
+}
+
+function generateIcon(skill, size) {
+  const key = `${skill.className||skill.skillName}_${size}`;
+  if (ICON_CACHE[key]) return ICON_CACHE[key].cloneNode();
+
+  const canvas = document.createElement('canvas');
+  canvas.width = size; canvas.height = size;
+  const ctx = canvas.getContext('2d');
+  const s = hashSeed(skill.className || skill.skillName || 'x');
+  const cx = size / 2, cy = size / 2, r = size * 0.42;
+
+  // Determine colors
+  const elem = (skill.elementTypes || [])[0];
+  const cat = skill.category || '';
+  const ft = skill.formType || '';
+  let c1, c2;
+  if (elem) {
+    c1 = ELEM_COLORS[elem] || '#58a6ff';
+    c2 = shiftHue(c1, 30 + (s % 30));
+  } else if (cat) {
+    c1 = CAT_COLORS[cat] || '#58a6ff';
+    c2 = shiftHue(c1, 25 + (s % 35));
+  } else if (ft) {
+    c1 = '#58a6ff';
+    c2 = '#a78bfa';
+  } else {
+    c1 = '#8b949e'; c2 = '#58a6ff';
+  }
+
+  // Background gradient
+  const bg = ctx.createRadialGradient(cx * 0.7, cy * 0.7, 0, cx, cy, r * 1.4);
+  bg.addColorStop(0, c1 + 'cc');
+  bg.addColorStop(1, c2 + '88');
+  ctx.fillStyle = '#161b22';
+  ctx.fillRect(0, 0, size, size);
+  ctx.fillStyle = bg;
+  ctx.beginPath();
+  ctx.arc(cx, cy, r * 1.1, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Draw shape based on type
+  ctx.fillStyle = '#fff';
+  ctx.strokeStyle = 'rgba(255,255,255,0.6)';
+  ctx.lineWidth = Math.max(1, size * 0.03);
+
+  const shape = cat || ft || 'default';
+  drawShape(ctx, shape, cx, cy, r * 0.55, s);
+
+  // Subtle inner ring
+  ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+  ctx.lineWidth = Math.max(1, size * 0.02);
+  ctx.beginPath();
+  ctx.arc(cx, cy, r * 0.85, 0, Math.PI * 2);
+  ctx.stroke();
+
+  ICON_CACHE[key] = canvas;
+  return transferCanvas(canvas);
+}
+
+function transferCanvas(src) {
+  const c = document.createElement('canvas');
+  c.width = src.width; c.height = src.height;
+  c.getContext('2d').drawImage(src, 0, 0);
+  return c;
+}
+
+function drawShape(ctx, shape, cx, cy, r, seed) {
+  ctx.save();
+  ctx.fillStyle = 'rgba(255,255,255,0.85)';
+  switch (shape) {
+    case 'trajectory': // arrow
+      ctx.beginPath();
+      ctx.moveTo(cx + r, cy);
+      ctx.lineTo(cx - r * 0.4, cy - r * 0.6);
+      ctx.lineTo(cx - r * 0.1, cy);
+      ctx.lineTo(cx - r * 0.4, cy + r * 0.6);
+      ctx.closePath(); ctx.fill();
+      break;
+    case 'split': // burst star
+      drawStar(ctx, cx, cy, r, 6 + (seed % 3), 0.45);
+      break;
+    case 'element': // diamond
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - r);
+      ctx.lineTo(cx + r * 0.7, cy);
+      ctx.lineTo(cx, cy + r);
+      ctx.lineTo(cx - r * 0.7, cy);
+      ctx.closePath(); ctx.fill();
+      break;
+    case 'speed': // lightning bolt
+      ctx.beginPath();
+      ctx.moveTo(cx - r * 0.15, cy - r);
+      ctx.lineTo(cx + r * 0.5, cy - r);
+      ctx.lineTo(cx + r * 0.05, cy - r * 0.05);
+      ctx.lineTo(cx + r * 0.4, cy - r * 0.05);
+      ctx.lineTo(cx - r * 0.2, cy + r);
+      ctx.lineTo(cx + r * 0.1, cy + r * 0.1);
+      ctx.closePath(); ctx.fill();
+      break;
+    case 'range': // crosshair circles
+      ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+      ctx.lineWidth = r * 0.12;
+      ctx.beginPath(); ctx.arc(cx, cy, r * 0.8, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.arc(cx, cy, r * 0.35, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.beginPath(); ctx.arc(cx, cy, r * 0.12, 0, Math.PI * 2); ctx.fill();
+      break;
+    case 'duration': // hourglass
+      ctx.beginPath();
+      ctx.moveTo(cx - r * 0.5, cy - r);
+      ctx.lineTo(cx + r * 0.5, cy - r);
+      ctx.lineTo(cx + r * 0.1, cy);
+      ctx.lineTo(cx + r * 0.5, cy + r);
+      ctx.lineTo(cx - r * 0.5, cy + r);
+      ctx.lineTo(cx - r * 0.1, cy);
+      ctx.closePath(); ctx.fill();
+      break;
+    case 'damage': // sword
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - r);
+      ctx.lineTo(cx + r * 0.15, cy + r * 0.3);
+      ctx.lineTo(cx + r * 0.45, cy + r * 0.45);
+      ctx.lineTo(cx, cy + r * 0.15);
+      ctx.lineTo(cx - r * 0.45, cy + r * 0.45);
+      ctx.lineTo(cx - r * 0.15, cy + r * 0.3);
+      ctx.closePath(); ctx.fill();
+      break;
+    case 'effect': // spiral dots
+      for (let i = 0; i < 8; i++) {
+        const a = (Math.PI * 2 / 8) * i + (seed % 10) * 0.1;
+        const dr = r * (0.4 + (i % 3) * 0.2);
+        ctx.beginPath();
+        ctx.arc(cx + Math.cos(a) * dr, cy + Math.sin(a) * dr, r * 0.13, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      break;
+    case 'defense': // shield
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - r);
+      ctx.lineTo(cx + r * 0.75, cy - r * 0.5);
+      ctx.lineTo(cx + r * 0.6, cy + r * 0.4);
+      ctx.lineTo(cx, cy + r);
+      ctx.lineTo(cx - r * 0.6, cy + r * 0.4);
+      ctx.lineTo(cx - r * 0.75, cy - r * 0.5);
+      ctx.closePath(); ctx.fill();
+      break;
+    case 'control': // target
+      ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+      ctx.lineWidth = r * 0.1;
+      ctx.beginPath(); ctx.arc(cx, cy, r * 0.7, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx, cy - r); ctx.lineTo(cx, cy + r); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx - r, cy); ctx.lineTo(cx + r, cy); ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.beginPath(); ctx.arc(cx, cy, r * 0.18, 0, Math.PI * 2); ctx.fill();
+      break;
+    case 'projectile': // bullet shape
+      ctx.beginPath();
+      ctx.ellipse(cx, cy, r * 0.35, r * 0.8, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - r);
+      ctx.lineTo(cx + r * 0.35, cy - r * 0.3);
+      ctx.lineTo(cx - r * 0.35, cy - r * 0.3);
+      ctx.closePath(); ctx.fill();
+      break;
+    case 'ground_target': // target on ground
+      ctx.strokeStyle = 'rgba(255,255,255,0.8)';
+      ctx.lineWidth = r * 0.1;
+      ctx.beginPath(); ctx.ellipse(cx, cy + r * 0.2, r * 0.8, r * 0.4, 0, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(cx, cy + r * 0.2, r * 0.4, r * 0.2, 0, 0, Math.PI * 2); ctx.stroke();
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.beginPath(); ctx.arc(cx, cy + r * 0.2, r * 0.08, 0, Math.PI * 2); ctx.fill();
+      break;
+    case 'persistent_zone': // swirl
+      ctx.strokeStyle = 'rgba(255,255,255,0.8)';
+      ctx.lineWidth = r * 0.12;
+      ctx.beginPath();
+      for (let i = 0; i <= 720; i += 5) {
+        const a = (i * Math.PI) / 180;
+        const sr = r * 0.15 + (i / 720) * r * 0.65;
+        const x = cx + Math.cos(a) * sr, y = cy + Math.sin(a) * sr;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      break;
+    case 'melee': // crossed swords
+      ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+      ctx.lineWidth = r * 0.15;
+      ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(cx - r * 0.7, cy - r * 0.7); ctx.lineTo(cx + r * 0.7, cy + r * 0.7); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx + r * 0.7, cy - r * 0.7); ctx.lineTo(cx - r * 0.7, cy + r * 0.7); ctx.stroke();
+      break;
+    case 'summon': // ghost
+      ctx.beginPath();
+      ctx.arc(cx, cy - r * 0.2, r * 0.5, Math.PI, 0);
+      ctx.lineTo(cx + r * 0.5, cy + r * 0.5);
+      for (let i = 0; i < 4; i++) {
+        const x1 = cx + r * 0.5 - (r / 4) * (i + 0.5);
+        ctx.quadraticCurveTo(x1, cy + r * (i % 2 ? 0.3 : 0.8), cx + r * 0.5 - (r / 4) * (i + 1), cy + r * 0.5);
+      }
+      ctx.closePath(); ctx.fill();
+      break;
+    case 'aura': // concentric rings
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+      ctx.lineWidth = r * 0.08;
+      [0.35, 0.6, 0.85].forEach(f => { ctx.beginPath(); ctx.arc(cx, cy, r * f, 0, Math.PI * 2); ctx.stroke(); });
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.beginPath(); ctx.arc(cx, cy, r * 0.12, 0, Math.PI * 2); ctx.fill();
+      break;
+    case 'self_buff': // up arrow in shield
+      ctx.beginPath();
+      ctx.moveTo(cx, cy - r * 0.7);
+      ctx.lineTo(cx + r * 0.4, cy + r * 0.1);
+      ctx.lineTo(cx + r * 0.15, cy + r * 0.1);
+      ctx.lineTo(cx + r * 0.15, cy + r * 0.7);
+      ctx.lineTo(cx - r * 0.15, cy + r * 0.7);
+      ctx.lineTo(cx - r * 0.15, cy + r * 0.1);
+      ctx.lineTo(cx - r * 0.4, cy + r * 0.1);
+      ctx.closePath(); ctx.fill();
+      break;
+    case 'channeling': // beam lines
+      ctx.strokeStyle = 'rgba(255,255,255,0.7)';
+      ctx.lineWidth = r * 0.08;
+      for (let i = 0; i < 6; i++) {
+        const a = (Math.PI * 2 / 6) * i;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(a) * r * 0.2, cy + Math.sin(a) * r * 0.2);
+        ctx.lineTo(cx + Math.cos(a) * r, cy + Math.sin(a) * r);
+        ctx.stroke();
+      }
+      ctx.fillStyle = 'rgba(255,255,255,0.9)';
+      ctx.beginPath(); ctx.arc(cx, cy, r * 0.2, 0, Math.PI * 2); ctx.fill();
+      break;
+    case 'dash': // motion lines
+      ctx.fillStyle = 'rgba(255,255,255,0.85)';
+      ctx.beginPath();
+      ctx.moveTo(cx + r * 0.8, cy);
+      ctx.lineTo(cx - r * 0.2, cy - r * 0.5);
+      ctx.lineTo(cx, cy);
+      ctx.lineTo(cx - r * 0.2, cy + r * 0.5);
+      ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+      ctx.lineWidth = r * 0.08;
+      [-0.3, -0.5, -0.7].forEach(dx => {
+        ctx.beginPath(); ctx.moveTo(cx + r * dx, cy - r * 0.3); ctx.lineTo(cx + r * dx, cy + r * 0.3); ctx.stroke();
+      });
+      break;
+    case 'trap': // jaw/trap
+      ctx.beginPath();
+      ctx.moveTo(cx - r * 0.8, cy);
+      for (let i = 0; i < 5; i++) {
+        ctx.lineTo(cx - r * 0.8 + (r * 1.6 / 5) * (i + 0.5), cy - r * 0.6);
+        ctx.lineTo(cx - r * 0.8 + (r * 1.6 / 5) * (i + 1), cy);
+      }
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(cx - r * 0.8, cy);
+      for (let i = 0; i < 5; i++) {
+        ctx.lineTo(cx - r * 0.8 + (r * 1.6 / 5) * (i + 0.5), cy + r * 0.6);
+        ctx.lineTo(cx - r * 0.8 + (r * 1.6 / 5) * (i + 1), cy);
+      }
+      ctx.stroke();
+      break;
+    default: // circle with dot
+      ctx.beginPath(); ctx.arc(cx, cy, r * 0.5, 0, Math.PI * 2); ctx.fill();
+  }
+  ctx.restore();
+}
+
+function drawStar(ctx, cx, cy, r, points, innerRatio) {
+  ctx.beginPath();
+  for (let i = 0; i <= points * 2; i++) {
+    const a = (Math.PI * 2 / (points * 2)) * i - Math.PI / 2;
+    const sr = (i % 2 === 0) ? r : r * innerRatio;
+    const x = cx + Math.cos(a) * sr, y = cy + Math.sin(a) * sr;
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  }
+  ctx.closePath(); ctx.fill();
+}
+
+function shiftHue(hex, deg) {
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  const max = Math.max(r, g, b), min = Math.min(r, g, b), d = max - min;
+  let h = 0, s = max === 0 ? 0 : d / max, v = max;
+  if (d !== 0) {
+    if (max === r) h = ((g - b) / d + 6) % 6;
+    else if (max === g) h = (b - r) / d + 2;
+    else h = (r - g) / d + 4;
+    h *= 60;
+  }
+  h = (h + deg) % 360;
+  const c = v * s, x = c * (1 - Math.abs((h / 60) % 2 - 1)), m = v - c;
+  let r2, g2, b2;
+  if (h < 60) [r2, g2, b2] = [c, x, 0];
+  else if (h < 120) [r2, g2, b2] = [x, c, 0];
+  else if (h < 180) [r2, g2, b2] = [0, c, x];
+  else if (h < 240) [r2, g2, b2] = [0, x, c];
+  else if (h < 300) [r2, g2, b2] = [x, 0, c];
+  else [r2, g2, b2] = [c, 0, x];
+  const toHex = v => Math.round((v + m) * 255).toString(16).padStart(2, '0');
+  return `#${toHex(r2)}${toHex(g2)}${toHex(b2)}`;
+}
+
+const existingPrimaries = [
+  { className:'AbyssalFireRite', skillName:'深渊火仪式', type:'existing', formType:'projectile', elementTypes:['fire'], desc:'火焰投射物基础主技能', assetId:'-' },
+  { className:'DeepSeaFrostSoul', skillName:'深海霜魂', type:'existing', formType:'projectile', elementTypes:['ice'], desc:'冰霜投射物基础主技能', assetId:'-' },
+  { className:'HeavenlyThunder', skillName:'天罚之雷', type:'existing', formType:'projectile', elementTypes:['thunder'], desc:'雷电投射物基础主技能', assetId:'-' },
+];
+
+const existingPassives = [
+  { className:'MagicProjectileStraightShot', skillName:'直射', type:'existing', category:'trajectory', desc:'直线弹道，忽略重力', nodeProps:{speed:100,radius:1000}, behavior:'UBulletVelocitySet', assetId:'-' },
+  { className:'MagicProjectileAccelerate', skillName:'加速', type:'existing', category:'trajectory', desc:'投射物加速1.5倍', nodeProps:{accelerationFactor:1.5}, behavior:'UBulletAccelerateBehavior', assetId:'-' },
+  { className:'MagicProjectileCurveHoming', skillName:'曲线追踪', type:'existing', category:'trajectory', desc:'曲线追踪最近敌人', nodeProps:{speed:500,radius:1000}, behavior:'UBulletCurveBehavior', assetId:'-' },
+  { className:'MagicProjectileSpiralTracking', skillName:'螺旋追踪', type:'existing', category:'trajectory', desc:'锁定目标追踪', nodeProps:{trackingRange:1000,updateInterval:0.2,avoidRadius:200}, behavior:'UBulletTrackingBehavior', assetId:'-' },
+  { className:'MagicProjectileBounce', skillName:'弹射', type:'existing', category:'trajectory', desc:'弹跳20次', nodeProps:{bounceHeight:100,bounceTimes:20,airDrag:2}, behavior:'UBulletBounceBehavior', assetId:'-' },
+  { className:'MagicProjectileSplit', skillName:'分裂', type:'existing', category:'split', desc:'飞行200u后分裂为3发', nodeProps:{splitCount:3,splitAngle:60,triggerDist:200}, behavior:'UBulletSplitBehavior', assetId:'-' },
+  { className:'MagicProjectileRing', skillName:'环形分裂', type:'existing', category:'split', desc:'环形生成4发投射物', nodeProps:{count:4,radius:200}, behavior:'UBulletRingBehavior', assetId:'-' },
+  { className:'MagicProjectileBounceScatter', skillName:'弹射散射', type:'existing', category:'split', desc:'每次弹跳射出4发子弹', nodeProps:{shootCount:4}, behavior:'Bounce+Shoot', assetId:'-' },
+  { className:'MagicProjectileFireExplosion', skillName:'火焰爆炸', type:'existing', category:'effect', desc:'碰撞时触发火焰爆炸', nodeProps:{element:'fire'}, behavior:'PassiveExplosion', assetId:'-' },
+  { className:'MagicProjectileBounceBlast', skillName:'弹射爆破', type:'existing', category:'effect', desc:'弹跳产生电弧爆炸', nodeProps:{duration:'1s',destroyOnTrigger:false}, behavior:'Bounce+Explode', assetId:'-' },
+  { className:'MagicProjectileSkyDrop', skillName:'天降', type:'existing', category:'trajectory', desc:'从目标上方300u垂直坠落', nodeProps:{topOffset:'300z',speedMul:'10x'}, behavior:'PositionOverride', assetId:'-' },
+];
+
+const combos = [
+  { className:'Combo_HellStorm', skillName:'地狱风暴', type:'combo', desc:'火球分裂为3发加速弹，各自碰撞时引发火焰爆炸', chain:'深渊焚祭 → 分裂 → 加速 → 火焰爆炸' },
+  { className:'Combo_LightningJudge', skillName:'闪电审判阵', type:'combo', desc:'环形4发闪电球从天降下，覆盖圆形区域轰炸', chain:'天罚之雷 → 环形分裂 → 天降' },
+  { className:'Combo_BounceFragRain', skillName:'弹跳碎片雨', type:'combo', desc:'冰球弹跳20次，每次射出4发碎片并产生电弧爆炸', chain:'深海冻魄 → 弹射 → 弹射散射 → 弹射爆破' },
+  { className:'Combo_TrackSplitNova', skillName:'追踪分裂新星', type:'combo', desc:'火球追踪最近敌人，命中前分裂3发，各发8方向新星', chain:'深渊焚祭 → 螺旋追踪 → 分裂 → 毁灭新星' },
+  { className:'Combo_PierceChainFrost', skillName:'穿透连锁冰霜', type:'combo', desc:'冰弹穿透3个敌人后连锁跳转5次，每次命中冻结', chain:'深海冻魄 → 虚无穿刺 → 闪电链 → 冰封触碰' },
+  { className:'Combo_ChargedBoomerang', skillName:'蓄力回旋火球', type:'combo', desc:'蓄力后火球飞出并返回，路径留下火焰地带', chain:'深渊焚祭 → 蓄力强化 → 回旋飞镖 → 灼热地面' },
+  { className:'Combo_CritReap', skillName:'暴击收割链', type:'combo', desc:'雷击暴击时额外生成追踪弹，击杀后灵魂追踪下一目标', chain:'天罚之雷 → 暴击连锁 → 毁灭一击 → 灵魂收割' },
+  { className:'Combo_SpiralPoison', skillName:'距离螺旋毒弹', type:'combo', desc:'螺旋飞行扩大命中面积，距离越远伤害越高，命中叠毒', chain:'深海冻魄 → 螺旋弹道 → 距离增伤 → 灵魂腐蚀' },
+];
+
+let catalog = null;
+let allSkills = [];
+let activeItem = null;
+
+async function init() {
+  try {
+    const res = await fetch('/skill-catalog.json');
+    catalog = await res.json();
+  } catch(e) {
+    document.getElementById('tree').innerHTML = '<div class="loading-msg">加载 skill-catalog.json 失败</div>';
+    return;
+  }
+
+  // Build flat skill list with unified shape
+  catalog.primaries.forEach(s => {
+    s.type = 'primary';
+    allSkills.push(s);
+  });
+  catalog.passives.forEach(s => {
+    s.type = 'passive';
+    allSkills.push(s);
+  });
+  existingPrimaries.forEach(s => allSkills.push(s));
+  existingPassives.forEach(s => allSkills.push(s));
+  combos.forEach(s => allSkills.push(s));
+
+  document.getElementById('stats').innerHTML =
+    `<span>主技能 ${catalog.primaries.length}</span>` +
+    `<span>辅助石 ${catalog.passives.length}</span>` +
+    `<span>现有 ${existingPrimaries.length + existingPassives.length}</span>` +
+    `<span>组合 ${combos.length}</span>`;
+
+  buildTree('');
+  document.getElementById('tree-search').addEventListener('input', e => buildTree(e.target.value.toLowerCase()));
+}
+
+function buildTree(query) {
+  const tree = document.getElementById('tree');
+  tree.innerHTML = '';
+
+  // Helper: filter skills by query
+  const match = s => !query ||
+    (s.skillName||'').toLowerCase().includes(query) ||
+    (s.className||'').toLowerCase().includes(query);
+
+  // ── Group 1: Primary skills by formType ──
+  const primaries = catalog.primaries.filter(match);
+  const pGroups = {};
+  primaries.forEach(s => { (pGroups[s.formType] = pGroups[s.formType] || []).push(s); });
+
+  if (primaries.length > 0) {
+    tree.appendChild(makeGroup(`🎯 主技能`, primaries.length, Object.entries(pGroups).map(([ft, skills]) => ({
+      label: `${FORM_ICONS[ft]||''} ${FORM_NAMES[ft]||ft}`,
+      count: skills.length,
+      items: skills.map(s => ({ label: s.skillName, sub: s.className, data: s })),
+    })), !query));
+  }
+
+  // ── Group 2: Passive skills by category ──
+  const passives = catalog.passives.filter(match);
+  const paGroups = {};
+  passives.forEach(s => { (paGroups[s.category] = paGroups[s.category] || []).push(s); });
+
+  if (passives.length > 0) {
+    tree.appendChild(makeGroup(`💎 辅助石`, passives.length, Object.entries(paGroups).map(([cat, skills]) => ({
+      label: `${CAT_ICONS[cat]||''} ${CAT_NAMES[cat]||cat}`,
+      count: skills.length,
+      items: skills.map(s => ({ label: s.skillName, sub: s.className, data: s })),
+    })), !query));
+  }
+
+  // ── Group 3: Existing skills ──
+  const existPri = existingPrimaries.filter(match);
+  const existPas = existingPassives.filter(match);
+  if (existPri.length + existPas.length > 0) {
+    const cats = [];
+    if (existPri.length) cats.push({ label: '⚡ 主技能', count: existPri.length, items: existPri.map(s => ({ label: s.skillName, sub: s.className, data: s })) });
+    if (existPas.length) {
+      const epGroups = {};
+      existPas.forEach(s => { (epGroups[s.category] = epGroups[s.category] || []).push(s); });
+      Object.entries(epGroups).forEach(([cat, skills]) => {
+        cats.push({ label: `${CAT_ICONS[cat]||''} ${CAT_NAMES[cat]||cat}`, count: skills.length, items: skills.map(s => ({ label: s.skillName, sub: s.className, data: s })) });
+      });
+    }
+    tree.appendChild(makeGroup('⚡ 现有技能', existPri.length + existPas.length, cats, true));
+  }
+
+  // ── Group 4: Combos ──
+  const filtCombos = combos.filter(match);
+  if (filtCombos.length > 0) {
+    tree.appendChild(makeGroup('🔗 组合链', filtCombos.length, [{
+      label: '🔗 组合',
+      count: filtCombos.length,
+      items: filtCombos.map(s => ({ label: s.skillName, sub: s.className, data: s })),
+    }], true));
+  }
+}
+
+function makeGroup(title, count, categories, defaultOpen) {
+  const group = document.createElement('div');
+  group.className = 'tree-group';
+
+  const header = document.createElement('div');
+  header.className = 'tree-group-header';
+  header.innerHTML = `<span class="arrow ${defaultOpen ? 'open' : ''}">▶</span> ${title} <span class="cnt">${count}</span>`;
+
+  const body = document.createElement('div');
+  body.className = 'tree-group-body' + (defaultOpen ? ' open' : '');
+
+  categories.forEach(cat => {
+    const catEl = document.createElement('div');
+    catEl.className = 'tree-cat';
+
+    const catHeader = document.createElement('div');
+    catHeader.className = 'tree-cat-header';
+    catHeader.innerHTML = `<span class="arrow">▶</span> ${cat.label} <span class="cnt">${cat.count}</span>`;
+
+    const catBody = document.createElement('div');
+    catBody.className = 'tree-cat-body';
+
+    cat.items.forEach(item => {
+      const el = document.createElement('div');
+      el.className = 'tree-item';
+      el.appendChild(generateIcon(item.data, 20));
+      el.appendChild(document.createTextNode(item.label));
+      el.title = `${item.label} (${item.sub})`;
+      el.addEventListener('click', () => selectSkill(item.data, el));
+      catBody.appendChild(el);
+    });
+
+    catHeader.addEventListener('click', () => {
+      catBody.classList.toggle('open');
+      catHeader.querySelector('.arrow').classList.toggle('open');
+    });
+
+    catEl.appendChild(catHeader);
+    catEl.appendChild(catBody);
+    body.appendChild(catEl);
+  });
+
+  header.addEventListener('click', () => {
+    body.classList.toggle('open');
+    header.querySelector('.arrow').classList.toggle('open');
+  });
+
+  group.appendChild(header);
+  group.appendChild(body);
+  return group;
+}
+
+function selectSkill(skill, el) {
+  // Highlight active
+  document.querySelectorAll('.tree-item.active').forEach(e => e.classList.remove('active'));
+  if (el) el.classList.add('active');
+  activeItem = skill;
+
+  const center = document.getElementById('center');
+  center.innerHTML = '';
+
+  const detail = document.createElement('div');
+  detail.className = 'detail';
+
+  // Top: icon + badge + names
+  const badgeClass = skill.type === 'combo' ? 'existing' : (skill.type || 'primary');
+  const badgeText = skill.type === 'primary' ? '主技能' : skill.type === 'passive' ? '辅助石' : skill.type === 'combo' ? '组合链' : '现有';
+
+  const topDiv = document.createElement('div');
+  topDiv.className = 'detail-top';
+  const bigIcon = generateIcon(skill, 72);
+  bigIcon.className = 'detail-icon';
+  topDiv.appendChild(bigIcon);
+  const infoDiv = document.createElement('div');
+  infoDiv.innerHTML = `
+      <span class="detail-badge ${badgeClass}">${badgeText}</span>
+      <div class="names">
+        <h1>${skill.skillName} <span class="en">${skill.className || ''}</span></h1>
+      </div>
+  `;
+  topDiv.appendChild(infoDiv);
+  detail.appendChild(topDiv);
+
+  // Description
+  if (skill.desc) {
+    const descEl = document.createElement('div');
+    descEl.className = 'detail-desc';
+    descEl.textContent = skill.desc;
+    detail.appendChild(descEl);
+  }
+
+  // Combo chain
+  if (skill.chain) {
+    const sec = makeSection('🔗 组合链路');
+    const chainBox = document.createElement('div');
+    chainBox.className = 'callwords-box';
+    chainBox.textContent = skill.chain;
+    sec.appendChild(chainBox);
+    detail.appendChild(sec);
+  }
+
+  // Tags section (element, form, category)
+  const tags = [];
+  if (skill.formType) tags.push(`<span class="dtag form">${FORM_ICONS[skill.formType]||''} ${FORM_NAMES[skill.formType]||skill.formType}</span>`);
+  if (skill.category) tags.push(`<span class="dtag cat">${CAT_ICONS[skill.category]||''} ${CAT_NAMES[skill.category]||skill.category}</span>`);
+  (skill.elementTypes || []).forEach(e => {
+    tags.push(`<span class="dtag elem" style="color:${ELEM_COLORS[e]||'var(--text)'}">${ELEM_ICONS[e]||''} ${e}</span>`);
+  });
+  if (tags.length) {
+    const sec = makeSection('🏷️ 标签');
+    const tagsDiv = document.createElement('div');
+    tagsDiv.className = 'detail-tags';
+    tagsDiv.innerHTML = tags.join('');
+    sec.appendChild(tagsDiv);
+    detail.appendChild(sec);
+  }
+
+  // Basic metadata
+  const meta = [];
+  if (skill.assetId) meta.push(['资产 ID', skill.assetId]);
+  if (skill.behavior) meta.push(['行为类', skill.behavior]);
+  if (skill.speed !== undefined) meta.push(['速度', skill.speed]);
+  if (skill.lifeSpan !== undefined) meta.push(['生命周期', skill.lifeSpan]);
+  if (meta.length) {
+    const sec = makeSection('📋 基本属性');
+    const grid = document.createElement('div');
+    grid.className = 'detail-grid';
+    meta.forEach(([k,v]) => {
+      grid.innerHTML += `<div class="detail-cell"><span class="key">${k}</span><span class="val">${v}</span></div>`;
+    });
+    sec.appendChild(grid);
+    detail.appendChild(sec);
+  }
+
+  // Node properties (passives)
+  const np = skill.nodeProps || {};
+  const npEntries = Object.entries(np);
+  if (npEntries.length > 0) {
+    const sec = makeSection('⚙️ 节点属性');
+    const grid = document.createElement('div');
+    grid.className = 'detail-grid';
+    npEntries.forEach(([k,v]) => {
+      grid.innerHTML += `<div class="detail-cell"><span class="key">${k}</span><span class="val">${v}</span></div>`;
+    });
+    sec.appendChild(grid);
+    detail.appendChild(sec);
+  }
+
+  // AIGC callwords
+  if (skill.callWords) {
+    const sec = makeSection('🎨 AIGC 提示词');
+    const box = document.createElement('div');
+    box.className = 'callwords-box';
+    box.textContent = skill.callWords;
+    sec.appendChild(box);
+    detail.appendChild(sec);
+  }
+
+  center.appendChild(detail);
+}
+
+function makeSection(title) {
+  const sec = document.createElement('div');
+  sec.className = 'detail-section';
+  sec.innerHTML = `<h3>${title}</h3>`;
+  return sec;
+}
+
+init();
+</script>
+</body>
+</html>

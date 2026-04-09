@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UMG Explorer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="topbar">
+    <h1>UMG Blueprint Explorer</h1>
+    <div id="topbar-actions">
+      <button id="btn-drafts" class="top-btn" title="查看修改意见草稿">📝 意见 (<span id="draft-count">0</span>)</button>
+      <button id="btn-submit" class="top-btn submit-btn" title="投递到 UMGEoolEx Sessions">🚀 投递到 UMGEoolEx</button>
+      <span id="status">Loading...</span>
+    </div>
+  </header>
+  <main id="app">
+    <aside id="left_menu">
+      <div class="panel-header">Blueprints</div>
+      <input type="text" id="search" placeholder="Search..." autocomplete="off">
+      <div id="file-tree"></div>
+    </aside>
+    <section id="center_area">
+      <div id="placeholder">← Select a blueprint to inspect</div>
+      <div id="asset-info" class="hidden"></div>
+      <div id="columns-container" class="hidden"></div>
+    </section>
+    <aside id="right_panel" class="hidden">
+      <div class="panel-header">Details</div>
+      <div id="detail-content"></div>
+    </aside>
+  </main>
+
+  <!-- Context menu -->
+  <div id="ctx-menu" class="ctx-menu hidden">
+    <div class="ctx-item" id="ctx-add-suggestion">📝 修改意见</div>
+  </div>
+
+  <!-- Suggestion modal -->
+  <div id="modal-overlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <span>修改意见</span>
+        <button id="modal-close" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-field">
+          <label>节点</label>
+          <input type="text" id="modal-node" readonly>
+        </div>
+        <div class="modal-field">
+          <label>资产</label>
+          <input type="text" id="modal-asset" readonly>
+        </div>
+        <div class="modal-field">
+          <label>修改意见</label>
+          <textarea id="modal-content" rows="6" placeholder="在此输入修改意见..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="modal-save" class="modal-btn save">保存</button>
+        <button id="modal-cancel" class="modal-btn cancel">取消</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Drafts panel -->
+  <div id="drafts-overlay" class="modal-overlay hidden">
+    <div class="modal drafts-modal">
+      <div class="modal-header">
+        <span>修改意见草稿</span>
+        <button id="drafts-close" class="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="drafts-list"></div>
+      <div class="modal-footer">
+        <button id="drafts-submit" class="modal-btn save">🚀 投递全部</button>
+        <button id="drafts-cancel" class="modal-btn cancel">关闭</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

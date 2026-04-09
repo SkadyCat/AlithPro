@@ -1,0 +1,56 @@
+{
+  "package": "/Game/UI/Demo/bag_button",
+  "path": "/Game/UI/Demo/bag_button",
+  "warn": "widget_tree root 不可用，降级为 ObjectIterator 平铺模式",
+  "wbp_class": "WidgetBlueprint",
+  "widgets_in_pkg": [
+    {
+      "class": "Button",
+      "extra": {
+        "style": {
+          "disabled": {
+            "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+            "resource": null
+          },
+          "hovered": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "resource": null
+          },
+          "normal": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "resource": null
+          },
+          "pressed": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "resource": null
+          }
+        }
+      },
+      "name": "btn",
+      "outer": "WidgetTree",
+      "slot": {
+        "slot_type": "OverlaySlot"
+      }
+    },
+    {
+      "class": "Overlay",
+      "extra": {},
+      "name": "Overlay_18",
+      "outer": "WidgetTree",
+      "slot": null
+    },
+    {
+      "class": "TextBlock",
+      "extra": {
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto",
+        "font_size": 24.0,
+        "text": "Text Block"
+      },
+      "name": "count",
+      "outer": "WidgetTree",
+      "slot": {
+        "slot_type": "OverlaySlot"
+      }
+    }
+  ]
+}

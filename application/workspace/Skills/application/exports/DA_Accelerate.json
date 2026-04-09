@@ -1,0 +1,42 @@
+{
+  "export_success": true,
+  "export_path": "../../../../../GameExPro3/MagicWorld/Saved/ExportedAssets.json",
+  "total_assets": 61,
+  "asset": {
+    "AssetName": "DA_Accelerate",
+    "AssetPath": "/Game/DA/Ability/DA_Accelerate.DA_Accelerate",
+    "AssetClass": "MagicProjectileAccelerate",
+    "Properties": {
+      "accelerationFactor": 1.5,
+      "abilityType": "passive",
+      "releaseType": [
+        "passive",
+        "projectile"
+      ],
+      "elementTypes": [],
+      "skillName": "虚空疾驰",
+      "desc": "感知扭曲空间的裂隙，投射物在现实与幻境之间穿梭，速度提升{SpeedPercent}%，如被古神之力牵引般疾驰而过，留下幽暗的残影轨迹（加速系数: {AccelerationFactor}）",
+      "assetId": 1769621688,
+      "icon": "/Script/Engine.Texture2D'/Game/UI/AIGCIcon/AIGC_Icon_1769703312.AIGC_Icon_1769703312'",
+      "callWords": "moba game icon, square composition, centered dark purple ethereal arrow piercing through distorted space-time vortex, glowing cyan speed lines radiating outward, deep black background with subtle cosmic nebula, golden ornate border frame, top-down view, spectral void particle trails, eldritch runes floating around edges, dramatic lighting with highlight on arrow tip, professional game UI design",
+      "assetBundleData": "",
+      "nativeClass": "/Script/AngelscriptCode.ASClass'/Script/Angelscript.MagicProjectileAccelerate'"
+    }
+  },
+  "properties": {
+    "accelerationFactor": 1.5,
+    "abilityType": "passive",
+    "releaseType": [
+      "passive",
+      "projectile"
+    ],
+    "elementTypes": [],
+    "skillName": "虚空疾驰",
+    "desc": "感知扭曲空间的裂隙，投射物在现实与幻境之间穿梭，速度提升{SpeedPercent}%，如被古神之力牵引般疾驰而过，留下幽暗的残影轨迹（加速系数: {AccelerationFactor}）",
+    "assetId": 1769621688,
+    "icon": "/Script/Engine.Texture2D'/Game/UI/AIGCIcon/AIGC_Icon_1769703312.AIGC_Icon_1769703312'",
+    "callWords": "moba game icon, square composition, centered dark purple ethereal arrow piercing through distorted space-time vortex, glowing cyan speed lines radiating outward, deep black background with subtle cosmic nebula, golden ornate border frame, top-down view, spectral void particle trails, eldritch runes floating around edges, dramatic lighting with highlight on arrow tip, professional game UI design",
+    "assetBundleData": "",
+    "nativeClass": "/Script/AngelscriptCode.ASClass'/Script/Angelscript.MagicProjectileAccelerate'"
+  }
+}

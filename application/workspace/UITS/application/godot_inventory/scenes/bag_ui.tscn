@@ -1,0 +1,933 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_m7n4a"]
+[ext_resource type="Texture2D" path="res://assets/ui/scene_bg.png" id="2_vjklv"]
+[ext_resource type="Texture2D" path="res://assets/ui/capacity_plate.png" id="3_4kv7s"]
+[ext_resource type="Texture2D" path="res://assets/ui/close_button_bg.png" id="4_e5fl0"]
+[ext_resource type="Texture2D" path="res://assets/ui/tab_active.png" id="5_gl8qy"]
+[ext_resource type="Texture2D" path="res://assets/icons/tab_equipment.png" id="6_cd8vo"]
+[ext_resource type="Texture2D" path="res://assets/ui/tab_idle.png" id="7_vp2uj"]
+[ext_resource type="Texture2D" path="res://assets/icons/tab_item.png" id="8_4wrg3"]
+[ext_resource type="Texture2D" path="res://assets/icons/tab_material.png" id="9_23blq"]
+[ext_resource type="Texture2D" path="res://assets/icons/tab_currency.png" id="10_1vrcm"]
+[ext_resource type="Texture2D" path="res://assets/ui/inventory_panel_bg.png" id="11_s5fwl"]
+[ext_resource type="Texture2D" path="res://assets/ui/item_card_bg.png" id="12_s2p32"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_piv74"]
+texture = ExtResource("4_e5fl0")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o5nxb"]
+texture = ExtResource("4_e5fl0")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wqkhw"]
+texture = ExtResource("4_e5fl0")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8xfnm"]
+texture = ExtResource("4_e5fl0")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3exs6"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_to33s"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_luom1"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8jkn0"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w3jas"]
+texture = ExtResource("7_vp2uj")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lv3tq"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vr47u"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6bhqv"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tlu0w"]
+texture = ExtResource("7_vp2uj")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eq6mc"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a5868"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5cl6"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pgnt2"]
+texture = ExtResource("7_vp2uj")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jcu5n"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ycu7r"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8hm8l"]
+texture = ExtResource("5_gl8qy")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aykgp"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bcv4b"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u2lwn"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_p4mf1"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_onljg"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5powt"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6jdfa"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qfdk2"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_672i7"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a6ld6"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jaqb5"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4fg57"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_34mhv"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3t0cq"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1y6cp"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xupkp"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2n8o1"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hjnep"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tpm8e"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g0l6g"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qmn23"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wi7wr"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1essv"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ocfqj"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljrbc"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_usou7"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l5j1n"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qeya4"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_we46u"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e84ax"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxuko"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_twvd1"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g7g06"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_158so"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_01j3y"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7l4ik"]
+texture = ExtResource("12_s2p32")
+texture_margin_left = 18.0
+texture_margin_top = 18.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+
+[node name="RootCanvas" type="Control" unique_id=119919259]
+custom_minimum_size = Vector2(1440, 900)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m7n4a")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1853989180]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.027451, 0.031373, 0.047059, 1)
+
+[node name="BackdropArt" type="TextureRect" parent="." unique_id=252074585]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("2_vjklv")
+expand_mode = 1
+
+[node name="CapacityPlate" type="TextureRect" parent="." unique_id=1192231317]
+layout_mode = 1
+offset_left = 302.0
+offset_top = 113.0
+offset_right = 442.0
+offset_bottom = 157.0
+mouse_filter = 2
+texture = ExtResource("3_4kv7s")
+expand_mode = 1
+
+[node name="CapacityLabel" type="Label" parent="." unique_id=1270857631]
+layout_mode = 1
+offset_left = 302.0
+offset_top = 113.0
+offset_right = 442.0
+offset_bottom = 157.0
+theme_override_font_sizes/font_size = 20
+text = "08 / 12"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="." unique_id=972701931]
+layout_mode = 1
+offset_left = 640.0
+offset_top = 140.0
+offset_right = 696.0
+offset_bottom = 198.0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_piv74")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_o5nxb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_wqkhw")
+theme_override_styles/focus = SubResource("StyleBoxTexture_8xfnm")
+theme_override_font_sizes/font_size = 26
+text = "×"
+
+[node name="Tabs" type="VBoxContainer" parent="." unique_id=610131525]
+layout_mode = 1
+offset_left = 173.0
+offset_top = 220.0
+offset_right = 300.0
+offset_bottom = 567.0
+theme_override_constants/separation = 9
+
+[node name="TabEquipment" type="Button" parent="Tabs" unique_id=275945263]
+custom_minimum_size = Vector2(127, 80)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_3exs6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_to33s")
+theme_override_styles/hover = SubResource("StyleBoxTexture_luom1")
+theme_override_styles/focus = SubResource("StyleBoxTexture_8jkn0")
+theme_override_font_sizes/font_size = 18
+theme_override_constants/h_separation = 8
+theme_override_constants/icon_max_width = 24
+text = "装备"
+icon = ExtResource("6_cd8vo")
+alignment = 0
+
+[node name="TabItem" type="Button" parent="Tabs" unique_id=963776502]
+custom_minimum_size = Vector2(127, 80)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_w3jas")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lv3tq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vr47u")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6bhqv")
+theme_override_font_sizes/font_size = 18
+theme_override_constants/h_separation = 8
+theme_override_constants/icon_max_width = 24
+text = "道具"
+icon = ExtResource("8_4wrg3")
+alignment = 0
+
+[node name="TabMaterial" type="Button" parent="Tabs" unique_id=1927963999]
+custom_minimum_size = Vector2(127, 80)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_tlu0w")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_eq6mc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_a5868")
+theme_override_styles/focus = SubResource("StyleBoxTexture_j5cl6")
+theme_override_font_sizes/font_size = 18
+theme_override_constants/h_separation = 8
+theme_override_constants/icon_max_width = 24
+text = "材料"
+icon = ExtResource("9_23blq")
+alignment = 0
+
+[node name="TabCurrency" type="Button" parent="Tabs" unique_id=858734882]
+custom_minimum_size = Vector2(127, 80)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_pgnt2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jcu5n")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ycu7r")
+theme_override_styles/focus = SubResource("StyleBoxTexture_8hm8l")
+theme_override_font_sizes/font_size = 18
+theme_override_constants/h_separation = 8
+theme_override_constants/icon_max_width = 24
+text = "通货"
+icon = ExtResource("10_1vrcm")
+alignment = 0
+
+[node name="InventoryPanel" type="Control" parent="." unique_id=123858675]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 300.0
+offset_top = 160.0
+offset_right = 685.0
+offset_bottom = 646.0
+
+[node name="InventoryPanelArt" type="TextureRect" parent="InventoryPanel" unique_id=627081920]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource("11_s5fwl")
+
+[node name="GridContainer" type="GridContainer" parent="InventoryPanel" unique_id=1447916965]
+layout_mode = 1
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 373.0
+offset_bottom = 474.0
+theme_override_constants/h_separation = 11
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="Item01" type="Button" parent="InventoryPanel/GridContainer" unique_id=802321336]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_aykgp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bcv4b")
+theme_override_styles/hover = SubResource("StyleBoxTexture_u2lwn")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item01" unique_id=1124032309]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item01" unique_id=205974665]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item02" type="Button" parent="InventoryPanel/GridContainer" unique_id=2028531711]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_p4mf1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_onljg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5powt")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item02" unique_id=802805963]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item02" unique_id=334897208]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item03" type="Button" parent="InventoryPanel/GridContainer" unique_id=603675792]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_6jdfa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_qfdk2")
+theme_override_styles/hover = SubResource("StyleBoxTexture_672i7")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item03" unique_id=651700851]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item03" unique_id=1331747218]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item04" type="Button" parent="InventoryPanel/GridContainer" unique_id=1481241808]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_a6ld6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jaqb5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4fg57")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item04" unique_id=823566809]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item04" unique_id=1516393517]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item05" type="Button" parent="InventoryPanel/GridContainer" unique_id=1748952195]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_34mhv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3t0cq")
+theme_override_styles/hover = SubResource("StyleBoxTexture_1y6cp")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item05" unique_id=899742388]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item05" unique_id=120419709]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item06" type="Button" parent="InventoryPanel/GridContainer" unique_id=1789766094]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_xupkp")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_2n8o1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hjnep")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item06" unique_id=573437619]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item06" unique_id=1878549421]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item07" type="Button" parent="InventoryPanel/GridContainer" unique_id=213541202]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_tpm8e")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_g0l6g")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qmn23")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item07" unique_id=615951855]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item07" unique_id=1002836946]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item08" type="Button" parent="InventoryPanel/GridContainer" unique_id=139562628]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_wi7wr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_1essv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ocfqj")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item08" unique_id=1899066463]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item08" unique_id=134364615]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item09" type="Button" parent="InventoryPanel/GridContainer" unique_id=1667796070]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_ljrbc")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_usou7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_l5j1n")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item09" unique_id=1080420132]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item09" unique_id=801200194]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item10" type="Button" parent="InventoryPanel/GridContainer" unique_id=1097909983]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_qeya4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_we46u")
+theme_override_styles/hover = SubResource("StyleBoxTexture_e84ax")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item10" unique_id=1370221092]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item10" unique_id=1977603368]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item11" type="Button" parent="InventoryPanel/GridContainer" unique_id=1540382268]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_mxuko")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_twvd1")
+theme_override_styles/hover = SubResource("StyleBoxTexture_g7g06")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item11" unique_id=323392894]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item11" unique_id=423200358]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Item12" type="Button" parent="InventoryPanel/GridContainer" unique_id=1594566910]
+custom_minimum_size = Vector2(113, 108)
+layout_mode = 2
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_158so")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_01j3y")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7l4ik")
+
+[node name="ItemIcon" type="TextureRect" parent="InventoryPanel/GridContainer/Item12" unique_id=919292163]
+layout_mode = 1
+offset_left = 18.0
+offset_top = 14.0
+offset_right = 72.0
+offset_bottom = 68.0
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="QuantityLabel" type="Label" parent="InventoryPanel/GridContainer/Item12" unique_id=1129131830]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 78.0
+offset_right = 101.0
+offset_bottom = 102.0
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.94902, 0.960784, 0.996078, 1)
+theme_override_colors/font_outline_color = Color(0.0313725, 0.0470588, 0.0784314, 1)
+theme_override_constants/outline_size = 2
+horizontal_alignment = 2
+vertical_alignment = 1

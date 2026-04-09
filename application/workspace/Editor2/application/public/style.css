@@ -1,0 +1,359 @@
+:root {
+  --bg: #0b0b10;
+  --panel: rgba(20, 20, 28, 0.92);
+  --panel-strong: rgba(28, 28, 40, 0.96);
+  --line: rgba(132, 114, 255, 0.22);
+  --line-strong: rgba(132, 114, 255, 0.45);
+  --text: #ebe7ff;
+  --text-dim: #9f97c6;
+  --gold: #d8b15d;
+  --common: #9aa0b8;
+  --rare: #64c3ff;
+  --epic: #bb86fc;
+  --legendary: #ffb454;
+  --quest: #72e3b2;
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top, rgba(107, 69, 255, 0.18), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(29, 151, 108, 0.12), transparent 25%),
+    linear-gradient(180deg, #08080d 0%, #101019 55%, #07070b 100%);
+}
+
+.page-shell {
+  width: min(1400px, calc(100vw - 32px));
+  margin: 24px auto;
+}
+
+.hero-panel,
+.panel {
+  background: linear-gradient(180deg, rgba(34, 32, 46, 0.95), rgba(17, 17, 24, 0.96));
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 28px;
+  margin-bottom: 20px;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 12px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.hero-copy {
+  max-width: 620px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 12px;
+  min-width: 380px;
+}
+
+.stat-card,
+.equip-slot,
+.item-card,
+.detail-card {
+  background: var(--panel);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.stat-card {
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.stat-card span,
+.panel-header span,
+.item-meta,
+.detail-meta,
+.empty-note {
+  color: var(--text-dim);
+}
+
+.stat-card strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.inventory-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(540px, 1fr) 320px;
+  gap: 20px;
+}
+
+.panel {
+  padding: 20px;
+}
+
+.panel-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.panel-header h2 {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.equip-slot {
+  border-radius: 16px;
+  padding: 14px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-color: rgba(255, 255, 255, 0.05);
+}
+
+.equip-icon,
+.item-icon,
+.detail-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(91, 74, 197, 0.18));
+  font-size: 26px;
+}
+
+.equip-name {
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.tab {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-dim);
+  padding: 8px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: var(--text);
+  border-color: var(--line-strong);
+  background: rgba(132, 114, 255, 0.18);
+}
+
+.inventory-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.weight-track {
+  flex: 1;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.weight-bar {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #6b45ff 0%, #d8b15d 100%);
+}
+
+.item-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.item-card {
+  border-radius: 16px;
+  padding: 14px;
+  cursor: pointer;
+  min-height: 168px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.item-card:hover,
+.item-card.active {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.rarity-badge,
+.qty-badge {
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.rarity-badge {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.qty-badge {
+  background: rgba(216, 177, 93, 0.14);
+  color: var(--gold);
+}
+
+.item-name {
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.item-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  font-size: 12px;
+}
+
+.detail-card {
+  min-height: 420px;
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.detail-card.empty {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.detail-card .detail-icon {
+  width: 72px;
+  height: 72px;
+  font-size: 36px;
+}
+
+.detail-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.detail-metric {
+  padding: 12px;
+  border-radius: 14px;
+  background: var(--panel-strong);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.rarity-common { color: var(--common); }
+.rarity-rare { color: var(--rare); }
+.rarity-epic { color: var(--epic); }
+.rarity-legendary { color: var(--legendary); }
+.rarity-quest { color: var(--quest); }
+
+.empty-note {
+  text-align: center;
+  padding: 28px 0;
+}
+
+@media (max-width: 1180px) {
+  .inventory-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .item-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-panel {
+    flex-direction: column;
+  }
+
+  .hero-stats {
+    min-width: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: calc(100vw - 20px);
+    margin: 10px auto;
+  }
+
+  .panel,
+  .hero-panel {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .hero-stats,
+  .item-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .equipment-grid {
+    grid-template-columns: 1fr;
+  }
+}

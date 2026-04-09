@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UIEditor Template Preview</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h1>UIEditor Preview</h1>
+          <button id="refreshButton" type="button">Refresh</button>
+        </div>
+        <p class="sidebar-note">Loads `template/*.session` for rendered preview and keeps `*.meta.json` for exported metadata.</p>
+        <div id="templateList" class="template-list"></div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="main-header">
+          <div>
+            <h2 id="templateTitle">No template selected</h2>
+            <p id="templateSubtitle" class="muted">Choose a template from the left.</p>
+          </div>
+          <div id="summaryBadges" class="badge-row"></div>
+        </header>
+
+        <section class="content-grid">
+          <div class="canvas-panel">
+            <div class="canvas-toolbar">
+              <span class="muted">Rendered UMG-like preview</span>
+            </div>
+            <div id="previewViewport" class="preview-viewport">
+              <div id="previewStage" class="preview-stage"></div>
+            </div>
+          </div>
+
+          <aside class="details-panel">
+            <h3>Widget details</h3>
+            <div id="widgetDetails" class="details-body muted">Select a widget to inspect its exported data.</div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

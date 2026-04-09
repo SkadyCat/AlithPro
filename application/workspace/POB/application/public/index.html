@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POB Node — Path of Building 计算器</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h2>⚔️ POB Node</h2>
+        <button id="btnNewBuild" class="btn primary btn-sm" title="导入新 Build">＋ 新建</button>
+      </div>
+      <div class="sidebar-search">
+        <input type="text" id="buildSearch" placeholder="搜索角色..." />
+      </div>
+      <div id="buildList" class="build-list">
+        <div class="build-list-empty">暂无保存的 Build</div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header>
+        <h1 id="headerTitle">⚔️ POB Node</h1>
+        <p class="subtitle" id="headerSubtitle">导入一个 Build Code 开始分析</p>
+      </header>
+
+      <main>
+        <section id="importSection" class="import-section">
+          <h2>导入 Build</h2>
+          <div class="input-group">
+            <textarea id="buildCode" rows="4" placeholder="粘贴 POB Build Code（Base64 编码字符串）..."></textarea>
+            <div class="btn-row">
+              <button id="btnDecode" class="btn primary">解码 Build</button>
+              <button id="btnCalc" class="btn accent">解码并计算</button>
+              <button id="btnClear" class="btn">清空</button>
+            </div>
+          </div>
+          <div id="errorMsg" class="error hidden"></div>
+        </section>
+
+        <section id="resultSection" class="result-section hidden">
+          <div class="tabs">
+            <button class="tab active" data-tab="summary">概览</button>
+            <button class="tab" data-tab="gems">技能宝石</button>
+            <button class="tab" data-tab="defence">防御</button>
+            <button class="tab" data-tab="offence">攻击</button>
+            <button class="tab" data-tab="damage">伤害分析</button>
+            <button class="tab" data-tab="items">装备</button>
+            <button class="tab" data-tab="tree">天赋树</button>
+            <button class="tab" data-tab="raw">原始数据</button>
+          </div>
+
+          <div id="tab-summary" class="tab-content active">
+            <div class="stat-grid" id="summaryGrid"></div>
+          </div>
+          <div id="tab-gems" class="tab-content">
+            <div id="gemSetup"></div>
+          </div>
+          <div id="tab-defence" class="tab-content">
+            <div class="stat-grid" id="defenceGrid"></div>
+          </div>
+          <div id="tab-offence" class="tab-content">
+            <div class="stat-grid" id="offenceGrid"></div>
+          </div>
+          <div id="tab-damage" class="tab-content">
+            <div id="damageBreakdown"></div>
+          </div>
+          <div id="tab-items" class="tab-content">
+            <div id="itemsList"></div>
+          </div>
+          <div id="tab-tree" class="tab-content">
+            <div id="treeInfo"></div>
+          </div>
+          <div id="tab-raw" class="tab-content">
+            <pre id="rawJson"></pre>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>POB Node v1.0.0 | Port 3225 | <a href="/api/status">API Status</a></p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="/js/mod-zh.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

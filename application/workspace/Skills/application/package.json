@@ -1,0 +1,13 @@
+{
+  "name": "skill-node-visualizer",
+  "version": "1.0.0",
+  "description": "MagicWorld 技能节点可视化工具",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.0"
+  }
+}

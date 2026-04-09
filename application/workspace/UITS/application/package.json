@@ -1,0 +1,19 @@
+{
+  "name": "uits-inventory-demo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Node.js inventory UI demo for the UITS workspace",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js",
+    "generate:bag-assets": "node godot_inventory/tools/generate_bag_assets.js",
+    "generate:bag-undead-assets": "node godot_inventory/tools/generate_bag_undead_assets.js",
+    "apply:bag-undead-assets": "node godot_inventory/tools/apply_bag_undead_assets.js",
+    "prepare:bag-aigc": "node godot_inventory/tools/prepare_bag_aigc.js",
+    "generate:bag-godot-ui": "node godot_inventory/tools/run_generate_bag_ui.js",
+    "build:bag-ui": "node godot_inventory/tools/build_bag_ui.js"
+  },
+  "dependencies": {
+    "playwright": "^1.59.1"
+  }
+}

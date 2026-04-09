@@ -1,0 +1,113 @@
+Blueprint: bag
+SceneType: Control
+Goal: 暗黑风紧凑背包 UI。四区布局——容量栏、关闭、左侧页签、中部物品格子——由 bag_dark_layout.json 定位。底图不含烤入文字，运行时由脚本叠加。
+
+[Tree]
+RootCanvas: Control
+├─ Background: ColorRect
+├─ BackdropArt: TextureRect
+├─ CapacityPlate: TextureRect
+├─ CapacityLabel: Label
+├─ CloseButton: Button
+├─ Tabs: VBoxContainer
+│  ├─ TabEquipment: Button
+│  ├─ TabItem: Button
+│  ├─ TabMaterial: Button
+│  └─ TabCurrency: Button
+└─ InventoryPanel: Control
+   ├─ InventoryPanelArt: TextureRect
+   └─ GridContainer: GridContainer
+      ├─ Item01: Button
+      ├─ Item02: Button
+      ├─ Item03: Button
+      ├─ Item04: Button
+      ├─ Item05: Button
+      ├─ Item06: Button
+      ├─ Item07: Button
+      ├─ Item08: Button
+      ├─ Item09: Button
+      ├─ Item10: Button
+      ├─ Item11: Button
+      └─ Item12: Button
+
+[Layout]
+画布: 1440 × 900
+容量区 (capacity) : x=302  y=113  140×44   → CapacityPlate + CapacityLabel
+关闭区 (close)    : x=640  y=140   56×58   → CloseButton
+页签区 (tabs)     : x=173  y=220  127×347  → Tabs
+格子区 (grid)     : x=300  y=160  385×486  → InventoryPanel
+
+[Controls]
+RootCanvas        → Control        全画布根，anchors 铺满，挂载 main.gd。
+Background        → ColorRect      暗色底层遮罩 (#070810)。
+BackdropArt       → TextureRect    全屏场景底图，stretch 铺满，不接收鼠标。
+CapacityPlate     → TextureRect    容量信息底板，定位到 capacity 区。
+CapacityLabel     → Label          "占用/最大" 文本，叠在底板上居中。
+CloseButton       → Button         关闭按钮，定位到 close 区。
+Tabs              → VBoxContainer  左侧分类栏，定位到 tabs 区，间距 9px。
+TabEquipment      → Button         分类：装备。
+TabItem           → Button         分类：道具。
+TabMaterial       → Button         分类：材料。
+TabCurrency       → Button         分类：通货。
+InventoryPanel    → Control        格子容器，定位到 grid 区。
+InventoryPanelArt → TextureRect    格子区底板，铺满 InventoryPanel，不接收鼠标。
+GridContainer     → GridContainer  3 列物品网格，内边距 12px，间距 h=11 v=10。
+Item01–Item12     → Button         物品卡位 ×12，运行时注入 ItemIcon + QuantityLabel。
+
+[Resources]
+背景:
+- res://assets/ui/scene_bg.png
+- res://assets/ui/capacity_plate.png
+
+面板:
+- res://assets/ui/close_button_bg.png
+- res://assets/ui/inventory_panel_bg.png
+
+页签:
+- res://assets/ui/tab_idle.png
+- res://assets/ui/tab_active.png
+
+格子:
+- res://assets/ui/item_card_bg.png
+- res://assets/ui/item_card_selected.png
+
+分类图标:
+- res://assets/icons/tab_equipment.png
+- res://assets/icons/tab_item.png
+- res://assets/icons/tab_material.png
+- res://assets/icons/tab_currency.png
+
+物品图标:
+- res://assets/icons/item_sword.png
+- res://assets/icons/item_potion.png
+- res://assets/icons/item_scroll.png
+- res://assets/icons/item_shield.png
+- res://assets/icons/item_feather.png
+- res://assets/icons/item_key.png
+- res://assets/icons/item_bow.png
+- res://assets/icons/item_coin.png
+
+[Data]
+分类: equipment | item | material | currency
+容量: 占用数 / 总格子数 (12)
+
+物品结构:
+  title       : String   名称
+  subtitle    : String   类型描述
+  category    : String   所属分类
+  quantity    : int      堆叠数量
+  icon_path   : String   图标资源路径
+  stats       : String   属性摘要
+  detail      : String   详细说明
+
+交互状态:
+  active_category      : String  当前选中分类 (默认 equipment)
+  selected_item_index  : int     当前选中物品索引 (默认 0)
+
+[Notes]
+- 四区对应 bag_dark_layout.json 的 capacity / close / tabs / grid。
+- 格子运行时: 底图按钮 + ItemIcon (TextureRect) + QuantityLabel (Label, 右下角)。
+- 详情走 tooltip，不设独立详情面板。
+- 视觉: 暗黑 · 紧凑 · 干净 · 冷蓝灰，无脏装饰，无烤入文字。
+- 生成链: bag.bp → generate_bag_undead_assets → apply → generate_bag_ui.gd → bag_ui.tscn。
+- AIGC 链: bag.bp → prepare_bag_aigc → bag-task-pack.json + prompts/。

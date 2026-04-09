@@ -1,0 +1,19 @@
+{
+  "mcpServers": {
+    "godot-local": {
+      "command": "powershell",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".github\\scripts\\launch-godot-mcp.ps1"
+      ],
+      "env": {
+        "DEBUG": "true",
+        "GODOT_PATH": "C:\\Users\\罗长生\\AppData\\Local\\Microsoft\\WinGet\\Packages\\GodotEngine.GodotEngine_Microsoft.Winget.Source_8wekyb3d8bbwe\\Godot_v4.6.2-stable_win64_console.exe"
+      }
+    }
+  }
+}

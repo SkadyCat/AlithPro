@@ -1,0 +1,128 @@
+{
+  "blueprint": "bag.bp",
+  "theme": "dark-layout",
+  "assetCount": 20,
+  "exportRoot": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack",
+  "assets": [
+    {
+      "resourcePath": "assets/ui/scene_bg.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\ui\\scene_bg.png",
+      "size": "1440x900",
+      "kind": "scene"
+    },
+    {
+      "resourcePath": "assets/ui/capacity_plate.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\ui\\capacity_plate.png",
+      "size": "140x44",
+      "kind": "capacity_plate"
+    },
+    {
+      "resourcePath": "assets/ui/close_button_bg.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\ui\\close_button_bg.png",
+      "size": "56x58",
+      "kind": "close_button"
+    },
+    {
+      "resourcePath": "assets/ui/inventory_panel_bg.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\ui\\inventory_panel_bg.png",
+      "size": "385x486",
+      "kind": "inventory_panel"
+    },
+    {
+      "resourcePath": "assets/ui/tab_idle.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\ui\\tab_idle.png",
+      "size": "127x80",
+      "kind": "tab_idle"
+    },
+    {
+      "resourcePath": "assets/ui/tab_active.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\ui\\tab_active.png",
+      "size": "127x80",
+      "kind": "tab_active"
+    },
+    {
+      "resourcePath": "assets/ui/item_card_bg.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\ui\\item_card_bg.png",
+      "size": "113x108",
+      "kind": "item_card"
+    },
+    {
+      "resourcePath": "assets/ui/item_card_selected.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\ui\\item_card_selected.png",
+      "size": "113x108",
+      "kind": "item_card_selected"
+    },
+    {
+      "resourcePath": "assets/icons/tab_equipment.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\tab_equipment.png",
+      "size": "64x64",
+      "kind": "icon_tab_equipment"
+    },
+    {
+      "resourcePath": "assets/icons/tab_item.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\tab_item.png",
+      "size": "64x64",
+      "kind": "icon_tab_item"
+    },
+    {
+      "resourcePath": "assets/icons/tab_material.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\tab_material.png",
+      "size": "64x64",
+      "kind": "icon_tab_material"
+    },
+    {
+      "resourcePath": "assets/icons/tab_currency.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\tab_currency.png",
+      "size": "64x64",
+      "kind": "icon_tab_currency"
+    },
+    {
+      "resourcePath": "assets/icons/item_sword.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\item_sword.png",
+      "size": "72x72",
+      "kind": "icon_item_sword"
+    },
+    {
+      "resourcePath": "assets/icons/item_potion.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\item_potion.png",
+      "size": "72x72",
+      "kind": "icon_item_potion"
+    },
+    {
+      "resourcePath": "assets/icons/item_scroll.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\item_scroll.png",
+      "size": "72x72",
+      "kind": "icon_item_scroll"
+    },
+    {
+      "resourcePath": "assets/icons/item_shield.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\item_shield.png",
+      "size": "72x72",
+      "kind": "icon_item_shield"
+    },
+    {
+      "resourcePath": "assets/icons/item_feather.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\item_feather.png",
+      "size": "72x72",
+      "kind": "icon_item_feather"
+    },
+    {
+      "resourcePath": "assets/icons/item_key.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\item_key.png",
+      "size": "72x72",
+      "kind": "icon_item_key"
+    },
+    {
+      "resourcePath": "assets/icons/item_bow.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\item_bow.png",
+      "size": "72x72",
+      "kind": "icon_item_bow"
+    },
+    {
+      "resourcePath": "assets/icons/item_coin.png",
+      "outputPath": "G:\\GameExPro3\\AlithEx\\Alith\\application\\workspace\\UITS\\application\\godot_inventory\\exports\\bag_undead_pack\\assets\\icons\\item_coin.png",
+      "size": "72x72",
+      "kind": "icon_item_coin"
+    }
+  ]
+}

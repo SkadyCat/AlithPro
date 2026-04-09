@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "title": "转换测试 任务流",
+  "source": {
+    "bucket": "drafts",
+    "fileName": "draft-2026-04-03T19-33-33-209Z.md"
+  },
+  "nodes": [
+    {
+      "id": "node-mnjaxciw-jdk0zy",
+      "title": "转换测试",
+      "bucket": "drafts",
+      "fileName": "draft-2026-04-03T19-33-33-209Z.md",
+      "x": 96,
+      "y": 96,
+      "width": 360,
+      "height": 180
+    }
+  ],
+  "createdAt": "2026-04-03T19:33:33.224Z",
+  "updatedAt": "2026-04-03T19:33:33.224Z"
+}

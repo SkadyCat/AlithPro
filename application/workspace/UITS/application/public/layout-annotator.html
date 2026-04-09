@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Annotator</title>
+    <link rel="stylesheet" href="/layout-annotator.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <p class="eyebrow">Layout JSON Tool</p>
+        <h1>绘制背包基础布局并导出 JSON</h1>
+        <p class="desc">
+          在画布上拖拽创建布局框，点选后填写名称、类型和描述。右侧会实时输出可直接发给我的 JSON。
+        </p>
+      </section>
+
+      <section class="workspace">
+        <article class="panel session-panel">
+          <header>
+            <strong>Sessions</strong>
+            <span id="session-status">未保存</span>
+          </header>
+          <div class="session-toolbar">
+            <button id="new-session" type="button">新建 Session</button>
+            <button id="save-session" type="button">保存当前</button>
+            <button id="rename-session" type="button">重命名当前</button>
+            <button id="delete-session" type="button">删除当前</button>
+          </div>
+          <label class="session-name-field">
+            Session 名称
+            <input id="session-name" type="text" placeholder="例如 背包布局 A" />
+          </label>
+          <div id="session-list" class="session-list"></div>
+        </article>
+
+        <article class="panel canvas-panel">
+          <header>
+            <strong>布局画布</strong>
+            <span id="canvas-status">拖拽空白区域创建新框</span>
+          </header>
+          <div class="toolbar">
+            <label>
+              画布宽
+              <input id="canvas-width" type="number" min="320" step="10" value="1440" />
+            </label>
+            <label>
+              画布高
+              <input id="canvas-height" type="number" min="320" step="10" value="900" />
+            </label>
+            <label>
+              缩放
+              <select id="canvas-zoom">
+                <option value="0.5">50%</option>
+                <option value="0.75">75%</option>
+                <option value="1" selected>100%</option>
+                <option value="1.25">125%</option>
+              </select>
+            </label>
+            <button id="resize-canvas" type="button">更新画布</button>
+            <button id="delete-box" type="button">删除选中框</button>
+            <button id="clear-boxes" type="button">清空全部</button>
+          </div>
+          <div class="canvas-shell">
+            <div class="design-canvas" id="design-canvas">
+              <div class="canvas-grid"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel side-panel">
+          <header>
+            <strong>选中框信息</strong>
+            <span id="selection-status">未选中</span>
+          </header>
+
+          <form class="editor" id="box-form">
+            <label>
+              ID
+              <input id="box-id" type="text" placeholder="例如 topBar" />
+            </label>
+            <label>
+              类型
+              <input id="box-kind" type="text" placeholder="例如 panel / grid / slot / detail" />
+            </label>
+            <label>
+              标题
+              <input id="box-label" type="text" placeholder="例如 顶栏 / 装备区 / 详情区" />
+            </label>
+            <label>
+              描述（Markdown）
+              <div class="markdown-editor">
+                <div class="markdown-toolbar">
+                  <button type="button" data-md-token="heading">标题</button>
+                  <button type="button" data-md-token="bold">加粗</button>
+                  <button type="button" data-md-token="italic">斜体</button>
+                  <button type="button" data-md-token="list">列表</button>
+                  <button type="button" data-md-token="code">代码</button>
+                </div>
+                <div class="editor-mode-note">CodeMirror · Markdown · 黑色编辑区 · 自动保存</div>
+                <textarea id="box-description" rows="7" placeholder="可用 Markdown 描述这个区域是什么、承载什么内容、风格或功能要求。"></textarea>
+                <div class="markdown-preview-shell">
+                  <div class="markdown-preview-title">Markdown 预览</div>
+                  <div id="box-description-preview" class="markdown-preview"></div>
+                </div>
+              </div>
+            </label>
+          </form>
+
+          <div class="json-actions">
+            <button id="copy-json" type="button">复制 JSON</button>
+            <button id="download-json" type="button">下载 JSON</button>
+          </div>
+
+          <div class="json-panel">
+            <header>
+              <strong>布局 JSON</strong>
+            </header>
+            <pre id="json-output"></pre>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <div id="box-context-menu" class="context-menu" hidden>
+      <button id="context-delete-box" type="button">删除该框</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/codemirror.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.18/mode/markdown/markdown.min.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/layout-annotator.js"></script>
+  </body>
+</html>

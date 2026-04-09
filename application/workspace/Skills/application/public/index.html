@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MagicWorld 技能节点可视化</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <aside id="left-menu">
+      <div class="menu-header">
+        <h2>技能节点</h2>
+        <div style="display:flex;gap:4px">
+          <button id="btn-toggle-view" title="切换视图">类定义</button>
+          <button id="btn-refresh" title="刷新">⟳</button>
+        </div>
+      </div>
+      <input id="search" type="text" placeholder="搜索节点..." />
+      <nav id="node-tree"></nav>
+    </aside>
+    <main id="center-area">
+      <div id="welcome">
+        <h1>MagicWorld 技能节点可视化</h1>
+        <p>从左侧选择一个技能节点查看其配置内容</p>
+      </div>
+      <div id="node-detail" class="hidden"></div>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

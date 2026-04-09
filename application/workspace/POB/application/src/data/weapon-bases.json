@@ -1,0 +1,2536 @@
+{
+  "Rusted Hatchet": {
+    "physMin": 6,
+    "physMax": 11,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "axe"
+  },
+  "Jade Hatchet": {
+    "physMin": 10,
+    "physMax": 15,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "axe"
+  },
+  "Boarding Axe": {
+    "physMin": 11,
+    "physMax": 21,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "axe"
+  },
+  "Cleaver": {
+    "physMin": 12,
+    "physMax": 35,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Broad Axe": {
+    "physMin": 19,
+    "physMax": 34,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "axe"
+  },
+  "Arming Axe": {
+    "physMin": 14,
+    "physMax": 42,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "axe"
+  },
+  "Decorative Axe": {
+    "physMin": 27,
+    "physMax": 50,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "axe"
+  },
+  "Spectral Axe": {
+    "physMin": 29,
+    "physMax": 48,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Etched Hatchet": {
+    "physMin": 26,
+    "physMax": 46,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "axe"
+  },
+  "Jasper Axe": {
+    "physMin": 32,
+    "physMax": 50,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Tomahawk": {
+    "physMin": 25,
+    "physMax": 46,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "axe"
+  },
+  "Wrist Chopper": {
+    "physMin": 26,
+    "physMax": 79,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "axe"
+  },
+  "War Axe": {
+    "physMin": 35,
+    "physMax": 65,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Chest Splitter": {
+    "physMin": 24,
+    "physMax": 71,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "axe"
+  },
+  "Ceremonial Axe": {
+    "physMin": 45,
+    "physMax": 83,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "axe"
+  },
+  "Wraith Axe": {
+    "physMin": 45,
+    "physMax": 75,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Engraved Hatchet": {
+    "physMin": 40,
+    "physMax": 71,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "axe"
+  },
+  "Karui Axe": {
+    "physMin": 49,
+    "physMax": 77,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Siege Axe": {
+    "physMin": 38,
+    "physMax": 70,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "axe"
+  },
+  "Reaver Axe": {
+    "physMin": 38,
+    "physMax": 114,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "axe"
+  },
+  "Butcher Axe": {
+    "physMin": 47,
+    "physMax": 87,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Vaal Hatchet": {
+    "physMin": 30,
+    "physMax": 90,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "axe"
+  },
+  "Royal Axe": {
+    "physMin": 54,
+    "physMax": 100,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "axe"
+  },
+  "Infernal Axe": {
+    "physMin": 51,
+    "physMax": 85,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Runic Hatchet": {
+    "physMin": 44,
+    "physMax": 79,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "axe"
+  },
+  "Maltreatment Axe": {
+    "physMin": 19,
+    "physMax": 39,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Disapprobation Axe": {
+    "physMin": 29,
+    "physMax": 60,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Psychotic Axe": {
+    "physMin": 34,
+    "physMax": 71,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Stone Axe": {
+    "physMin": 12,
+    "physMax": 20,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Jade Chopper": {
+    "physMin": 19,
+    "physMax": 30,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "axe"
+  },
+  "Woodsplitter": {
+    "physMin": 19,
+    "physMax": 39,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Poleaxe": {
+    "physMin": 29,
+    "physMax": 43,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Double Axe": {
+    "physMin": 36,
+    "physMax": 60,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "axe"
+  },
+  "Gilded Axe": {
+    "physMin": 43,
+    "physMax": 58,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Shadow Axe": {
+    "physMin": 49,
+    "physMax": 73,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "axe"
+  },
+  "Dagger Axe": {
+    "physMin": 53,
+    "physMax": 83,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "axe"
+  },
+  "Jasper Chopper": {
+    "physMin": 58,
+    "physMax": 91,
+    "critBase": 5,
+    "atkRate": 1.15,
+    "type": "axe"
+  },
+  "Timber Axe": {
+    "physMin": 48,
+    "physMax": 99,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "axe"
+  },
+  "Headsman Axe": {
+    "physMin": 61,
+    "physMax": 92,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Labrys": {
+    "physMin": 74,
+    "physMax": 123,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "axe"
+  },
+  "Noble Axe": {
+    "physMin": 76,
+    "physMax": 103,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Abyssal Axe": {
+    "physMin": 81,
+    "physMax": 121,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "axe"
+  },
+  "Talon Axe": {
+    "physMin": 88,
+    "physMax": 138,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "axe"
+  },
+  "Karui Chopper": {
+    "physMin": 121,
+    "physMax": 189,
+    "critBase": 5,
+    "atkRate": 1.05,
+    "type": "axe"
+  },
+  "Sundering Axe": {
+    "physMin": 74,
+    "physMax": 155,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "axe"
+  },
+  "Ezomyte Axe": {
+    "physMin": 87,
+    "physMax": 131,
+    "critBase": 5.7,
+    "atkRate": 1.35,
+    "type": "axe"
+  },
+  "Vaal Axe": {
+    "physMin": 104,
+    "physMax": 174,
+    "critBase": 5,
+    "atkRate": 1.15,
+    "type": "axe"
+  },
+  "Despot Axe": {
+    "physMin": 90,
+    "physMax": 122,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "axe"
+  },
+  "Void Axe": {
+    "physMin": 96,
+    "physMax": 144,
+    "critBase": 6,
+    "atkRate": 1.25,
+    "type": "axe"
+  },
+  "Fleshripper": {
+    "physMin": 97,
+    "physMax": 152,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "axe"
+  },
+  "Prime Cleaver": {
+    "physMin": 39,
+    "physMax": 61,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "axe"
+  },
+  "Honed Cleaver": {
+    "physMin": 60,
+    "physMax": 95,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "axe"
+  },
+  "Apex Cleaver": {
+    "physMin": 78,
+    "physMax": 121,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "axe"
+  },
+  "Crude Bow": {
+    "physMin": 5,
+    "physMax": 13,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "bow"
+  },
+  "Short Bow": {
+    "physMin": 6,
+    "physMax": 16,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "bow"
+  },
+  "Long Bow": {
+    "physMin": 8,
+    "physMax": 33,
+    "critBase": 6,
+    "atkRate": 1.3,
+    "type": "bow"
+  },
+  "Composite Bow": {
+    "physMin": 16,
+    "physMax": 34,
+    "critBase": 6,
+    "atkRate": 1.3,
+    "type": "bow"
+  },
+  "Recurve Bow": {
+    "physMin": 15,
+    "physMax": 45,
+    "critBase": 6.7,
+    "atkRate": 1.25,
+    "type": "bow"
+  },
+  "Bone Bow": {
+    "physMin": 15,
+    "physMax": 45,
+    "critBase": 6.5,
+    "atkRate": 1.4,
+    "type": "bow"
+  },
+  "Royal Bow": {
+    "physMin": 14,
+    "physMax": 56,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "bow"
+  },
+  "Death Bow": {
+    "physMin": 28,
+    "physMax": 73,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "bow"
+  },
+  "Reflex Bow": {
+    "physMin": 37,
+    "physMax": 56,
+    "critBase": 5.5,
+    "atkRate": 1.4,
+    "type": "bow"
+  },
+  "Grove Bow": {
+    "physMin": 20,
+    "physMax": 61,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "bow"
+  },
+  "Decurve Bow": {
+    "physMin": 24,
+    "physMax": 96,
+    "critBase": 6,
+    "atkRate": 1.25,
+    "type": "bow"
+  },
+  "Compound Bow": {
+    "physMin": 37,
+    "physMax": 76,
+    "critBase": 6,
+    "atkRate": 1.3,
+    "type": "bow"
+  },
+  "Sniper Bow": {
+    "physMin": 32,
+    "physMax": 96,
+    "critBase": 6.7,
+    "atkRate": 1.25,
+    "type": "bow"
+  },
+  "Ivory Bow": {
+    "physMin": 29,
+    "physMax": 86,
+    "critBase": 6.5,
+    "atkRate": 1.4,
+    "type": "bow"
+  },
+  "Highborn Bow": {
+    "physMin": 24,
+    "physMax": 94,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "bow"
+  },
+  "Decimation Bow": {
+    "physMin": 44,
+    "physMax": 116,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "bow"
+  },
+  "Steelwood Bow": {
+    "physMin": 58,
+    "physMax": 86,
+    "critBase": 5.5,
+    "atkRate": 1.4,
+    "type": "bow"
+  },
+  "Thicket Bow": {
+    "physMin": 32,
+    "physMax": 96,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "bow"
+  },
+  "Citadel Bow": {
+    "physMin": 36,
+    "physMax": 144,
+    "critBase": 6,
+    "atkRate": 1.25,
+    "type": "bow"
+  },
+  "Ranger Bow": {
+    "physMin": 56,
+    "physMax": 117,
+    "critBase": 6,
+    "atkRate": 1.3,
+    "type": "bow"
+  },
+  "Assassin Bow": {
+    "physMin": 43,
+    "physMax": 130,
+    "critBase": 6.7,
+    "atkRate": 1.25,
+    "type": "bow"
+  },
+  "Spine Bow": {
+    "physMin": 38,
+    "physMax": 115,
+    "critBase": 6.5,
+    "atkRate": 1.4,
+    "type": "bow"
+  },
+  "Imperial Bow": {
+    "physMin": 29,
+    "physMax": 117,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "bow"
+  },
+  "Harbinger Bow": {
+    "physMin": 50,
+    "physMax": 133,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "bow"
+  },
+  "Maraketh Bow": {
+    "physMin": 61,
+    "physMax": 92,
+    "critBase": 5.5,
+    "atkRate": 1.4,
+    "type": "bow"
+  },
+  "Hedron Bow": {
+    "physMin": 9,
+    "physMax": 13,
+    "critBase": 5.5,
+    "atkRate": 1.3,
+    "type": "bow"
+  },
+  "Foundry Bow": {
+    "physMin": 13,
+    "physMax": 20,
+    "critBase": 5.5,
+    "atkRate": 1.3,
+    "type": "bow"
+  },
+  "Solarine Bow": {
+    "physMin": 16,
+    "physMax": 24,
+    "critBase": 5.5,
+    "atkRate": 1.3,
+    "type": "bow"
+  },
+  "Ethereal Bow": {
+    "physMin": 5,
+    "physMax": 9,
+    "critBase": 6,
+    "atkRate": 1.5,
+    "type": "bow"
+  },
+  "Nailed Fist": {
+    "physMin": 4,
+    "physMax": 11,
+    "critBase": 7.3,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Sharktooth Claw": {
+    "physMin": 6,
+    "physMax": 17,
+    "critBase": 8,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Awl": {
+    "physMin": 7,
+    "physMax": 23,
+    "critBase": 7.5,
+    "atkRate": 1.55,
+    "type": "claw"
+  },
+  "Cat's Paw": {
+    "physMin": 12,
+    "physMax": 22,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Blinder": {
+    "physMin": 12,
+    "physMax": 31,
+    "critBase": 7.5,
+    "atkRate": 1.55,
+    "type": "claw"
+  },
+  "Timeworn Claw": {
+    "physMin": 16,
+    "physMax": 43,
+    "critBase": 8,
+    "atkRate": 1.3,
+    "type": "claw"
+  },
+  "Sparkling Claw": {
+    "physMin": 14,
+    "physMax": 38,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Fright Claw": {
+    "physMin": 12,
+    "physMax": 46,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Double Claw": {
+    "physMin": 15,
+    "physMax": 44,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Thresher Claw": {
+    "physMin": 20,
+    "physMax": 53,
+    "critBase": 8,
+    "atkRate": 1.3,
+    "type": "claw"
+  },
+  "Gouger": {
+    "physMin": 15,
+    "physMax": 51,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Tiger's Paw": {
+    "physMin": 23,
+    "physMax": 43,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Gut Ripper": {
+    "physMin": 20,
+    "physMax": 53,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Prehistoric Claw": {
+    "physMin": 26,
+    "physMax": 68,
+    "critBase": 8,
+    "atkRate": 1.3,
+    "type": "claw"
+  },
+  "Noble Claw": {
+    "physMin": 21,
+    "physMax": 56,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Eagle Claw": {
+    "physMin": 17,
+    "physMax": 69,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Twin Claw": {
+    "physMin": 21,
+    "physMax": 64,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Great White Claw": {
+    "physMin": 30,
+    "physMax": 78,
+    "critBase": 8,
+    "atkRate": 1.3,
+    "type": "claw"
+  },
+  "Throat Stabber": {
+    "physMin": 21,
+    "physMax": 73,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Hellion's Paw": {
+    "physMin": 29,
+    "physMax": 55,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Eye Gouger": {
+    "physMin": 26,
+    "physMax": 68,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Vaal Claw": {
+    "physMin": 29,
+    "physMax": 76,
+    "critBase": 8,
+    "atkRate": 1.3,
+    "type": "claw"
+  },
+  "Imperial Claw": {
+    "physMin": 25,
+    "physMax": 65,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Terror Claw": {
+    "physMin": 18,
+    "physMax": 71,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Gemini Claw": {
+    "physMin": 23,
+    "physMax": 68,
+    "critBase": 7.5,
+    "atkRate": 1.5,
+    "type": "claw"
+  },
+  "Shadow Fangs": {
+    "physMin": 13,
+    "physMax": 24,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Malign Fangs": {
+    "physMin": 20,
+    "physMax": 37,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Void Fangs": {
+    "physMin": 22,
+    "physMax": 41,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "claw"
+  },
+  "Glass Shank": {
+    "physMin": 6,
+    "physMax": 10,
+    "critBase": 8,
+    "atkRate": 1.5,
+    "type": "dagger"
+  },
+  "Skinning Knife": {
+    "physMin": 4,
+    "physMax": 17,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "dagger"
+  },
+  "Stiletto": {
+    "physMin": 7,
+    "physMax": 27,
+    "critBase": 8.3,
+    "atkRate": 1.5,
+    "type": "dagger"
+  },
+  "Prong Dagger": {
+    "physMin": 14,
+    "physMax": 54,
+    "critBase": 8.5,
+    "atkRate": 1.35,
+    "type": "dagger"
+  },
+  "Flaying Knife": {
+    "physMin": 11,
+    "physMax": 45,
+    "critBase": 8,
+    "atkRate": 1.4,
+    "type": "dagger"
+  },
+  "Poignard": {
+    "physMin": 13,
+    "physMax": 52,
+    "critBase": 8.3,
+    "atkRate": 1.5,
+    "type": "dagger"
+  },
+  "Trisula": {
+    "physMin": 19,
+    "physMax": 74,
+    "critBase": 9,
+    "atkRate": 1.35,
+    "type": "dagger"
+  },
+  "Gutting Knife": {
+    "physMin": 19,
+    "physMax": 76,
+    "critBase": 9,
+    "atkRate": 1.4,
+    "type": "dagger"
+  },
+  "Ambusher": {
+    "physMin": 19,
+    "physMax": 74,
+    "critBase": 8.3,
+    "atkRate": 1.5,
+    "type": "dagger"
+  },
+  "Sai": {
+    "physMin": 22,
+    "physMax": 88,
+    "critBase": 8.5,
+    "atkRate": 1.35,
+    "type": "dagger"
+  },
+  "Hollowpoint Dagger": {
+    "physMin": 12,
+    "physMax": 46,
+    "critBase": 8.8,
+    "atkRate": 1.4,
+    "type": "dagger"
+  },
+  "Pressurised Dagger": {
+    "physMin": 18,
+    "physMax": 71,
+    "critBase": 8.8,
+    "atkRate": 1.4,
+    "type": "dagger"
+  },
+  "Pneumatic Dagger": {
+    "physMin": 20,
+    "physMax": 79,
+    "critBase": 8.8,
+    "atkRate": 1.4,
+    "type": "dagger"
+  },
+  "Ethereal Blade": {
+    "physMin": 4,
+    "physMax": 8,
+    "critBase": 8,
+    "atkRate": 1.5,
+    "type": "dagger"
+  },
+  "Carving Knife": {
+    "physMin": 3,
+    "physMax": 26,
+    "critBase": 8.5,
+    "atkRate": 1.45,
+    "type": "dagger"
+  },
+  "Boot Knife": {
+    "physMin": 8,
+    "physMax": 34,
+    "critBase": 8.5,
+    "atkRate": 1.45,
+    "type": "dagger"
+  },
+  "Copper Kris": {
+    "physMin": 10,
+    "physMax": 41,
+    "critBase": 9,
+    "atkRate": 1.3,
+    "type": "dagger"
+  },
+  "Skean": {
+    "physMin": 11,
+    "physMax": 43,
+    "critBase": 8.5,
+    "atkRate": 1.45,
+    "type": "dagger"
+  },
+  "Imp Dagger": {
+    "physMin": 15,
+    "physMax": 59,
+    "critBase": 9,
+    "atkRate": 1.2,
+    "type": "dagger"
+  },
+  "Butcher Knife": {
+    "physMin": 7,
+    "physMax": 62,
+    "critBase": 8.5,
+    "atkRate": 1.4,
+    "type": "dagger"
+  },
+  "Boot Blade": {
+    "physMin": 15,
+    "physMax": 59,
+    "critBase": 8.5,
+    "atkRate": 1.4,
+    "type": "dagger"
+  },
+  "Golden Kris": {
+    "physMin": 19,
+    "physMax": 75,
+    "critBase": 9,
+    "atkRate": 1.2,
+    "type": "dagger"
+  },
+  "Royal Skean": {
+    "physMin": 16,
+    "physMax": 64,
+    "critBase": 8.5,
+    "atkRate": 1.45,
+    "type": "dagger"
+  },
+  "Fiend Dagger": {
+    "physMin": 22,
+    "physMax": 87,
+    "critBase": 9,
+    "atkRate": 1.2,
+    "type": "dagger"
+  },
+  "Slaughter Knife": {
+    "physMin": 10,
+    "physMax": 86,
+    "critBase": 8.5,
+    "atkRate": 1.4,
+    "type": "dagger"
+  },
+  "Ezomyte Dagger": {
+    "physMin": 20,
+    "physMax": 79,
+    "critBase": 8.5,
+    "atkRate": 1.4,
+    "type": "dagger"
+  },
+  "Platinum Kris": {
+    "physMin": 24,
+    "physMax": 95,
+    "critBase": 9,
+    "atkRate": 1.2,
+    "type": "dagger"
+  },
+  "Imperial Skean": {
+    "physMin": 18,
+    "physMax": 73,
+    "critBase": 8.5,
+    "atkRate": 1.5,
+    "type": "dagger"
+  },
+  "Demon Dagger": {
+    "physMin": 24,
+    "physMax": 97,
+    "critBase": 9,
+    "atkRate": 1.2,
+    "type": "dagger"
+  },
+  "Flickerflame Blade": {
+    "physMin": 12,
+    "physMax": 47,
+    "critBase": 8.5,
+    "atkRate": 1.45,
+    "type": "dagger"
+  },
+  "Flashfire Blade": {
+    "physMin": 18,
+    "physMax": 73,
+    "critBase": 8.5,
+    "atkRate": 1.45,
+    "type": "dagger"
+  },
+  "Infernal Blade": {
+    "physMin": 21,
+    "physMax": 85,
+    "critBase": 8.5,
+    "atkRate": 1.45,
+    "type": "dagger"
+  },
+  "Fishing Rod": {
+    "physMin": 8,
+    "physMax": 15,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "fishing"
+  },
+  "Driftwood Club": {
+    "physMin": 6,
+    "physMax": 8,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "mace"
+  },
+  "Tribal Club": {
+    "physMin": 8,
+    "physMax": 13,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Spiked Club": {
+    "physMin": 13,
+    "physMax": 16,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "mace"
+  },
+  "Stone Hammer": {
+    "physMin": 15,
+    "physMax": 27,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "War Hammer": {
+    "physMin": 13,
+    "physMax": 31,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "mace"
+  },
+  "Bladed Mace": {
+    "physMin": 19,
+    "physMax": 32,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Ceremonial Mace": {
+    "physMin": 32,
+    "physMax": 40,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Dream Mace": {
+    "physMin": 21,
+    "physMax": 43,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Wyrm Mace": {
+    "physMin": 28,
+    "physMax": 42,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "mace"
+  },
+  "Petrified Club": {
+    "physMin": 31,
+    "physMax": 51,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Barbed Club": {
+    "physMin": 33,
+    "physMax": 42,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Rock Breaker": {
+    "physMin": 37,
+    "physMax": 69,
+    "critBase": 5,
+    "atkRate": 1.15,
+    "type": "mace"
+  },
+  "Battle Hammer": {
+    "physMin": 25,
+    "physMax": 59,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Flanged Mace": {
+    "physMin": 38,
+    "physMax": 63,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Ornate Mace": {
+    "physMin": 53,
+    "physMax": 67,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Phantom Mace": {
+    "physMin": 33,
+    "physMax": 69,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Dragon Mace": {
+    "physMin": 44,
+    "physMax": 66,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "mace"
+  },
+  "Ancestral Club": {
+    "physMin": 48,
+    "physMax": 80,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Tenderizer": {
+    "physMin": 49,
+    "physMax": 62,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Gavel": {
+    "physMin": 54,
+    "physMax": 101,
+    "critBase": 5,
+    "atkRate": 1.15,
+    "type": "mace"
+  },
+  "Legion Hammer": {
+    "physMin": 35,
+    "physMax": 81,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Pernach": {
+    "physMin": 49,
+    "physMax": 82,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Auric Mace": {
+    "physMin": 65,
+    "physMax": 82,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Nightmare Mace": {
+    "physMin": 38,
+    "physMax": 80,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Behemoth Mace": {
+    "physMin": 49,
+    "physMax": 74,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "mace"
+  },
+  "Flare Mace": {
+    "physMin": 20,
+    "physMax": 41,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Crack Mace": {
+    "physMin": 31,
+    "physMax": 64,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Boom Mace": {
+    "physMin": 39,
+    "physMax": 81,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Driftwood Sceptre": {
+    "physMin": 8,
+    "physMax": 11,
+    "critBase": 7,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Darkwood Sceptre": {
+    "physMin": 11,
+    "physMax": 17,
+    "critBase": 7,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Bronze Sceptre": {
+    "physMin": 15,
+    "physMax": 29,
+    "critBase": 7,
+    "atkRate": 1.1,
+    "type": "mace"
+  },
+  "Quartz Sceptre": {
+    "physMin": 21,
+    "physMax": 32,
+    "critBase": 8,
+    "atkRate": 1.1,
+    "type": "mace"
+  },
+  "Iron Sceptre": {
+    "physMin": 27,
+    "physMax": 40,
+    "critBase": 7,
+    "atkRate": 1.1,
+    "type": "mace"
+  },
+  "Ochre Sceptre": {
+    "physMin": 24,
+    "physMax": 45,
+    "critBase": 7,
+    "atkRate": 1.15,
+    "type": "mace"
+  },
+  "Ritual Sceptre": {
+    "physMin": 21,
+    "physMax": 50,
+    "critBase": 7,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Shadow Sceptre": {
+    "physMin": 29,
+    "physMax": 44,
+    "critBase": 7.3,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Horned Sceptre": {
+    "physMin": 27,
+    "physMax": 50,
+    "critBase": 7,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Grinning Fetish": {
+    "physMin": 24,
+    "physMax": 36,
+    "critBase": 7,
+    "atkRate": 1.5,
+    "type": "mace"
+  },
+  "Sekhem": {
+    "physMin": 30,
+    "physMax": 55,
+    "critBase": 7,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Crystal Sceptre": {
+    "physMin": 35,
+    "physMax": 52,
+    "critBase": 8,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Lead Sceptre": {
+    "physMin": 38,
+    "physMax": 57,
+    "critBase": 7,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Blood Sceptre": {
+    "physMin": 30,
+    "physMax": 55,
+    "critBase": 7,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Royal Sceptre": {
+    "physMin": 34,
+    "physMax": 80,
+    "critBase": 7,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Abyssal Sceptre": {
+    "physMin": 45,
+    "physMax": 67,
+    "critBase": 7.3,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Stag Sceptre": {
+    "physMin": 39,
+    "physMax": 72,
+    "critBase": 7,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Karui Sceptre": {
+    "physMin": 37,
+    "physMax": 55,
+    "critBase": 7,
+    "atkRate": 1.5,
+    "type": "mace"
+  },
+  "Tyrant's Sekhem": {
+    "physMin": 43,
+    "physMax": 80,
+    "critBase": 7,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Opal Sceptre": {
+    "physMin": 49,
+    "physMax": 73,
+    "critBase": 8,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Platinum Sceptre": {
+    "physMin": 51,
+    "physMax": 76,
+    "critBase": 7,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Vaal Sceptre": {
+    "physMin": 37,
+    "physMax": 70,
+    "critBase": 7,
+    "atkRate": 1.4,
+    "type": "mace"
+  },
+  "Carnal Sceptre": {
+    "physMin": 41,
+    "physMax": 95,
+    "critBase": 7,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Void Sceptre": {
+    "physMin": 50,
+    "physMax": 76,
+    "critBase": 7.3,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Sambar Sceptre": {
+    "physMin": 42,
+    "physMax": 78,
+    "critBase": 7,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Oscillating Sceptre": {
+    "physMin": 23,
+    "physMax": 34,
+    "critBase": 7.6,
+    "atkRate": 1.45,
+    "type": "mace"
+  },
+  "Stabilising Sceptre": {
+    "physMin": 35,
+    "physMax": 52,
+    "critBase": 7.6,
+    "atkRate": 1.45,
+    "type": "mace"
+  },
+  "Alternating Sceptre": {
+    "physMin": 41,
+    "physMax": 61,
+    "critBase": 7.6,
+    "atkRate": 1.45,
+    "type": "mace"
+  },
+  "Driftwood Maul": {
+    "physMin": 10,
+    "physMax": 16,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Tribal Maul": {
+    "physMin": 17,
+    "physMax": 25,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Mallet": {
+    "physMin": 16,
+    "physMax": 33,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Sledgehammer": {
+    "physMin": 25,
+    "physMax": 38,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Jagged Maul": {
+    "physMin": 27,
+    "physMax": 49,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Brass Maul": {
+    "physMin": 40,
+    "physMax": 60,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Fright Maul": {
+    "physMin": 46,
+    "physMax": 62,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Morning Star": {
+    "physMin": 45,
+    "physMax": 68,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Totemic Maul": {
+    "physMin": 57,
+    "physMax": 85,
+    "critBase": 5,
+    "atkRate": 1.1,
+    "type": "mace"
+  },
+  "Great Mallet": {
+    "physMin": 43,
+    "physMax": 88,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Steelhead": {
+    "physMin": 54,
+    "physMax": 81,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Spiny Maul": {
+    "physMin": 55,
+    "physMax": 103,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Plated Maul": {
+    "physMin": 72,
+    "physMax": 108,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Dread Maul": {
+    "physMin": 77,
+    "physMax": 104,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Solar Maul": {
+    "physMin": 75,
+    "physMax": 113,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Karui Maul": {
+    "physMin": 112,
+    "physMax": 168,
+    "critBase": 5,
+    "atkRate": 1,
+    "type": "mace"
+  },
+  "Colossus Mallet": {
+    "physMin": 65,
+    "physMax": 135,
+    "critBase": 5.5,
+    "atkRate": 1.3,
+    "type": "mace"
+  },
+  "Piledriver": {
+    "physMin": 77,
+    "physMax": 115,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "mace"
+  },
+  "Meatgrinder": {
+    "physMin": 74,
+    "physMax": 138,
+    "critBase": 5,
+    "atkRate": 1.25,
+    "type": "mace"
+  },
+  "Imperial Maul": {
+    "physMin": 102,
+    "physMax": 153,
+    "critBase": 5,
+    "atkRate": 1.1,
+    "type": "mace"
+  },
+  "Terror Maul": {
+    "physMin": 101,
+    "physMax": 137,
+    "critBase": 6,
+    "atkRate": 1.15,
+    "type": "mace"
+  },
+  "Coronal Maul": {
+    "physMin": 91,
+    "physMax": 136,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "mace"
+  },
+  "Blunt Force Condenser": {
+    "physMin": 39,
+    "physMax": 64,
+    "critBase": 5,
+    "atkRate": 1.15,
+    "type": "mace"
+  },
+  "Crushing Force Magnifier": {
+    "physMin": 62,
+    "physMax": 103,
+    "critBase": 5,
+    "atkRate": 1.15,
+    "type": "mace"
+  },
+  "Impact Force Propagator": {
+    "physMin": 81,
+    "physMax": 135,
+    "critBase": 5,
+    "atkRate": 1.15,
+    "type": "mace"
+  },
+  "Gnarled Branch": {
+    "physMin": 9,
+    "physMax": 19,
+    "critBase": 7.5,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Primitive Staff": {
+    "physMin": 10,
+    "physMax": 31,
+    "critBase": 8,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Long Staff": {
+    "physMin": 24,
+    "physMax": 41,
+    "critBase": 7.5,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Royal Staff": {
+    "physMin": 27,
+    "physMax": 81,
+    "critBase": 8.5,
+    "atkRate": 1.15,
+    "type": "staff"
+  },
+  "Crescent Staff": {
+    "physMin": 41,
+    "physMax": 85,
+    "critBase": 7.5,
+    "atkRate": 1.2,
+    "type": "staff"
+  },
+  "Woodful Staff": {
+    "physMin": 34,
+    "physMax": 102,
+    "critBase": 8,
+    "atkRate": 1.15,
+    "type": "staff"
+  },
+  "Quarterstaff": {
+    "physMin": 51,
+    "physMax": 86,
+    "critBase": 7.5,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Highborn Staff": {
+    "physMin": 48,
+    "physMax": 145,
+    "critBase": 8.25,
+    "atkRate": 1.15,
+    "type": "staff"
+  },
+  "Moon Staff": {
+    "physMin": 66,
+    "physMax": 138,
+    "critBase": 7.5,
+    "atkRate": 1.2,
+    "type": "staff"
+  },
+  "Primordial Staff": {
+    "physMin": 55,
+    "physMax": 165,
+    "critBase": 8,
+    "atkRate": 1.15,
+    "type": "staff"
+  },
+  "Lathi": {
+    "physMin": 72,
+    "physMax": 120,
+    "critBase": 7.5,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Imperial Staff": {
+    "physMin": 57,
+    "physMax": 171,
+    "critBase": 8.5,
+    "atkRate": 1.15,
+    "type": "staff"
+  },
+  "Eclipse Staff": {
+    "physMin": 70,
+    "physMax": 145,
+    "critBase": 7.5,
+    "atkRate": 1.2,
+    "type": "staff"
+  },
+  "Transformer Staff": {
+    "physMin": 36,
+    "physMax": 66,
+    "critBase": 7.5,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Reciprocation Staff": {
+    "physMin": 55,
+    "physMax": 102,
+    "critBase": 7.5,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Battery Staff": {
+    "physMin": 65,
+    "physMax": 120,
+    "critBase": 7.5,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Iron Staff": {
+    "physMin": 14,
+    "physMax": 42,
+    "critBase": 7.6,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Coiled Staff": {
+    "physMin": 27,
+    "physMax": 57,
+    "critBase": 7.7,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Vile Staff": {
+    "physMin": 41,
+    "physMax": 76,
+    "critBase": 7.5,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Military Staff": {
+    "physMin": 38,
+    "physMax": 114,
+    "critBase": 7.9,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Serpentine Staff": {
+    "physMin": 56,
+    "physMax": 117,
+    "critBase": 7.8,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Foul Staff": {
+    "physMin": 65,
+    "physMax": 121,
+    "critBase": 7.5,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Ezomyte Staff": {
+    "physMin": 53,
+    "physMax": 160,
+    "critBase": 8.5,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Maelstrom Staff": {
+    "physMin": 71,
+    "physMax": 147,
+    "critBase": 8.1,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Judgement Staff": {
+    "physMin": 73,
+    "physMax": 136,
+    "critBase": 8,
+    "atkRate": 1.3,
+    "type": "staff"
+  },
+  "Capacity Rod": {
+    "physMin": 39,
+    "physMax": 73,
+    "critBase": 8.3,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Potentiality Rod": {
+    "physMin": 61,
+    "physMax": 113,
+    "critBase": 8.3,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Eventuality Rod": {
+    "physMin": 78,
+    "physMax": 144,
+    "critBase": 8.3,
+    "atkRate": 1.25,
+    "type": "staff"
+  },
+  "Rusted Sword": {
+    "physMin": 4,
+    "physMax": 9,
+    "critBase": 5,
+    "atkRate": 1.55,
+    "type": "sword"
+  },
+  "Copper Sword": {
+    "physMin": 6,
+    "physMax": 14,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Sabre": {
+    "physMin": 5,
+    "physMax": 22,
+    "critBase": 5,
+    "atkRate": 1.55,
+    "type": "sword"
+  },
+  "Broad Sword": {
+    "physMin": 15,
+    "physMax": 21,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "sword"
+  },
+  "War Sword": {
+    "physMin": 16,
+    "physMax": 30,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Ancient Sword": {
+    "physMin": 18,
+    "physMax": 33,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "sword"
+  },
+  "Elegant Sword": {
+    "physMin": 20,
+    "physMax": 33,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Dusk Blade": {
+    "physMin": 19,
+    "physMax": 54,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Hook Sword": {
+    "physMin": 28,
+    "physMax": 60,
+    "critBase": 5,
+    "atkRate": 1.15,
+    "type": "sword"
+  },
+  "Variscite Blade": {
+    "physMin": 25,
+    "physMax": 53,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Cutlass": {
+    "physMin": 13,
+    "physMax": 53,
+    "critBase": 5,
+    "atkRate": 1.55,
+    "type": "sword"
+  },
+  "Baselard": {
+    "physMin": 37,
+    "physMax": 53,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Battle Sword": {
+    "physMin": 38,
+    "physMax": 70,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "sword"
+  },
+  "Elder Sword": {
+    "physMin": 36,
+    "physMax": 66,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Graceful Sword": {
+    "physMin": 34,
+    "physMax": 55,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Twilight Blade": {
+    "physMin": 30,
+    "physMax": 86,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Grappler": {
+    "physMin": 44,
+    "physMax": 94,
+    "critBase": 5,
+    "atkRate": 1.15,
+    "type": "sword"
+  },
+  "Gemstone Sword": {
+    "physMin": 39,
+    "physMax": 83,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Corsair Sword": {
+    "physMin": 20,
+    "physMax": 80,
+    "critBase": 5,
+    "atkRate": 1.55,
+    "type": "sword"
+  },
+  "Gladius": {
+    "physMin": 54,
+    "physMax": 78,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Legion Sword": {
+    "physMin": 53,
+    "physMax": 98,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "sword"
+  },
+  "Vaal Blade": {
+    "physMin": 46,
+    "physMax": 86,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Eternal Sword": {
+    "physMin": 41,
+    "physMax": 68,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Midnight Blade": {
+    "physMin": 35,
+    "physMax": 99,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Tiger Hook": {
+    "physMin": 37,
+    "physMax": 80,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Fickle Spiritblade": {
+    "physMin": 18,
+    "physMax": 33,
+    "critBase": 6.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Capricious Spiritblade": {
+    "physMin": 27,
+    "physMax": 51,
+    "critBase": 6.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Anarchic Spiritblade": {
+    "physMin": 34,
+    "physMax": 63,
+    "critBase": 6.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Charan's Sword": {
+    "physMin": 5,
+    "physMax": 11,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "sword"
+  },
+  "Energy Blade One Handed": {
+    "physMin": 0,
+    "physMax": 0,
+    "critBase": 7,
+    "atkRate": 1.7,
+    "type": "sword"
+  },
+  "Rusted Spike": {
+    "physMin": 5,
+    "physMax": 11,
+    "critBase": 5.5,
+    "atkRate": 1.55,
+    "type": "sword"
+  },
+  "Whalebone Rapier": {
+    "physMin": 4,
+    "physMax": 17,
+    "critBase": 5.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Battered Foil": {
+    "physMin": 11,
+    "physMax": 20,
+    "critBase": 6,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Basket Rapier": {
+    "physMin": 11,
+    "physMax": 25,
+    "critBase": 5.5,
+    "atkRate": 1.55,
+    "type": "sword"
+  },
+  "Jagged Foil": {
+    "physMin": 12,
+    "physMax": 29,
+    "critBase": 5.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Antique Rapier": {
+    "physMin": 12,
+    "physMax": 46,
+    "critBase": 6.5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Elegant Foil": {
+    "physMin": 18,
+    "physMax": 33,
+    "critBase": 5.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Thorn Rapier": {
+    "physMin": 19,
+    "physMax": 44,
+    "critBase": 5.7,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Smallsword": {
+    "physMin": 19,
+    "physMax": 40,
+    "critBase": 6,
+    "atkRate": 1.55,
+    "type": "sword"
+  },
+  "Wyrmbone Rapier": {
+    "physMin": 13,
+    "physMax": 51,
+    "critBase": 5.5,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Burnished Foil": {
+    "physMin": 25,
+    "physMax": 46,
+    "critBase": 6,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Estoc": {
+    "physMin": 21,
+    "physMax": 50,
+    "critBase": 5.5,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Serrated Foil": {
+    "physMin": 21,
+    "physMax": 49,
+    "critBase": 5.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Primeval Rapier": {
+    "physMin": 18,
+    "physMax": 73,
+    "critBase": 6.5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Fancy Foil": {
+    "physMin": 28,
+    "physMax": 51,
+    "critBase": 5.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Apex Rapier": {
+    "physMin": 29,
+    "physMax": 67,
+    "critBase": 5.7,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Courtesan Sword": {
+    "physMin": 29,
+    "physMax": 60,
+    "critBase": 6,
+    "atkRate": 1.55,
+    "type": "sword"
+  },
+  "Dragonbone Rapier": {
+    "physMin": 19,
+    "physMax": 75,
+    "critBase": 5.5,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Tempered Foil": {
+    "physMin": 35,
+    "physMax": 65,
+    "critBase": 6,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Pecoraro": {
+    "physMin": 29,
+    "physMax": 69,
+    "critBase": 5.5,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Spiraled Foil": {
+    "physMin": 27,
+    "physMax": 64,
+    "critBase": 5.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Vaal Rapier": {
+    "physMin": 22,
+    "physMax": 87,
+    "critBase": 6.5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Jewelled Foil": {
+    "physMin": 32,
+    "physMax": 60,
+    "critBase": 5.5,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Harpy Rapier": {
+    "physMin": 31,
+    "physMax": 72,
+    "critBase": 5.7,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Dragoon Sword": {
+    "physMin": 32,
+    "physMax": 66,
+    "critBase": 6,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Keyblade": {
+    "physMin": 1,
+    "physMax": 1,
+    "critBase": 5,
+    "atkRate": 1.2,
+    "type": "sword"
+  },
+  "Corroded Blade": {
+    "physMin": 8,
+    "physMax": 16,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "sword"
+  },
+  "Longsword": {
+    "physMin": 11,
+    "physMax": 26,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Bastard Sword": {
+    "physMin": 17,
+    "physMax": 29,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "sword"
+  },
+  "Two-Handed Sword": {
+    "physMin": 20,
+    "physMax": 38,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Etched Greatsword": {
+    "physMin": 23,
+    "physMax": 48,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Ornate Sword": {
+    "physMin": 30,
+    "physMax": 50,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Spectral Sword": {
+    "physMin": 31,
+    "physMax": 65,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "sword"
+  },
+  "Curved Blade": {
+    "physMin": 41,
+    "physMax": 68,
+    "critBase": 6,
+    "atkRate": 1.35,
+    "type": "sword"
+  },
+  "Butcher Sword": {
+    "physMin": 34,
+    "physMax": 79,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Footman Sword": {
+    "physMin": 39,
+    "physMax": 65,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "sword"
+  },
+  "Highland Blade": {
+    "physMin": 45,
+    "physMax": 84,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "sword"
+  },
+  "Engraved Greatsword": {
+    "physMin": 49,
+    "physMax": 102,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Tiger Sword": {
+    "physMin": 54,
+    "physMax": 89,
+    "critBase": 5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Wraith Sword": {
+    "physMin": 52,
+    "physMax": 109,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "sword"
+  },
+  "Lithe Blade": {
+    "physMin": 63,
+    "physMax": 104,
+    "critBase": 6,
+    "atkRate": 1.35,
+    "type": "sword"
+  },
+  "Headman's Sword": {
+    "physMin": 55,
+    "physMax": 128,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Reaver Sword": {
+    "physMin": 62,
+    "physMax": 104,
+    "critBase": 5,
+    "atkRate": 1.5,
+    "type": "sword"
+  },
+  "Ezomyte Blade": {
+    "physMin": 62,
+    "physMax": 115,
+    "critBase": 6.5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Vaal Greatsword": {
+    "physMin": 68,
+    "physMax": 142,
+    "critBase": 5,
+    "atkRate": 1.3,
+    "type": "sword"
+  },
+  "Lion Sword": {
+    "physMin": 69,
+    "physMax": 115,
+    "critBase": 5,
+    "atkRate": 1.45,
+    "type": "sword"
+  },
+  "Infernal Sword": {
+    "physMin": 62,
+    "physMax": 129,
+    "critBase": 5,
+    "atkRate": 1.35,
+    "type": "sword"
+  },
+  "Exquisite Blade": {
+    "physMin": 67,
+    "physMax": 112,
+    "critBase": 5.7,
+    "atkRate": 1.35,
+    "type": "sword"
+  },
+  "Rebuking Blade": {
+    "physMin": 30,
+    "physMax": 56,
+    "critBase": 6.5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Blasting Blade": {
+    "physMin": 47,
+    "physMax": 87,
+    "critBase": 6.5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Banishing Blade": {
+    "physMin": 55,
+    "physMax": 102,
+    "critBase": 6.5,
+    "atkRate": 1.4,
+    "type": "sword"
+  },
+  "Energy Blade Two Handed": {
+    "physMin": 0,
+    "physMax": 0,
+    "critBase": 7,
+    "atkRate": 1.6,
+    "type": "sword"
+  },
+  "Driftwood Wand": {
+    "physMin": 5,
+    "physMax": 9,
+    "critBase": 8.3,
+    "atkRate": 1.5,
+    "type": "wand"
+  },
+  "Goat's Horn": {
+    "physMin": 7,
+    "physMax": 13,
+    "critBase": 8,
+    "atkRate": 1.4,
+    "type": "wand"
+  },
+  "Carved Wand": {
+    "physMin": 9,
+    "physMax": 16,
+    "critBase": 8,
+    "atkRate": 1.6,
+    "type": "wand"
+  },
+  "Quartz Wand": {
+    "physMin": 12,
+    "physMax": 23,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "wand"
+  },
+  "Spiraled Wand": {
+    "physMin": 11,
+    "physMax": 32,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "wand"
+  },
+  "Sage Wand": {
+    "physMin": 17,
+    "physMax": 32,
+    "critBase": 8.7,
+    "atkRate": 1.5,
+    "type": "wand"
+  },
+  "Pagan Wand": {
+    "physMin": 20,
+    "physMax": 37,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "wand"
+  },
+  "Faun's Horn": {
+    "physMin": 21,
+    "physMax": 38,
+    "critBase": 8,
+    "atkRate": 1.4,
+    "type": "wand"
+  },
+  "Engraved Wand": {
+    "physMin": 19,
+    "physMax": 36,
+    "critBase": 8,
+    "atkRate": 1.6,
+    "type": "wand"
+  },
+  "Crystal Wand": {
+    "physMin": 24,
+    "physMax": 45,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "wand"
+  },
+  "Coiled Wand": {
+    "physMin": 18,
+    "physMax": 55,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "wand"
+  },
+  "Omen Wand": {
+    "physMin": 24,
+    "physMax": 45,
+    "critBase": 8.7,
+    "atkRate": 1.5,
+    "type": "wand"
+  },
+  "Heathen Wand": {
+    "physMin": 28,
+    "physMax": 52,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "wand"
+  },
+  "Demon's Horn": {
+    "physMin": 31,
+    "physMax": 57,
+    "critBase": 8,
+    "atkRate": 1.4,
+    "type": "wand"
+  },
+  "Imbued Wand": {
+    "physMin": 27,
+    "physMax": 50,
+    "critBase": 8,
+    "atkRate": 1.6,
+    "type": "wand"
+  },
+  "Opal Wand": {
+    "physMin": 30,
+    "physMax": 56,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "wand"
+  },
+  "Tornado Wand": {
+    "physMin": 22,
+    "physMax": 65,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "wand"
+  },
+  "Prophecy Wand": {
+    "physMin": 26,
+    "physMax": 48,
+    "critBase": 8.7,
+    "atkRate": 1.5,
+    "type": "wand"
+  },
+  "Profane Wand": {
+    "physMin": 30,
+    "physMax": 56,
+    "critBase": 8,
+    "atkRate": 1.45,
+    "type": "wand"
+  },
+  "Assembler Wand": {
+    "physMin": 15,
+    "physMax": 28,
+    "critBase": 8.5,
+    "atkRate": 1.5,
+    "type": "wand"
+  },
+  "Congregator Wand": {
+    "physMin": 23,
+    "physMax": 43,
+    "critBase": 8.5,
+    "atkRate": 1.5,
+    "type": "wand"
+  },
+  "Accumulator Wand": {
+    "physMin": 27,
+    "physMax": 50,
+    "critBase": 8.5,
+    "atkRate": 1.5,
+    "type": "wand"
+  },
+  "Somatic Wand": {
+    "physMin": 9,
+    "physMax": 18,
+    "critBase": 8.5,
+    "atkRate": 1.6,
+    "type": "wand"
+  },
+  "Blasting Wand": {
+    "physMin": 21,
+    "physMax": 39,
+    "critBase": 8.5,
+    "atkRate": 1.6,
+    "type": "wand"
+  },
+  "Kinetic Wand": {
+    "physMin": 29,
+    "physMax": 54,
+    "critBase": 8.5,
+    "atkRate": 1.6,
+    "type": "wand"
+  },
+  "Convoking Wand": {
+    "physMin": 28,
+    "physMax": 52,
+    "critBase": 8,
+    "atkRate": 1.5,
+    "type": "wand"
+  },
+  "Calling Wand": {
+    "physMin": 13,
+    "physMax": 23,
+    "critBase": 8,
+    "atkRate": 1.5,
+    "type": "wand"
+  },
+  "Convening Wand": {
+    "physMin": 25,
+    "physMax": 47,
+    "critBase": 8,
+    "atkRate": 1.5,
+    "type": "wand"
+  }
+}

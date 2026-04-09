@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>UITS Editor</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; }
+body {
+  background: #08090f;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  color: #e0e8fc;
+  display: grid;
+  grid-template-rows: 44px 1fr 180px;
+  grid-template-columns: 180px 1fr 300px;
+  grid-template-areas:
+    "top    top    top"
+    "left   center right"
+    "left   bottom right";
+}
+
+/* ===== TOP MENU ===== */
+.top-menu {
+  grid-area: top;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 16px;
+  background: #0b0e18; border-bottom: 1px solid #1a1e2e;
+  z-index: 100;
+}
+.top-menu .title {
+  font-size: 14px; font-weight: 600; color: #6880b0; margin-right: auto;
+}
+.top-menu .title em { font-style: normal; color: #c0cce8; }
+.top-btn {
+  padding: 5px 12px; border-radius: 5px; font-size: 12px;
+  cursor: pointer; border: 1px solid #1e2440; background: #111628; color: #8098c0;
+  user-select: none;
+}
+.top-btn:hover { background: #1a2040; color: #c0d0f0; }
+.top-btn.active { background: #2a4080; border-color: #3060b0; color: #d0e0ff; }
+.scale-group { display: flex; gap: 4px; align-items: center; font-size: 12px; color: #4a5a80; }
+.scale-group .top-btn { padding: 4px 8px; }
+
+/* ===== LEFT MENU ===== */
+.left-menu {
+  grid-area: left;
+  background: #0b0e18; border-right: 1px solid #1a1e2e;
+  display: flex; flex-direction: column; padding: 8px;
+  gap: 4px; overflow-y: auto;
+}
+.left-menu h3 {
+  font-size: 11px; color: #4a5a80; text-transform: uppercase;
+  letter-spacing: 1px; padding: 8px 8px 4px; margin: 0;
+}
+.panel-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 12px; border-radius: 6px; cursor: pointer;
+  font-size: 13px; color: #7888b0; transition: all 0.12s;
+  border: 1px solid transparent;
+}
+.panel-item:hover { background: rgba(30,50,100,0.15); color: #b0c0e0; }
+.panel-item.active {
+  background: rgba(40,60,120,0.2); color: #d0e0ff;
+  border-color: #2a4080;
+}
+.panel-item .icon { font-size: 18px; }
+
+/* ===== CENTER AREA ===== */
+.center-area {
+  grid-area: center;
+  overflow: auto; position: relative;
+  background: #070810;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 20px;
+}
+#panelHost { transform-origin: top center; transition: transform 0.2s; }
+
+/* ===== CENTER BOTTOM ===== */
+.center-bottom {
+  grid-area: bottom;
+  background: #0b0e18; border-top: 1px solid #1a1e2e;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.center-bottom-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 14px; border-bottom: 1px solid #141828;
+  flex-shrink: 0;
+}
+.center-bottom-header h3 { font-size: 13px; color: #6880b0; margin: 0; }
+.center-bottom-body {
+  flex: 1; overflow-y: auto; padding: 8px 14px;
+  display: flex; flex-wrap: wrap; gap: 8px; align-content: flex-start;
+}
+
+/* ===== RIGHT INFO ===== */
+.right-info {
+  grid-area: right;
+  background: #0b0e18; border-left: 1px solid #1a1e2e;
+  display: flex; flex-direction: column; overflow-y: auto;
+  gap: 0;
+}
+.right-section {
+  padding: 12px 14px; border-bottom: 1px solid #141828;
+}
+.right-section h3 {
+  font-size: 13px; color: #6880b0; margin-bottom: 8px;
+  padding-bottom: 6px; border-bottom: 1px solid #1a1e2e;
+}
+
+/* ===== Tree panel ===== */
+.tree-panel { flex-shrink: 0; max-height: 45vh; overflow-y: auto; }
+
+/* ===== Inspector ===== */
+.inspector-toggle {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 0; font-size: 12px; color: #6880b0; cursor: pointer; user-select: none;
+}
+.inspector-toggle .switch {
+  width: 32px; height: 18px; border-radius: 9px;
+  background: #1a1e2e; position: relative; transition: background 0.2s;
+}
+.inspector-toggle .switch::after {
+  content: ""; position: absolute; top: 2px; left: 2px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #4a5070; transition: all 0.2s;
+}
+.inspector-toggle.active .switch { background: #2a4080; }
+.inspector-toggle.active .switch::after { left: 16px; background: #5090e0; }
+
+.inspector-panel .no-selection {
+  color: #3a4060; font-style: italic; padding: 16px 0; text-align: center; font-size: 12px;
+}
+.inspector-section { margin-bottom: 8px; }
+.inspector-section summary {
+  font-size: 12px; font-weight: 600; color: #5878b0; cursor: pointer;
+  padding: 3px 0; user-select: none;
+}
+.inspector-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 2px 6px; border-bottom: 1px solid rgba(30,40,70,0.3); font-size: 11px;
+}
+.inspector-row:hover { background: rgba(30,50,100,0.1); }
+.inspector-key { color: #6880a8; min-width: 70px; flex-shrink: 0; }
+.inspector-val { color: #b0c0e0; text-align: right; word-break: break-all; max-width: 160px; }
+
+/* ===== Highlight ===== */
+.inspector-highlight { outline: 2px solid #4080e0 !important; outline-offset: 1px; position: relative; }
+.inspector-hover-hint { outline: 1px dashed rgba(80,140,240,0.4) !important; outline-offset: 1px; }
+
+/* ===== Context menu ===== */
+.ctx-menu {
+  position: fixed; z-index: 500; min-width: 160px;
+  background: #111628; border: 1px solid #2a3258; border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6); padding: 4px 0; display: none;
+}
+.ctx-menu-item {
+  padding: 8px 16px; font-size: 13px; color: #b0c0e0; cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+}
+.ctx-menu-item:hover { background: rgba(40,60,120,0.2); color: #e0ecff; }
+
+/* ===== Modals ===== */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 600;
+  background: rgba(0,0,0,0.55); display: none;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  width: 560px; max-height: 80vh; background: #0e1224;
+  border: 1px solid #2a3258; border-radius: 10px;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px; border-bottom: 1px solid #1e2440;
+}
+.modal-header h3 { font-size: 15px; color: #8098d0; margin: 0; }
+.modal-close { background: none; border: none; color: #5060a0; font-size: 20px; cursor: pointer; }
+.modal-close:hover { color: #ff8080; }
+.modal-body { padding: 16px 18px; flex: 1; overflow-y: auto; }
+.modal-body label { font-size: 12px; color: #6078a8; margin-bottom: 4px; display: block; }
+.modal-body textarea {
+  width: 100%; min-height: 200px; background: #0a0d18; color: #c0cce8;
+  border: 1px solid #1e2440; border-radius: 6px; padding: 10px 12px;
+  font-family: "Consolas", "Source Code Pro", monospace; font-size: 13px;
+  line-height: 1.6; resize: vertical;
+}
+.modal-body textarea:focus { outline: none; border-color: #3060b0; }
+.modal-body .control-info {
+  font-size: 12px; color: #4a5a80; margin-bottom: 10px;
+  padding: 6px 10px; background: rgba(20,28,50,0.5); border-radius: 4px;
+}
+.modal-footer {
+  display: flex; justify-content: flex-end; gap: 8px;
+  padding: 12px 18px; border-top: 1px solid #1e2440;
+}
+.modal-btn {
+  padding: 7px 16px; border-radius: 5px; font-size: 13px; cursor: pointer; border: none;
+}
+.modal-btn-primary { background: #2a4080; color: #d0e0ff; }
+.modal-btn-primary:hover { background: #3050a0; }
+.modal-btn-secondary { background: #1a1e30; color: #8098c0; border: 1px solid #2a3258; }
+.modal-btn-secondary:hover { background: #222840; }
+.modal-btn-submit { background: #306030; color: #c0e8c0; }
+.modal-btn-submit:hover { background: #408040; }
+.suggestion-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 18px; height: 18px; border-radius: 9px;
+  background: #c08030; color: #fff; font-size: 11px; font-weight: 700;
+  padding: 0 5px; margin-left: 6px;
+}
+
+/* ===== Suggestion cards ===== */
+.cards-overlay {
+  position: fixed; inset: 0; z-index: 550;
+  background: rgba(0,0,0,0.55); display: none;
+  align-items: center; justify-content: center;
+}
+.cards-overlay.open { display: flex; }
+.cards-box {
+  width: 620px; max-height: 80vh; background: #0e1224;
+  border: 1px solid #2a3258; border-radius: 10px;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.cards-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px; border-bottom: 1px solid #1e2440;
+}
+.cards-header h3 { font-size: 15px; color: #8098d0; margin: 0; }
+.cards-body {
+  padding: 16px 18px; flex: 1; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.cards-empty { color: #3a4060; font-style: italic; text-align: center; padding: 20px 0; font-size: 13px; }
+.suggestion-card {
+  background: #111830; border: 1px solid #1e2440; border-radius: 8px;
+  padding: 10px 12px; cursor: pointer; transition: border-color 0.15s;
+}
+.suggestion-card:hover { border-color: #3a5090; }
+.suggestion-card.card-selected { border-color: #5080d0; background: #151e3a; }
+.card-filename { font-size: 11px; color: #4a5a80; margin-bottom: 4px; }
+.card-preview { font-size: 12px; color: #a0b0d0; white-space: pre-wrap; line-height: 1.4; max-height: 60px; overflow: hidden; }
+.card-ctx-menu {
+  position: fixed; z-index: 600; min-width: 140px;
+  background: #111628; border: 1px solid #2a3258; border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6); padding: 4px 0; display: none;
+}
+.card-ctx-item {
+  padding: 8px 16px; font-size: 13px; color: #b0c0e0; cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-ctx-item:hover { background: rgba(40,60,120,0.2); color: #e0ecff; }
+.card-ctx-item.danger:hover { background: rgba(120,30,30,0.2); color: #ff8080; }
+
+/* ===== MD Preview ===== */
+.md-preview-overlay {
+  position: fixed; inset: 0; z-index: 650;
+  background: rgba(0,0,0,0.55); display: none;
+  align-items: center; justify-content: center;
+}
+.md-preview-overlay.open { display: flex; }
+.md-preview-box {
+  width: 580px; max-height: 80vh; background: #0e1224;
+  border: 1px solid #2a3258; border-radius: 10px;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.md-preview-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px; border-bottom: 1px solid #1e2440;
+}
+.md-preview-header h3 { font-size: 15px; color: #8098d0; margin: 0; }
+.md-preview-body {
+  padding: 18px 22px; flex: 1; overflow-y: auto;
+  font-size: 14px; color: #c0cce8; line-height: 1.7;
+}
+.md-preview-body h1 { font-size: 20px; color: #a0b8e0; margin: 16px 0 8px; border-bottom: 1px solid #1e2440; padding-bottom: 6px; }
+.md-preview-body h2 { font-size: 17px; color: #90a8d0; margin: 14px 0 6px; }
+.md-preview-body h3 { font-size: 15px; color: #8098c0; margin: 12px 0 4px; }
+.md-preview-body p { margin: 6px 0; }
+.md-preview-body ul, .md-preview-body ol { padding-left: 22px; margin: 6px 0; }
+.md-preview-body li { margin: 3px 0; }
+.md-preview-body code { background: #1a1e30; padding: 2px 6px; border-radius: 3px; font-size: 13px; color: #d0a860; }
+.md-preview-body pre { background: #0a0d18; border: 1px solid #1e2440; border-radius: 6px; padding: 12px; overflow-x: auto; margin: 8px 0; }
+.md-preview-body pre code { background: none; padding: 0; }
+.md-preview-body blockquote { border-left: 3px solid #2a4080; padding-left: 12px; color: #7088b0; margin: 8px 0; }
+.md-preview-body strong { color: #e0ecff; }
+.md-preview-body em { color: #a0b8d8; font-style: italic; }
+
+/* ===== Dynamic panel CSS injected here ===== */
+#panelStyle { }
+</style>
+<style id="panelStyle"></style>
+</head>
+<body>
+
+<!-- ===== TOP MENU ===== -->
+<div class="top-menu">
+  <div class="title">UITS Editor — <em id="panelTitle">loading...</em></div>
+  <div class="inspector-toggle" id="inspectorToggle">
+    <div class="switch"></div>
+    <span>🔍 检查器</span>
+  </div>
+  <div class="scale-group">
+    缩放:
+    <button class="top-btn" onclick="setScale(0.5)">50%</button>
+    <button class="top-btn" onclick="setScale(0.65)">65%</button>
+    <button class="top-btn active" onclick="setScale(0.8)">80%</button>
+    <button class="top-btn" onclick="setScale(1)">100%</button>
+  </div>
+</div>
+
+<!-- ===== LEFT MENU ===== -->
+<div class="left-menu">
+  <h3>界面列表</h3>
+  <div id="panelList"></div>
+  <h3 style="margin-top:12px;">EntryClass 预览</h3>
+  <div id="entryClassList"></div>
+</div>
+
+<!-- ===== CENTER AREA ===== -->
+<div class="center-area">
+  <div id="panelHost"></div>
+</div>
+
+<!-- ===== CENTER BOTTOM ===== -->
+<div class="center-bottom">
+  <div class="center-bottom-header">
+    <h3>💬 修改意见 <span class="suggestion-badge" id="inlineSuggestionCount" style="display:none">0</span></h3>
+    <button class="top-btn" id="inlineSubmitBtn">📤 提交到 UITS</button>
+  </div>
+  <div class="center-bottom-body" id="inlineCardsBody">
+    <div class="cards-empty">暂无修改意见</div>
+  </div>
+</div>
+
+<!-- ===== RIGHT INFO ===== -->
+<div class="right-info">
+  <div class="right-section tree-panel">
+    <h3>🌿 节点树</h3>
+    <umg-tree-view id="bagTree"></umg-tree-view>
+  </div>
+  <div class="right-section inspector-panel" id="inspectorPanel">
+    <h3>📋 属性面板</h3>
+    <div class="no-selection" id="inspectorEmpty">点击控件查看属性</div>
+    <div id="inspectorContent" style="display:none;"></div>
+  </div>
+</div>
+
+<!-- Context Menu -->
+<div class="ctx-menu" id="ctxMenu">
+  <div class="ctx-menu-item" id="ctxSuggestion">📝 修改意见</div>
+</div>
+
+<!-- Suggestion Modal -->
+<div class="modal-overlay" id="suggestionModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>📝 修改意见</h3>
+      <button class="modal-close" id="modalClose">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="control-info" id="modalControlInfo"></div>
+      <label>Markdown 编辑器</label>
+      <textarea id="suggestionEditor" placeholder="在此输入修改意见（支持 Markdown 语法）..."></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn modal-btn-secondary" id="modalViewAll">📋 查看全部</button>
+      <button class="modal-btn modal-btn-secondary" id="modalCancel">取消</button>
+      <button class="modal-btn modal-btn-primary" id="modalSave">💾 保存</button>
+      <button class="modal-btn modal-btn-submit" id="modalSubmitAll">📤 提交<span class="suggestion-badge" id="suggestionCount" style="display:none">0</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Cards Viewer Modal -->
+<div class="cards-overlay" id="cardsOverlay">
+  <div class="cards-box">
+    <div class="cards-header">
+      <h3>📋 修改意见列表</h3>
+      <button class="modal-close" id="cardsClose">×</button>
+    </div>
+    <div class="cards-body" id="cardsBody">
+      <div class="cards-empty">暂无修改意见</div>
+    </div>
+  </div>
+</div>
+
+<!-- Card Context Menu -->
+<div class="card-ctx-menu" id="cardCtxMenu">
+  <div class="card-ctx-item" id="cardCtxEdit">✏️ 编辑</div>
+  <div class="card-ctx-item danger" id="cardCtxDelete">🗑️ 删除</div>
+</div>
+
+<!-- MD Preview Modal -->
+<div class="md-preview-overlay" id="mdPreviewOverlay">
+  <div class="md-preview-box">
+    <div class="md-preview-header">
+      <h3 id="mdPreviewTitle">📖 意见预览</h3>
+      <button class="modal-close" id="mdPreviewClose">×</button>
+    </div>
+    <div class="md-preview-body" id="mdPreviewBody"></div>
+  </div>
+</div>
+
+<script type="module">
+import './elements/index.js';
+
+// ===== Panel registry =====
+const PANELS = {};
+async function registerPanel(mod) {
+  PANELS[mod.id] = mod;
+}
+
+// Import available panels
+import bagPanel from './panels/bag-panel.js';
+registerPanel(bagPanel);
+
+// ===== EntryClass registry =====
+const ENTRY_CLASSES = {};
+function registerEntryClass(tag, label, sampleData) {
+  ENTRY_CLASSES[tag] = { tag, label, sampleData };
+}
+// Register known entry classes
+registerEntryClass('umg-tile-entry', 'UTileEntry (默认)', {
+  icon: '⚔️', title: '龙雀古剑', subtitle: '装备 · 战刃',
+  qty: 'x01', stats: '攻击力 +248', detail: '示例数据'
+});
+
+let entryPreviewMode = false;
+let entryPreviewCount = 6;
+
+// ===== Panel loading =====
+const panelHost = document.getElementById('panelHost');
+const panelStyle = document.getElementById('panelStyle');
+const panelTitle = document.getElementById('panelTitle');
+const panelList = document.getElementById('panelList');
+let activePanel = null;
+let activePanelApi = null;
+
+function renderPanelList() {
+  panelList.innerHTML = Object.values(PANELS).map(p =>
+    `<div class="panel-item${!entryPreviewMode && activePanel?.id === p.id ? ' active' : ''}" data-id="${p.id}">
+      <span class="icon">${p.icon}</span> ${p.name}
+    </div>`
+  ).join('');
+  panelList.querySelectorAll('.panel-item').forEach(el => {
+    el.addEventListener('click', () => { entryPreviewMode = false; loadPanel(el.dataset.id); renderEntryClassList(); });
+  });
+}
+
+const entryClassList = document.getElementById('entryClassList');
+function renderEntryClassList() {
+  entryClassList.innerHTML = Object.values(ENTRY_CLASSES).map(ec =>
+    `<div class="panel-item${entryPreviewMode && entryPreviewMode === ec.tag ? ' active' : ''}" data-tag="${ec.tag}">
+      <span class="icon">🧩</span> ${ec.label}
+    </div>`
+  ).join('');
+  entryClassList.querySelectorAll('.panel-item').forEach(el => {
+    el.addEventListener('click', () => loadEntryPreview(el.dataset.tag));
+  });
+}
+
+function loadEntryPreview(tag) {
+  const ec = ENTRY_CLASSES[tag];
+  if (!ec) return;
+  entryPreviewMode = tag;
+  activePanel = null;
+  activePanelApi = null;
+
+  panelStyle.textContent = `
+    .entry-preview-host { padding: 40px; display: flex; flex-direction: column; gap: 20px; align-items: center; }
+    .entry-preview-host h2 { color: #6880b0; font-size: 16px; font-weight: 600; }
+    .entry-preview-info { color: #4a5a80; font-size: 12px; margin-bottom: 8px; }
+    .entry-preview-count { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .entry-preview-count label { color: #6880b0; font-size: 13px; }
+    .entry-preview-count input { width: 60px; background: #0a0d18; border: 1px solid #1e2440; border-radius: 4px;
+      color: #c0cce8; padding: 4px 8px; font-size: 13px; text-align: center; }
+    .entry-preview-count input:focus { outline: none; border-color: #3060b0; }
+    .entry-preview-grid { display: grid; grid-template-columns: repeat(3, 113px); gap: 10px; justify-content: center; }
+    .entry-single-preview { display: flex; align-items: center; justify-content: center;
+      border: 1px dashed #2a3258; border-radius: 8px; padding: 30px; margin-bottom: 20px; }
+  `;
+
+  panelHost.innerHTML = `
+    <div class="entry-preview-host">
+      <h2>🧩 EntryClass 预览: ${ec.label}</h2>
+      <div class="entry-preview-info">标签名: &lt;${ec.tag}&gt; · 点击面板列表返回界面编辑</div>
+      <div style="font-size:13px;color:#5878b0;margin-bottom:4px;">▸ 单个 Entry 预览</div>
+      <div class="entry-single-preview" id="entrySinglePreview"></div>
+      <div class="entry-preview-count">
+        <label>预览数量:</label>
+        <input type="number" id="entryPreviewCountInput" value="${entryPreviewCount}" min="1" max="24">
+        <button class="top-btn" id="entryPreviewRefreshBtn">刷新</button>
+      </div>
+      <div style="font-size:13px;color:#5878b0;margin-bottom:4px;">▸ TileView 内 ${entryPreviewCount} 个 Entry</div>
+      <umg-tile-view id="entryPreviewGrid" columns="3" entry-width="108px" entry-height="108px" gap="10 10"
+        selection-mode="Single" entry-class="${ec.tag}"></umg-tile-view>
+    </div>`;
+
+  // Render single entry preview
+  const singleHost = panelHost.querySelector('#entrySinglePreview');
+  const singleEntry = document.createElement(ec.tag);
+  singleEntry.style.width = '113px';
+  singleEntry.style.height = '108px';
+  singleHost.appendChild(singleEntry);
+  requestAnimationFrame(() => {
+    singleEntry.setListItem?.(ec.sampleData, 0);
+  });
+
+  // Render grid preview
+  const grid = panelHost.querySelector('#entryPreviewGrid');
+  const items = [];
+  for (let i = 0; i < entryPreviewCount; i++) {
+    items.push({ ...ec.sampleData, title: `${ec.sampleData.title} #${i+1}` });
+  }
+  grid.style.width = '380px';
+  grid.style.minHeight = '240px';
+  requestAnimationFrame(() => grid.setItems(items));
+
+  // Count input + refresh
+  const countInput = panelHost.querySelector('#entryPreviewCountInput');
+  const refreshBtn = panelHost.querySelector('#entryPreviewRefreshBtn');
+  refreshBtn.addEventListener('click', () => {
+    entryPreviewCount = Math.max(1, Math.min(24, parseInt(countInput.value) || 6));
+    loadEntryPreview(tag);
+  });
+
+  // Set tree to show entry structure
+  const tree = document.getElementById('bagTree');
+  tree.setNodes([
+    { label: `EntryClass: ${ec.label}`, children: [
+      { label: 'EntryIcon (图标)' },
+      { label: 'EntryLabel (标题)' },
+      { label: 'EntrySub (副标题)' },
+      { label: 'EntryQty (数量)' },
+    ]},
+    { label: `TileView 预览 (${entryPreviewCount} entries)` }
+  ]);
+
+  panelTitle.textContent = `EntryClass: ${ec.label}`;
+  clearInspection();
+  renderPanelList();
+  renderEntryClassList();
+}
+
+function loadPanel(id) {
+  const panel = PANELS[id];
+  if (!panel) return;
+  activePanel = panel;
+  entryPreviewMode = false;
+
+  // Inject CSS
+  panelStyle.textContent = panel.css || '';
+  // Inject HTML
+  panelHost.innerHTML = panel.html || '';
+  // Update title
+  panelTitle.textContent = panel.name;
+
+  // Set tree
+  const tree = document.getElementById('bagTree');
+  if (panel.treeNodes) tree.setNodes(panel.treeNodes);
+
+  // Build reverse maps
+  buildReverseMaps(panel);
+
+  // Init panel logic
+  activePanelApi = panel.init ? panel.init(panelHost) : null;
+
+  // Clear inspector
+  clearInspection();
+
+  // Re-render panel list
+  renderPanelList();
+
+  // Attach inspector events to new panel root
+  attachInspectorEvents();
+}
+
+// ===== Scale =====
+window.setScale = function(s) {
+  panelHost.style.transform = `scale(${s})`;
+  document.querySelectorAll('.scale-group .top-btn').forEach(b => {
+    b.classList.toggle('active', b.textContent.trim() === Math.round(s*100) + '%');
+  });
+};
+
+// ===== Inspector =====
+let inspectorOn = false;
+let inspectedEl = null;
+const toggleBtn = document.getElementById('inspectorToggle');
+const inspectorEmpty = document.getElementById('inspectorEmpty');
+const inspectorContent = document.getElementById('inspectorContent');
+
+toggleBtn.addEventListener('click', () => {
+  inspectorOn = !inspectorOn;
+  toggleBtn.classList.toggle('active', inspectorOn);
+  if (!inspectorOn) clearInspection();
+});
+
+function clearInspection() {
+  if (inspectedEl) { inspectedEl.classList.remove('inspector-highlight'); inspectedEl = null; }
+  inspectorEmpty.style.display = '';
+  inspectorContent.style.display = 'none';
+  document.querySelectorAll('.inspector-hover-hint').forEach(e => e.classList.remove('inspector-hover-hint'));
+  document.getElementById('bagTree').clearHighlight?.();
+}
+
+function attachInspectorEvents() {
+  const root = panelHost.firstElementChild;
+  if (!root) return;
+
+  root.addEventListener('mouseover', (e) => {
+    if (!inspectorOn) return;
+    const target = findInspectable(e.target);
+    if (target && target !== inspectedEl) target.classList.add('inspector-hover-hint');
+  });
+  root.addEventListener('mouseout', (e) => {
+    if (!inspectorOn) return;
+    const target = findInspectable(e.target);
+    if (target) target.classList.remove('inspector-hover-hint');
+  });
+  root.addEventListener('click', (e) => {
+    if (!inspectorOn) return;
+    const target = findInspectable(e.target);
+    if (!target) return;
+    e.stopPropagation();
+    e.preventDefault();
+    selectForInspection(target);
+  }, true);
+  root.addEventListener('contextmenu', (e) => {
+    if (!inspectorOn) return;
+    const target = findInspectable(e.target);
+    if (!target) return;
+    e.preventDefault();
+    ctxTarget = target;
+    selectForInspection(target);
+    ctxMenu.style.left = e.clientX + 'px';
+    ctxMenu.style.top = e.clientY + 'px';
+    ctxMenu.style.display = 'block';
+  });
+}
+
+function selectForInspection(target) {
+  if (inspectedEl) inspectedEl.classList.remove('inspector-highlight');
+  inspectedEl = target;
+  inspectedEl.classList.add('inspector-highlight');
+  renderInspector(target);
+  syncTreeHighlight(target);
+}
+
+function findInspectable(el) {
+  while (el && el !== document.body) {
+    if (el.id || (el.tagName && el.tagName.startsWith('UMG-')) || el.classList?.contains('tab-btn'))
+      return el;
+    el = el.parentElement;
+  }
+  return null;
+}
+
+// ===== Tree ↔ Inspector sync =====
+let TREE_LABEL_MAP = {};
+let TAB_CAT_MAP = {};
+let REVERSE_TREE_MAP = {};
+
+function buildReverseMaps(panel) {
+  TREE_LABEL_MAP = panel.treeLabelMap || {};
+  TAB_CAT_MAP = panel.tabCatMap || {};
+  REVERSE_TREE_MAP = {};
+  for (const [id, label] of Object.entries(TREE_LABEL_MAP)) {
+    const el = document.getElementById(id);
+    if (el) REVERSE_TREE_MAP[label.toLowerCase()] = el;
+  }
+  for (const [cat, label] of Object.entries(TAB_CAT_MAP)) {
+    const el = document.querySelector(`.tab-btn[data-cat="${cat}"]`);
+    if (el) REVERSE_TREE_MAP[label.toLowerCase()] = el;
+  }
+}
+
+function syncTreeHighlight(el) {
+  const tree = document.getElementById('bagTree');
+  let search = null;
+  if (el.id && TREE_LABEL_MAP[el.id]) search = TREE_LABEL_MAP[el.id];
+  else if (el.classList?.contains('tab-btn')) {
+    const cat = el.getAttribute('data-cat');
+    if (cat && TAB_CAT_MAP[cat]) search = TAB_CAT_MAP[cat];
+  }
+  else if (el.id) search = el.id;
+  if (search) tree.highlightNode(search);
+  else tree.clearHighlight();
+}
+
+function findDomByTreeLabel(label) {
+  const lower = label.toLowerCase();
+  for (const [key, el] of Object.entries(REVERSE_TREE_MAP)) {
+    if (lower.includes(key)) return el;
+  }
+  return null;
+}
+
+// Tree click → inspect
+const bagTree = document.getElementById('bagTree');
+bagTree.addEventListener('OnItemClicked', (e) => {
+  const { label } = e.detail;
+  const el = findDomByTreeLabel(label);
+  if (el) {
+    if (!inspectorOn) { inspectorOn = true; toggleBtn.classList.add('active'); }
+    selectForInspection(el);
+  }
+});
+bagTree.addEventListener('OnItemDeselected', () => { clearInspection(); });
+
+// Tree right-click → context menu
+bagTree.addEventListener('OnItemContextMenu', (e) => {
+  const { label, clientX, clientY } = e.detail;
+  const el = findDomByTreeLabel(label);
+  if (el) {
+    if (!inspectorOn) { inspectorOn = true; toggleBtn.classList.add('active'); }
+    selectForInspection(el);
+    ctxTarget = el;
+    ctxMenu.style.left = clientX + 'px';
+    ctxMenu.style.top = clientY + 'px';
+    ctxMenu.style.display = 'block';
+  }
+});
+
+// ===== Render Inspector =====
+function renderInspector(el) {
+  inspectorEmpty.style.display = 'none';
+  inspectorContent.style.display = '';
+  const tag = el.tagName.toLowerCase();
+  const rect = el.getBoundingClientRect();
+  const cs = getComputedStyle(el);
+  const relLeft = el.offsetLeft;
+  const relTop = el.offsetTop;
+  const parentW = el.offsetParent ? el.offsetParent.clientWidth : window.innerWidth;
+  const parentH = el.offsetParent ? el.offsetParent.clientHeight : window.innerHeight;
+  const anchorMinX = parentW > 0 ? (relLeft / parentW).toFixed(3) : '0';
+  const anchorMinY = parentH > 0 ? (relTop / parentH).toFixed(3) : '0';
+  const anchorMaxX = parentW > 0 ? ((relLeft + el.offsetWidth) / parentW).toFixed(3) : '0';
+  const anchorMaxY = parentH > 0 ? ((relTop + el.offsetHeight) / parentH).toFixed(3) : '0';
+
+  let html = '';
+  html += section('基本信息', [
+    row('标签', tag), row('ID', el.id || '(无)'),
+    row('类名', el.className?.replace?.(/inspector-\S+/g, '')?.trim() || '(无)'),
+    row('文本', truncate(el.textContent, 40)),
+  ]);
+  html += section('布局 / 锚点', [
+    row('位置', `${Math.round(relLeft)}, ${Math.round(relTop)}`),
+    row('尺寸', `${Math.round(rect.width)} × ${Math.round(rect.height)}`),
+    row('Anchor Min', `(${anchorMinX}, ${anchorMinY})`),
+    row('Anchor Max', `(${anchorMaxX}, ${anchorMaxY})`),
+    row('父控件', el.offsetParent ? (el.offsetParent.id || el.offsetParent.tagName.toLowerCase()) : '(root)'),
+  ]);
+  const bg = cs.background || cs.backgroundColor;
+  const border = cs.border || cs.borderColor;
+  html += section('样式 / 资源', [
+    row('背景', truncate(bg, 60)), row('边框', truncate(border, 50)),
+    row('圆角', cs.borderRadius), row('字号', cs.fontSize),
+    row('字色', cs.color), row('透明度', cs.opacity),
+  ]);
+  const attrs = [];
+  for (const a of el.attributes) {
+    if (['id','class','style'].includes(a.name)) continue;
+    attrs.push(row(a.name, truncate(a.value, 50)));
+  }
+  if (attrs.length) html += section('UMG 属性', attrs);
+
+  if (tag === 'umg-tile-view' && el.EntryWidth !== undefined) {
+    const gv = el.GapVector2 || { row: '—', col: '—' };
+    // EntryClass 属性分类
+    const ecRows = [
+      row('EntryWidgetClass', el.EntryWidgetClass || '(内置模板)'),
+      row('Width', el.EntryWidth), row('Height', el.EntryHeight),
+      row('Gap (Vector2)', `(${gv.row}, ${gv.col})`),
+    ];
+    if (el.EntryWidgetClass) {
+      ecRows.push(row('🧩 预览', `<a href="#" style="color:#5090e0;text-decoration:underline;" onclick="event.preventDefault();">在左侧打开</a>`));
+    }
+    html += section('EntryClass 属性', ecRows);
+    // TileView 自身属性
+    const tvRows = [
+      row('Width', el.Width || 'auto'), row('Height', el.Height || 'auto'),
+      row('Columns', el.Columns),
+      row('SelectionMode', el.SelectionMode), row('Orientation', el.Orientation),
+      row('ScrollbarVisibility', el.ScrollbarVisibility),
+      row('TileAlignment', el.TileAlignment),
+      row('NumItems', String(el.NumItems)),
+      row('SelectedIndex', String(el.getSelectedIndex?.() ?? -1)),
+      row('EntryInstances', String(el.getEntryInstances?.()?.length ?? 0)),
+    ];
+    html += section('TileView 属性', tvRows);
+  }
+  if (tag === 'umg-list-view' && el.getAttribute) {
+    html += section('ListView 属性', [
+      row('ItemHeight', el.getAttribute('item-height') || 'auto'),
+      row('Orientation', el.getAttribute('orientation') || 'Vertical'),
+      row('SelectionMode', el.getAttribute('selection-mode') || 'Single'),
+      row('NumItems', String(el.getNumItems?.() ?? 0)),
+    ]);
+  }
+  inspectorContent.innerHTML = html;
+}
+
+function section(title, rows) {
+  return `<details class="inspector-section" open><summary>${title}</summary>${rows.join('')}</details>`;
+}
+function row(key, val) {
+  return `<div class="inspector-row"><span class="inspector-key">${key}</span><span class="inspector-val">${val || '—'}</span></div>`;
+}
+function truncate(s, n) {
+  if (!s) return '—';
+  s = s.replace(/\s+/g, ' ').trim();
+  return s.length > n ? s.slice(0, n) + '…' : s;
+}
+
+// ===== Context Menu & Suggestion System =====
+const ctxMenu = document.getElementById('ctxMenu');
+const suggestionModal = document.getElementById('suggestionModal');
+const suggestionEditor = document.getElementById('suggestionEditor');
+const modalControlInfo = document.getElementById('modalControlInfo');
+const suggestionCount = document.getElementById('suggestionCount');
+let ctxTarget = null;
+
+document.addEventListener('click', () => { ctxMenu.style.display = 'none'; });
+
+document.getElementById('ctxSuggestion').addEventListener('click', () => {
+  ctxMenu.style.display = 'none';
+  if (!ctxTarget) return;
+  openSuggestionModal(ctxTarget);
+});
+
+function openSuggestionModal(el) {
+  const tag = el.tagName.toLowerCase();
+  const id = el.id || '(unnamed)';
+  modalControlInfo.textContent = `控件: ${tag}  |  ID: ${id}`;
+  suggestionEditor.value = `## 控件: ${id} (${tag})\n\n### 问题描述\n\n\n### 期望效果\n\n`;
+  suggestionModal.classList.add('open');
+  suggestionEditor.focus();
+  refreshSuggestionCount();
+}
+
+document.getElementById('modalClose').addEventListener('click', closeSuggestionModal);
+document.getElementById('modalCancel').addEventListener('click', closeSuggestionModal);
+function closeSuggestionModal() { suggestionModal.classList.remove('open'); }
+
+document.getElementById('modalSave').addEventListener('click', async () => {
+  const md = suggestionEditor.value.trim();
+  if (!md) return;
+  const editFilename = suggestionEditor.dataset.editFilename;
+  try {
+    let resp;
+    if (editFilename) {
+      resp = await fetch('/api/update-suggestion', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: editFilename, markdown: md })
+      });
+    } else {
+      const controlId = ctxTarget ? (ctxTarget.id || ctxTarget.tagName.toLowerCase()) : 'unknown';
+      resp = await fetch('/api/save-suggestion', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ controlId, markdown: md })
+      });
+    }
+    const data = await resp.json();
+    if (data.ok) {
+      suggestionEditor.value = '';
+      delete suggestionEditor.dataset.editFilename;
+      closeSuggestionModal();
+      refreshSuggestionCount();
+      refreshInlineCards();
+      showToast(`✅ ${editFilename ? '已更新' : '已保存'}: ${data.updated || data.filename}`);
+    } else { showToast(`❌ 保存失败: ${data.message}`); }
+  } catch (e) { showToast(`❌ 网络错误: ${e.message}`); }
+});
+
+document.getElementById('modalSubmitAll').addEventListener('click', async () => {
+  try {
+    const md = suggestionEditor.value.trim();
+    if (md) {
+      const controlId = ctxTarget ? (ctxTarget.id || ctxTarget.tagName.toLowerCase()) : 'unknown';
+      const saveResp = await fetch('/api/save-suggestion', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ controlId, markdown: md })
+      });
+      const saveData = await saveResp.json();
+      if (!saveData.ok) { showToast(`❌ 自动保存失败`); return; }
+      suggestionEditor.value = '';
+    }
+    const resp = await fetch('/api/submit-suggestions', { method: 'POST' });
+    const data = await resp.json();
+    if (data.ok) {
+      closeSuggestionModal(); refreshSuggestionCount(); refreshInlineCards();
+      showToast(`📤 已提交 ${data.count} 条意见 → ${data.filename}`);
+    } else { showToast(`❌ ${data.message}`); }
+  } catch (e) { showToast(`❌ 网络错误: ${e.message}`); }
+});
+
+async function refreshSuggestionCount() {
+  try {
+    const resp = await fetch('/api/list-suggestions');
+    const data = await resp.json();
+    const count = data.ok ? data.items.length : 0;
+    suggestionCount.textContent = count;
+    suggestionCount.style.display = count > 0 ? '' : 'none';
+  } catch (_) {}
+}
+
+function showToast(msg) {
+  const el = document.createElement('div');
+  el.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111628;border:1px solid #2a3258;color:#c0d0f0;padding:10px 20px;border-radius:8px;font-size:13px;z-index:700;box-shadow:0 4px 16px rgba(0,0,0,0.5);';
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 3000);
+}
+
+// ===== Cards (inline + modal) =====
+const cardsOverlay = document.getElementById('cardsOverlay');
+const cardsBody = document.getElementById('cardsBody');
+const inlineCardsBody = document.getElementById('inlineCardsBody');
+const inlineSuggestionCount = document.getElementById('inlineSuggestionCount');
+const cardCtxMenu = document.getElementById('cardCtxMenu');
+let cardCtxFilename = null;
+let currentCardItems = [];
+
+document.getElementById('modalViewAll').addEventListener('click', () => { closeSuggestionModal(); openCardsViewer(); });
+document.getElementById('cardsClose').addEventListener('click', () => { cardsOverlay.classList.remove('open'); });
+document.addEventListener('click', () => { cardCtxMenu.style.display = 'none'; });
+
+function renderCardsInto(container, items) {
+  currentCardItems = items || [];
+  if (!items || items.length === 0) {
+    container.innerHTML = '<div class="cards-empty">暂无修改意见</div>';
+    return;
+  }
+  container.innerHTML = items.map(item => `
+    <div class="suggestion-card" data-filename="${item.filename}">
+      <div class="card-filename">📄 ${item.filename}</div>
+      <div class="card-preview">${escapeHtml(item.content.slice(0, 200))}</div>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.suggestion-card').forEach(card => {
+    card.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      cardCtxFilename = card.dataset.filename;
+      container.querySelectorAll('.card-selected').forEach(c => c.classList.remove('card-selected'));
+      card.classList.add('card-selected');
+      cardCtxMenu.style.left = e.clientX + 'px';
+      cardCtxMenu.style.top = e.clientY + 'px';
+      cardCtxMenu.style.display = 'block';
+    });
+    card.addEventListener('click', () => {
+      container.querySelectorAll('.card-selected').forEach(c => c.classList.remove('card-selected'));
+      card.classList.add('card-selected');
+      const item = currentCardItems.find(i => i.filename === card.dataset.filename);
+      if (item) openMdPreview(item.filename, item.content);
+    });
+  });
+}
+
+async function fetchSuggestionItems() {
+  try { const r = await fetch('/api/list-suggestions'); const d = await r.json(); return d.ok ? d.items : []; }
+  catch (_) { return []; }
+}
+
+async function refreshInlineCards() {
+  const items = await fetchSuggestionItems();
+  renderCardsInto(inlineCardsBody, items);
+  inlineSuggestionCount.textContent = items.length;
+  inlineSuggestionCount.style.display = items.length > 0 ? '' : 'none';
+}
+
+async function openCardsViewer() {
+  cardsOverlay.classList.add('open');
+  renderCardsInto(cardsBody, await fetchSuggestionItems());
+}
+
+document.getElementById('inlineSubmitBtn').addEventListener('click', async () => {
+  try {
+    const resp = await fetch('/api/submit-suggestions', { method: 'POST' });
+    const data = await resp.json();
+    if (data.ok) {
+      refreshInlineCards(); refreshSuggestionCount();
+      showToast(`📤 已提交 ${data.count} 条意见 → ${data.filename}`);
+    } else { showToast(`❌ ${data.message}`); }
+  } catch (e) { showToast(`❌ ${e.message}`); }
+});
+
+document.getElementById('cardCtxEdit').addEventListener('click', async () => {
+  cardCtxMenu.style.display = 'none';
+  if (!cardCtxFilename) return;
+  const items = await fetchSuggestionItems();
+  const item = items.find(i => i.filename === cardCtxFilename);
+  if (!item) { showToast('❌ 未找到'); return; }
+  cardsOverlay.classList.remove('open');
+  modalControlInfo.textContent = `编辑: ${cardCtxFilename}`;
+  suggestionEditor.value = item.content;
+  suggestionEditor.dataset.editFilename = cardCtxFilename;
+  suggestionModal.classList.add('open');
+  suggestionEditor.focus();
+});
+
+document.getElementById('cardCtxDelete').addEventListener('click', async () => {
+  cardCtxMenu.style.display = 'none';
+  if (!cardCtxFilename) return;
+  try {
+    const resp = await fetch('/api/delete-suggestion', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename: cardCtxFilename })
+    });
+    const data = await resp.json();
+    if (data.ok) { showToast(`🗑️ 已删除`); refreshInlineCards(); openCardsViewer(); refreshSuggestionCount(); }
+    else { showToast(`❌ ${data.message}`); }
+  } catch (e) { showToast(`❌ ${e.message}`); }
+});
+
+// ===== MD Preview =====
+const mdPreviewOverlay = document.getElementById('mdPreviewOverlay');
+const mdPreviewTitle = document.getElementById('mdPreviewTitle');
+const mdPreviewBody = document.getElementById('mdPreviewBody');
+
+document.getElementById('mdPreviewClose').addEventListener('click', () => { mdPreviewOverlay.classList.remove('open'); });
+mdPreviewOverlay.addEventListener('click', (e) => { if (e.target === mdPreviewOverlay) mdPreviewOverlay.classList.remove('open'); });
+
+function openMdPreview(filename, markdown) {
+  mdPreviewTitle.textContent = `📖 ${filename}`;
+  mdPreviewBody.innerHTML = renderMarkdown(markdown);
+  mdPreviewOverlay.classList.add('open');
+}
+
+function renderMarkdown(md) {
+  let html = escapeHtml(md);
+  html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_, l, c) => `<pre><code>${c.trim()}</code></pre>`);
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  html = html.replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>');
+  html = html.replace(/^---$/gm, '<hr>');
+  html = html.replace(/\n\n/g, '</p><p>');
+  html = '<p>' + html + '</p>';
+  html = html.replace(/<p>\s*<\/p>/g, '');
+  html = html.replace(/<p>(<h[123]>)/g, '$1');
+  html = html.replace(/(<\/h[123]>)<\/p>/g, '$1');
+  html = html.replace(/<p>(<ul>)/g, '$1');
+  html = html.replace(/(<\/ul>)<\/p>/g, '$1');
+  html = html.replace(/<p>(<pre>)/g, '$1');
+  html = html.replace(/(<\/pre>)<\/p>/g, '$1');
+  html = html.replace(/<p>(<blockquote>)/g, '$1');
+  html = html.replace(/(<\/blockquote>)<\/p>/g, '$1');
+  html = html.replace(/<p>(<hr>)<\/p>/g, '$1');
+  return html;
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ===== Init =====
+renderPanelList();
+renderEntryClassList();
+loadPanel('bag');
+setScale(0.8);
+refreshInlineCards();
+refreshSuggestionCount();
+</script>
+</body>
+</html>

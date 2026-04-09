@@ -1,0 +1,1259 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>背包 UI — UMG 控件版</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  background: #08090f;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 30px 20px;
+  gap: 20px;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  color: #e0e8fc;
+}
+
+/* === Scale control === */
+.scale-bar {
+  position: fixed; top: 10px; right: 16px;
+  display: flex; gap: 6px; align-items: center;
+  font-size: 13px; color: #6070a0; z-index: 200;
+}
+
+/* === Root canvas (CanvasPanel) === */
+#rootCanvas {
+  width: 1440px; height: 900px;
+  transform-origin: top center;
+  transition: transform 0.2s;
+}
+
+/* === Backdrop fills === */
+#background { position: absolute; inset: 0; }
+#backdropArt {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 40% 45%, #12162a 0%, #070810 70%);
+}
+#backdropArt::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 30%, rgba(40,60,120,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 70%, rgba(20,30,60,0.06) 0%, transparent 50%);
+}
+
+/* === CapacityPlate === */
+#capacityPlate {
+  position: absolute; left: 302px; top: 113px; width: 140px; height: 44px;
+  background: linear-gradient(90deg, rgba(20,28,60,0.85) 0%, rgba(12,16,36,0.6) 100%);
+  border-radius: 22px; border: 1px solid rgba(60,80,140,0.25);
+}
+#capacityLabel {
+  display: flex; align-items: center; justify-content: center;
+  width: 100%; height: 100%; gap: 2px;
+}
+.cap-used { font-size: 22px; font-weight: 700; color: #c8a050; }
+.cap-sep  { font-size: 16px; color: #3a4060; margin: 0 2px; }
+.cap-total{ font-size: 16px; color: #5a6488; }
+
+/* === CloseButton === */
+#closeButton {
+  position: absolute; left: 640px; top: 140px; width: 56px; height: 58px;
+}
+
+/* === Tabs (VBoxContainer) === */
+#tabs {
+  position: absolute; left: 173px; top: 220px; width: 127px; height: 347px;
+}
+
+/* === InventoryPanel === */
+#inventoryPanel {
+  position: absolute; left: 300px; top: 160px; width: 385px; height: 486px;
+}
+#inventoryPanelArt {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, #111528 0%, #0d1020 100%);
+  border: 1px solid #1e2440; border-radius: 10px;
+  pointer-events: none;
+}
+
+/* === GridContainer (TileView) === */
+#gridContainer {
+  position: absolute; left: 12px; top: 12px; right: 12px; bottom: 12px;
+}
+
+/* === Tooltip === */
+.item-slot[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute; left: 120px; top: 0; width: 180px;
+  padding: 10px 12px; background: #0e1224; border: 1px solid #2a3258;
+  border-radius: 6px; font-size: 13px; line-height: 1.5;
+  color: #b8c4e0; white-space: pre-line; z-index: 100;
+  pointer-events: none; box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+/* === Tree panel === */
+.tree-panel {
+  width: 100%; min-height: 300px;
+  background: #0c0f1a; border: 1px solid #1a1e2e; border-radius: 8px;
+  padding: 16px; flex-shrink: 0; overflow-y: auto; max-height: 45vh;
+}
+.tree-panel h3 {
+  font-size: 14px; color: #6880b0; margin-bottom: 12px;
+  padding-bottom: 8px; border-bottom: 1px solid #1a1e2e;
+}
+
+/* === Right sidebar wrapper === */
+.right-sidebar {
+  display: flex; flex-direction: column; gap: 12px;
+  width: 320px; flex-shrink: 0; max-height: 90vh; overflow-y: auto;
+}
+
+/* === Inspector toggle === */
+.inspector-toggle {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 12px; background: #0c0f1a; border: 1px solid #1a1e2e;
+  border-radius: 8px; font-size: 13px; color: #6880b0; cursor: pointer;
+  user-select: none;
+}
+.inspector-toggle .switch {
+  width: 36px; height: 20px; border-radius: 10px;
+  background: #1a1e2e; position: relative; transition: background 0.2s;
+}
+.inspector-toggle .switch::after {
+  content: ""; position: absolute; top: 3px; left: 3px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: #4a5070; transition: all 0.2s;
+}
+.inspector-toggle.active .switch { background: #2a4080; }
+.inspector-toggle.active .switch::after { left: 19px; background: #5090e0; }
+
+/* === Inspector panel === */
+.inspector-panel {
+  background: #0c0f1a; border: 1px solid #1a1e2e; border-radius: 8px;
+  padding: 14px; font-size: 12px;
+}
+.inspector-panel h3 {
+  font-size: 14px; color: #6880b0; margin-bottom: 10px;
+  padding-bottom: 8px; border-bottom: 1px solid #1a1e2e;
+}
+.inspector-panel .no-selection {
+  color: #3a4060; font-style: italic; padding: 20px 0; text-align: center;
+}
+.inspector-section { margin-bottom: 10px; }
+.inspector-section summary {
+  font-size: 12px; font-weight: 600; color: #5878b0; cursor: pointer;
+  padding: 4px 0; user-select: none;
+}
+.inspector-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  padding: 3px 8px; border-bottom: 1px solid rgba(30,40,70,0.3);
+}
+.inspector-row:hover { background: rgba(30,50,100,0.1); }
+.inspector-key { color: #6880a8; min-width: 80px; flex-shrink: 0; }
+.inspector-val { color: #b0c0e0; text-align: right; word-break: break-all; max-width: 180px; }
+
+/* === Inspector highlight outline === */
+.inspector-highlight {
+  outline: 2px solid #4080e0 !important;
+  outline-offset: 1px;
+  position: relative;
+}
+.inspector-hover-hint {
+  outline: 1px dashed rgba(80,140,240,0.4) !important;
+  outline-offset: 1px;
+}
+
+/* === Context menu === */
+.ctx-menu {
+  position: fixed; z-index: 500; min-width: 160px;
+  background: #111628; border: 1px solid #2a3258; border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6); padding: 4px 0; display: none;
+}
+.ctx-menu-item {
+  padding: 8px 16px; font-size: 13px; color: #b0c0e0; cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+}
+.ctx-menu-item:hover { background: rgba(40,60,120,0.2); color: #e0ecff; }
+
+/* === Suggestion modal === */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 600;
+  background: rgba(0,0,0,0.55); display: none;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal-box {
+  width: 560px; max-height: 80vh; background: #0e1224;
+  border: 1px solid #2a3258; border-radius: 10px;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.modal-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px; border-bottom: 1px solid #1e2440;
+}
+.modal-header h3 { font-size: 15px; color: #8098d0; margin: 0; }
+.modal-close { background: none; border: none; color: #5060a0; font-size: 20px; cursor: pointer; }
+.modal-close:hover { color: #ff8080; }
+.modal-body { padding: 16px 18px; flex: 1; overflow-y: auto; }
+.modal-body label { font-size: 12px; color: #6078a8; margin-bottom: 4px; display: block; }
+.modal-body textarea {
+  width: 100%; min-height: 200px; background: #0a0d18; color: #c0cce8;
+  border: 1px solid #1e2440; border-radius: 6px; padding: 10px 12px;
+  font-family: "Consolas", "Source Code Pro", monospace; font-size: 13px;
+  line-height: 1.6; resize: vertical;
+}
+.modal-body textarea:focus { outline: none; border-color: #3060b0; }
+.modal-body .control-info {
+  font-size: 12px; color: #4a5a80; margin-bottom: 10px;
+  padding: 6px 10px; background: rgba(20,28,50,0.5); border-radius: 4px;
+}
+.modal-footer {
+  display: flex; justify-content: flex-end; gap: 8px;
+  padding: 12px 18px; border-top: 1px solid #1e2440;
+}
+.modal-btn {
+  padding: 7px 16px; border-radius: 5px; font-size: 13px; cursor: pointer; border: none;
+}
+.modal-btn-primary { background: #2a4080; color: #d0e0ff; }
+.modal-btn-primary:hover { background: #3050a0; }
+.modal-btn-secondary { background: #1a1e30; color: #8098c0; border: 1px solid #2a3258; }
+.modal-btn-secondary:hover { background: #222840; }
+.modal-btn-submit { background: #306030; color: #c0e8c0; }
+.modal-btn-submit:hover { background: #408040; }
+
+/* === Suggestion badge === */
+.suggestion-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 18px; height: 18px; border-radius: 9px;
+  background: #c08030; color: #fff; font-size: 11px; font-weight: 700;
+  padding: 0 5px; margin-left: 6px;
+}
+
+/* === Suggestion cards modal === */
+.cards-overlay {
+  position: fixed; inset: 0; z-index: 550;
+  background: rgba(0,0,0,0.55); display: none;
+  align-items: center; justify-content: center;
+}
+.cards-overlay.open { display: flex; }
+.cards-box {
+  width: 620px; max-height: 80vh; background: #0e1224;
+  border: 1px solid #2a3258; border-radius: 10px;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.cards-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px; border-bottom: 1px solid #1e2440;
+}
+.cards-header h3 { font-size: 15px; color: #8098d0; margin: 0; }
+.cards-body {
+  padding: 16px 18px; flex: 1; overflow-y: auto;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.cards-empty { color: #3a4060; font-style: italic; text-align: center; padding: 30px 0; }
+.suggestion-card {
+  background: #111830; border: 1px solid #1e2440; border-radius: 8px;
+  padding: 12px 14px; cursor: pointer; transition: border-color 0.15s;
+}
+.suggestion-card:hover { border-color: #3a5090; }
+.suggestion-card.card-selected { border-color: #5080d0; background: #151e3a; }
+.card-filename { font-size: 11px; color: #4a5a80; margin-bottom: 6px; }
+.card-preview { font-size: 13px; color: #a0b0d0; white-space: pre-wrap; line-height: 1.5; max-height: 100px; overflow: hidden; }
+
+/* === Card context menu === */
+.card-ctx-menu {
+  position: fixed; z-index: 600; min-width: 140px;
+  background: #111628; border: 1px solid #2a3258; border-radius: 6px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.6); padding: 4px 0; display: none;
+}
+.card-ctx-item {
+  padding: 8px 16px; font-size: 13px; color: #b0c0e0; cursor: pointer;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-ctx-item:hover { background: rgba(40,60,120,0.2); color: #e0ecff; }
+.card-ctx-item.danger:hover { background: rgba(120,30,30,0.2); color: #ff8080; }
+
+/* === Markdown preview modal === */
+.md-preview-overlay {
+  position: fixed; inset: 0; z-index: 650;
+  background: rgba(0,0,0,0.55); display: none;
+  align-items: center; justify-content: center;
+}
+.md-preview-overlay.open { display: flex; }
+.md-preview-box {
+  width: 580px; max-height: 80vh; background: #0e1224;
+  border: 1px solid #2a3258; border-radius: 10px;
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.md-preview-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 14px 18px; border-bottom: 1px solid #1e2440;
+}
+.md-preview-header h3 { font-size: 15px; color: #8098d0; margin: 0; }
+.md-preview-body {
+  padding: 18px 22px; flex: 1; overflow-y: auto;
+  font-size: 14px; color: #c0cce8; line-height: 1.7;
+}
+.md-preview-body h1 { font-size: 20px; color: #a0b8e0; margin: 16px 0 8px; border-bottom: 1px solid #1e2440; padding-bottom: 6px; }
+.md-preview-body h2 { font-size: 17px; color: #90a8d0; margin: 14px 0 6px; }
+.md-preview-body h3 { font-size: 15px; color: #8098c0; margin: 12px 0 4px; }
+.md-preview-body p { margin: 6px 0; }
+.md-preview-body ul, .md-preview-body ol { padding-left: 22px; margin: 6px 0; }
+.md-preview-body li { margin: 3px 0; }
+.md-preview-body code { background: #1a1e30; padding: 2px 6px; border-radius: 3px; font-size: 13px; color: #d0a860; }
+.md-preview-body pre { background: #0a0d18; border: 1px solid #1e2440; border-radius: 6px; padding: 12px; overflow-x: auto; margin: 8px 0; }
+.md-preview-body pre code { background: none; padding: 0; }
+.md-preview-body blockquote { border-left: 3px solid #2a4080; padding-left: 12px; color: #7088b0; margin: 8px 0; }
+.md-preview-body strong { color: #e0ecff; }
+.md-preview-body em { color: #a0b8d8; font-style: italic; }
+
+/* === Inline suggestions panel === */
+.suggestions-inline-panel {
+  background: #0c0f1a; border: 1px solid #1a1e2e; border-radius: 8px;
+  padding: 14px; font-size: 12px;
+}
+.suggestions-inline-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid #1a1e2e;
+}
+.suggestions-inline-header h3 {
+  font-size: 14px; color: #6880b0; margin: 0;
+}
+.suggestions-inline-body {
+  display: flex; flex-direction: column; gap: 8px;
+  max-height: 35vh; overflow-y: auto;
+}
+</style>
+</head>
+<body>
+
+<!-- Scale Bar -->
+<div class="scale-bar">
+  缩放:
+  <umg-button onclick="setScale(0.5)">50%</umg-button>
+  <umg-button onclick="setScale(0.65)">65%</umg-button>
+  <umg-button id="btnScale80" onclick="setScale(0.8)">80%</umg-button>
+  <umg-button onclick="setScale(1)">100%</umg-button>
+</div>
+
+<!-- ========== RootCanvas (UCanvasPanel) ========== -->
+<umg-canvas-panel id="rootCanvas">
+
+  <!-- Background (UColorRect equivalent) -->
+  <umg-border id="background" background="#070810"></umg-border>
+
+  <!-- BackdropArt (UTextureRect equivalent) -->
+  <div id="backdropArt"></div>
+
+  <!-- CapacityPlate (UTextureRect) -->
+  <umg-border id="capacityPlate" background="linear-gradient(90deg,rgba(20,28,60,0.85),rgba(12,16,36,0.6))"
+              border-color="rgba(60,80,140,0.25)" corner-radius="22px">
+    <div id="capacityLabel">
+      <umg-text-block id="capUsed" text="08" font-size="22px" font-weight="bold" color="#c8a050"></umg-text-block>
+      <umg-text-block text="/" font-size="16px" color="#3a4060" padding="0 2px"></umg-text-block>
+      <umg-text-block id="capTotal" text="12" font-size="16px" color="#5a6488"></umg-text-block>
+    </div>
+  </umg-border>
+
+  <!-- CloseButton (UButton) -->
+  <umg-button id="closeButton"
+    style-normal="background:rgba(20,24,40,0.6);color:#6070a0;font-size:28px;width:56px;height:58px;border:1px solid rgba(60,80,140,0.2);border-radius:8px;"
+    style-hovered="background:rgba(160,50,50,0.5);color:#ff8080;border-color:rgba(200,60,60,0.4);"
+    style-pressed="background:rgba(120,30,30,0.6);color:#ff6060;">×</umg-button>
+
+  <!-- Tabs (UVerticalBox) -->
+  <umg-vertical-box id="tabs" style="gap:0px;">
+    <umg-button class="tab-btn" data-cat="equipment"
+      style-normal="background:linear-gradient(90deg,rgba(40,50,90,0.8),rgba(20,28,60,0.5));color:#c0c8e0;border:1px solid #2a3258;border-radius:6px;padding:12px 16px;font-size:14px;width:127px;text-align:left;"
+      style-hovered="background:linear-gradient(90deg,rgba(50,65,120,0.9),rgba(30,38,80,0.6));color:#e0ecff;">⚔ 装备</umg-button>
+    <umg-button class="tab-btn" data-cat="item"
+      style-normal="background:rgba(16,20,36,0.6);color:#6878a0;border:1px solid transparent;border-radius:6px;padding:12px 16px;font-size:14px;width:127px;text-align:left;"
+      style-hovered="background:rgba(24,30,54,0.8);color:#a0b0d0;">🧪 道具</umg-button>
+    <umg-button class="tab-btn" data-cat="material"
+      style-normal="background:rgba(16,20,36,0.6);color:#6878a0;border:1px solid transparent;border-radius:6px;padding:12px 16px;font-size:14px;width:127px;text-align:left;"
+      style-hovered="background:rgba(24,30,54,0.8);color:#a0b0d0;">🪶 材料</umg-button>
+    <umg-button class="tab-btn" data-cat="currency"
+      style-normal="background:rgba(16,20,36,0.6);color:#6878a0;border:1px solid transparent;border-radius:6px;padding:12px 16px;font-size:14px;width:127px;text-align:left;"
+      style-hovered="background:rgba(24,30,54,0.8);color:#a0b0d0;">🪙 通货</umg-button>
+  </umg-vertical-box>
+
+  <!-- InventoryPanel (UControl) -->
+  <umg-overlay id="inventoryPanel">
+    <!-- InventoryPanelArt (UTextureRect) -->
+    <div id="inventoryPanelArt"></div>
+    <!-- GridContainer (UTileView) -->
+    <umg-tile-view id="gridContainer" columns="3" entry-width="113px" entry-height="108px" gap="10px" selection-mode="Single" orientation="Vertical" scrollbar-visibility="Auto" tile-alignment="start" enable-scroll-animation="true">
+    </umg-tile-view>
+  </umg-overlay>
+
+</umg-canvas-panel>
+
+<!-- Right Sidebar: Toggle + Tree + Inspector -->
+<div class="right-sidebar">
+
+  <!-- Inspector Toggle -->
+  <div class="inspector-toggle" id="inspectorToggle">
+    <div class="switch"></div>
+    <span>🔍 控件检查器</span>
+  </div>
+
+  <!-- Node Tree Panel (UTreeView) -->
+  <div class="tree-panel">
+    <h3>🌿 节点树 — bag.bp (UMG 控件版)</h3>
+    <umg-tree-view id="bagTree"></umg-tree-view>
+  </div>
+
+  <!-- Inspector Properties Panel -->
+  <div class="inspector-panel" id="inspectorPanel">
+    <h3>📋 属性面板</h3>
+    <div class="no-selection" id="inspectorEmpty">未选中控件 — 开启检查器后点击任意控件</div>
+    <div id="inspectorContent" style="display:none;"></div>
+  </div>
+
+  <!-- Inline Suggestions Panel -->
+  <div class="suggestions-inline-panel" id="suggestionsPanel">
+    <div class="suggestions-inline-header">
+      <h3>💬 修改意见 <span class="suggestion-badge" id="inlineSuggestionCount" style="display:none">0</span></h3>
+      <button class="modal-btn modal-btn-submit" id="inlineSubmitBtn" style="padding:4px 10px;font-size:11px;">📤 提交到 UITS</button>
+    </div>
+    <div class="suggestions-inline-body" id="inlineCardsBody">
+      <div class="cards-empty">暂无修改意见</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Context Menu -->
+<div class="ctx-menu" id="ctxMenu">
+  <div class="ctx-menu-item" id="ctxSuggestion">📝 修改意见</div>
+</div>
+
+<!-- Suggestion Modal -->
+<div class="modal-overlay" id="suggestionModal">
+  <div class="modal-box">
+    <div class="modal-header">
+      <h3>📝 修改意见</h3>
+      <button class="modal-close" id="modalClose">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="control-info" id="modalControlInfo"></div>
+      <label>Markdown 编辑器</label>
+      <textarea id="suggestionEditor" placeholder="在此输入修改意见（支持 Markdown 语法）..."></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn modal-btn-secondary" id="modalViewAll">📋 查看全部意见</button>
+      <button class="modal-btn modal-btn-secondary" id="modalCancel">取消</button>
+      <button class="modal-btn modal-btn-primary" id="modalSave">💾 保存意见</button>
+      <button class="modal-btn modal-btn-submit" id="modalSubmitAll">📤 提交到 UITS<span class="suggestion-badge" id="suggestionCount" style="display:none">0</span></button>
+    </div>
+  </div>
+</div>
+
+<!-- Suggestions Cards Viewer -->
+<div class="cards-overlay" id="cardsOverlay">
+  <div class="cards-box">
+    <div class="cards-header">
+      <h3>📋 修改意见列表</h3>
+      <button class="modal-close" id="cardsClose">×</button>
+    </div>
+    <div class="cards-body" id="cardsBody">
+      <div class="cards-empty">暂无修改意见</div>
+    </div>
+  </div>
+</div>
+
+<!-- Card Context Menu -->
+<div class="card-ctx-menu" id="cardCtxMenu">
+  <div class="card-ctx-item" id="cardCtxEdit">✏️ 编辑</div>
+  <div class="card-ctx-item danger" id="cardCtxDelete">🗑️ 删除</div>
+</div>
+
+<!-- Markdown Preview Modal -->
+<div class="md-preview-overlay" id="mdPreviewOverlay">
+  <div class="md-preview-box">
+    <div class="md-preview-header">
+      <h3 id="mdPreviewTitle">📖 意见预览</h3>
+      <button class="modal-close" id="mdPreviewClose">×</button>
+    </div>
+    <div class="md-preview-body" id="mdPreviewBody"></div>
+  </div>
+</div>
+
+<script type="module">
+import './elements/index.js';
+
+// ===== Data =====
+const ITEMS = [
+  { title:"龙雀古剑", subtitle:"装备 · 战刃", category:"equipment", quantity:1,  icon:"⚔️", stats:"攻击力 +248 / 会心 +12%", detail:"主战用的暗纹长剑。" },
+  { title:"回灵丹",   subtitle:"道具 · 恢复", category:"item",      quantity:18, icon:"🧪", stats:"恢复 1200 气血 / 持有 18", detail:"用于续航的常备丹药。" },
+  { title:"离火符卷", subtitle:"道具 · 卷轴", category:"item",      quantity:6,  icon:"📜", stats:"范围爆散 / 持有 6", detail:"攻伐型法符卷轴。" },
+  { title:"玄甲护心盾",subtitle:"装备 · 防具",category:"equipment", quantity:1,  icon:"🛡️", stats:"格挡 +18% / 生命 +520", detail:"偏重稳固的护心盾。" },
+  { title:"踏云羽令", subtitle:"材料 · 灵羽", category:"material",  quantity:3,  icon:"🪶", stats:"轻灵材料 / 持有 3", detail:"用于轻甲与灵饰制作。" },
+  { title:"遗迹门钥", subtitle:"材料 · 钥匙", category:"material",  quantity:1,  icon:"🗝️", stats:"遗迹开启 / 持有 1", detail:"开启密门的关键门钥。" },
+  { title:"风行灵弓", subtitle:"装备 · 远袭", category:"equipment", quantity:1,  icon:"🏹", stats:"攻击 +176 / 攻速 +9%", detail:"轻快的追风灵弓。" },
+  { title:"魂银钱匣", subtitle:"通货 · 钱匣", category:"currency",  quantity:12840, icon:"🪙", stats:"流通货币 / 持有 12840", detail:"用于交易与锻造的标准通货。" }
+];
+
+let activeCat = "equipment";
+let selectedIdx = 0;
+
+// ===== Helpers =====
+function fmtQty(q) {
+  return q >= 10000 ? (q/1000).toFixed(1)+"k" : String(q).padStart(2,"0");
+}
+
+// ===== Grid rendering (TileView) =====
+function renderGrid() {
+  const grid = document.getElementById("gridContainer");
+  const visible = ITEMS.filter(i => i.category === activeCat);
+  const total = 12;
+  const tiles = [];
+
+  for (let i = 0; i < total; i++) {
+    if (i < visible.length) {
+      const it = visible[i];
+      tiles.push({ icon: it.icon, label: `x${fmtQty(it.quantity)}`, title: it.title, subtitle: it.subtitle, _idx: i, _item: it });
+    } else {
+      tiles.push({ icon: '', label: '', _empty: true, _idx: i });
+    }
+  }
+
+  grid.setItems(tiles, (item, i) => {
+    if (item._empty) return `<div style="opacity:0.35;width:100%;height:100%;"></div>`;
+    const sel = item._idx === selectedIdx ? 'border-color:#5080d0;background:#1a2248;' : '';
+    const tip = `${item.title}\n${item.subtitle}\n${item._item.stats}\n${item._item.detail}`;
+    return `<div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;${sel}" title="${tip.replace(/"/g,'&quot;')}">
+      <span style="font-size:32px;">${item.icon}</span>
+      <span style="position:absolute;bottom:4px;right:6px;font-size:11px;color:#6878a0;">${item.label}</span>
+    </div>`;
+  });
+
+  // Selection via TileView's OnItemClicked event
+  grid.removeEventListener('OnItemClicked', grid._selHandler);
+  grid._selHandler = (e) => {
+    const idx = e.detail.index;
+    const tile = e.detail.item;
+    if (!tile._empty) {
+      selectedIdx = tile._idx;
+      renderGrid();
+    }
+  };
+  grid.addEventListener('OnItemClicked', grid._selHandler);
+
+  // Update capacity
+  const usedEl = document.getElementById("capUsed");
+  if (usedEl) usedEl.setAttribute("text", String(ITEMS.length).padStart(2,"0"));
+  const totalEl = document.getElementById("capTotal");
+  if (totalEl) totalEl.setAttribute("text", String(total).padStart(2,"0"));
+}
+
+// ===== Tab switching =====
+const ACTIVE_TAB_STYLE = "background:linear-gradient(90deg,rgba(40,50,90,0.8),rgba(20,28,60,0.5));color:#c0c8e0;border:1px solid #2a3258;border-radius:6px;padding:12px 16px;font-size:14px;width:127px;text-align:left;";
+const IDLE_TAB_STYLE   = "background:rgba(16,20,36,0.6);color:#6878a0;border:1px solid transparent;border-radius:6px;padding:12px 16px;font-size:14px;width:127px;text-align:left;";
+
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("OnClicked", () => {
+    const cat = btn.getAttribute("data-cat");
+    activeCat = cat;
+    selectedIdx = 0;
+    document.querySelectorAll(".tab-btn").forEach(b => b.setAttribute("style-normal", IDLE_TAB_STYLE));
+    btn.setAttribute("style-normal", ACTIVE_TAB_STYLE);
+    renderGrid();
+  });
+});
+
+// ===== Close button =====
+document.getElementById("closeButton").addEventListener("OnClicked", () => {
+  const root = document.getElementById("rootCanvas");
+  root.style.opacity = "0";
+  root.style.transition = "opacity 0.3s";
+  setTimeout(() => { root.style.opacity = "1"; }, 600);
+});
+
+// ===== Scale =====
+window.setScale = function(s) {
+  document.getElementById("rootCanvas").style.transform = `scale(${s})`;
+};
+
+// ===== Tree =====
+const bagTree = document.getElementById("bagTree");
+bagTree.setNodes([
+  { label: "RootCanvas (UCanvasPanel)", children: [
+    { label: "Background (UBorder)" },
+    { label: "BackdropArt (TextureRect)" },
+    { label: "CapacityPlate (UBorder)", children: [
+      { label: "CapacityLabel (UHorizontalBox)", children: [
+        { label: "CapUsed (UTextBlock)" },
+        { label: "Sep (UTextBlock)" },
+        { label: "CapTotal (UTextBlock)" }
+      ]}
+    ]},
+    { label: "CloseButton (UButton)" },
+    { label: "Tabs (UVerticalBox)", children: [
+      { label: "TabEquipment (UButton)" },
+      { label: "TabItem (UButton)" },
+      { label: "TabMaterial (UButton)" },
+      { label: "TabCurrency (UButton)" }
+    ]},
+    { label: "InventoryPanel (UOverlay)", children: [
+      { label: "InventoryPanelArt (TextureRect)" },
+      { label: "GridContainer (UTileView)", children: [
+        { label: "Item01" }, { label: "Item02" }, { label: "Item03" },
+        { label: "Item04" }, { label: "Item05" }, { label: "Item06" },
+        { label: "Item07" }, { label: "Item08" }, { label: "Item09" },
+        { label: "Item10" }, { label: "Item11" }, { label: "Item12" }
+      ]}
+    ]}
+  ]}
+]);
+
+// ===== Inspector =====
+let inspectorOn = false;
+let inspectedEl = null;
+
+const toggleBtn = document.getElementById('inspectorToggle');
+const inspectorPanel = document.getElementById('inspectorPanel');
+const inspectorEmpty = document.getElementById('inspectorEmpty');
+const inspectorContent = document.getElementById('inspectorContent');
+
+toggleBtn.addEventListener('click', () => {
+  inspectorOn = !inspectorOn;
+  toggleBtn.classList.toggle('active', inspectorOn);
+  if (!inspectorOn) {
+    clearInspection();
+  }
+});
+
+function clearInspection() {
+  if (inspectedEl) {
+    inspectedEl.classList.remove('inspector-highlight');
+    inspectedEl = null;
+  }
+  inspectorEmpty.style.display = '';
+  inspectorContent.style.display = 'none';
+  // remove hover hints
+  document.querySelectorAll('.inspector-hover-hint').forEach(e => e.classList.remove('inspector-hover-hint'));
+  // clear tree highlight
+  bagTree.clearHighlight();
+}
+
+// Hover hint
+document.getElementById('rootCanvas').addEventListener('mouseover', (e) => {
+  if (!inspectorOn) return;
+  const target = findInspectable(e.target);
+  if (target && target !== inspectedEl) target.classList.add('inspector-hover-hint');
+});
+document.getElementById('rootCanvas').addEventListener('mouseout', (e) => {
+  if (!inspectorOn) return;
+  const target = findInspectable(e.target);
+  if (target) target.classList.remove('inspector-hover-hint');
+});
+
+// Click to inspect
+document.getElementById('rootCanvas').addEventListener('click', (e) => {
+  if (!inspectorOn) return;
+  const target = findInspectable(e.target);
+  if (!target) return;
+  e.stopPropagation();
+  e.preventDefault();
+
+  if (inspectedEl) inspectedEl.classList.remove('inspector-highlight');
+  inspectedEl = target;
+  inspectedEl.classList.add('inspector-highlight');
+  renderInspector(target);
+  syncTreeHighlight(target);
+}, true);
+
+function findInspectable(el) {
+  // Walk up to find the nearest element with id or a UMG tag or .item-slot
+  while (el && el !== document.body) {
+    if (el.id || el.tagName.startsWith('UMG-') || el.classList.contains('item-slot') || el.classList.contains('tab-btn'))
+      return el;
+    el = el.parentElement;
+  }
+  return null;
+}
+
+// ID / selector → tree label mapping
+const TREE_LABEL_MAP = {
+  rootCanvas:       'RootCanvas',
+  background:       'Background',
+  backdropArt:      'BackdropArt',
+  capacityPlate:    'CapacityPlate',
+  capacityLabel:    'CapacityLabel',
+  capUsed:          'CapUsed',
+  capTotal:         'CapTotal',
+  closeButton:      'CloseButton',
+  tabs:             'Tabs',
+  inventoryPanel:   'InventoryPanel',
+  inventoryPanelArt:'InventoryPanelArt',
+  gridContainer:    'GridContainer (UTileView)',
+};
+const TAB_CAT_MAP = { equipment:'TabEquipment', item:'TabItem', material:'TabMaterial', currency:'TabCurrency' };
+
+function syncTreeHighlight(el) {
+  let search = null;
+  // Try id mapping
+  if (el.id && TREE_LABEL_MAP[el.id]) {
+    search = TREE_LABEL_MAP[el.id];
+  }
+  // Tab buttons by data-cat
+  else if (el.classList.contains('tab-btn')) {
+    const cat = el.getAttribute('data-cat');
+    if (cat && TAB_CAT_MAP[cat]) search = TAB_CAT_MAP[cat];
+  }
+  // Item slots → Item01..Item12
+  else if (el.classList.contains('item-slot')) {
+    const idx = el.dataset.idx;
+    if (idx !== undefined) search = 'Item' + String(parseInt(idx) + 1).padStart(2, '0');
+  }
+  // Fallback: try element id as-is
+  else if (el.id) {
+    search = el.id;
+  }
+
+  if (search) {
+    bagTree.highlightNode(search);
+  } else {
+    bagTree.clearHighlight();
+  }
+}
+
+// Reverse mapping: tree label keyword → DOM element
+const REVERSE_TREE_MAP = {};
+for (const [id, label] of Object.entries(TREE_LABEL_MAP)) {
+  REVERSE_TREE_MAP[label.toLowerCase()] = document.getElementById(id);
+}
+for (const [cat, label] of Object.entries(TAB_CAT_MAP)) {
+  REVERSE_TREE_MAP[label.toLowerCase()] = document.querySelector(`.tab-btn[data-cat="${cat}"]`);
+}
+
+function findDomByTreeLabel(label) {
+  const lower = label.toLowerCase();
+  // Direct match in reverse map
+  for (const [key, el] of Object.entries(REVERSE_TREE_MAP)) {
+    if (lower.includes(key)) return el;
+  }
+  // Item slots: "Item01" → data-idx="0"
+  const itemMatch = label.match(/^Item(\d+)$/);
+  if (itemMatch) {
+    const idx = parseInt(itemMatch[1]) - 1;
+    return document.querySelector(`.item-slot[data-idx="${idx}"]`);
+  }
+  return null;
+}
+
+// Tree click → select control in canvas
+bagTree.addEventListener('OnItemClicked', (e) => {
+  const { label } = e.detail;
+  const el = findDomByTreeLabel(label);
+  if (el) {
+    // Activate inspector if not already on
+    if (!inspectorOn) {
+      inspectorOn = true;
+      toggleBtn.classList.add('active');
+    }
+    if (inspectedEl) inspectedEl.classList.remove('inspector-highlight');
+    inspectedEl = el;
+    inspectedEl.classList.add('inspector-highlight');
+    renderInspector(el);
+  }
+});
+
+// Tree deselect → clear inspector
+bagTree.addEventListener('OnItemDeselected', () => {
+  if (inspectedEl) {
+    inspectedEl.classList.remove('inspector-highlight');
+    inspectedEl = null;
+  }
+  inspectorEmpty.style.display = '';
+  inspectorContent.style.display = 'none';
+});
+
+// Tree right-click → show context menu on corresponding DOM element
+bagTree.addEventListener('OnItemContextMenu', (e) => {
+  const { label, clientX, clientY } = e.detail;
+  const el = findDomByTreeLabel(label);
+
+  // Activate inspector if not already on
+  if (!inspectorOn) {
+    inspectorOn = true;
+    toggleBtn.classList.add('active');
+  }
+
+  // Select the DOM element
+  if (inspectedEl) inspectedEl.classList.remove('inspector-highlight');
+  if (el) {
+    inspectedEl = el;
+    inspectedEl.classList.add('inspector-highlight');
+    renderInspector(el);
+    ctxTarget = el;
+  } else {
+    ctxTarget = null;
+  }
+
+  // Show context menu at cursor position
+  ctxMenu.style.left = clientX + 'px';
+  ctxMenu.style.top = clientY + 'px';
+  ctxMenu.style.display = 'block';
+});
+
+function renderInspector(el) {
+  inspectorEmpty.style.display = 'none';
+  inspectorContent.style.display = '';
+
+  const tag = el.tagName.toLowerCase();
+  const rect = el.getBoundingClientRect();
+  const cs = getComputedStyle(el);
+  const parentRect = el.offsetParent ? el.offsetParent.getBoundingClientRect() : { left: 0, top: 0, width: 0, height: 0 };
+
+  // Compute anchor-like values (relative position within parent)
+  const relLeft = el.offsetLeft;
+  const relTop = el.offsetTop;
+  const parentW = el.offsetParent ? el.offsetParent.clientWidth : window.innerWidth;
+  const parentH = el.offsetParent ? el.offsetParent.clientHeight : window.innerHeight;
+  const anchorMinX = parentW > 0 ? (relLeft / parentW).toFixed(3) : '0';
+  const anchorMinY = parentH > 0 ? (relTop / parentH).toFixed(3) : '0';
+  const anchorMaxX = parentW > 0 ? ((relLeft + el.offsetWidth) / parentW).toFixed(3) : '0';
+  const anchorMaxY = parentH > 0 ? ((relTop + el.offsetHeight) / parentH).toFixed(3) : '0';
+
+  let html = '';
+
+  // Section: Identity
+  html += section('基本信息', [
+    row('标签', tag),
+    row('ID', el.id || '(无)'),
+    row('类名', el.className.replace(/inspector-\S+/g, '').trim() || '(无)'),
+    row('文本', truncate(el.textContent, 40)),
+  ]);
+
+  // Section: Layout / Anchors
+  html += section('布局 / 锚点', [
+    row('位置 (left, top)', `${Math.round(relLeft)}, ${Math.round(relTop)}`),
+    row('尺寸 (w × h)', `${Math.round(rect.width)} × ${Math.round(rect.height)}`),
+    row('Anchor Min', `(${anchorMinX}, ${anchorMinY})`),
+    row('Anchor Max', `(${anchorMaxX}, ${anchorMaxY})`),
+    row('父控件', el.offsetParent ? (el.offsetParent.id || el.offsetParent.tagName.toLowerCase()) : '(root)'),
+  ]);
+
+  // Section: Style / Resources
+  const bg = cs.background || cs.backgroundColor;
+  const border = cs.border || cs.borderColor;
+  const bgImage = cs.backgroundImage !== 'none' ? cs.backgroundImage : null;
+  const styleRows = [
+    row('背景', truncate(bg, 60)),
+    row('边框', truncate(border, 50)),
+    row('圆角', cs.borderRadius),
+    row('字号', cs.fontSize),
+    row('字色', cs.color),
+    row('透明度', cs.opacity),
+    row('display', cs.display),
+    row('position', cs.position),
+  ];
+  if (bgImage) styleRows.push(row('背景图', truncate(bgImage, 60)));
+  html += section('样式 / 资源', styleRows);
+
+  // Section: UMG Attributes
+  const attrs = [];
+  for (const a of el.attributes) {
+    if (['id','class','style'].includes(a.name)) continue;
+    attrs.push(row(a.name, truncate(a.value, 50)));
+  }
+  if (attrs.length) html += section('UMG 属性', attrs);
+
+  // Section: Component-specific properties (TileView / ListView)
+  if (tag === 'umg-tile-view' && el.EntryWidth !== undefined) {
+    html += section('TileView 属性', [
+      row('EntryWidth', el.EntryWidth),
+      row('EntryHeight', el.EntryHeight),
+      row('Columns', el.Columns),
+      row('Gap', el.Gap),
+      row('SelectionMode', el.SelectionMode),
+      row('Orientation', el.Orientation),
+      row('ScrollbarVisibility', el.ScrollbarVisibility),
+      row('TileAlignment', el.TileAlignment),
+      row('NumItems', String(el.NumItems)),
+      row('SelectedIndex', String(el.getSelectedIndex?.() ?? -1)),
+      row('SelectedIndices', JSON.stringify(el.getSelectedIndices?.() ?? [])),
+    ]);
+  }
+  if (tag === 'umg-list-view' && el.getAttribute) {
+    html += section('ListView 属性', [
+      row('ItemHeight', el.getAttribute('item-height') || 'auto'),
+      row('Orientation', el.getAttribute('orientation') || 'Vertical'),
+      row('SelectionMode', el.getAttribute('selection-mode') || 'Single'),
+      row('NumItems', String(el.getNumItems?.() ?? 0)),
+    ]);
+  }
+
+  inspectorContent.innerHTML = html;
+}
+
+function section(title, rows) {
+  return `<details class="inspector-section" open><summary>${title}</summary>${rows.join('')}</details>`;
+}
+function row(key, val) {
+  return `<div class="inspector-row"><span class="inspector-key">${key}</span><span class="inspector-val">${val || '—'}</span></div>`;
+}
+function truncate(s, n) {
+  if (!s) return '—';
+  s = s.replace(/\s+/g, ' ').trim();
+  return s.length > n ? s.slice(0, n) + '…' : s;
+}
+
+// ===== Context Menu & Suggestion System =====
+const ctxMenu = document.getElementById('ctxMenu');
+const suggestionModal = document.getElementById('suggestionModal');
+const suggestionEditor = document.getElementById('suggestionEditor');
+const modalControlInfo = document.getElementById('modalControlInfo');
+const suggestionCount = document.getElementById('suggestionCount');
+let ctxTarget = null;
+
+// Hide context menu on click elsewhere
+document.addEventListener('click', () => { ctxMenu.style.display = 'none'; });
+
+// Right-click handler (only when inspector is on)
+document.getElementById('rootCanvas').addEventListener('contextmenu', (e) => {
+  if (!inspectorOn) return;
+  const target = findInspectable(e.target);
+  if (!target) return;
+  e.preventDefault();
+  ctxTarget = target;
+
+  // Select the control visually
+  if (inspectedEl) inspectedEl.classList.remove('inspector-highlight');
+  inspectedEl = target;
+  inspectedEl.classList.add('inspector-highlight');
+  renderInspector(target);
+  syncTreeHighlight(target);
+
+  // Position and show context menu
+  ctxMenu.style.left = e.clientX + 'px';
+  ctxMenu.style.top = e.clientY + 'px';
+  ctxMenu.style.display = 'block';
+});
+
+// Context menu → open suggestion modal
+document.getElementById('ctxSuggestion').addEventListener('click', () => {
+  ctxMenu.style.display = 'none';
+  if (!ctxTarget) return;
+  openSuggestionModal(ctxTarget);
+});
+
+function openSuggestionModal(el) {
+  const tag = el.tagName.toLowerCase();
+  const id = el.id || '(unnamed)';
+  modalControlInfo.textContent = `控件: ${tag}  |  ID: ${id}  |  类名: ${el.className.replace(/inspector-\S+/g,'').trim() || '(无)'}`;
+  suggestionEditor.value = `## 控件: ${id} (${tag})\n\n### 问题描述\n\n\n### 期望效果\n\n`;
+  suggestionModal.classList.add('open');
+  suggestionEditor.focus();
+  refreshSuggestionCount();
+}
+
+// Close modal
+document.getElementById('modalClose').addEventListener('click', closeSuggestionModal);
+document.getElementById('modalCancel').addEventListener('click', closeSuggestionModal);
+function closeSuggestionModal() { suggestionModal.classList.remove('open'); }
+
+// Save suggestion
+// Save: handle both new and edit mode
+document.getElementById('modalSave').addEventListener('click', async () => {
+  const md = suggestionEditor.value.trim();
+  if (!md) return;
+  const editFilename = suggestionEditor.dataset.editFilename;
+
+  try {
+    let resp;
+    if (editFilename) {
+      resp = await fetch('/api/update-suggestion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename: editFilename, markdown: md })
+      });
+    } else {
+      const controlId = ctxTarget ? (ctxTarget.id || ctxTarget.tagName.toLowerCase()) : 'unknown';
+      resp = await fetch('/api/save-suggestion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ controlId, markdown: md })
+      });
+    }
+    const data = await resp.json();
+    if (data.ok) {
+      suggestionEditor.value = '';
+      delete suggestionEditor.dataset.editFilename;
+      closeSuggestionModal();
+      refreshSuggestionCount();
+      refreshInlineCards();
+      showToast(`✅ ${editFilename ? '已更新' : '已保存'}: ${data.updated || data.filename}`);
+    } else {
+      showToast(`❌ 保存失败: ${data.message}`);
+    }
+  } catch (e) {
+    showToast(`❌ 网络错误: ${e.message}`);
+  }
+});
+
+// Submit all suggestions to UITS
+document.getElementById('modalSubmitAll').addEventListener('click', async () => {
+  try {
+    // Auto-save current editor content if non-empty
+    const md = suggestionEditor.value.trim();
+    if (md) {
+      const controlId = ctxTarget ? (ctxTarget.id || ctxTarget.tagName.toLowerCase()) : 'unknown';
+      const saveResp = await fetch('/api/save-suggestion', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ controlId, markdown: md })
+      });
+      const saveData = await saveResp.json();
+      if (!saveData.ok) {
+        showToast(`❌ 自动保存失败: ${saveData.message}`);
+        return;
+      }
+      suggestionEditor.value = '';
+    }
+
+    const resp = await fetch('/api/submit-suggestions', { method: 'POST' });
+    const data = await resp.json();
+    if (data.ok) {
+      closeSuggestionModal();
+      refreshSuggestionCount();
+      refreshInlineCards();
+      showToast(`📤 已提交 ${data.count} 条意见到 UITS sessions → ${data.filename}`);
+    } else {
+      showToast(`❌ ${data.message}`);
+    }
+  } catch (e) {
+    showToast(`❌ 网络错误: ${e.message}`);
+  }
+});
+
+async function refreshSuggestionCount() {
+  try {
+    const resp = await fetch('/api/list-suggestions');
+    const data = await resp.json();
+    const count = data.ok ? data.items.length : 0;
+    suggestionCount.textContent = count;
+    suggestionCount.style.display = count > 0 ? '' : 'none';
+  } catch (_) {}
+}
+
+function showToast(msg) {
+  const el = document.createElement('div');
+  el.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#111628;border:1px solid #2a3258;color:#c0d0f0;padding:10px 20px;border-radius:8px;font-size:13px;z-index:700;box-shadow:0 4px 16px rgba(0,0,0,0.5);';
+  el.textContent = msg;
+  document.body.appendChild(el);
+  setTimeout(() => el.remove(), 3000);
+}
+
+// Init suggestion count
+refreshSuggestionCount();
+
+// ===== Cards Viewer (Inline + Modal) =====
+const cardsOverlay = document.getElementById('cardsOverlay');
+const cardsBody = document.getElementById('cardsBody');
+const inlineCardsBody = document.getElementById('inlineCardsBody');
+const inlineSuggestionCount = document.getElementById('inlineSuggestionCount');
+const cardCtxMenu = document.getElementById('cardCtxMenu');
+let cardCtxFilename = null;
+
+document.getElementById('modalViewAll').addEventListener('click', () => {
+  closeSuggestionModal();
+  openCardsViewer();
+});
+
+document.getElementById('cardsClose').addEventListener('click', () => {
+  cardsOverlay.classList.remove('open');
+});
+
+document.addEventListener('click', () => { cardCtxMenu.style.display = 'none'; });
+
+function renderCardsInto(container, items) {
+  currentCardItems = items || [];
+  if (!items || items.length === 0) {
+    container.innerHTML = '<div class="cards-empty">暂无修改意见</div>';
+    return;
+  }
+  container.innerHTML = items.map(item => `
+    <div class="suggestion-card" data-filename="${item.filename}">
+      <div class="card-filename">📄 ${item.filename}</div>
+      <div class="card-preview">${escapeHtml(item.content.slice(0, 300))}</div>
+    </div>
+  `).join('');
+
+  container.querySelectorAll('.suggestion-card').forEach(card => {
+    card.addEventListener('contextmenu', (e) => {
+      e.preventDefault();
+      cardCtxFilename = card.dataset.filename;
+      container.querySelectorAll('.card-selected').forEach(c => c.classList.remove('card-selected'));
+      card.classList.add('card-selected');
+      cardCtxMenu.style.left = e.clientX + 'px';
+      cardCtxMenu.style.top = e.clientY + 'px';
+      cardCtxMenu.style.display = 'block';
+    });
+    card.addEventListener('click', () => {
+      container.querySelectorAll('.card-selected').forEach(c => c.classList.remove('card-selected'));
+      card.classList.add('card-selected');
+      // Open markdown preview
+      const item = currentCardItems.find(i => i.filename === card.dataset.filename);
+      if (item) openMdPreview(item.filename, item.content);
+    });
+  });
+}
+
+async function fetchSuggestionItems() {
+  try {
+    const resp = await fetch('/api/list-suggestions');
+    const data = await resp.json();
+    return data.ok ? data.items : [];
+  } catch (_) { return []; }
+}
+
+async function refreshInlineCards() {
+  const items = await fetchSuggestionItems();
+  renderCardsInto(inlineCardsBody, items);
+  // Update inline badge
+  inlineSuggestionCount.textContent = items.length;
+  inlineSuggestionCount.style.display = items.length > 0 ? '' : 'none';
+}
+
+async function openCardsViewer() {
+  cardsOverlay.classList.add('open');
+  const items = await fetchSuggestionItems();
+  renderCardsInto(cardsBody, items);
+}
+
+// Inline submit button
+document.getElementById('inlineSubmitBtn').addEventListener('click', async () => {
+  try {
+    const resp = await fetch('/api/submit-suggestions', { method: 'POST' });
+    const data = await resp.json();
+    if (data.ok) {
+      refreshInlineCards();
+      refreshSuggestionCount();
+      showToast(`📤 已提交 ${data.count} 条意见到 UITS sessions → ${data.filename}`);
+    } else {
+      showToast(`❌ ${data.message}`);
+    }
+  } catch (e) {
+    showToast(`❌ 网络错误: ${e.message}`);
+  }
+});
+
+// Card context: Edit
+document.getElementById('cardCtxEdit').addEventListener('click', async () => {
+  cardCtxMenu.style.display = 'none';
+  if (!cardCtxFilename) return;
+  try {
+    const items = await fetchSuggestionItems();
+    const item = items.find(i => i.filename === cardCtxFilename);
+    if (!item) { showToast('❌ 未找到该意见'); return; }
+    cardsOverlay.classList.remove('open');
+    modalControlInfo.textContent = `编辑: ${cardCtxFilename}`;
+    suggestionEditor.value = item.content;
+    suggestionEditor.dataset.editFilename = cardCtxFilename;
+    suggestionModal.classList.add('open');
+    suggestionEditor.focus();
+  } catch (e) {
+    showToast(`❌ ${e.message}`);
+  }
+});
+
+// Card context: Delete
+document.getElementById('cardCtxDelete').addEventListener('click', async () => {
+  cardCtxMenu.style.display = 'none';
+  if (!cardCtxFilename) return;
+  try {
+    const resp = await fetch('/api/delete-suggestion', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ filename: cardCtxFilename })
+    });
+    const data = await resp.json();
+    if (data.ok) {
+      showToast(`🗑️ 已删除: ${data.deleted}`);
+      refreshInlineCards();
+      openCardsViewer(); // refresh modal too if open
+      refreshSuggestionCount();
+    } else {
+      showToast(`❌ ${data.message}`);
+    }
+  } catch (e) {
+    showToast(`❌ ${e.message}`);
+  }
+});
+
+// ===== Markdown Preview =====
+const mdPreviewOverlay = document.getElementById('mdPreviewOverlay');
+const mdPreviewTitle = document.getElementById('mdPreviewTitle');
+const mdPreviewBody = document.getElementById('mdPreviewBody');
+let currentCardItems = [];
+
+document.getElementById('mdPreviewClose').addEventListener('click', () => {
+  mdPreviewOverlay.classList.remove('open');
+});
+mdPreviewOverlay.addEventListener('click', (e) => {
+  if (e.target === mdPreviewOverlay) mdPreviewOverlay.classList.remove('open');
+});
+
+function openMdPreview(filename, markdown) {
+  mdPreviewTitle.textContent = `📖 ${filename}`;
+  mdPreviewBody.innerHTML = renderMarkdown(markdown);
+  mdPreviewOverlay.classList.add('open');
+}
+
+function renderMarkdown(md) {
+  let html = escapeHtml(md);
+  // Code blocks (``` ... ```)
+  html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) =>
+    `<pre><code>${code.trim()}</code></pre>`);
+  // Inline code
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
+  // Headings
+  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  // Blockquotes
+  html = html.replace(/^&gt; (.+)$/gm, '<blockquote>$1</blockquote>');
+  // Bold & italic
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
+  // Unordered list items
+  html = html.replace(/^- (.+)$/gm, '<li>$1</li>');
+  html = html.replace(/(<li>.*<\/li>\n?)+/g, '<ul>$&</ul>');
+  // Horizontal rules
+  html = html.replace(/^---$/gm, '<hr>');
+  // Paragraphs (double newline)
+  html = html.replace(/\n\n/g, '</p><p>');
+  html = '<p>' + html + '</p>';
+  // Clean up empty paragraphs
+  html = html.replace(/<p>\s*<\/p>/g, '');
+  html = html.replace(/<p>(<h[123]>)/g, '$1');
+  html = html.replace(/(<\/h[123]>)<\/p>/g, '$1');
+  html = html.replace(/<p>(<ul>)/g, '$1');
+  html = html.replace(/(<\/ul>)<\/p>/g, '$1');
+  html = html.replace(/<p>(<pre>)/g, '$1');
+  html = html.replace(/(<\/pre>)<\/p>/g, '$1');
+  html = html.replace(/<p>(<blockquote>)/g, '$1');
+  html = html.replace(/(<\/blockquote>)<\/p>/g, '$1');
+  html = html.replace(/<p>(<hr>)<\/p>/g, '$1');
+  return html;
+}
+
+function escapeHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ===== Init =====
+refreshInlineCards();
+setScale(0.8);
+renderGrid();
+</script>
+
+</body>
+</html>

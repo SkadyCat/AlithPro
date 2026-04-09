@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "title": "线上转换测试 任务流",
+  "source": {
+    "bucket": "drafts",
+    "fileName": "draft-2026-04-03T19-33-54-877Z.md"
+  },
+  "nodes": [
+    {
+      "id": "node-mnjayyce-nmvvi3",
+      "title": "线上转换测试",
+      "bucket": "drafts",
+      "fileName": "draft-2026-04-03T19-33-54-877Z.md",
+      "x": 96,
+      "y": 96,
+      "width": 360,
+      "height": 180
+    }
+  ],
+  "createdAt": "2026-04-03T19:34:48.159Z",
+  "updatedAt": "2026-04-03T19:34:48.159Z"
+}

@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "web-search-local": {
+      "command": "powershell",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        ".github\\scripts\\launch-websearch-mcp.ps1"
+      ],
+      "env": {
+        "BROWSER_HEADLESS": "true",
+        "MAX_BROWSERS": "2",
+        "DEFAULT_TIMEOUT": "6000",
+        "MAX_CONTENT_LENGTH": "12000"
+      }
+    }
+  }
+}

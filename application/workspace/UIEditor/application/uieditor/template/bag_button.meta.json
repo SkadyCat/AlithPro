@@ -1,0 +1,588 @@
+{
+  "sourceBlueprint": "/Game/UI/Demo/bag_button",
+  "exportedAt": "2026-03-31T00:53:57.618272",
+  "summary": {
+    "widgetCount": 3,
+    "rootNames": [
+      "Overlay_18"
+    ],
+    "treeSource": "WBPEditor.inspect_widget_blueprint",
+    "propertySource": "/ue/inspect-wbp",
+    "warning": "widget_tree root 不可用，降级为 ObjectIterator 平铺模式"
+  },
+  "roots": [
+    {
+      "name": "Overlay_18",
+      "className": "Overlay",
+      "parentName": "",
+      "depth": 0,
+      "isPanel": true,
+      "childCount": 2,
+      "slot": null,
+      "unrealExtra": {},
+      "templateDefinition": {
+        "type": "Overlay",
+        "label": "Overlay",
+        "label_zh": "叠层容器",
+        "icon": "🪟",
+        "group": "容器",
+        "color": "#a0a0a0",
+        "bg": "rgba(160,160,160,0.04)"
+      },
+      "templateEditableValues": {},
+      "children": [
+        {
+          "name": "btn",
+          "className": "Button",
+          "parentName": "Overlay_18",
+          "depth": 1,
+          "isPanel": true,
+          "childCount": 0,
+          "slot": {
+            "slot_type": "OverlaySlot"
+          },
+          "unrealExtra": {
+            "style": {
+              "normal": {
+                "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                "resource": "/Game/UI/AIGCIcon/AIGC_Icon_1769703015.AIGC_Icon_1769703015",
+                "margin": {
+                  "left": 0.0,
+                  "top": 0.0,
+                  "right": 0.0,
+                  "bottom": 0.0
+                }
+              },
+              "hovered": {
+                "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                "margin": {
+                  "left": 0.0,
+                  "top": 0.0,
+                  "right": 0.0,
+                  "bottom": 0.0
+                }
+              },
+              "pressed": {
+                "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                "margin": {
+                  "left": 0.0,
+                  "top": 0.0,
+                  "right": 0.0,
+                  "bottom": 0.0
+                }
+              },
+              "disabled": {
+                "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+                "margin": {
+                  "left": 0.0,
+                  "top": 0.0,
+                  "right": 0.0,
+                  "bottom": 0.0
+                }
+              }
+            }
+          },
+          "templateDefinition": {
+            "type": "Button",
+            "label": "Button",
+            "label_zh": "按钮",
+            "icon": "🔘",
+            "group": "按钮",
+            "color": "#6bb5e8",
+            "bg": "rgba(107,181,232,0.07)",
+            "render": {
+              "type": "text",
+              "src": "text",
+              "size": "fontSize",
+              "color": "textColor",
+              "align": "textAlign",
+              "bold": "bold"
+            },
+            "props": [
+              {
+                "key": "text",
+                "label": "按钮文字",
+                "type": "text",
+                "default": "Button"
+              },
+              {
+                "key": "fontSize",
+                "label": "字号",
+                "type": "number",
+                "default": 14,
+                "min": 8,
+                "max": 72,
+                "step": 1
+              },
+              {
+                "key": "textColor",
+                "label": "文字颜色",
+                "type": "color",
+                "default": "#fff"
+              },
+              {
+                "key": "textAlign",
+                "label": "对齐",
+                "type": "select",
+                "default": "center",
+                "options": [
+                  "left",
+                  "center",
+                  "right"
+                ]
+              },
+              {
+                "key": "bold",
+                "label": "粗体",
+                "type": "checkbox",
+                "default": false
+              }
+            ]
+          },
+          "templateEditableValues": {
+            "bgImage": "/Game/UI/AIGCIcon/AIGC_Icon_1769703015.AIGC_Icon_1769703015",
+            "normalImage": "/Game/UI/AIGCIcon/AIGC_Icon_1769703015.AIGC_Icon_1769703015",
+            "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>"
+          },
+          "children": []
+        },
+        {
+          "name": "count",
+          "className": "TextBlock",
+          "parentName": "Overlay_18",
+          "depth": 1,
+          "isPanel": false,
+          "childCount": 0,
+          "slot": {
+            "slot_type": "OverlaySlot"
+          },
+          "unrealExtra": {
+            "text": "Text Block",
+            "font_size": 24.0,
+            "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+          },
+          "templateDefinition": {
+            "type": "TextBlock",
+            "label": "TextBlock",
+            "label_zh": "文本块",
+            "icon": "📝",
+            "group": "文本",
+            "color": "#e8c06b",
+            "bg": "rgba(232,192,107,0.05)",
+            "render": {
+              "type": "text",
+              "src": "text",
+              "size": "fontSize",
+              "color": "textColor",
+              "align": "textAlign",
+              "bold": "bold",
+              "italic": "italic",
+              "wrap": "autoWrap",
+              "autoFit": "autoFit"
+            },
+            "props": [
+              {
+                "key": "text",
+                "label": "文本内容",
+                "type": "textarea",
+                "default": "文本"
+              },
+              {
+                "key": "fontSize",
+                "label": "字号",
+                "type": "number",
+                "default": 14,
+                "min": 6,
+                "max": 200,
+                "step": 1
+              },
+              {
+                "key": "textColor",
+                "label": "文字颜色",
+                "type": "color",
+                "default": "#fff"
+              },
+              {
+                "key": "textAlign",
+                "label": "对齐",
+                "type": "select",
+                "default": "center",
+                "options": [
+                  "left",
+                  "center",
+                  "right"
+                ]
+              },
+              {
+                "key": "bold",
+                "label": "粗体",
+                "type": "checkbox",
+                "default": false
+              },
+              {
+                "key": "italic",
+                "label": "斜体",
+                "type": "checkbox",
+                "default": false
+              },
+              {
+                "key": "autoWrap",
+                "label": "自动换行",
+                "type": "checkbox",
+                "default": true
+              },
+              {
+                "key": "autoFit",
+                "label": "字体自适应",
+                "type": "checkbox",
+                "default": false
+              }
+            ]
+          },
+          "templateEditableValues": {
+            "text": "Text Block",
+            "fontSize": 24.0,
+            "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+          },
+          "children": []
+        }
+      ]
+    }
+  ],
+  "flatWidgets": [
+    {
+      "name": "Overlay_18",
+      "className": "Overlay",
+      "parentName": "",
+      "depth": 0,
+      "slot": null,
+      "unrealExtra": {},
+      "templateDefinition": {
+        "type": "Overlay",
+        "label": "Overlay",
+        "label_zh": "叠层容器",
+        "icon": "🪟",
+        "group": "容器",
+        "color": "#a0a0a0",
+        "bg": "rgba(160,160,160,0.04)"
+      },
+      "templateEditableValues": {}
+    },
+    {
+      "name": "btn",
+      "className": "Button",
+      "parentName": "Overlay_18",
+      "depth": 1,
+      "slot": {
+        "slot_type": "OverlaySlot"
+      },
+      "unrealExtra": {
+        "style": {
+          "normal": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "resource": "/Game/UI/AIGCIcon/AIGC_Icon_1769703015.AIGC_Icon_1769703015",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "hovered": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "pressed": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "disabled": {
+            "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          }
+        }
+      },
+      "templateDefinition": {
+        "type": "Button",
+        "label": "Button",
+        "label_zh": "按钮",
+        "icon": "🔘",
+        "group": "按钮",
+        "color": "#6bb5e8",
+        "bg": "rgba(107,181,232,0.07)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "按钮文字",
+            "type": "text",
+            "default": "Button"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 8,
+            "max": 72,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "bgImage": "/Game/UI/AIGCIcon/AIGC_Icon_1769703015.AIGC_Icon_1769703015",
+        "normalImage": "/Game/UI/AIGCIcon/AIGC_Icon_1769703015.AIGC_Icon_1769703015",
+        "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>"
+      }
+    },
+    {
+      "name": "count",
+      "className": "TextBlock",
+      "parentName": "Overlay_18",
+      "depth": 1,
+      "slot": {
+        "slot_type": "OverlaySlot"
+      },
+      "unrealExtra": {
+        "text": "Text Block",
+        "font_size": 24.0,
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+      },
+      "templateDefinition": {
+        "type": "TextBlock",
+        "label": "TextBlock",
+        "label_zh": "文本块",
+        "icon": "📝",
+        "group": "文本",
+        "color": "#e8c06b",
+        "bg": "rgba(232,192,107,0.05)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold",
+          "italic": "italic",
+          "wrap": "autoWrap",
+          "autoFit": "autoFit"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "文本内容",
+            "type": "textarea",
+            "default": "文本"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 6,
+            "max": 200,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "italic",
+            "label": "斜体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "autoWrap",
+            "label": "自动换行",
+            "type": "checkbox",
+            "default": true
+          },
+          {
+            "key": "autoFit",
+            "label": "字体自适应",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "text": "Text Block",
+        "fontSize": 24.0,
+        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+      }
+    }
+  ],
+  "inspectPayload": {
+    "path": "/Game/UI/Demo/bag_button",
+    "wbp_class": "WidgetBlueprint",
+    "cpp_hierarchy": [
+      {
+        "variableName": "Overlay_18",
+        "className": "Overlay",
+        "parentName": "",
+        "depth": 0,
+        "isPanel": true,
+        "childCount": 2
+      },
+      {
+        "variableName": "btn",
+        "className": "Button",
+        "parentName": "Overlay_18",
+        "depth": 1,
+        "isPanel": true,
+        "childCount": 0
+      },
+      {
+        "variableName": "count",
+        "className": "TextBlock",
+        "parentName": "Overlay_18",
+        "depth": 1,
+        "isPanel": false,
+        "childCount": 0
+      }
+    ],
+    "warn": "widget_tree root 不可用，降级为 ObjectIterator 平铺模式",
+    "package": "/Game/UI/Demo/bag_button",
+    "widgets_in_pkg": [
+      {
+        "class": "TextBlock",
+        "name": "count",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "OverlaySlot"
+        },
+        "extra": {
+          "text": "Text Block",
+          "font_size": 24.0,
+          "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+        }
+      },
+      {
+        "class": "Overlay",
+        "name": "Overlay_18",
+        "outer": "WidgetTree",
+        "slot": null,
+        "extra": {}
+      },
+      {
+        "class": "Button",
+        "name": "btn",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "OverlaySlot"
+        },
+        "extra": {
+          "style": {
+            "normal": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "resource": "/Game/UI/AIGCIcon/AIGC_Icon_1769703015.AIGC_Icon_1769703015",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "hovered": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "pressed": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "disabled": {
+              "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "sources": {
+    "templateDefinitions": "G:\\GameExPro3\\AILab\\workspace\\Alith\\application\\workspace\\UIEditor\\application\\canvas-editor\\data\\docs\\config\\elements.json",
+    "templateDirectory": "G:\\GameExPro3\\AILab\\workspace\\Alith\\application\\workspace\\UIEditor\\application\\uieditor\\template"
+  }
+}

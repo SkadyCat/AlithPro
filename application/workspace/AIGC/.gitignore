@@ -1,0 +1,11 @@
+# ComfyUI runtime - not tracked in version control
+application/ComfyUI/
+# Python caches
+__pycache__/
+*.pyc
+# Model files
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.bin

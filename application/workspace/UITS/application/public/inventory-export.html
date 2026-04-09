@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventory Export</title>
+    <link rel="stylesheet" href="/inventory-export.css" />
+  </head>
+  <body data-theme="neon">
+    <main class="export_root">
+      <section class="export_shot" id="export-shot">
+        <header class="export_header">
+          <div>
+            <p class="eyebrow" id="export-eyebrow">System Inventory</p>
+            <h1 id="export-title">风暴行囊</h1>
+            <span class="desc" id="export-desc">为截图导出准备的 CSS 背包构图</span>
+          </div>
+          <div class="currency">
+            <span>Gold 12840</span>
+            <span>Gem 320</span>
+            <span>AP 148</span>
+          </div>
+        </header>
+
+        <section class="export_layout">
+          <aside class="category_panel">
+            <button class="category_item active" type="button">全部</button>
+            <button class="category_item" type="button">武器</button>
+            <button class="category_item" type="button">药剂</button>
+            <button class="category_item" type="button">任务</button>
+            <div class="capacity">容量 48 / 72</div>
+          </aside>
+
+          <section class="grid_panel">
+            <div class="grid_head">
+              <strong id="grid-title">当前背包</strong>
+              <span id="grid-subtitle">适合导出成宣传图的静态构图版</span>
+            </div>
+            <div class="grid_inventory">
+              <article class="item_card active rarity-legend">
+                <span class="item_icon">剑</span>
+                <strong>风暴之刃</strong>
+                <small>Legendary · 双手剑</small>
+              </article>
+              <article class="item_card rarity-epic">
+                <span class="item_icon">药</span>
+                <strong>高阶治疗药</strong>
+                <small>x18</small>
+              </article>
+              <article class="item_card rarity-rare">
+                <span class="item_icon">盾</span>
+                <strong>黑曜护盾</strong>
+                <small>Rare</small>
+              </article>
+              <article class="item_card rarity-epic">
+                <span class="item_icon">卷</span>
+                <strong>火焰卷轴</strong>
+                <small>x6</small>
+              </article>
+              <article class="item_card">
+                <span class="item_icon">石</span>
+                <strong>回城羽石</strong>
+                <small>x3</small>
+              </article>
+              <article class="item_card">
+                <span class="item_icon">钥</span>
+                <strong>遗迹钥匙</strong>
+                <small>Quest</small>
+              </article>
+              <article class="item_card rarity-rare">
+                <span class="item_icon">弓</span>
+                <strong>风行短弓</strong>
+                <small>SR</small>
+              </article>
+              <article class="item_card">
+                <span class="item_icon">晶</span>
+                <strong>雷纹晶核</strong>
+                <small>Material</small>
+              </article>
+            </div>
+          </section>
+
+          <aside class="detail_panel">
+            <div class="detail_badge" id="detail-badge">传奇装备</div>
+            <h2 id="detail-title">风暴之刃</h2>
+            <p id="detail-text">
+              命中时触发雷链，对直线目标造成额外伤害。适合作为高爆发职业的主武器展示图。
+            </p>
+            <ul class="stat_list">
+              <li><span>攻击</span><strong>+128</strong></li>
+              <li><span>暴击</span><strong>+18%</strong></li>
+              <li><span>耐久</span><strong>92 / 100</strong></li>
+              <li><span>套装</span><strong>4 / 5</strong></li>
+            </ul>
+            <div class="detail_actions">
+              <button type="button" class="danger">出售</button>
+              <button type="button" class="primary">装备</button>
+            </div>
+          </aside>
+        </section>
+      </section>
+    </main>
+    <script src="/inventory-export.js"></script>
+  </body>
+</html>

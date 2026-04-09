@@ -1,0 +1,9 @@
+{
+  "name": "uieditor-preview",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Preview exported WidgetBlueprint meta files from the template directory.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

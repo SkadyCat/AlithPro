@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>alith</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body data-page="main">
+    <div class="app-shell">
+
+      <!-- ===== LEFT MENU ===== -->
+      <aside id="left_menu" class="left-menu">
+        <div class="brand-panel">
+          <span class="eyebrow">Agent Lab</span>
+          <h1>alith</h1>
+          <p>智能体协作工作台，管理任务队列与模型运行。</p>
+        </div>
+
+        <div class="panel-section">
+          <div class="panel-header">
+            <span class="panel-kicker">Workspaces</span>
+          </div>
+          <form id="workspace_form" class="workspace-form">
+            <input id="workspace_name" name="workspace_name" type="text" placeholder="新 Workspace 名称" autocomplete="off" />
+            <button type="submit" class="btn-full">+ 创建 Workspace</button>
+          </form>
+        </div>
+
+        <div id="workspace_list" class="workspace-list"></div>
+      </aside>
+
+      <!-- ===== MAIN CONTENT ===== -->
+      <main class="main-content">
+
+        <!-- TOP MENU -->
+        <header id="top_menu" class="top-menu">
+          <div class="top-left">
+            <span class="eyebrow">当前工作区</span>
+            <h2 id="current_workspace_name">未选择</h2>
+          </div>
+          <div class="top-actions">
+            <div class="model-row">
+              <label class="model-label" for="model_input">模型</label>
+              <select id="model_input" name="model">
+                <option value="">使用默认</option>
+              </select>
+              <button id="save_model_button" type="button" class="btn-secondary">切换模型</button>
+            </div>
+            <button id="run_agent_button" type="button" class="btn-run">▶ 启动 Agent</button>
+            <button id="refresh_button" type="button" class="btn-secondary">↻ 刷新</button>
+          </div>
+        </header>
+
+        <!-- CENTER AREA: buckets -->
+        <div id="center_area" class="center-area">
+
+          <div id="center_left" class="center-left">
+
+          <section class="bucket-section" id="section_drafts">
+            <div class="bucket-header bucket-header-actionable">
+              <div class="bucket-label">
+                <span class="bucket-dot dot-draft"></span>
+                <span class="bucket-title">思维导图</span>
+                <span class="bucket-count" id="count_drafts">0</span>
+              </div>
+              <div class="bucket-actions">
+                <label class="bucket-filter" for="filter_drafts">
+                  <span>显示</span>
+                  <select id="filter_drafts" class="bucket-filter-select" data-bucket-filter="drafts">
+                    <option value="latest6">最近6个</option>
+                    <option value="all">全部</option>
+                  </select>
+                </label>
+                <button id="new_draft_button" type="button" class="btn-secondary">+ 新建导图</button>
+              </div>
+            </div>
+            <div id="drafts_cards" class="card-list"></div>
+          </section>
+
+          <section class="bucket-section" id="section_sessions">
+            <div class="bucket-header">
+              <div class="bucket-label">
+                <span class="bucket-dot dot-pending"></span>
+                <span class="bucket-title">待处理</span>
+                <span class="bucket-count" id="count_sessions">0</span>
+              </div>
+              <label class="bucket-filter" for="filter_sessions">
+                <span>显示</span>
+                <select id="filter_sessions" class="bucket-filter-select" data-bucket-filter="sessions">
+                  <option value="latest6">最近6个</option>
+                  <option value="all">全部</option>
+                </select>
+              </label>
+            </div>
+            <div id="sessions_cards" class="card-list"></div>
+          </section>
+
+          <section class="bucket-section" id="section_inprocess">
+            <div class="bucket-header">
+              <div class="bucket-label">
+                <span class="bucket-dot dot-active"></span>
+                <span class="bucket-title">处理中</span>
+                <span class="bucket-count" id="count_inprocess">0</span>
+              </div>
+              <label class="bucket-filter" for="filter_inprocess">
+                <span>显示</span>
+                <select id="filter_inprocess" class="bucket-filter-select" data-bucket-filter="inprocess">
+                    <option value="latest6">最近6个</option>
+                    <option value="all">全部</option>
+                  
+                </select>
+              </label>
+            </div>
+            <div id="inprocess_cards" class="card-list"></div>
+          </section>
+
+          <section class="bucket-section" id="section_processed">
+            <div class="bucket-header">
+              <div class="bucket-label">
+                <span class="bucket-dot dot-done"></span>
+                <span class="bucket-title">完成处理</span>
+                <span class="bucket-count" id="count_processed">0</span>
+              </div>
+              <label class="bucket-filter" for="filter_processed">
+                <span>显示</span>
+                <select id="filter_processed" class="bucket-filter-select" data-bucket-filter="processed">
+                    <option value="latest6">最近6个</option>
+                    <option value="all">全部</option>
+                  
+                </select>
+              </label>
+            </div>
+            <div id="processed_cards" class="card-list"></div>
+          </section>
+
+          <section class="bucket-section" id="section_workflows">
+            <div class="bucket-header bucket-header-actionable">
+              <div class="bucket-label">
+                <span class="bucket-dot dot-workflow"></span>
+                <span class="bucket-title">任务流</span>
+                <span class="bucket-count" id="count_workflows">0</span>
+              </div>
+              <button id="new_workflow_button" type="button" class="btn-secondary">+ 新建任务流</button>
+            </div>
+            <div id="workflows_cards" class="card-list"></div>
+          </section>
+
+          </div><!-- /center_left -->
+
+        </div><!-- /center_area -->
+      </main>
+
+      <!-- ===== RIGHT INFO ===== -->
+      <aside id="right_info" class="right-info">
+
+        <!-- Stats -->
+        <div class="right-section stats-section">
+          <div class="section-title">📊 文档统计</div>
+          <div id="stats_grid" class="stats-grid">
+            <div class="stat-item"><span class="stat-num" id="stat_drafts">0</span><span class="stat-label">导图</span></div>
+            <div class="stat-item"><span class="stat-num" id="stat_sessions">0</span><span class="stat-label">待处理</span></div>
+            <div class="stat-item"><span class="stat-num" id="stat_inprocess">0</span><span class="stat-label">处理中</span></div>
+            <div class="stat-item"><span class="stat-num" id="stat_processed">0</span><span class="stat-label">完成处理</span></div>
+            <div class="stat-item"><span class="stat-num" id="stat_workflows">0</span><span class="stat-label">任务流</span></div>
+            <div class="stat-item"><span class="stat-num" id="stat_docs">0</span><span class="stat-label">文档</span></div>
+          </div>
+        </div>
+
+        <!-- Search -->
+        <div class="right-section search-section">
+          <div class="section-title">🔍 搜索文档</div>
+          <div class="search-row">
+            <input id="search_input" type="text" placeholder="关键字搜索..." autocomplete="off" />
+            <button id="search_button" type="button" class="btn-secondary btn-icon">搜索</button>
+          </div>
+          <div id="search_results" class="search-results hidden"></div>
+        </div>
+
+        <!-- Detail viewer -->
+        <div class="right-section detail-section">
+          <div class="section-title" id="detail_title">📄 文档详情</div>
+          <div id="detail_panel" class="detail-panel">
+            <p class="muted">点击卡片或搜索结果查看文档内容。</p>
+          </div>
+        </div>
+
+        <!-- Chat input -->
+        <div class="right-section chat-section">
+          <div class="section-title">💬 新建任务</div>
+          <form id="chat_form" class="chat-form">
+            <textarea id="chat_input" placeholder="输入任务内容，按 Ctrl+Enter 或点击发送…" rows="3"></textarea>
+            <button type="submit" class="btn-full">发送 →</button>
+          </form>
+        </div>
+
+      </aside>
+    </div>
+
+    <div id="toast" class="toast" hidden></div>
+    <div id="draft_modal" class="modal-backdrop hidden" hidden>
+      <div class="draft-modal" role="dialog" aria-modal="true" aria-labelledby="draft_modal_title">
+        <div class="draft-modal-header">
+          <div>
+            <span class="eyebrow">Mind Map</span>
+            <h3 id="draft_modal_title">思维导图</h3>
+            <p id="draft_modal_meta" class="draft-modal-meta"></p>
+          </div>
+          <div class="draft-modal-actions">
+            <span id="draft_mm_hint" class="draft-mm-hint">右键添加节点 · 双击编辑 · Tab 子节点 · Del 删除</span>
+            <button id="draft_promote_button" type="button" class="btn-secondary">投递到待处理</button>
+            <button id="draft_save_button" type="button">保存</button>
+            <button id="draft_close_button" type="button" class="btn-secondary">关闭</button>
+          </div>
+        </div>
+        <div class="draft-modal-body">
+          <div id="draft_mm_canvas" class="draft-mm-canvas" tabindex="0">
+            <div id="draft_mm_scene" class="draft-mm-scene">
+              <svg id="draft_mm_svg" class="draft-mm-svg"></svg>
+            </div>
+          </div>
+          <div id="dm_side_panel" class="dm-side-panel dm-side-hidden">
+            <div class="dm-side-header">
+              <span class="dm-side-title">节点详情</span>
+              <span id="dm_side_close" class="dm-side-close">×</span>
+            </div>
+            <div id="dm_side_content" class="dm-side-content"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ===== NEW MINDMAP DIALOG ===== -->
+    <div id="new_mm_modal" class="modal-backdrop hidden" hidden>
+      <div class="new-mm-modal" role="dialog" aria-modal="true">
+        <div class="new-mm-modal-header">
+          <span class="eyebrow">Mind Map</span>
+          <h3>新建思维导图</h3>
+        </div>
+        <div class="new-mm-modal-body">
+          <label class="new-mm-label" for="new_mm_title">中心主题</label>
+          <input id="new_mm_title" class="new-mm-input" type="text" placeholder="输入思维导图的主题…" autocomplete="off" />
+        </div>
+        <div class="new-mm-modal-footer">
+          <button id="new_mm_cancel" type="button" class="btn-secondary">取消</button>
+          <button id="new_mm_create" type="button">创建 →</button>
+        </div>
+      </div>
+    </div>
+    <!-- ===== CONTENT DETAIL MODAL ===== -->
+    <div id="content_modal" class="modal-backdrop hidden" hidden>
+      <div class="content-modal" role="dialog" aria-modal="true" aria-labelledby="content_modal_title">
+        <div class="content-modal-header">
+          <div class="content-modal-title-wrap">
+            <span class="eyebrow" id="content_modal_eyebrow">文档内容</span>
+            <h3 id="content_modal_title">详情</h3>
+            <p id="content_modal_meta" class="content-modal-meta"></p>
+          </div>
+          <button id="content_modal_close" type="button" class="btn-secondary">关闭</button>
+        </div>
+        <div class="content-modal-body" id="content_modal_body"></div>
+      </div>
+    </div>
+
+    <!-- ===== SUBTASK MODAL ===== -->
+    <div id="subtask_modal" class="modal-backdrop hidden" hidden>
+      <div class="subtask-modal" role="dialog" aria-modal="true" aria-labelledby="subtask_modal_title">
+        <div class="subtask-modal-header">
+          <div>
+            <span class="eyebrow">创建子任务</span>
+            <h3 id="subtask_modal_title">子任务</h3>
+            <p id="subtask_modal_meta" class="subtask-modal-meta"></p>
+          </div>
+          <button id="subtask_modal_close" type="button" class="btn-secondary">取消</button>
+        </div>
+        <div class="subtask-modal-body">
+          <textarea id="subtask_modal_input" class="subtask-modal-input" placeholder="输入子任务需求描述…" rows="6"></textarea>
+        </div>
+        <div class="subtask-modal-footer">
+          <button id="subtask_modal_submit" type="button">创建子任务 →</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="workflow_modal" class="modal-backdrop hidden" hidden>
+      <div class="workflow-modal" role="dialog" aria-modal="true" aria-labelledby="workflow_modal_title">
+        <div class="workflow-modal-header">
+          <div>
+            <span class="eyebrow">Task Workflow</span>
+            <h3 id="workflow_modal_title">任务流节点画布</h3>
+            <p id="workflow_modal_meta" class="workflow-modal-meta"></p>
+          </div>
+          <div class="workflow-modal-actions">
+            <button id="workflow_new_node_button" type="button" class="btn-secondary">新建工作流节点</button>
+            <button id="workflow_place_node_button" type="button" class="btn-secondary">放置工作流节点</button>
+            <button id="workflow_save_button" type="button">保存任务流</button>
+            <button id="workflow_close_button" type="button" class="btn-secondary">关闭</button>
+          </div>
+        </div>
+        <div class="workflow-canvas-shell">
+          <div id="workflow_canvas" class="workflow-canvas">
+            <div id="workflow_nodes" class="workflow-nodes"></div>
+            <div id="workflow_canvas_empty" class="workflow-canvas-empty">右键画布可新建或放置工作流节点。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/task/workflow.js" defer></script>
+    <script src="/mindmap.js" defer></script>
+    <script src="/app.js" defer></script>
+  </body>
+</html>
+

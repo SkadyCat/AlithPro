@@ -1,0 +1,3962 @@
+{
+  "sourceBlueprint": "/Game/UI/Panels/WBP_login_screen",
+  "exportedAt": "2026-03-31T01:00:28.890708",
+  "summary": {
+    "widgetCount": 16,
+    "rootNames": [
+      "CanvasPanel_Root"
+    ],
+    "treeSource": "WBPEditor.inspect_widget_blueprint",
+    "propertySource": "/ue/inspect-wbp",
+    "warning": "widget_tree root 不可用，降级为 ObjectIterator 平铺模式"
+  },
+  "roots": [
+    {
+      "name": "CanvasPanel_Root",
+      "className": "CanvasPanel",
+      "parentName": "",
+      "depth": 0,
+      "isPanel": true,
+      "childCount": 1,
+      "slot": null,
+      "unrealExtra": {},
+      "templateDefinition": {
+        "type": "CanvasPanel",
+        "label": "CanvasPanel",
+        "label_zh": "画布面板",
+        "icon": "🎨",
+        "group": "容器",
+        "color": "#888",
+        "bg": "rgba(128,128,128,0.04)"
+      },
+      "templateEditableValues": {},
+      "children": [
+        {
+          "name": "login_screen_root",
+          "className": "CanvasPanel",
+          "parentName": "CanvasPanel_Root",
+          "depth": 1,
+          "isPanel": true,
+          "childCount": 1,
+          "slot": {
+            "slot_type": "CanvasPanelSlot",
+            "offsets": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 1280.0,
+              "bottom": 720.0
+            },
+            "anchors": {
+              "min": [
+                0.0,
+                0.0
+              ],
+              "max": [
+                1.0,
+                1.0
+              ]
+            },
+            "alignment": [
+              0.0,
+              0.0
+            ],
+            "auto_size": false,
+            "z_order": 100
+          },
+          "unrealExtra": {},
+          "templateDefinition": {
+            "type": "CanvasPanel",
+            "label": "CanvasPanel",
+            "label_zh": "画布面板",
+            "icon": "🎨",
+            "group": "容器",
+            "color": "#888",
+            "bg": "rgba(128,128,128,0.04)"
+          },
+          "templateEditableValues": {},
+          "children": [
+            {
+              "name": "login_panel",
+              "className": "CanvasPanel",
+              "parentName": "login_screen_root",
+              "depth": 2,
+              "isPanel": true,
+              "childCount": 10,
+              "slot": {
+                "slot_type": "CanvasPanelSlot",
+                "offsets": {
+                  "left": -240.0,
+                  "top": -212.0,
+                  "right": 480.0,
+                  "bottom": 424.0
+                },
+                "anchors": {
+                  "min": [
+                    0.5,
+                    0.5
+                  ],
+                  "max": [
+                    0.5,
+                    0.5
+                  ]
+                },
+                "alignment": [
+                  0.0,
+                  0.0
+                ],
+                "auto_size": false,
+                "z_order": 0
+              },
+              "unrealExtra": {},
+              "templateDefinition": {
+                "type": "CanvasPanel",
+                "label": "CanvasPanel",
+                "label_zh": "画布面板",
+                "icon": "🎨",
+                "group": "容器",
+                "color": "#888",
+                "bg": "rgba(128,128,128,0.04)"
+              },
+              "templateEditableValues": {},
+              "children": [
+                {
+                  "name": "login_button",
+                  "className": "Button",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": true,
+                  "childCount": 1,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 32.0,
+                      "top": 328.0,
+                      "right": 416.0,
+                      "bottom": 48.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 8
+                  },
+                  "unrealExtra": {
+                    "style": {
+                      "normal": {
+                        "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      },
+                      "hovered": {
+                        "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      },
+                      "pressed": {
+                        "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      },
+                      "disabled": {
+                        "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      }
+                    }
+                  },
+                  "templateDefinition": {
+                    "type": "Button",
+                    "label": "Button",
+                    "label_zh": "按钮",
+                    "icon": "🔘",
+                    "group": "按钮",
+                    "color": "#6bb5e8",
+                    "bg": "rgba(107,181,232,0.07)",
+                    "render": {
+                      "type": "text",
+                      "src": "text",
+                      "size": "fontSize",
+                      "color": "textColor",
+                      "align": "textAlign",
+                      "bold": "bold"
+                    },
+                    "props": [
+                      {
+                        "key": "text",
+                        "label": "按钮文字",
+                        "type": "text",
+                        "default": "Button"
+                      },
+                      {
+                        "key": "fontSize",
+                        "label": "字号",
+                        "type": "number",
+                        "default": 14,
+                        "min": 8,
+                        "max": 72,
+                        "step": 1
+                      },
+                      {
+                        "key": "textColor",
+                        "label": "文字颜色",
+                        "type": "color",
+                        "default": "#fff"
+                      },
+                      {
+                        "key": "textAlign",
+                        "label": "对齐",
+                        "type": "select",
+                        "default": "center",
+                        "options": [
+                          "left",
+                          "center",
+                          "right"
+                        ]
+                      },
+                      {
+                        "key": "bold",
+                        "label": "粗体",
+                        "type": "checkbox",
+                        "default": false
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>"
+                  },
+                  "children": [
+                    {
+                      "name": "login_button_Lbl",
+                      "className": "TextBlock",
+                      "parentName": "login_button",
+                      "depth": 4,
+                      "isPanel": false,
+                      "childCount": 0,
+                      "slot": {
+                        "slot_type": "ButtonSlot"
+                      },
+                      "unrealExtra": {
+                        "text": "Login",
+                        "font_size": 18.0,
+                        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+                      },
+                      "templateDefinition": {
+                        "type": "TextBlock",
+                        "label": "TextBlock",
+                        "label_zh": "文本块",
+                        "icon": "📝",
+                        "group": "文本",
+                        "color": "#e8c06b",
+                        "bg": "rgba(232,192,107,0.05)",
+                        "render": {
+                          "type": "text",
+                          "src": "text",
+                          "size": "fontSize",
+                          "color": "textColor",
+                          "align": "textAlign",
+                          "bold": "bold",
+                          "italic": "italic",
+                          "wrap": "autoWrap",
+                          "autoFit": "autoFit"
+                        },
+                        "props": [
+                          {
+                            "key": "text",
+                            "label": "文本内容",
+                            "type": "textarea",
+                            "default": "文本"
+                          },
+                          {
+                            "key": "fontSize",
+                            "label": "字号",
+                            "type": "number",
+                            "default": 14,
+                            "min": 6,
+                            "max": 200,
+                            "step": 1
+                          },
+                          {
+                            "key": "textColor",
+                            "label": "文字颜色",
+                            "type": "color",
+                            "default": "#fff"
+                          },
+                          {
+                            "key": "textAlign",
+                            "label": "对齐",
+                            "type": "select",
+                            "default": "center",
+                            "options": [
+                              "left",
+                              "center",
+                              "right"
+                            ]
+                          },
+                          {
+                            "key": "bold",
+                            "label": "粗体",
+                            "type": "checkbox",
+                            "default": false
+                          },
+                          {
+                            "key": "italic",
+                            "label": "斜体",
+                            "type": "checkbox",
+                            "default": false
+                          },
+                          {
+                            "key": "autoWrap",
+                            "label": "自动换行",
+                            "type": "checkbox",
+                            "default": true
+                          },
+                          {
+                            "key": "autoFit",
+                            "label": "字体自适应",
+                            "type": "checkbox",
+                            "default": false
+                          }
+                        ]
+                      },
+                      "templateEditableValues": {
+                        "text": "Login",
+                        "fontSize": 18.0,
+                        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "login_divider",
+                  "className": "ProgressBar",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": false,
+                  "childCount": 0,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 32.0,
+                      "top": 132.0,
+                      "right": 416.0,
+                      "bottom": 4.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 3
+                  },
+                  "unrealExtra": {
+                    "style": {
+                      "background": {
+                        "draw_as": "<SlateBrushDrawType.IMAGE: 3>",
+                        "resource": "/Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture",
+                        "margin": {
+                          "left": 0.4167,
+                          "top": 0.4167,
+                          "right": 0.4167,
+                          "bottom": 0.4167
+                        }
+                      },
+                      "fill": {
+                        "draw_as": "<SlateBrushDrawType.IMAGE: 3>",
+                        "resource": "/Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture",
+                        "margin": {
+                          "left": 0.4167,
+                          "top": 0.4167,
+                          "right": 0.4167,
+                          "bottom": 0.4167
+                        }
+                      },
+                      "marker": null
+                    },
+                    "fill_color_and_opacity": [
+                      0.78,
+                      0.66,
+                      0.42,
+                      1.0
+                    ],
+                    "percent": 1.0
+                  },
+                  "templateDefinition": {
+                    "type": "ProgressBar",
+                    "label": "ProgressBar",
+                    "label_zh": "进度条",
+                    "icon": "📊",
+                    "group": "反馈",
+                    "color": "#e86b6b",
+                    "bg": "rgba(232,107,107,0.05)",
+                    "render": {
+                      "type": "progress",
+                      "src": "percent",
+                      "fill": "fillColor",
+                      "bar": "barColor"
+                    },
+                    "props": [
+                      {
+                        "key": "percent",
+                        "label": "进度值",
+                        "type": "range",
+                        "default": 0.5,
+                        "min": 0,
+                        "max": 1,
+                        "step": 0.01
+                      },
+                      {
+                        "key": "fillColor",
+                        "label": "填充色",
+                        "type": "color",
+                        "default": "#56cfba"
+                      },
+                      {
+                        "key": "barColor",
+                        "label": "轨道色",
+                        "type": "color",
+                        "default": "#333344"
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "percent": 1.0,
+                    "fillColor": [
+                      0.78,
+                      0.66,
+                      0.42,
+                      1.0
+                    ]
+                  },
+                  "children": []
+                },
+                {
+                  "name": "login_footer",
+                  "className": "TextBlock",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": false,
+                  "childCount": 0,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 32.0,
+                      "top": 388.0,
+                      "right": 416.0,
+                      "bottom": 24.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 9
+                  },
+                  "unrealExtra": {
+                    "text": "Importer uses static field shells until EditableText widgets are supported.",
+                    "font_size": 12.0,
+                    "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "templateDefinition": {
+                    "type": "TextBlock",
+                    "label": "TextBlock",
+                    "label_zh": "文本块",
+                    "icon": "📝",
+                    "group": "文本",
+                    "color": "#e8c06b",
+                    "bg": "rgba(232,192,107,0.05)",
+                    "render": {
+                      "type": "text",
+                      "src": "text",
+                      "size": "fontSize",
+                      "color": "textColor",
+                      "align": "textAlign",
+                      "bold": "bold",
+                      "italic": "italic",
+                      "wrap": "autoWrap",
+                      "autoFit": "autoFit"
+                    },
+                    "props": [
+                      {
+                        "key": "text",
+                        "label": "文本内容",
+                        "type": "textarea",
+                        "default": "文本"
+                      },
+                      {
+                        "key": "fontSize",
+                        "label": "字号",
+                        "type": "number",
+                        "default": 14,
+                        "min": 6,
+                        "max": 200,
+                        "step": 1
+                      },
+                      {
+                        "key": "textColor",
+                        "label": "文字颜色",
+                        "type": "color",
+                        "default": "#fff"
+                      },
+                      {
+                        "key": "textAlign",
+                        "label": "对齐",
+                        "type": "select",
+                        "default": "center",
+                        "options": [
+                          "left",
+                          "center",
+                          "right"
+                        ]
+                      },
+                      {
+                        "key": "bold",
+                        "label": "粗体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "italic",
+                        "label": "斜体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "autoWrap",
+                        "label": "自动换行",
+                        "type": "checkbox",
+                        "default": true
+                      },
+                      {
+                        "key": "autoFit",
+                        "label": "字体自适应",
+                        "type": "checkbox",
+                        "default": false
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "text": "Importer uses static field shells until EditableText widgets are supported.",
+                    "fontSize": 12.0,
+                    "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "login_panel_bg",
+                  "className": "Image",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": false,
+                  "childCount": 0,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 0.0,
+                      "top": 0.0,
+                      "right": 480.0,
+                      "bottom": 424.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 0
+                  },
+                  "unrealExtra": {
+                    "brush": {
+                      "draw_as": "<SlateBrushDrawType.IMAGE: 3>",
+                      "resource": "/Game/UI/Icons/AIUI/res/inventory/02_panels/panel_main_bg.panel_main_bg",
+                      "margin": {
+                        "left": 0.0,
+                        "top": 0.0,
+                        "right": 0.0,
+                        "bottom": 0.0
+                      }
+                    }
+                  },
+                  "templateDefinition": {
+                    "type": "Image",
+                    "label": "Image",
+                    "label_zh": "图片",
+                    "icon": "🖼️",
+                    "group": "图片",
+                    "color": "#6be89a",
+                    "bg": "rgba(107,232,154,0.05)",
+                    "render": {
+                      "type": "image",
+                      "src": "imagePath",
+                      "tint": "tintColor"
+                    },
+                    "props": [
+                      {
+                        "key": "imagePath",
+                        "label": "图片路径",
+                        "type": "text",
+                        "default": ""
+                      },
+                      {
+                        "key": "tintColor",
+                        "label": "着色",
+                        "type": "color",
+                        "default": "#ffffff"
+                      },
+                      {
+                        "key": "imageDrawType",
+                        "label": "绘制模式",
+                        "type": "select",
+                        "default": "Normal",
+                        "options": [
+                          "FullyTransparent",
+                          "Normal",
+                          "ColorAndOpacity"
+                        ]
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "imagePath": "/Game/UI/Icons/AIUI/res/inventory/02_panels/panel_main_bg.panel_main_bg"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "login_subtitle",
+                  "className": "TextBlock",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": false,
+                  "childCount": 0,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 32.0,
+                      "top": 84.0,
+                      "right": 416.0,
+                      "bottom": 34.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 2
+                  },
+                  "unrealExtra": {
+                    "text": "Web-first login prototype aligned to UMG widget naming and spacing.",
+                    "font_size": 14.0,
+                    "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "templateDefinition": {
+                    "type": "TextBlock",
+                    "label": "TextBlock",
+                    "label_zh": "文本块",
+                    "icon": "📝",
+                    "group": "文本",
+                    "color": "#e8c06b",
+                    "bg": "rgba(232,192,107,0.05)",
+                    "render": {
+                      "type": "text",
+                      "src": "text",
+                      "size": "fontSize",
+                      "color": "textColor",
+                      "align": "textAlign",
+                      "bold": "bold",
+                      "italic": "italic",
+                      "wrap": "autoWrap",
+                      "autoFit": "autoFit"
+                    },
+                    "props": [
+                      {
+                        "key": "text",
+                        "label": "文本内容",
+                        "type": "textarea",
+                        "default": "文本"
+                      },
+                      {
+                        "key": "fontSize",
+                        "label": "字号",
+                        "type": "number",
+                        "default": 14,
+                        "min": 6,
+                        "max": 200,
+                        "step": 1
+                      },
+                      {
+                        "key": "textColor",
+                        "label": "文字颜色",
+                        "type": "color",
+                        "default": "#fff"
+                      },
+                      {
+                        "key": "textAlign",
+                        "label": "对齐",
+                        "type": "select",
+                        "default": "center",
+                        "options": [
+                          "left",
+                          "center",
+                          "right"
+                        ]
+                      },
+                      {
+                        "key": "bold",
+                        "label": "粗体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "italic",
+                        "label": "斜体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "autoWrap",
+                        "label": "自动换行",
+                        "type": "checkbox",
+                        "default": true
+                      },
+                      {
+                        "key": "autoFit",
+                        "label": "字体自适应",
+                        "type": "checkbox",
+                        "default": false
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "text": "Web-first login prototype aligned to UMG widget naming and spacing.",
+                    "fontSize": 14.0,
+                    "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "login_title",
+                  "className": "TextBlock",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": false,
+                  "childCount": 0,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 32.0,
+                      "top": 40.0,
+                      "right": 416.0,
+                      "bottom": 38.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 1
+                  },
+                  "unrealExtra": {
+                    "text": "Welcome Back",
+                    "font_size": 28.0,
+                    "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "templateDefinition": {
+                    "type": "TextBlock",
+                    "label": "TextBlock",
+                    "label_zh": "文本块",
+                    "icon": "📝",
+                    "group": "文本",
+                    "color": "#e8c06b",
+                    "bg": "rgba(232,192,107,0.05)",
+                    "render": {
+                      "type": "text",
+                      "src": "text",
+                      "size": "fontSize",
+                      "color": "textColor",
+                      "align": "textAlign",
+                      "bold": "bold",
+                      "italic": "italic",
+                      "wrap": "autoWrap",
+                      "autoFit": "autoFit"
+                    },
+                    "props": [
+                      {
+                        "key": "text",
+                        "label": "文本内容",
+                        "type": "textarea",
+                        "default": "文本"
+                      },
+                      {
+                        "key": "fontSize",
+                        "label": "字号",
+                        "type": "number",
+                        "default": 14,
+                        "min": 6,
+                        "max": 200,
+                        "step": 1
+                      },
+                      {
+                        "key": "textColor",
+                        "label": "文字颜色",
+                        "type": "color",
+                        "default": "#fff"
+                      },
+                      {
+                        "key": "textAlign",
+                        "label": "对齐",
+                        "type": "select",
+                        "default": "center",
+                        "options": [
+                          "left",
+                          "center",
+                          "right"
+                        ]
+                      },
+                      {
+                        "key": "bold",
+                        "label": "粗体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "italic",
+                        "label": "斜体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "autoWrap",
+                        "label": "自动换行",
+                        "type": "checkbox",
+                        "default": true
+                      },
+                      {
+                        "key": "autoFit",
+                        "label": "字体自适应",
+                        "type": "checkbox",
+                        "default": false
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "text": "Welcome Back",
+                    "fontSize": 28.0,
+                    "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "password_field",
+                  "className": "Button",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": true,
+                  "childCount": 1,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 32.0,
+                      "top": 264.0,
+                      "right": 416.0,
+                      "bottom": 44.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 7
+                  },
+                  "unrealExtra": {
+                    "style": {
+                      "normal": {
+                        "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      },
+                      "hovered": {
+                        "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      },
+                      "pressed": {
+                        "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      },
+                      "disabled": {
+                        "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      }
+                    }
+                  },
+                  "templateDefinition": {
+                    "type": "Button",
+                    "label": "Button",
+                    "label_zh": "按钮",
+                    "icon": "🔘",
+                    "group": "按钮",
+                    "color": "#6bb5e8",
+                    "bg": "rgba(107,181,232,0.07)",
+                    "render": {
+                      "type": "text",
+                      "src": "text",
+                      "size": "fontSize",
+                      "color": "textColor",
+                      "align": "textAlign",
+                      "bold": "bold"
+                    },
+                    "props": [
+                      {
+                        "key": "text",
+                        "label": "按钮文字",
+                        "type": "text",
+                        "default": "Button"
+                      },
+                      {
+                        "key": "fontSize",
+                        "label": "字号",
+                        "type": "number",
+                        "default": 14,
+                        "min": 8,
+                        "max": 72,
+                        "step": 1
+                      },
+                      {
+                        "key": "textColor",
+                        "label": "文字颜色",
+                        "type": "color",
+                        "default": "#fff"
+                      },
+                      {
+                        "key": "textAlign",
+                        "label": "对齐",
+                        "type": "select",
+                        "default": "center",
+                        "options": [
+                          "left",
+                          "center",
+                          "right"
+                        ]
+                      },
+                      {
+                        "key": "bold",
+                        "label": "粗体",
+                        "type": "checkbox",
+                        "default": false
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>"
+                  },
+                  "children": [
+                    {
+                      "name": "password_field_Lbl",
+                      "className": "TextBlock",
+                      "parentName": "password_field",
+                      "depth": 4,
+                      "isPanel": false,
+                      "childCount": 0,
+                      "slot": {
+                        "slot_type": "ButtonSlot"
+                      },
+                      "unrealExtra": {
+                        "text": "Enter password",
+                        "font_size": 14.0,
+                        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+                      },
+                      "templateDefinition": {
+                        "type": "TextBlock",
+                        "label": "TextBlock",
+                        "label_zh": "文本块",
+                        "icon": "📝",
+                        "group": "文本",
+                        "color": "#e8c06b",
+                        "bg": "rgba(232,192,107,0.05)",
+                        "render": {
+                          "type": "text",
+                          "src": "text",
+                          "size": "fontSize",
+                          "color": "textColor",
+                          "align": "textAlign",
+                          "bold": "bold",
+                          "italic": "italic",
+                          "wrap": "autoWrap",
+                          "autoFit": "autoFit"
+                        },
+                        "props": [
+                          {
+                            "key": "text",
+                            "label": "文本内容",
+                            "type": "textarea",
+                            "default": "文本"
+                          },
+                          {
+                            "key": "fontSize",
+                            "label": "字号",
+                            "type": "number",
+                            "default": 14,
+                            "min": 6,
+                            "max": 200,
+                            "step": 1
+                          },
+                          {
+                            "key": "textColor",
+                            "label": "文字颜色",
+                            "type": "color",
+                            "default": "#fff"
+                          },
+                          {
+                            "key": "textAlign",
+                            "label": "对齐",
+                            "type": "select",
+                            "default": "center",
+                            "options": [
+                              "left",
+                              "center",
+                              "right"
+                            ]
+                          },
+                          {
+                            "key": "bold",
+                            "label": "粗体",
+                            "type": "checkbox",
+                            "default": false
+                          },
+                          {
+                            "key": "italic",
+                            "label": "斜体",
+                            "type": "checkbox",
+                            "default": false
+                          },
+                          {
+                            "key": "autoWrap",
+                            "label": "自动换行",
+                            "type": "checkbox",
+                            "default": true
+                          },
+                          {
+                            "key": "autoFit",
+                            "label": "字体自适应",
+                            "type": "checkbox",
+                            "default": false
+                          }
+                        ]
+                      },
+                      "templateEditableValues": {
+                        "text": "Enter password",
+                        "fontSize": 14.0,
+                        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "password_label",
+                  "className": "TextBlock",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": false,
+                  "childCount": 0,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 32.0,
+                      "top": 240.0,
+                      "right": 416.0,
+                      "bottom": 20.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 6
+                  },
+                  "unrealExtra": {
+                    "text": "PasswordInput",
+                    "font_size": 13.0,
+                    "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "templateDefinition": {
+                    "type": "TextBlock",
+                    "label": "TextBlock",
+                    "label_zh": "文本块",
+                    "icon": "📝",
+                    "group": "文本",
+                    "color": "#e8c06b",
+                    "bg": "rgba(232,192,107,0.05)",
+                    "render": {
+                      "type": "text",
+                      "src": "text",
+                      "size": "fontSize",
+                      "color": "textColor",
+                      "align": "textAlign",
+                      "bold": "bold",
+                      "italic": "italic",
+                      "wrap": "autoWrap",
+                      "autoFit": "autoFit"
+                    },
+                    "props": [
+                      {
+                        "key": "text",
+                        "label": "文本内容",
+                        "type": "textarea",
+                        "default": "文本"
+                      },
+                      {
+                        "key": "fontSize",
+                        "label": "字号",
+                        "type": "number",
+                        "default": 14,
+                        "min": 6,
+                        "max": 200,
+                        "step": 1
+                      },
+                      {
+                        "key": "textColor",
+                        "label": "文字颜色",
+                        "type": "color",
+                        "default": "#fff"
+                      },
+                      {
+                        "key": "textAlign",
+                        "label": "对齐",
+                        "type": "select",
+                        "default": "center",
+                        "options": [
+                          "left",
+                          "center",
+                          "right"
+                        ]
+                      },
+                      {
+                        "key": "bold",
+                        "label": "粗体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "italic",
+                        "label": "斜体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "autoWrap",
+                        "label": "自动换行",
+                        "type": "checkbox",
+                        "default": true
+                      },
+                      {
+                        "key": "autoFit",
+                        "label": "字体自适应",
+                        "type": "checkbox",
+                        "default": false
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "text": "PasswordInput",
+                    "fontSize": 13.0,
+                    "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "children": []
+                },
+                {
+                  "name": "username_field",
+                  "className": "Button",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": true,
+                  "childCount": 1,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 32.0,
+                      "top": 180.0,
+                      "right": 416.0,
+                      "bottom": 44.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 5
+                  },
+                  "unrealExtra": {
+                    "style": {
+                      "normal": {
+                        "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      },
+                      "hovered": {
+                        "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      },
+                      "pressed": {
+                        "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      },
+                      "disabled": {
+                        "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+                        "margin": {
+                          "left": 0.0,
+                          "top": 0.0,
+                          "right": 0.0,
+                          "bottom": 0.0
+                        }
+                      }
+                    }
+                  },
+                  "templateDefinition": {
+                    "type": "Button",
+                    "label": "Button",
+                    "label_zh": "按钮",
+                    "icon": "🔘",
+                    "group": "按钮",
+                    "color": "#6bb5e8",
+                    "bg": "rgba(107,181,232,0.07)",
+                    "render": {
+                      "type": "text",
+                      "src": "text",
+                      "size": "fontSize",
+                      "color": "textColor",
+                      "align": "textAlign",
+                      "bold": "bold"
+                    },
+                    "props": [
+                      {
+                        "key": "text",
+                        "label": "按钮文字",
+                        "type": "text",
+                        "default": "Button"
+                      },
+                      {
+                        "key": "fontSize",
+                        "label": "字号",
+                        "type": "number",
+                        "default": 14,
+                        "min": 8,
+                        "max": 72,
+                        "step": 1
+                      },
+                      {
+                        "key": "textColor",
+                        "label": "文字颜色",
+                        "type": "color",
+                        "default": "#fff"
+                      },
+                      {
+                        "key": "textAlign",
+                        "label": "对齐",
+                        "type": "select",
+                        "default": "center",
+                        "options": [
+                          "left",
+                          "center",
+                          "right"
+                        ]
+                      },
+                      {
+                        "key": "bold",
+                        "label": "粗体",
+                        "type": "checkbox",
+                        "default": false
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>"
+                  },
+                  "children": [
+                    {
+                      "name": "username_field_Lbl",
+                      "className": "TextBlock",
+                      "parentName": "username_field",
+                      "depth": 4,
+                      "isPanel": false,
+                      "childCount": 0,
+                      "slot": {
+                        "slot_type": "ButtonSlot"
+                      },
+                      "unrealExtra": {
+                        "text": "Enter account name",
+                        "font_size": 14.0,
+                        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+                      },
+                      "templateDefinition": {
+                        "type": "TextBlock",
+                        "label": "TextBlock",
+                        "label_zh": "文本块",
+                        "icon": "📝",
+                        "group": "文本",
+                        "color": "#e8c06b",
+                        "bg": "rgba(232,192,107,0.05)",
+                        "render": {
+                          "type": "text",
+                          "src": "text",
+                          "size": "fontSize",
+                          "color": "textColor",
+                          "align": "textAlign",
+                          "bold": "bold",
+                          "italic": "italic",
+                          "wrap": "autoWrap",
+                          "autoFit": "autoFit"
+                        },
+                        "props": [
+                          {
+                            "key": "text",
+                            "label": "文本内容",
+                            "type": "textarea",
+                            "default": "文本"
+                          },
+                          {
+                            "key": "fontSize",
+                            "label": "字号",
+                            "type": "number",
+                            "default": 14,
+                            "min": 6,
+                            "max": 200,
+                            "step": 1
+                          },
+                          {
+                            "key": "textColor",
+                            "label": "文字颜色",
+                            "type": "color",
+                            "default": "#fff"
+                          },
+                          {
+                            "key": "textAlign",
+                            "label": "对齐",
+                            "type": "select",
+                            "default": "center",
+                            "options": [
+                              "left",
+                              "center",
+                              "right"
+                            ]
+                          },
+                          {
+                            "key": "bold",
+                            "label": "粗体",
+                            "type": "checkbox",
+                            "default": false
+                          },
+                          {
+                            "key": "italic",
+                            "label": "斜体",
+                            "type": "checkbox",
+                            "default": false
+                          },
+                          {
+                            "key": "autoWrap",
+                            "label": "自动换行",
+                            "type": "checkbox",
+                            "default": true
+                          },
+                          {
+                            "key": "autoFit",
+                            "label": "字体自适应",
+                            "type": "checkbox",
+                            "default": false
+                          }
+                        ]
+                      },
+                      "templateEditableValues": {
+                        "text": "Enter account name",
+                        "fontSize": 14.0,
+                        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+                      },
+                      "children": []
+                    }
+                  ]
+                },
+                {
+                  "name": "username_label",
+                  "className": "TextBlock",
+                  "parentName": "login_panel",
+                  "depth": 3,
+                  "isPanel": false,
+                  "childCount": 0,
+                  "slot": {
+                    "slot_type": "CanvasPanelSlot",
+                    "offsets": {
+                      "left": 32.0,
+                      "top": 156.0,
+                      "right": 416.0,
+                      "bottom": 20.0
+                    },
+                    "anchors": {
+                      "min": [
+                        0.0,
+                        0.0
+                      ],
+                      "max": [
+                        0.0,
+                        0.0
+                      ]
+                    },
+                    "alignment": [
+                      0.0,
+                      0.0
+                    ],
+                    "auto_size": false,
+                    "z_order": 4
+                  },
+                  "unrealExtra": {
+                    "text": "UsernameInput",
+                    "font_size": 13.0,
+                    "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "templateDefinition": {
+                    "type": "TextBlock",
+                    "label": "TextBlock",
+                    "label_zh": "文本块",
+                    "icon": "📝",
+                    "group": "文本",
+                    "color": "#e8c06b",
+                    "bg": "rgba(232,192,107,0.05)",
+                    "render": {
+                      "type": "text",
+                      "src": "text",
+                      "size": "fontSize",
+                      "color": "textColor",
+                      "align": "textAlign",
+                      "bold": "bold",
+                      "italic": "italic",
+                      "wrap": "autoWrap",
+                      "autoFit": "autoFit"
+                    },
+                    "props": [
+                      {
+                        "key": "text",
+                        "label": "文本内容",
+                        "type": "textarea",
+                        "default": "文本"
+                      },
+                      {
+                        "key": "fontSize",
+                        "label": "字号",
+                        "type": "number",
+                        "default": 14,
+                        "min": 6,
+                        "max": 200,
+                        "step": 1
+                      },
+                      {
+                        "key": "textColor",
+                        "label": "文字颜色",
+                        "type": "color",
+                        "default": "#fff"
+                      },
+                      {
+                        "key": "textAlign",
+                        "label": "对齐",
+                        "type": "select",
+                        "default": "center",
+                        "options": [
+                          "left",
+                          "center",
+                          "right"
+                        ]
+                      },
+                      {
+                        "key": "bold",
+                        "label": "粗体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "italic",
+                        "label": "斜体",
+                        "type": "checkbox",
+                        "default": false
+                      },
+                      {
+                        "key": "autoWrap",
+                        "label": "自动换行",
+                        "type": "checkbox",
+                        "default": true
+                      },
+                      {
+                        "key": "autoFit",
+                        "label": "字体自适应",
+                        "type": "checkbox",
+                        "default": false
+                      }
+                    ]
+                  },
+                  "templateEditableValues": {
+                    "text": "UsernameInput",
+                    "fontSize": 13.0,
+                    "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+                  },
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "flatWidgets": [
+    {
+      "name": "CanvasPanel_Root",
+      "className": "CanvasPanel",
+      "parentName": "",
+      "depth": 0,
+      "slot": null,
+      "unrealExtra": {},
+      "templateDefinition": {
+        "type": "CanvasPanel",
+        "label": "CanvasPanel",
+        "label_zh": "画布面板",
+        "icon": "🎨",
+        "group": "容器",
+        "color": "#888",
+        "bg": "rgba(128,128,128,0.04)"
+      },
+      "templateEditableValues": {}
+    },
+    {
+      "name": "login_screen_root",
+      "className": "CanvasPanel",
+      "parentName": "CanvasPanel_Root",
+      "depth": 1,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 1280.0,
+          "bottom": 720.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            1.0,
+            1.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 100
+      },
+      "unrealExtra": {},
+      "templateDefinition": {
+        "type": "CanvasPanel",
+        "label": "CanvasPanel",
+        "label_zh": "画布面板",
+        "icon": "🎨",
+        "group": "容器",
+        "color": "#888",
+        "bg": "rgba(128,128,128,0.04)"
+      },
+      "templateEditableValues": {}
+    },
+    {
+      "name": "login_panel",
+      "className": "CanvasPanel",
+      "parentName": "login_screen_root",
+      "depth": 2,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": -240.0,
+          "top": -212.0,
+          "right": 480.0,
+          "bottom": 424.0
+        },
+        "anchors": {
+          "min": [
+            0.5,
+            0.5
+          ],
+          "max": [
+            0.5,
+            0.5
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 0
+      },
+      "unrealExtra": {},
+      "templateDefinition": {
+        "type": "CanvasPanel",
+        "label": "CanvasPanel",
+        "label_zh": "画布面板",
+        "icon": "🎨",
+        "group": "容器",
+        "color": "#888",
+        "bg": "rgba(128,128,128,0.04)"
+      },
+      "templateEditableValues": {}
+    },
+    {
+      "name": "login_button",
+      "className": "Button",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 32.0,
+          "top": 328.0,
+          "right": 416.0,
+          "bottom": 48.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 8
+      },
+      "unrealExtra": {
+        "style": {
+          "normal": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "hovered": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "pressed": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "disabled": {
+            "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          }
+        }
+      },
+      "templateDefinition": {
+        "type": "Button",
+        "label": "Button",
+        "label_zh": "按钮",
+        "icon": "🔘",
+        "group": "按钮",
+        "color": "#6bb5e8",
+        "bg": "rgba(107,181,232,0.07)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "按钮文字",
+            "type": "text",
+            "default": "Button"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 8,
+            "max": 72,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>"
+      }
+    },
+    {
+      "name": "login_divider",
+      "className": "ProgressBar",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 32.0,
+          "top": 132.0,
+          "right": 416.0,
+          "bottom": 4.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 3
+      },
+      "unrealExtra": {
+        "style": {
+          "background": {
+            "draw_as": "<SlateBrushDrawType.IMAGE: 3>",
+            "resource": "/Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture",
+            "margin": {
+              "left": 0.4167,
+              "top": 0.4167,
+              "right": 0.4167,
+              "bottom": 0.4167
+            }
+          },
+          "fill": {
+            "draw_as": "<SlateBrushDrawType.IMAGE: 3>",
+            "resource": "/Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture",
+            "margin": {
+              "left": 0.4167,
+              "top": 0.4167,
+              "right": 0.4167,
+              "bottom": 0.4167
+            }
+          },
+          "marker": null
+        },
+        "fill_color_and_opacity": [
+          0.78,
+          0.66,
+          0.42,
+          1.0
+        ],
+        "percent": 1.0
+      },
+      "templateDefinition": {
+        "type": "ProgressBar",
+        "label": "ProgressBar",
+        "label_zh": "进度条",
+        "icon": "📊",
+        "group": "反馈",
+        "color": "#e86b6b",
+        "bg": "rgba(232,107,107,0.05)",
+        "render": {
+          "type": "progress",
+          "src": "percent",
+          "fill": "fillColor",
+          "bar": "barColor"
+        },
+        "props": [
+          {
+            "key": "percent",
+            "label": "进度值",
+            "type": "range",
+            "default": 0.5,
+            "min": 0,
+            "max": 1,
+            "step": 0.01
+          },
+          {
+            "key": "fillColor",
+            "label": "填充色",
+            "type": "color",
+            "default": "#56cfba"
+          },
+          {
+            "key": "barColor",
+            "label": "轨道色",
+            "type": "color",
+            "default": "#333344"
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "percent": 1.0,
+        "fillColor": [
+          0.78,
+          0.66,
+          0.42,
+          1.0
+        ]
+      }
+    },
+    {
+      "name": "login_footer",
+      "className": "TextBlock",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 32.0,
+          "top": 388.0,
+          "right": 416.0,
+          "bottom": 24.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 9
+      },
+      "unrealExtra": {
+        "text": "Importer uses static field shells until EditableText widgets are supported.",
+        "font_size": 12.0,
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+      },
+      "templateDefinition": {
+        "type": "TextBlock",
+        "label": "TextBlock",
+        "label_zh": "文本块",
+        "icon": "📝",
+        "group": "文本",
+        "color": "#e8c06b",
+        "bg": "rgba(232,192,107,0.05)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold",
+          "italic": "italic",
+          "wrap": "autoWrap",
+          "autoFit": "autoFit"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "文本内容",
+            "type": "textarea",
+            "default": "文本"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 6,
+            "max": 200,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "italic",
+            "label": "斜体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "autoWrap",
+            "label": "自动换行",
+            "type": "checkbox",
+            "default": true
+          },
+          {
+            "key": "autoFit",
+            "label": "字体自适应",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "text": "Importer uses static field shells until EditableText widgets are supported.",
+        "fontSize": 12.0,
+        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+      }
+    },
+    {
+      "name": "login_panel_bg",
+      "className": "Image",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 0.0,
+          "top": 0.0,
+          "right": 480.0,
+          "bottom": 424.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 0
+      },
+      "unrealExtra": {
+        "brush": {
+          "draw_as": "<SlateBrushDrawType.IMAGE: 3>",
+          "resource": "/Game/UI/Icons/AIUI/res/inventory/02_panels/panel_main_bg.panel_main_bg",
+          "margin": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 0.0,
+            "bottom": 0.0
+          }
+        }
+      },
+      "templateDefinition": {
+        "type": "Image",
+        "label": "Image",
+        "label_zh": "图片",
+        "icon": "🖼️",
+        "group": "图片",
+        "color": "#6be89a",
+        "bg": "rgba(107,232,154,0.05)",
+        "render": {
+          "type": "image",
+          "src": "imagePath",
+          "tint": "tintColor"
+        },
+        "props": [
+          {
+            "key": "imagePath",
+            "label": "图片路径",
+            "type": "text",
+            "default": ""
+          },
+          {
+            "key": "tintColor",
+            "label": "着色",
+            "type": "color",
+            "default": "#ffffff"
+          },
+          {
+            "key": "imageDrawType",
+            "label": "绘制模式",
+            "type": "select",
+            "default": "Normal",
+            "options": [
+              "FullyTransparent",
+              "Normal",
+              "ColorAndOpacity"
+            ]
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "imagePath": "/Game/UI/Icons/AIUI/res/inventory/02_panels/panel_main_bg.panel_main_bg"
+      }
+    },
+    {
+      "name": "login_subtitle",
+      "className": "TextBlock",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 32.0,
+          "top": 84.0,
+          "right": 416.0,
+          "bottom": 34.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 2
+      },
+      "unrealExtra": {
+        "text": "Web-first login prototype aligned to UMG widget naming and spacing.",
+        "font_size": 14.0,
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+      },
+      "templateDefinition": {
+        "type": "TextBlock",
+        "label": "TextBlock",
+        "label_zh": "文本块",
+        "icon": "📝",
+        "group": "文本",
+        "color": "#e8c06b",
+        "bg": "rgba(232,192,107,0.05)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold",
+          "italic": "italic",
+          "wrap": "autoWrap",
+          "autoFit": "autoFit"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "文本内容",
+            "type": "textarea",
+            "default": "文本"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 6,
+            "max": 200,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "italic",
+            "label": "斜体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "autoWrap",
+            "label": "自动换行",
+            "type": "checkbox",
+            "default": true
+          },
+          {
+            "key": "autoFit",
+            "label": "字体自适应",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "text": "Web-first login prototype aligned to UMG widget naming and spacing.",
+        "fontSize": 14.0,
+        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+      }
+    },
+    {
+      "name": "login_title",
+      "className": "TextBlock",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 32.0,
+          "top": 40.0,
+          "right": 416.0,
+          "bottom": 38.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 1
+      },
+      "unrealExtra": {
+        "text": "Welcome Back",
+        "font_size": 28.0,
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+      },
+      "templateDefinition": {
+        "type": "TextBlock",
+        "label": "TextBlock",
+        "label_zh": "文本块",
+        "icon": "📝",
+        "group": "文本",
+        "color": "#e8c06b",
+        "bg": "rgba(232,192,107,0.05)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold",
+          "italic": "italic",
+          "wrap": "autoWrap",
+          "autoFit": "autoFit"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "文本内容",
+            "type": "textarea",
+            "default": "文本"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 6,
+            "max": 200,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "italic",
+            "label": "斜体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "autoWrap",
+            "label": "自动换行",
+            "type": "checkbox",
+            "default": true
+          },
+          {
+            "key": "autoFit",
+            "label": "字体自适应",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "text": "Welcome Back",
+        "fontSize": 28.0,
+        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+      }
+    },
+    {
+      "name": "password_field",
+      "className": "Button",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 32.0,
+          "top": 264.0,
+          "right": 416.0,
+          "bottom": 44.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 7
+      },
+      "unrealExtra": {
+        "style": {
+          "normal": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "hovered": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "pressed": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "disabled": {
+            "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          }
+        }
+      },
+      "templateDefinition": {
+        "type": "Button",
+        "label": "Button",
+        "label_zh": "按钮",
+        "icon": "🔘",
+        "group": "按钮",
+        "color": "#6bb5e8",
+        "bg": "rgba(107,181,232,0.07)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "按钮文字",
+            "type": "text",
+            "default": "Button"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 8,
+            "max": 72,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>"
+      }
+    },
+    {
+      "name": "password_label",
+      "className": "TextBlock",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 32.0,
+          "top": 240.0,
+          "right": 416.0,
+          "bottom": 20.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 6
+      },
+      "unrealExtra": {
+        "text": "PasswordInput",
+        "font_size": 13.0,
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+      },
+      "templateDefinition": {
+        "type": "TextBlock",
+        "label": "TextBlock",
+        "label_zh": "文本块",
+        "icon": "📝",
+        "group": "文本",
+        "color": "#e8c06b",
+        "bg": "rgba(232,192,107,0.05)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold",
+          "italic": "italic",
+          "wrap": "autoWrap",
+          "autoFit": "autoFit"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "文本内容",
+            "type": "textarea",
+            "default": "文本"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 6,
+            "max": 200,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "italic",
+            "label": "斜体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "autoWrap",
+            "label": "自动换行",
+            "type": "checkbox",
+            "default": true
+          },
+          {
+            "key": "autoFit",
+            "label": "字体自适应",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "text": "PasswordInput",
+        "fontSize": 13.0,
+        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+      }
+    },
+    {
+      "name": "username_field",
+      "className": "Button",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 32.0,
+          "top": 180.0,
+          "right": 416.0,
+          "bottom": 44.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 5
+      },
+      "unrealExtra": {
+        "style": {
+          "normal": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "hovered": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "pressed": {
+            "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          },
+          "disabled": {
+            "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          }
+        }
+      },
+      "templateDefinition": {
+        "type": "Button",
+        "label": "Button",
+        "label_zh": "按钮",
+        "icon": "🔘",
+        "group": "按钮",
+        "color": "#6bb5e8",
+        "bg": "rgba(107,181,232,0.07)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "按钮文字",
+            "type": "text",
+            "default": "Button"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 8,
+            "max": 72,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "buttonDrawAs": "<SlateBrushDrawType.ROUNDED_BOX: 4>"
+      }
+    },
+    {
+      "name": "username_label",
+      "className": "TextBlock",
+      "parentName": "login_panel",
+      "depth": 3,
+      "slot": {
+        "slot_type": "CanvasPanelSlot",
+        "offsets": {
+          "left": 32.0,
+          "top": 156.0,
+          "right": 416.0,
+          "bottom": 20.0
+        },
+        "anchors": {
+          "min": [
+            0.0,
+            0.0
+          ],
+          "max": [
+            0.0,
+            0.0
+          ]
+        },
+        "alignment": [
+          0.0,
+          0.0
+        ],
+        "auto_size": false,
+        "z_order": 4
+      },
+      "unrealExtra": {
+        "text": "UsernameInput",
+        "font_size": 13.0,
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+      },
+      "templateDefinition": {
+        "type": "TextBlock",
+        "label": "TextBlock",
+        "label_zh": "文本块",
+        "icon": "📝",
+        "group": "文本",
+        "color": "#e8c06b",
+        "bg": "rgba(232,192,107,0.05)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold",
+          "italic": "italic",
+          "wrap": "autoWrap",
+          "autoFit": "autoFit"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "文本内容",
+            "type": "textarea",
+            "default": "文本"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 6,
+            "max": 200,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "italic",
+            "label": "斜体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "autoWrap",
+            "label": "自动换行",
+            "type": "checkbox",
+            "default": true
+          },
+          {
+            "key": "autoFit",
+            "label": "字体自适应",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "text": "UsernameInput",
+        "fontSize": 13.0,
+        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+      }
+    },
+    {
+      "name": "login_button_Lbl",
+      "className": "TextBlock",
+      "parentName": "login_button",
+      "depth": 4,
+      "slot": {
+        "slot_type": "ButtonSlot"
+      },
+      "unrealExtra": {
+        "text": "Login",
+        "font_size": 18.0,
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+      },
+      "templateDefinition": {
+        "type": "TextBlock",
+        "label": "TextBlock",
+        "label_zh": "文本块",
+        "icon": "📝",
+        "group": "文本",
+        "color": "#e8c06b",
+        "bg": "rgba(232,192,107,0.05)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold",
+          "italic": "italic",
+          "wrap": "autoWrap",
+          "autoFit": "autoFit"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "文本内容",
+            "type": "textarea",
+            "default": "文本"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 6,
+            "max": 200,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "italic",
+            "label": "斜体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "autoWrap",
+            "label": "自动换行",
+            "type": "checkbox",
+            "default": true
+          },
+          {
+            "key": "autoFit",
+            "label": "字体自适应",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "text": "Login",
+        "fontSize": 18.0,
+        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+      }
+    },
+    {
+      "name": "password_field_Lbl",
+      "className": "TextBlock",
+      "parentName": "password_field",
+      "depth": 4,
+      "slot": {
+        "slot_type": "ButtonSlot"
+      },
+      "unrealExtra": {
+        "text": "Enter password",
+        "font_size": 14.0,
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+      },
+      "templateDefinition": {
+        "type": "TextBlock",
+        "label": "TextBlock",
+        "label_zh": "文本块",
+        "icon": "📝",
+        "group": "文本",
+        "color": "#e8c06b",
+        "bg": "rgba(232,192,107,0.05)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold",
+          "italic": "italic",
+          "wrap": "autoWrap",
+          "autoFit": "autoFit"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "文本内容",
+            "type": "textarea",
+            "default": "文本"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 6,
+            "max": 200,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "italic",
+            "label": "斜体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "autoWrap",
+            "label": "自动换行",
+            "type": "checkbox",
+            "default": true
+          },
+          {
+            "key": "autoFit",
+            "label": "字体自适应",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "text": "Enter password",
+        "fontSize": 14.0,
+        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+      }
+    },
+    {
+      "name": "username_field_Lbl",
+      "className": "TextBlock",
+      "parentName": "username_field",
+      "depth": 4,
+      "slot": {
+        "slot_type": "ButtonSlot"
+      },
+      "unrealExtra": {
+        "text": "Enter account name",
+        "font_size": 14.0,
+        "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+      },
+      "templateDefinition": {
+        "type": "TextBlock",
+        "label": "TextBlock",
+        "label_zh": "文本块",
+        "icon": "📝",
+        "group": "文本",
+        "color": "#e8c06b",
+        "bg": "rgba(232,192,107,0.05)",
+        "render": {
+          "type": "text",
+          "src": "text",
+          "size": "fontSize",
+          "color": "textColor",
+          "align": "textAlign",
+          "bold": "bold",
+          "italic": "italic",
+          "wrap": "autoWrap",
+          "autoFit": "autoFit"
+        },
+        "props": [
+          {
+            "key": "text",
+            "label": "文本内容",
+            "type": "textarea",
+            "default": "文本"
+          },
+          {
+            "key": "fontSize",
+            "label": "字号",
+            "type": "number",
+            "default": 14,
+            "min": 6,
+            "max": 200,
+            "step": 1
+          },
+          {
+            "key": "textColor",
+            "label": "文字颜色",
+            "type": "color",
+            "default": "#fff"
+          },
+          {
+            "key": "textAlign",
+            "label": "对齐",
+            "type": "select",
+            "default": "center",
+            "options": [
+              "left",
+              "center",
+              "right"
+            ]
+          },
+          {
+            "key": "bold",
+            "label": "粗体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "italic",
+            "label": "斜体",
+            "type": "checkbox",
+            "default": false
+          },
+          {
+            "key": "autoWrap",
+            "label": "自动换行",
+            "type": "checkbox",
+            "default": true
+          },
+          {
+            "key": "autoFit",
+            "label": "字体自适应",
+            "type": "checkbox",
+            "default": false
+          }
+        ]
+      },
+      "templateEditableValues": {
+        "text": "Enter account name",
+        "fontSize": 14.0,
+        "fontFamily": "/Engine/EngineFonts/Roboto.Roboto"
+      }
+    }
+  ],
+  "inspectPayload": {
+    "path": "/Game/UI/Panels/WBP_login_screen",
+    "wbp_class": "WidgetBlueprint",
+    "cpp_hierarchy": [
+      {
+        "variableName": "CanvasPanel_Root",
+        "className": "CanvasPanel",
+        "parentName": "",
+        "depth": 0,
+        "isPanel": true,
+        "childCount": 1
+      },
+      {
+        "variableName": "login_screen_root",
+        "className": "CanvasPanel",
+        "parentName": "CanvasPanel_Root",
+        "depth": 1,
+        "isPanel": true,
+        "childCount": 1
+      },
+      {
+        "variableName": "login_panel",
+        "className": "CanvasPanel",
+        "parentName": "login_screen_root",
+        "depth": 2,
+        "isPanel": true,
+        "childCount": 10
+      },
+      {
+        "variableName": "login_button",
+        "className": "Button",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": true,
+        "childCount": 1
+      },
+      {
+        "variableName": "login_divider",
+        "className": "ProgressBar",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": false,
+        "childCount": 0
+      },
+      {
+        "variableName": "login_footer",
+        "className": "TextBlock",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": false,
+        "childCount": 0
+      },
+      {
+        "variableName": "login_panel_bg",
+        "className": "Image",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": false,
+        "childCount": 0
+      },
+      {
+        "variableName": "login_subtitle",
+        "className": "TextBlock",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": false,
+        "childCount": 0
+      },
+      {
+        "variableName": "login_title",
+        "className": "TextBlock",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": false,
+        "childCount": 0
+      },
+      {
+        "variableName": "password_field",
+        "className": "Button",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": true,
+        "childCount": 1
+      },
+      {
+        "variableName": "password_label",
+        "className": "TextBlock",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": false,
+        "childCount": 0
+      },
+      {
+        "variableName": "username_field",
+        "className": "Button",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": true,
+        "childCount": 1
+      },
+      {
+        "variableName": "username_label",
+        "className": "TextBlock",
+        "parentName": "login_panel",
+        "depth": 3,
+        "isPanel": false,
+        "childCount": 0
+      },
+      {
+        "variableName": "login_button_Lbl",
+        "className": "TextBlock",
+        "parentName": "login_button",
+        "depth": 4,
+        "isPanel": false,
+        "childCount": 0
+      },
+      {
+        "variableName": "password_field_Lbl",
+        "className": "TextBlock",
+        "parentName": "password_field",
+        "depth": 4,
+        "isPanel": false,
+        "childCount": 0
+      },
+      {
+        "variableName": "username_field_Lbl",
+        "className": "TextBlock",
+        "parentName": "username_field",
+        "depth": 4,
+        "isPanel": false,
+        "childCount": 0
+      }
+    ],
+    "warn": "widget_tree root 不可用，降级为 ObjectIterator 平铺模式",
+    "package": "/Game/UI/Panels/WBP_login_screen",
+    "widgets_in_pkg": [
+      {
+        "class": "Image",
+        "name": "login_panel_bg",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 480.0,
+            "bottom": 424.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 0
+        },
+        "extra": {
+          "brush": {
+            "draw_as": "<SlateBrushDrawType.IMAGE: 3>",
+            "resource": "/Game/UI/Icons/AIUI/res/inventory/02_panels/panel_main_bg.panel_main_bg",
+            "margin": {
+              "left": 0.0,
+              "top": 0.0,
+              "right": 0.0,
+              "bottom": 0.0
+            }
+          }
+        }
+      },
+      {
+        "class": "TextBlock",
+        "name": "login_title",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 32.0,
+            "top": 40.0,
+            "right": 416.0,
+            "bottom": 38.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 1
+        },
+        "extra": {
+          "text": "Welcome Back",
+          "font_size": 28.0,
+          "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+        }
+      },
+      {
+        "class": "TextBlock",
+        "name": "login_subtitle",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 32.0,
+            "top": 84.0,
+            "right": 416.0,
+            "bottom": 34.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 2
+        },
+        "extra": {
+          "text": "Web-first login prototype aligned to UMG widget naming and spacing.",
+          "font_size": 14.0,
+          "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+        }
+      },
+      {
+        "class": "ProgressBar",
+        "name": "login_divider",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 32.0,
+            "top": 132.0,
+            "right": 416.0,
+            "bottom": 4.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 3
+        },
+        "extra": {
+          "style": {
+            "background": {
+              "draw_as": "<SlateBrushDrawType.IMAGE: 3>",
+              "resource": "/Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture",
+              "margin": {
+                "left": 0.4167,
+                "top": 0.4167,
+                "right": 0.4167,
+                "bottom": 0.4167
+              }
+            },
+            "fill": {
+              "draw_as": "<SlateBrushDrawType.IMAGE: 3>",
+              "resource": "/Engine/EngineResources/WhiteSquareTexture.WhiteSquareTexture",
+              "margin": {
+                "left": 0.4167,
+                "top": 0.4167,
+                "right": 0.4167,
+                "bottom": 0.4167
+              }
+            },
+            "marker": null
+          },
+          "fill_color_and_opacity": [
+            0.78,
+            0.66,
+            0.42,
+            1.0
+          ],
+          "percent": 1.0
+        }
+      },
+      {
+        "class": "TextBlock",
+        "name": "username_label",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 32.0,
+            "top": 156.0,
+            "right": 416.0,
+            "bottom": 20.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 4
+        },
+        "extra": {
+          "text": "UsernameInput",
+          "font_size": 13.0,
+          "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+        }
+      },
+      {
+        "class": "TextBlock",
+        "name": "username_field_Lbl",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "ButtonSlot"
+        },
+        "extra": {
+          "text": "Enter account name",
+          "font_size": 14.0,
+          "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+        }
+      },
+      {
+        "class": "Button",
+        "name": "username_field",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 32.0,
+            "top": 180.0,
+            "right": 416.0,
+            "bottom": 44.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 5
+        },
+        "extra": {
+          "style": {
+            "normal": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "hovered": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "pressed": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "disabled": {
+              "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "class": "TextBlock",
+        "name": "password_label",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 32.0,
+            "top": 240.0,
+            "right": 416.0,
+            "bottom": 20.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 6
+        },
+        "extra": {
+          "text": "PasswordInput",
+          "font_size": 13.0,
+          "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+        }
+      },
+      {
+        "class": "TextBlock",
+        "name": "password_field_Lbl",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "ButtonSlot"
+        },
+        "extra": {
+          "text": "Enter password",
+          "font_size": 14.0,
+          "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+        }
+      },
+      {
+        "class": "Button",
+        "name": "password_field",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 32.0,
+            "top": 264.0,
+            "right": 416.0,
+            "bottom": 44.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 7
+        },
+        "extra": {
+          "style": {
+            "normal": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "hovered": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "pressed": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "disabled": {
+              "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "class": "TextBlock",
+        "name": "login_button_Lbl",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "ButtonSlot"
+        },
+        "extra": {
+          "text": "Login",
+          "font_size": 18.0,
+          "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+        }
+      },
+      {
+        "class": "Button",
+        "name": "login_button",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 32.0,
+            "top": 328.0,
+            "right": 416.0,
+            "bottom": 48.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 8
+        },
+        "extra": {
+          "style": {
+            "normal": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "hovered": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "pressed": {
+              "draw_as": "<SlateBrushDrawType.ROUNDED_BOX: 4>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            },
+            "disabled": {
+              "draw_as": "<SlateBrushDrawType.NO_DRAW_TYPE: 0>",
+              "margin": {
+                "left": 0.0,
+                "top": 0.0,
+                "right": 0.0,
+                "bottom": 0.0
+              }
+            }
+          }
+        }
+      },
+      {
+        "class": "TextBlock",
+        "name": "login_footer",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 32.0,
+            "top": 388.0,
+            "right": 416.0,
+            "bottom": 24.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              0.0,
+              0.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 9
+        },
+        "extra": {
+          "text": "Importer uses static field shells until EditableText widgets are supported.",
+          "font_size": 12.0,
+          "font_family": "/Engine/EngineFonts/Roboto.Roboto"
+        }
+      },
+      {
+        "class": "CanvasPanel",
+        "name": "login_panel",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": -240.0,
+            "top": -212.0,
+            "right": 480.0,
+            "bottom": 424.0
+          },
+          "anchors": {
+            "min": [
+              0.5,
+              0.5
+            ],
+            "max": [
+              0.5,
+              0.5
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 0
+        },
+        "extra": {}
+      },
+      {
+        "class": "CanvasPanel",
+        "name": "login_screen_root",
+        "outer": "WidgetTree",
+        "slot": {
+          "slot_type": "CanvasPanelSlot",
+          "offsets": {
+            "left": 0.0,
+            "top": 0.0,
+            "right": 1280.0,
+            "bottom": 720.0
+          },
+          "anchors": {
+            "min": [
+              0.0,
+              0.0
+            ],
+            "max": [
+              1.0,
+              1.0
+            ]
+          },
+          "alignment": [
+            0.0,
+            0.0
+          ],
+          "auto_size": false,
+          "z_order": 100
+        },
+        "extra": {}
+      },
+      {
+        "class": "CanvasPanel",
+        "name": "CanvasPanel_Root",
+        "outer": "WidgetTree",
+        "slot": null,
+        "extra": {}
+      }
+    ]
+  },
+  "sources": {
+    "templateDefinitions": "G:\\GameExPro3\\AILab\\workspace\\Alith\\application\\workspace\\UIEditor\\application\\canvas-editor\\data\\docs\\config\\elements.json",
+    "templateDirectory": "G:\\GameExPro3\\AILab\\workspace\\Alith\\application\\workspace\\UIEditor\\application\\uieditor\\template"
+  }
+}

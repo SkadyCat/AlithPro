@@ -1,0 +1,34 @@
+# item_shield
+target: assets/icons/item_shield.png
+size: 72x72
+strategy: hybrid-aigc
+profile: item-icon
+
+[defaults]
+theme: dark-fantasy-inventory-ui
+background_mode: transparent
+variant_batch: 8-12
+output_policy: UI/图标优先透明 PNG；场景底图可先出不透明构图，再统一转 PNG。
+palette: #161312, #2f241d, #6d5235, #8ca07a, #d8c89c
+keywords: dark, compact, clear, bronze, obsidian, emerald glow
+
+[prompt]
+dark fantasy inventory item icon, heavy shield crest, centered silhouette, readable at small size, bronze and muted gold accents, transparent background
+
+[negative_prompt]
+text, letters, watermark, logo, human figure, character portrait, photography, 3d render, real world props, tilted composition, asymmetrical frame, cropped ornament, muddy silhouette, blurry details, overexposed glow, busy background
+
+[references]
+- bag.bp:[Data]
+- assets/icons/item_shield.png
+
+[postprocess]
+- 强化中心识别轮廓，确保缩小后仍可读
+- 清掉孤立噪点，统一透明边
+
+[workflow]
+- 1. 读取 bag.bp 当前资源声明，确认任务包与现有背包蓝图一致。
+- 2. 使用每个任务自带的 prompt、negative prompt、references 与默认风格参数生成 8-12 个变体。
+- 3. 只保留轮廓干净、信息区留白充分、适合游戏 UI 叠字与切片的结果。
+- 4. 进行透明背景、边缘修整、对称校正与尺寸归一，再覆盖回目标路径。
+- 5. 回写资源后继续运行现有脚本链或 Godot 场景检查，确认兼容性。
