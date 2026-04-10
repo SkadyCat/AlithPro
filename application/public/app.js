@@ -504,6 +504,50 @@ const dmHideCtx = window.MindMap?.hideCtx;
 
 // ─── 留言 (Leave Message) modal + node-message binding ──────────────────────
 
+// Dump the tree in spatial order (children sorted by y-coordinate),
+// with node IDs. Marks the target node with ★. Sel nodes on path
+// only show the path-relevant branch; off-path Sel shows all children.
+function dmBuildSpatialTree(targetNode) {
+  if (!_dm || !_dm.nodes) return "(空思维导图)";
+
+  const pathIds = new Set();
+  if (targetNode) {
+    let cur = targetNode;
+    while (cur) {
+      pathIds.add(cur.id);
+      cur = cur.parentId != null ? _dm.nodes.find(n => n.id === cur.parentId) : null;
+    }
+  }
+
+  const roots = _dm.nodes.filter(n => n.parentId == null);
+  const lines = [];
+
+  function sortedChildren(parentId) {
+    const parent = _dm.nodes.find(n => n.id === parentId);
+    const children = _dm.nodes.filter(c => c.parentId === parentId)
+      .sort((a, b) => a.y - b.y);
+    if (parent && parent.type === "sel" && pathIds.has(parent.id)) {
+      const pc = children.find(c => pathIds.has(c.id));
+      return pc ? [pc] : [];
+    }
+    return children;
+  }
+
+  function walk(node, indent) {
+    const typeMeta = node.type && _dm.nodeTypes[node.type]
+      ? _dm.nodeTypes[node.type] : null;
+    const typeTag = typeMeta ? `[${typeMeta.label}]` : "";
+    const marker = targetNode && node.id === targetNode.id ? " ★" : "";
+    const label = `[${node.id}]${typeTag} ${node.title || "(空)"}${marker}`;
+    lines.push(`${"  ".repeat(indent)}- ${label}`);
+    sortedChildren(node.id).forEach(c => walk(c, indent + 1));
+  }
+
+  roots.sort((a, b) => a.y - b.y);
+  roots.forEach(r => walk(r, 0));
+  return lines.join("\n") || "(空思维导图)";
+}
+
 function dmBuildNodePath(node) {
   const parts = [];
   let cur = node;
@@ -516,10 +560,9 @@ function dmBuildNodePath(node) {
 
 // Build a numbered knowledge outline for the message document.
 // Shows prior knowledge based on behavior-tree execution semantics.
-// Seq nodes: only children up to and including the path-child are shown
-// (later siblings haven't been reached yet).
+// Seq nodes: only children up to and including the path-child are shown.
 // Sel nodes on path: included, but only the path-relevant branch is expanded.
-// Format: N. section headers, N.X sub-items (depth-first flattened).
+// Format: hierarchical tree numbering (1, 1.1, 1.1.1, …) with matching indentation.
 function dmBuildKnowledgeOutline(targetNode) {
   if (!_dm || !_dm.nodes || !targetNode) return "(无前置知识)";
   const ancestors = [];
@@ -532,13 +575,12 @@ function dmBuildKnowledgeOutline(targetNode) {
   if (ancestors.length < 2) return "(无前置知识)";
 
   const lines = [];
-  let sec = 0, sub = 0;
 
   function nodeText(node) {
     let t = node.title || "(空)";
     if (Array.isArray(node.messages) && node.messages.length > 0) {
       for (const m of node.messages) {
-        t += ` 需求文档: [${m.fileName}] 交付文档: [${m.fileName.replace(/\.md$/, "_doc.md")}]`;
+        t += ` 需求: [${m.fileName}] 交付: [${m.fileName.replace(/\.md$/, "_doc.md")}]`;
       }
     }
     return t;
@@ -561,29 +603,16 @@ function dmBuildKnowledgeOutline(targetNode) {
     return result;
   }
 
-  function flatSub(node) {
-    sub++;
-    lines.push(`  ${sec}.${sub} ${nodeText(node)}`);
-    for (const c of visChildren(node.id)) flatSub(c);
+  function walk(node, prefix, depth) {
+    lines.push(`${"  ".repeat(depth)}${prefix} ${nodeText(node)}`);
+    const children = visChildren(node.id);
+    children.forEach((child, i) => {
+      walk(child, `${prefix}.${i + 1}`, depth + 1);
+    });
   }
 
   const mainNode = ancestors[1];
-  const topChildren = visChildren(mainNode.id);
-
-  sec = 1; sub = 0;
-  lines.push(`${sec}. ${mainNode.title || "(空)"}`);
-
-  let first = true;
-  for (const child of topChildren) {
-    if (first) {
-      flatSub(child);
-      first = false;
-    } else {
-      sec++; sub = 0;
-      lines.push(`${sec}. ${nodeText(child)}`);
-      for (const gc of visChildren(child.id)) flatSub(gc);
-    }
-  }
+  walk(mainNode, "1", 0);
 
   return lines.join("\n") || "(无前置知识)";
 }
@@ -696,11 +725,24 @@ if (window.MindMap) {
       return;
     }
     dmShowMsgModal(`📝 留言 — ${node.title || "节点"}`, "请输入留言内容…（Ctrl+Enter 发送）", async (message) => {
+      const nodeType = node.type && _dm.nodeTypes[node.type]
+        ? _dm.nodeTypes[node.type].label : "(未知)";
+      const pathStr = dmBuildNodePath(node).replace(/ > /g, " → ");
       const content =
-        `我们目前需要解决的是: ${message}\n` +
-        `你在解决这个问题之前，你已经具备了以下知识：\n` +
+        `# 行为树留言上下文\n\n` +
+        `## 项目结构（空间树）\n\n${dmBuildSpatialTree(node)}\n\n` +
+        `## 当前任务\n\n` +
+        `**工作内容**: ${message}\n\n` +
+        `| 属性 | 值 |\n|------|------|\n` +
+        `| 节点ID | ${node.id} |\n` +
+        `| 节点名称 | ${node.title || "(空)"} |\n` +
+        `| 节点类型 | ${nodeType} |\n` +
+        `| 执行路径 | ${pathStr} |\n\n` +
+        `## 已有知识（行为树执行上下文）\n\n` +
+        `> Seq: 显示到当前路径子节点（含）；Sel: 仅展开路径匹配分支。\n\n` +
         `${dmBuildKnowledgeOutline(node)}\n\n` +
-        `你需要从这个链路去收束你的思考范围。\n`;
+        `## 约束\n\n` +
+        `基于以上行为树执行链路收束思考范围。仅在已有知识上下文内解决当前任务。\n`;
       try {
         const result = await fetchJson(
           `/api/workspaces/${encodeURIComponent(state.currentWorkspace)}/tasks`,
