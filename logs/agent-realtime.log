@@ -1038,3 +1038,7 @@
 [2026.04.09-17:56:15] [DONE] Task 28: commit all + push — committed locally, push pending (network down)
 [2026.04.09-17:56:27] [QUEUE_EMPTY] Queue empty.
 [2026.04.09-17:56:27] [WAIT] Entering wait loop. Push pending for commits de3246d..b1fcfab
+[2026.04.10-11:16:03] [TASK_DETECTED] msg-2026-04-10T03-15-09-840Z.md — behavior tree node types (Seq/Sel/Action/Con)
+[2026.04.10-11:16:03] [TASK_START] Adding 4 node types with right-click submenu
+[2026.04.10-11:18:52] [VERIFY] Task 29: node --check passed for mindmap.js and app.js
+[2026.04.10-11:18:52] [DONE] Task 29: Behavior tree node types (Seq/Sel/Action/Con) implemented

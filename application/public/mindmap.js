@@ -19,6 +19,12 @@
       ["#6c63ff","#8b5cf6"],["#22d3ee","#06b6d4"],["#f472b6","#ec4899"],
       ["#a78bfa","#7c3aed"],["#34d399","#10b981"],["#fbbf24","#f59e0b"],
     ],
+    nodeTypes: {
+      seq:    { label: "Seq",    icon: "→",  color: ["#6c63ff","#8b5cf6"] },
+      sel:    { label: "Sel",    icon: "?",  color: ["#f59e0b","#d97706"] },
+      action: { label: "Action", icon: "⚡", color: ["#10b981","#059669"] },
+      con:    { label: "Con",    icon: "✓",  color: ["#ec4899","#db2777"] },
+    },
   };
 
   // ─── Helpers ──────────────────────────────────────────────────────────────
@@ -39,6 +45,9 @@
   }
 
   function dmNodeColor(node) {
+    if (node.type && _dm.nodeTypes[node.type]) {
+      return _dm.nodeTypes[node.type].color;
+    }
     return _dm.colors[dmDepth(node) % _dm.colors.length];
   }
 
@@ -70,7 +79,9 @@
     const roots = _dm.nodes.filter(n => n.parentId == null);
     const lines = [];
     function walk(node, indent) {
-      let label = node.title || "(空)";
+      const typeMeta = node.type && _dm.nodeTypes[node.type] ? _dm.nodeTypes[node.type] : null;
+      const typeTag = typeMeta ? `[${typeMeta.label}] ` : "";
+      let label = typeTag + (node.title || "(空)");
       if (Array.isArray(node.messages) && node.messages.length > 0) {
         const refs = node.messages.map(m => {
           const src = m.fileName;
@@ -178,7 +189,9 @@
       if (_dm.editingId !== node.id) {
         const hasMsgs = Array.isArray(node.messages) && node.messages.length > 0;
         const msgBadge = hasMsgs ? `<span class="dm-node-msg-badge" title="${node.messages.length} 条留言">💬 ${node.messages.length}</span>` : "";
-        el.innerHTML = `<div class="dm-node-title">${escapeHtml(node.title || "新节点")}${msgBadge}</div>`
+        const typeMeta = node.type && _dm.nodeTypes[node.type] ? _dm.nodeTypes[node.type] : null;
+        const typeBadge = typeMeta ? `<span class="dm-node-type-badge dm-type-${node.type}">${typeMeta.icon} ${typeMeta.label}</span>` : "";
+        el.innerHTML = `<div class="dm-node-title">${typeBadge}${escapeHtml(node.title || "新节点")}${msgBadge}</div>`
           + `<div class="dm-node-actions">`
           + `<span class="dm-node-btn dm-node-add" title="添加子节点">+</span>`
           + `<span class="dm-node-btn dm-node-del" title="删除">×</span>`
@@ -188,7 +201,13 @@
           const n = _dm.nodes.find(n => n.id === node.id);
           if (!n) return;
           const childCount = _dm.nodes.filter(c => c.parentId === n.id).length;
-          dmAddNode(n.x + 200, n.y + childCount * 50, n.id);
+          const cx = n.x + 200, cy = n.y + childCount * 50;
+          dmShowCtx(e.clientX, e.clientY, [
+            { label: "→ Seq",    action: () => dmAddNode(cx, cy, n.id, "", true, "seq") },
+            { label: "? Sel",    action: () => dmAddNode(cx, cy, n.id, "", true, "sel") },
+            { label: "⚡ Action", action: () => dmAddNode(cx, cy, n.id, "", true, "action") },
+            { label: "✓ Con",    action: () => dmAddNode(cx, cy, n.id, "", true, "con") },
+          ]);
         });
         el.querySelector(".dm-node-del").addEventListener("click", (e) => {
           e.stopPropagation();
@@ -208,9 +227,11 @@
   }
 
   // ─── Node CRUD ────────────────────────────────────────────────────────────
-  function dmAddNode(x, y, parentId = null, title = "", autoEdit = true) {
+  function dmAddNode(x, y, parentId = null, title = "", autoEdit = true, type = null) {
     const id = _dm.nextId++;
-    _dm.nodes.push({ id, x, y, title: title || "新节点", parentId });
+    const node = { id, x, y, title: title || (type ? _dm.nodeTypes[type]?.label || "新节点" : "新节点"), parentId };
+    if (type) node.type = type;
+    _dm.nodes.push(node);
     _dm.selectedIds.clear();
     _dm.selectedIds.add(id);
     dmRender();
@@ -377,7 +398,12 @@
     const cx = (e.clientX - rect.left - _dm.panX) / _dm.zoom;
     const cy = (e.clientY - rect.top - _dm.panY) / _dm.zoom;
     dmShowCtx(e.clientX, e.clientY, [
-      { label: "✦ 添加节点", action: () => dmAddNode(cx - 70, cy - 14) },
+      { label: "✦ 放置节点", children: [
+        { label: "→ Seq",    action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "seq") },
+        { label: "? Sel",    action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "sel") },
+        { label: "⚡ Action", action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "action") },
+        { label: "✓ Con",    action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "con") },
+      ]},
     ]);
   }
 
@@ -387,11 +413,15 @@
     _dm.selectedIds.clear();
     _dm.selectedIds.add(node.id);
     dmRender();
+    const childCount = _dm.nodes.filter(c => c.parentId === node.id).length;
+    const childX = node.x + 200, childY = node.y + childCount * 50;
     const items = [
-      { label: "✦ 添加子节点", action: () => {
-        const childCount = _dm.nodes.filter(c => c.parentId === node.id).length;
-        dmAddNode(node.x + 200, node.y + childCount * 50, node.id);
-      }},
+      { label: "✦ 添加子节点", children: [
+        { label: "→ Seq",    action: () => dmAddNode(childX, childY, node.id, "", true, "seq") },
+        { label: "? Sel",    action: () => dmAddNode(childX, childY, node.id, "", true, "sel") },
+        { label: "⚡ Action", action: () => dmAddNode(childX, childY, node.id, "", true, "action") },
+        { label: "✓ Con",    action: () => dmAddNode(childX, childY, node.id, "", true, "con") },
+      ]},
       { label: "✎ 编辑", action: () => dmStartEdit(node) },
       { label: "📝 留言", action: () => {
         if (typeof window.MindMap?.onLeaveMessage === "function") {
@@ -408,11 +438,28 @@
     const menu = document.createElement("div");
     menu.className = "dm-ctx";
     for (const item of items) {
-      const btn = document.createElement("div");
-      btn.className = "dm-ctx-item";
-      btn.textContent = item.label;
-      btn.addEventListener("click", (e) => { e.stopPropagation(); dmHideCtx(); item.action(); });
-      menu.append(btn);
+      if (item.children) {
+        const parent = document.createElement("div");
+        parent.className = "dm-ctx-item dm-ctx-has-sub";
+        parent.textContent = item.label + " ▸";
+        const sub = document.createElement("div");
+        sub.className = "dm-ctx-sub";
+        for (const child of item.children) {
+          const btn = document.createElement("div");
+          btn.className = "dm-ctx-item";
+          btn.textContent = child.label;
+          btn.addEventListener("click", (e) => { e.stopPropagation(); dmHideCtx(); child.action(); });
+          sub.append(btn);
+        }
+        parent.append(sub);
+        menu.append(parent);
+      } else {
+        const btn = document.createElement("div");
+        btn.className = "dm-ctx-item";
+        btn.textContent = item.label;
+        btn.addEventListener("click", (e) => { e.stopPropagation(); dmHideCtx(); item.action(); });
+        menu.append(btn);
+      }
     }
     document.body.append(menu);
     menu.style.left = `${Math.min(x, window.innerWidth - 180)}px`;
@@ -441,7 +488,7 @@
       const sel = _dm.selectedIds.size === 1 ? _dm.nodes.find(n => n.id === [..._dm.selectedIds][0]) : null;
       if (sel) {
         const childCount = _dm.nodes.filter(c => c.parentId === sel.id).length;
-        dmAddNode(sel.x + 200, sel.y + childCount * 50, sel.id, "", false);
+        dmAddNode(sel.x + 200, sel.y + childCount * 50, sel.id, "", false, "action");
         // Keep parent node selected instead of the new child
         _dm.selectedIds.clear();
         _dm.selectedIds.add(sel.id);

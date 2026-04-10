@@ -177,6 +177,11 @@ button:active{transform:translateY(0);opacity:1}
 .dm-node.dm-editing{cursor:text}
 .dm-node-title{font-size:.82rem;font-weight:700;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:0;display:flex;align-items:center;gap:.4rem}
 .dm-node-msg-badge{flex-shrink:0;font-size:.6rem;font-weight:600;padding:.1rem .35rem;border-radius:999px;background:rgba(108,99,255,.2);border:1px solid rgba(108,99,255,.35);color:#a78bfa;cursor:pointer}
+.dm-node-type-badge{flex-shrink:0;font-size:.6rem;font-weight:700;padding:.1rem .35rem;border-radius:4px;margin-right:.3rem;color:#fff;text-transform:uppercase;letter-spacing:.02em}
+.dm-type-seq{background:rgba(108,99,255,.7)}
+.dm-type-sel{background:rgba(245,158,11,.7)}
+.dm-type-action{background:rgba(16,185,129,.7)}
+.dm-type-con{background:rgba(236,72,153,.7)}
 .dm-node-actions{position:absolute;top:-10px;right:-6px;display:flex;gap:3px;opacity:0;pointer-events:none;transition:opacity .15s}
 .dm-node:hover .dm-node-actions{opacity:1;pointer-events:auto}
 .dm-node-btn{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;cursor:pointer;border:1px solid rgba(108,99,255,.4);transition:background .12s,border-color .12s;line-height:1}
@@ -189,6 +194,9 @@ button:active{transform:translateY(0);opacity:1}
 .dm-ctx{position:fixed;z-index:10002;background:rgba(16,18,40,.97);border:1px solid rgba(108,99,255,.3);border-radius:10px;padding:.35rem 0;min-width:152px;box-shadow:0 12px 40px rgba(0,0,0,.6),0 0 0 1px rgba(108,99,255,.07);backdrop-filter:blur(8px)}
 .dm-ctx-item{padding:.5rem .9rem;font-size:.78rem;color:var(--text);cursor:pointer;user-select:none;transition:background .12s,color .12s}
 .dm-ctx-item:hover{background:rgba(108,99,255,.2);color:#fff}
+.dm-ctx-has-sub{position:relative}
+.dm-ctx-sub{display:none;position:absolute;left:100%;top:-.35rem;background:rgba(16,18,40,.97);border:1px solid rgba(108,99,255,.3);border-radius:10px;padding:.35rem 0;min-width:130px;box-shadow:0 12px 40px rgba(0,0,0,.6);backdrop-filter:blur(8px)}
+.dm-ctx-has-sub:hover>.dm-ctx-sub{display:block}
 .dm-msg-backdrop{position:fixed;inset:0;z-index:10003;display:flex;align-items:center;justify-content:center;background:rgba(3,5,13,.72);backdrop-filter:blur(8px)}
 .dm-msg-modal{width:min(520px,92vw);max-height:min(80vh,640px);display:flex;flex-direction:column;background:linear-gradient(180deg,rgba(17,24,48,.98),rgba(10,15,30,.99));border:1px solid rgba(108,99,255,.28);border-radius:18px;box-shadow:0 24px 64px rgba(0,0,0,.55);overflow:hidden}
 .dm-msg-viewer{width:min(640px,94vw);max-height:min(82vh,700px)}
