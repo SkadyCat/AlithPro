@@ -513,6 +513,80 @@ function dmBuildNodePath(node) {
   return parts.join(" > ");
 }
 
+// Build a numbered knowledge outline for the message document.
+// Shows prior knowledge based on behavior-tree execution semantics.
+// Seq nodes: only children up to and including the path-child are shown
+// (later siblings haven't been reached yet).
+// Sel nodes on path: included, but only the path-relevant branch is expanded.
+// Format: N. section headers, N.X sub-items (depth-first flattened).
+function dmBuildKnowledgeOutline(targetNode) {
+  if (!_dm || !_dm.nodes || !targetNode) return "(无前置知识)";
+  const ancestors = [];
+  let cur = targetNode;
+  while (cur) {
+    ancestors.unshift(cur);
+    cur = cur.parentId != null ? _dm.nodes.find(n => n.id === cur.parentId) : null;
+  }
+  const pathIds = new Set(ancestors.map(n => n.id));
+  if (ancestors.length < 2) return "(无前置知识)";
+
+  const lines = [];
+  let sec = 0, sub = 0;
+
+  function nodeText(node) {
+    let t = node.title || "(空)";
+    if (Array.isArray(node.messages) && node.messages.length > 0) {
+      for (const m of node.messages) {
+        t += ` 需求文档: [${m.fileName}] 交付文档: [${m.fileName.replace(/\.md$/, "_doc.md")}]`;
+      }
+    }
+    return t;
+  }
+
+  // Return visible children of a parent, respecting BT execution semantics.
+  // Sel parent → only the path-relevant child. Seq/other → children up to path-child.
+  function visChildren(parentId) {
+    const parent = _dm.nodes.find(n => n.id === parentId);
+    const children = _dm.nodes.filter(c => c.parentId === parentId);
+    if (parent && parent.type === "sel") {
+      const pc = children.find(c => pathIds.has(c.id));
+      return pc ? [pc] : [];
+    }
+    const result = [];
+    for (const c of children) {
+      result.push(c);
+      if (pathIds.has(c.id)) break;
+    }
+    return result;
+  }
+
+  function flatSub(node) {
+    sub++;
+    lines.push(`  ${sec}.${sub} ${nodeText(node)}`);
+    for (const c of visChildren(node.id)) flatSub(c);
+  }
+
+  const mainNode = ancestors[1];
+  const topChildren = visChildren(mainNode.id);
+
+  sec = 1; sub = 0;
+  lines.push(`${sec}. ${mainNode.title || "(空)"}`);
+
+  let first = true;
+  for (const child of topChildren) {
+    if (first) {
+      flatSub(child);
+      first = false;
+    } else {
+      sec++; sub = 0;
+      lines.push(`${sec}. ${nodeText(child)}`);
+      for (const gc of visChildren(child.id)) flatSub(gc);
+    }
+  }
+
+  return lines.join("\n") || "(无前置知识)";
+}
+
 function dmShowMsgModal(title, placeholder, onSubmit) {
   const backdrop = document.createElement("div");
   backdrop.className = "dm-msg-backdrop";
@@ -621,12 +695,11 @@ if (window.MindMap) {
       return;
     }
     dmShowMsgModal(`📝 留言 — ${node.title || "节点"}`, "请输入留言内容…（Ctrl+Enter 发送）", async (message) => {
-      const path = dmBuildNodePath(node);
       const content =
-        `# 思维导图结构\n${treeMarkdown}\n\n` +
-        `# 当前选中节点\n- 标题: ${node.title || "(空)"}\n- 路径: ${path}\n\n` +
-        `基于当前选中的节点和节点内容，你需要做: ${message}\n\n` +
-        `你需要从这个链路去收束你的思考范围。`;
+        `我们目前需要解决的是: ${message}\n` +
+        `你在解决这个问题之前，你已经具备了以下知识：\n` +
+        `${dmBuildKnowledgeOutline(node)}\n\n` +
+        `你需要从这个链路去收束你的思考范围。\n`;
       try {
         const result = await fetchJson(
           `/api/workspaces/${encodeURIComponent(state.currentWorkspace)}/tasks`,
