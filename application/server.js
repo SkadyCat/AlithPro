@@ -379,6 +379,18 @@ function buildRunBatContent(model) {
   ].join("\r\n");
 }
 
+function buildRunWithoutProxyBatContent(model) {
+  return [
+    "@echo off",
+    "echo ========================================",
+    "echo   GitHub Copilot CLI launcher (wmsxwd)",
+    "echo ========================================",
+    "",
+    `copilot --allow-all --model=${model}`,
+    "",
+  ].join("\r\n");
+}
+
 function buildExportLogBatContent(model) {
   return [
     "@echo off",
@@ -404,6 +416,7 @@ async function syncWorkspaceLaunchers(workspaceDir, preferredModel = "") {
   const model = await resolveLauncherModel(workspaceDir, preferredModel);
   await Promise.all([
     writeTextIfChanged(path.join(workspaceDir, "run.bat"), buildRunBatContent(model)),
+    writeTextIfChanged(path.join(workspaceDir, "run_without_proxy.bat"), buildRunWithoutProxyBatContent(model)),
     writeTextIfChanged(path.join(workspaceDir, "export_log.bat"), buildExportLogBatContent(model)),
   ]);
   return model;
@@ -1339,12 +1352,16 @@ app.post("/api/workspaces/:workspace/run-agent", async (request, response, next)
   try {
     const workspaceDir = await ensureWorkspace(request.params.workspace);
     const model = normalizeModel(request.body?.model);
+    const useProxy = request.body?.useProxy !== false;
     const launcherModel = await syncWorkspaceLaunchers(workspaceDir, model);
 
     const launcherScript = path.join(APP_DIR, "launch-agent.py");
     await fs.access(launcherScript);
 
-    const child = spawn("python", [launcherScript, request.params.workspace, launcherModel], {
+    const args = [launcherScript, request.params.workspace, launcherModel];
+    if (!useProxy) args.push("--no-proxy");
+
+    const child = spawn("python", args, {
       cwd: APP_DIR,
       detached: true,
       stdio: ["ignore", "ignore", "ignore"],
@@ -1356,6 +1373,7 @@ app.post("/api/workspaces/:workspace/run-agent", async (request, response, next)
       started: true,
       workspace: request.params.workspace,
       model: launcherModel,
+      useProxy,
     });
   } catch (error) {
     next(error);

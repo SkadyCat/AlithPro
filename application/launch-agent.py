@@ -136,6 +136,18 @@ def build_run_bat_content(model):
     ]
     return '\r\n'.join(lines)
 
+def build_run_without_proxy_bat_content(model):
+    lines = [
+        '@echo off',
+        'echo ========================================',
+        'echo   GitHub Copilot CLI launcher (wmsxwd)',
+        'echo ========================================',
+        '',
+        f'copilot --allow-all --model={model}',
+        '',
+    ]
+    return '\r\n'.join(lines)
+
 def build_export_log_bat_content(model):
     lines = [
         '@echo off',
@@ -170,14 +182,21 @@ def normalize_workspace_launchers(root_dir, workspace, explicit_model=''):
     if not model:
         model = 'claude-sonnet-4.6'
     write_text_if_changed(os.path.join(workspace_dir, 'run.bat'), build_run_bat_content(model))
+    write_text_if_changed(os.path.join(workspace_dir, 'run_without_proxy.bat'), build_run_without_proxy_bat_content(model))
     write_text_if_changed(os.path.join(workspace_dir, 'export_log.bat'), build_export_log_bat_content(model))
     return model
 
-def resolve_launcher(root_dir, workspace, launcher):
+def resolve_launcher(root_dir, workspace, launcher, use_proxy=True):
     if launcher:
         return os.path.abspath(launcher)
 
     workspace_dir = resolve_workspace_dir(root_dir, workspace)
+
+    # Choose proxy or no-proxy launcher
+    if not use_proxy:
+        no_proxy_launcher = os.path.join(workspace_dir, 'run_without_proxy.bat')
+        if os.path.exists(no_proxy_launcher):
+            return no_proxy_launcher
 
     # Primary: resolved workspace/run.bat
     workspace_launcher = os.path.join(workspace_dir, 'run.bat')
@@ -200,11 +219,18 @@ def resolve_launcher(root_dir, workspace, launcher):
 def main():
     workspace = sys.argv[1] if len(sys.argv) > 1 else 'test'
     model     = sys.argv[2] if len(sys.argv) > 2 else ''
-    launcher  = sys.argv[3] if len(sys.argv) > 3 else ''
+    # Check for --no-proxy flag (can be arg 3 or 4)
+    use_proxy = '--no-proxy' not in sys.argv
+    # launcher is a positional arg that is NOT --no-proxy
+    launcher = ''
+    for arg in sys.argv[3:]:
+        if arg != '--no-proxy':
+            launcher = arg
+            break
 
     root_dir = os.path.dirname(os.path.abspath(__file__))
     model = normalize_workspace_launchers(root_dir, workspace, model)
-    bat_file = resolve_launcher(root_dir, workspace, launcher)
+    bat_file = resolve_launcher(root_dir, workspace, launcher, use_proxy)
 
     # Auto-discover model from workspace config when not explicitly provided
     if not model:

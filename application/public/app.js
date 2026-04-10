@@ -64,6 +64,7 @@ const workspaceInput       = document.getElementById("workspace_name");
 const currentWorkspaceName = document.getElementById("current_workspace_name");
 const refreshButton        = document.getElementById("refresh_button");
 const runAgentButton       = document.getElementById("run_agent_button");
+const useProxyCheckbox     = document.getElementById("use_proxy_checkbox");
 const saveModelButton      = document.getElementById("save_model_button");
 const modelInput           = document.getElementById("model_input");
 const newDraftButton       = document.getElementById("new_draft_button");
@@ -2199,11 +2200,13 @@ runAgentButton.addEventListener("click", async () => {
   if (!state.currentWorkspace) { showToast("请先选择 Workspace。", "error"); return; }
   try {
     const model = modelInput.value.trim();
+    const useProxy = useProxyCheckbox?.checked !== false;
     await fetchJson(
       `/api/workspaces/${encodeURIComponent(state.currentWorkspace)}/run-agent`,
-      { method: "POST", body: JSON.stringify({ model }) }
+      { method: "POST", body: JSON.stringify({ model, useProxy }) }
     );
-    showToast(`✅ Agent 已在 ${state.currentWorkspace} 中启动${model ? `（模型: ${model}）` : ""}。`);
+    const proxyLabel = useProxy ? "（代理）" : "（无代理）";
+    showToast(`✅ Agent 已在 ${state.currentWorkspace} 中启动${model ? `（模型: ${model}）` : ""}${proxyLabel}。`);
   } catch (error) {
     showToast(error.message, "error");
   }
