@@ -398,12 +398,10 @@
     const cx = (e.clientX - rect.left - _dm.panX) / _dm.zoom;
     const cy = (e.clientY - rect.top - _dm.panY) / _dm.zoom;
     dmShowCtx(e.clientX, e.clientY, [
-      { label: "✦ 放置节点", children: [
-        { label: "→ Seq",    action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "seq") },
-        { label: "? Sel",    action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "sel") },
-        { label: "⚡ Action", action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "action") },
-        { label: "✓ Con",    action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "con") },
-      ]},
+      { label: "→ 放置 Seq",    action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "seq") },
+      { label: "? 放置 Sel",    action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "sel") },
+      { label: "⚡ 放置 Action", action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "action") },
+      { label: "✓ 放置 Con",    action: () => dmAddNode(cx - 70, cy - 14, null, "", true, "con") },
     ]);
   }
 
@@ -416,12 +414,10 @@
     const childCount = _dm.nodes.filter(c => c.parentId === node.id).length;
     const childX = node.x + 200, childY = node.y + childCount * 50;
     const items = [
-      { label: "✦ 添加子节点", children: [
-        { label: "→ Seq",    action: () => dmAddNode(childX, childY, node.id, "", true, "seq") },
-        { label: "? Sel",    action: () => dmAddNode(childX, childY, node.id, "", true, "sel") },
-        { label: "⚡ Action", action: () => dmAddNode(childX, childY, node.id, "", true, "action") },
-        { label: "✓ Con",    action: () => dmAddNode(childX, childY, node.id, "", true, "con") },
-      ]},
+      { label: "→ 添加 Seq 子节点",    action: () => dmAddNode(childX, childY, node.id, "", true, "seq") },
+      { label: "? 添加 Sel 子节点",    action: () => dmAddNode(childX, childY, node.id, "", true, "sel") },
+      { label: "⚡ 添加 Action 子节点", action: () => dmAddNode(childX, childY, node.id, "", true, "action") },
+      { label: "✓ 添加 Con 子节点",    action: () => dmAddNode(childX, childY, node.id, "", true, "con") },
       { label: "✎ 编辑", action: () => dmStartEdit(node) },
       { label: "📝 留言", action: () => {
         if (typeof window.MindMap?.onLeaveMessage === "function") {
@@ -488,11 +484,17 @@
       const sel = _dm.selectedIds.size === 1 ? _dm.nodes.find(n => n.id === [..._dm.selectedIds][0]) : null;
       if (sel) {
         const childCount = _dm.nodes.filter(c => c.parentId === sel.id).length;
-        dmAddNode(sel.x + 200, sel.y + childCount * 50, sel.id, "", false, "action");
-        // Keep parent node selected instead of the new child
-        _dm.selectedIds.clear();
-        _dm.selectedIds.add(sel.id);
-        dmRender();
+        const cx = sel.x + 200, cy = sel.y + childCount * 50;
+        // Show type picker near the node position (convert to screen coords)
+        const rect = canvas.getBoundingClientRect();
+        const sx = rect.left + (sel.x + 140) * _dm.zoom + _dm.panX;
+        const sy = rect.top + sel.y * _dm.zoom + _dm.panY;
+        dmShowCtx(sx, sy, [
+          { label: "→ Seq",    action: () => dmAddNode(cx, cy, sel.id, "", true, "seq") },
+          { label: "? Sel",    action: () => dmAddNode(cx, cy, sel.id, "", true, "sel") },
+          { label: "⚡ Action", action: () => dmAddNode(cx, cy, sel.id, "", true, "action") },
+          { label: "✓ Con",    action: () => dmAddNode(cx, cy, sel.id, "", true, "con") },
+        ]);
       }
     }
     if (e.key === "a" && (e.ctrlKey || e.metaKey)) {
